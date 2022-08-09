@@ -22,7 +22,7 @@ class	Zombie
 		Zombie(std::string name);
 		~Zombie(void);
 
-		std::string	set_name(std::string new_name) const;
+		std::string	set_name(std::string new_name) const; // added
 		std::string	get_name(void) const;
 		void		announce(void) const;
 
@@ -31,7 +31,7 @@ class	Zombie
 		void		label(void) const;
 };
 
-
+Zombie	*zombieHorde()
 
 //	Zombie	*newZombie(std::string name); // deprecated
 //	void	randomChump(std::string name); // deprecated

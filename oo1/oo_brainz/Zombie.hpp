@@ -31,8 +31,8 @@ class	Zombie
 		void		label(void) const;
 };
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
+Zombie	*newZombie(std::string);
+void	randomChump(std::string);
 
 # define _yellow	"\x1b[33m"
 # define _red		"\x1b[31m"
