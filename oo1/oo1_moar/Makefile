@@ -19,8 +19,7 @@ incl	:=	-I./
 
 src	:=	main.cpp \
 		Zombie.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+		ZombieHorde.cpp
 
 bud	:=	$(src:.cpp=.o)
 
@@ -39,7 +38,6 @@ run	:	re
 		@ make clean
 
 all	:	$(name)
-
 
 clean	:
 		@ $(rmv) $(bud)

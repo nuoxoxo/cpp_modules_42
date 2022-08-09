@@ -15,7 +15,28 @@
 
 # include "iostream"
 # include "string"
-//# include "Color.hpp"
+
+class	Zombie
+{
+	public:
+		Zombie(std::string name);
+		~Zombie(void);
+
+		std::string	set_name(std::string new_name) const;
+		std::string	get_name(void) const;
+		void		announce(void) const;
+
+	private:
+		std::string	name;
+		void		label(void) const;
+};
+
+
+
+//	Zombie	*newZombie(std::string name); // deprecated
+//	void	randomChump(std::string name); // deprecated
+
+/*		colors			*/
 
 # define _yellow	"\x1b[33m"
 # define _red		"\x1b[31m"
@@ -25,22 +46,5 @@
 # define _cyan		"\x1b[36m"
 # define _ital		"\x1b[3m"
 # define _reset		"\x1b[0m"
-
-class	Zombie
-{
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-
-		std::string	get_name(void) const;
-		void		announce(void) const;
-
-	private:
-		std::string	name;
-		void		label(void) const;
-};
-
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
 
 #endif
