@@ -14,6 +14,10 @@
 
 Zombie::Zombie(std::string name) : name(name) {}
 
+//	added for oo1
+
+void	announce_foreach(Zombie *)
+
 //
 
 std::string	Zombie::get_name(void) const
@@ -38,5 +42,3 @@ Zombie::~Zombie(void)
 	Zombie::label();
 	std::cout << _cyan "is dead. \n" _reset;
 }
-
-
