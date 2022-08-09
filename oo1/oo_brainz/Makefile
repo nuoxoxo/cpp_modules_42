@@ -40,7 +40,6 @@ run	:	re
 
 all	:	$(name)
 
-
 clean	:
 		@ $(rmv) $(bud)
 
