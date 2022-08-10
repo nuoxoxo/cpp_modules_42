@@ -22,10 +22,15 @@ src	:=	HumanA.cpp \
 		HumanB.cpp \
 		Weapon.cpp
 
-src	=	$(addprefix incs/, $(src))
+#src	=	$(addprefix incs/, $(src))
+path	:=	src/
+src	:=	$(foreach cpp, $(src), $(path)$(cpp))
 src	+=	main.c
 
 bud	:=	$(src:.cpp=.o)
+
+bud_dir	:
+		@mkdir $@
 
 %.o	:	%.cpp
 		@ echo "compiling [$^] "

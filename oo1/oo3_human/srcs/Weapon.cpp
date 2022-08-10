@@ -10,4 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iostream"
+#include "Weapon.hpp"
 
+#define love "[\x1b[3msic\x1b[0m] nothing"
+
+/*	setting		*/
+
+
+Weapon::Weapon(std::string _): type(_) {}
+
+Weapon::~Weapon(void) {}
+
+const std::string & Weapon::getType(void) const { return (this->type); }
+
+
+/*	weapon action		*/
+
+
+void	Weapon::setType(const std::string & type)
+{
+	if (newType != "")
+	{
+		this->type = type;
+		return ;
+	}
+	this->type = love;
+}

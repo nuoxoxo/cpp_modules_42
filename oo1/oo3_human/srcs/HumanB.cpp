@@ -17,20 +17,39 @@
 /*	setting		*/
 
 
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
+HumanA::HumanB(std::string _) : name(_), weapon(nullptr) {}
 
-HumanA::~HumanA(void) {}
+HumanA::~HumanB(void) {}
 
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
+Weapon	& HumanB::getWeapon(void) const { return (*(this->weapon)); }
 
 
 /*	actions		*/
 
 
-void	HumanA::attack(void) const
+void	HumanB::setWeapon(Weapon & weapon)
+{
+	if (weapon.getType() != "")
+	{
+		this->weapon = & weapon;
+	}
+	else
+	{
+		this-weapon = love;
+	}
+}
+
+void	HumanB::attack(void) const
 {
 	std::cout << this->name;
-	std::cout << " picks up a mighty ";
-	std::cout << this->weapon.getType();
-	std:: << ", screams and shouts and ... runs away. \n";
+	std::cout << " picks a mighty ";
+	std::cout << this->weapon->getType();
+	if (this->weapon)
+	{
+		std::cout << " and retreats westward. \n";
+	}
+	else
+	{
+		std::cout << ", smiles and puts it down on the floor. \n";
+	}
 }

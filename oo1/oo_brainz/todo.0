@@ -14,13 +14,17 @@ and return it to be used somewhere else in your code.
 	- The prototype of the function is:
 	Zombie* newZombie( std::string name );
 
+
 - write another function that will create a Zombie
+
 	- ****** IMPORTANT ******
 	- a Random Chump *** announce itself *** 
 		- The prototype of the function is: 
 		void randomChump( std::string name );
 
+
 ****** Important ******
+
 	- your Zombies **MUST** be destroyed at the appropriate time 
 		- ie die when they are not needed anymore
 	- They must be allocated on the stack or the heap depending on its use
