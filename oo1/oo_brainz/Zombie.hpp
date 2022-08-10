@@ -19,20 +19,20 @@
 
 class	Zombie
 {
+	private:
+		std::string	name;
+		void		label(void) const;
+
 	public:
 		Zombie(std::string name);
 		~Zombie(void);
 
 		std::string	get_name(void) const;
 		void		announce(void) const;
-
-	private:
-		std::string	name;
-		void		label(void) const;
 };
 
-Zombie	*newZombie(std::string);
-void	randomChump(std::string);
+Zombie		*newZombie(std::string);
+void		randomChump(std::string);
 
 # define _yellow	"\x1b[33m"
 # define _red		"\x1b[31m"

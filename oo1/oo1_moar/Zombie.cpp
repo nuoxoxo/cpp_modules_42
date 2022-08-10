@@ -12,13 +12,16 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {}
+Zombie::Zombie(void) : name("") {} // new
+//Zombie::Zombie(std::string name) : name(name) {} // deprecated
 
-//	added for oo1
-
-void	announce_foreach(Zombie *)
-
-//
+void	Zombie::set_name(std::string name)
+{
+	if (name == "")
+		this->name = "(les yeux sans visage)";
+	else
+		this->name = name;
+}
 
 std::string	Zombie::get_name(void) const
 {

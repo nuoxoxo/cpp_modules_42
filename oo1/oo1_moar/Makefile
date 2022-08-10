@@ -32,6 +32,7 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
+		@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
 
 run	:	re
 		@ ./out
