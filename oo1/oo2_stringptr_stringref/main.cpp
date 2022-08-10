@@ -12,9 +12,11 @@
 
 #include "iostream"
 #include "string"
-# define _y "\x1b[33m"
-# define _r "\x1b[0m"
-# define _c "\x1b[36m"
+
+#define nl2 "\n\n" 
+#define _y "\x1b[33m"
+#define _r "\x1b[0m"
+#define _c "\x1b[36m"
 
 int	main(const int c, const char **v)
 {
@@ -24,23 +26,23 @@ int	main(const int c, const char **v)
 
 	s = "HI THIS IS BRAIN";
 	std::cout << _y "\nthe address of \"HI THIS IS BRAIN\"   : " _r << \
-		& s << '\n';
+		& s ;
 
 	// ------------8<------------
 
-	std::cout << _y "the address pointed to by stringPTR : " _r << \
-		& (*stringPTR) << '\n';
+	std::cout << _y "\nthe address pointed to by stringPTR : " _r << \
+		& (*stringPTR) ;
 
 	// ------------8<------------
 
-	std::cout << _y "the address pointed to by stringREF : " _r << \
-		& stringREF << "\n\n";
+	std::cout << _y "\nthe address pointed to by stringREF : " _r << \
+		& stringREF << nl2;
 
 	// ------------8<------------
 
 	std::cout << _c "the brain : " _r << s << '\n';
 	std::cout << _c "stringPTR : " _r << *stringPTR << '\n';
-	std::cout << _c "stringREF : " _r << stringREF << "\n\n";
+	std::cout << _c "stringREF : " _r << stringREF << nl2;
 	(void) c;
 	(void) v;
 	return (0);

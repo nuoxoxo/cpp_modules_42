@@ -10,4 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "iostream"
+#include "HumanA.hpp"
 
+
+/*	setting		*/
+
+
+HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
+
+HumanA::~HumanA(void) {}
+
+Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
+
+
+/*	actions		*/
+
+
+void	HumanA::attack(void) const
+{
+	std::cout << _gn << this->name << _rs ;
+	std::cout << " picks up a mighty ";
+	std::cout << _cn << this->weapon.getType() << _rs ;
+	std::cout << ", screams and ... runs away. \n";
+}

@@ -1,3 +1,6 @@
+
+----------------8<----------[ subject ]------------------------
+
 - make a Zombie class. 
 The zombies have a private name and are able to announce themselves like:
 <name> BraiiiiiiinnnzzzZ...
@@ -11,41 +14,54 @@ and return it to be used somewhere else in your code.
 	- The prototype of the function is:
 	Zombie* newZombie( std::string name );
 
+
 - write another function that will create a Zombie
+
 	- ****** IMPORTANT ******
 	- a Random Chump *** announce itself *** 
 		- The prototype of the function is: 
 		void randomChump( std::string name );
 
+
 ****** Important ******
+
 	- your Zombies **MUST** be destroyed at the appropriate time 
 		- ie die when they are not needed anymore
 	- They must be allocated on the stack or the heap depending on its use
 		- sometimes it’s appropriate to have them on the stack
 		- at other times the heap may a better choice
 
-----------------8<-----------------[ cut here ]------------------------
 
-class
-	- class should be a noun.
-	- upper case as word separators
-	- lower case for the rest of the word in the class
-	- 1st character in the class must be upper case
-	- NO underscores (‘_’) are permitted in classname
+----------------8<----------[ zombie class ]------------------------
 
-private attribute
-	- should be prepended with the character ‘m’.
-	- after prepending ‘m’, the same rules of class apply
-	- ‘m’ also precedes other name modifiers also
 
-method function name 
-	- should begin with a verb
-	- 1st character of function method argument names should be lower case
-	- camelCase
+class	Zombie
+{
+	private:
+		std::string	name;
+		void		label(void) const;
 
-other
-	- No symbols used in variable names except underscore (‘_’)
-	- No keywords can be used for variable names
-	- Pointer variables should be prepended with ‘p’ 
-	- place the asterisk ‘*’ close to the variable name instead of pointer type.
+	public:
+		Zombie(std::string name);
+		~Zombie(void);
+
+		std::string	get_name(void) const;
+		void		announce(void) const;
+};
+
+
+----------------8<----------[ some other stuff ]------------------------
+
+*to declare
+
+	Zombie		*z = newZombie("Z");
+	Zombie		z("Z");
+
+
+*prototype
+
+	Zombie		*newZombie(std::string);
+	void		randomChump(std::string);
+
+
 

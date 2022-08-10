@@ -10,4 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
+# include "string"
+# include "Weapon.hpp"
+
+class HumanA
+{
+	/* Type A gets weapon from Constr., always armed. hence ampersand */
+
+	private:
+
+		std::string	name;
+		Weapon		& weapon; // &
+
+	public:
+
+		HumanA(std::string name, Weapon & weapon);
+		~HumanA(void);
+
+		Weapon		& getWeapon(void) const;
+		void		attack(void) const;
+};
+
+#endif
+
+// ----------------8<----------[ FIXME ]------------------------
+
+/*
+
+- create two classes
+	- HumanA
+	- HumanB
+		- both have a Weapon
+		- both a name
+		- both an attack() function
+			- a printer function
+			- NAME attacks with his WEAPON_TYPE
+	- HumanA and HumanB have two tiny differences
+		- HumanA takes the Weapon in its constructor
+			- HumanB doesn’t.
+		- HumanB may not always have a Weapon
+			- HumanA will ALWAYS be armed
+*/
