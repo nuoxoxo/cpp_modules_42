@@ -29,10 +29,12 @@ class Weapon
 		// "some other type of club" = is of type ` const char [n] `
 };
 
+# define love	"[\x1b[3msic]\x1b[0m \x1b[33mnothing\x1b[0m"
 # define _gn	"\x1b[32m"
 # define _cn	"\x1b[36m"
 # define _rs	"\x1b[0m"
 # define _yw	"\x1b[33m"
+# define _br	"\x1b[33;1m"
 
 #endif
 

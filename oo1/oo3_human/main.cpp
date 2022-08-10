@@ -17,6 +17,7 @@
 
 int	main()
 {
+	//	[original tests]
 	{
 		Weapon		club = Weapon("crude spiked club");
 		HumanA		bob("Bob", club);
@@ -34,12 +35,14 @@ int	main()
 		club.setType("some other type of club");
 		jim.attack();
 	}
+	//	[new tests]
 	{
 		Weapon		club = Weapon("");
 		HumanA		alex("Alexander", club);
 
-		std::cout << _yw "\nNew Test 1. \n" << _rs ;
+		std::cout << _yw "\nNew Test 1. \n" _rs ;
 		alex.attack();
+		//std::cout << _yw "...reset \n" _rs ;
 		club.setType("ice-cream");
 		alex.attack();
 	}
@@ -47,9 +50,10 @@ int	main()
 		Weapon		club = Weapon("");
 		HumanB		benji("Benjamin");
 
-		std::cout << _yw "\nNew Test 2. \n" << _rs ;
+		std::cout << _yw "\nNew Test 2. \n" _rs ;
 		benji.setWeapon(club);
 		benji.attack();
+		//std::cout << _yw "...reset \n" _rs ;
 		club.setType("pack of macarons");
 		benji.attack();
 	}

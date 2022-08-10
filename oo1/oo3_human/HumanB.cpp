@@ -35,7 +35,7 @@ void	HumanB::setWeapon(Weapon & weapon)
 void	HumanB::attack(void) const
 {
 	std::cout << _gn << this->name << _rs;
-	if (this->weapon)
+	if (this->weapon->getType() != love)
 	{
 		std::cout << " picks up a mighty ";
 		std::cout << _cn << this->weapon->getType() << _rs;
@@ -43,6 +43,9 @@ void	HumanB::attack(void) const
 	}
 	else
 	{
-		std::cout << "has got nothing, smiles and runs away. \n";
+		std::cout << " gets ";
+		std::cout << _cn << this->weapon->getType() << _rs;
+		std::cout << " smiles and says, ";
+		std::cout << "\"i cannot fight with nothing\". \n";
 	}
 }

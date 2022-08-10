@@ -13,12 +13,19 @@
 #include "iostream"
 #include "Weapon.hpp"
 
-#define love "[\x1b[3msic]\x1b[0m nothing"
 
 /*	setting		*/
 
 
-Weapon::Weapon(std::string _): type(_) {}
+Weapon::Weapon(std::string type): type(type)
+{
+	if (type != "")
+	{
+		this->type = type;
+		return ;
+	}
+	this->type = love;
+}
 
 Weapon::~Weapon(void) {}
 
