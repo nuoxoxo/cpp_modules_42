@@ -30,6 +30,7 @@ const std::string & Weapon::getType(void) const { return (this->type); }
 
 void	Weapon::setType(const std::string & type)
 {
+	//std::cout << "type : " << type <<  std::endl;
 	if (type != "")
 	{
 		this->type = type;

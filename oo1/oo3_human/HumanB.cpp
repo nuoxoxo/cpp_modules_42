@@ -35,14 +35,14 @@ void	HumanB::setWeapon(Weapon & weapon)
 void	HumanB::attack(void) const
 {
 	std::cout << _gn << this->name << _rs;
-	std::cout << " picks up a mighty ";
-	std::cout << _cn << this->weapon->getType() << _rs;
 	if (this->weapon)
 	{
+		std::cout << " picks up a mighty ";
+		std::cout << _cn << this->weapon->getType() << _rs;
 		std::cout << " and retreats westward. \n";
 	}
 	else
 	{
-		std::cout << ", smiles and puts it down on the floor. \n";
+		std::cout << "has got nothing, smiles and runs away. \n";
 	}
 }
