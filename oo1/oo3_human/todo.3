@@ -1,24 +1,36 @@
 
 
+----------------8<----------[ weapon ]------------------------
 
-Make a Weapon class
-	- which has
-		- a type string
-		- a getType method that returns a const reference to this string
-		- a setType
+
+make a Weapon class, which has
+	- a type string
+	- a getType method
+		- getType returns a const reference to the type string
+	- a setType method
+
+
+----------------8<----------[ humans ]------------------------
+
 
 create two classes
 	- HumanA
 	- HumanB
 		- both have a Weapon
 		- both a name
-		- both an attack() function that displays:
+		- both an attack() function
+			- a printer function
 			- NAME attacks with his WEAPON_TYPE
 	- HumanA and HumanB have two tiny differences
 		- HumanA takes the Weapon in its constructor
 			- HumanB doesn’t.
 		- HumanB may not always have a Weapon
 			- HumanA will ALWAYS be armed
+
+
+--------8<--------[ don't change code block in main* ]------------
+
+
 Goal :
 	- Make it so that 
 	following code produces 
@@ -31,5 +43,6 @@ Q & A :
 		- as a pointer? 
 		- as a reference? 
 		- Why?
+
 
 
