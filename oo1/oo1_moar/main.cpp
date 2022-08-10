@@ -12,72 +12,34 @@
 
 #include "Zombie.hpp"
 
-static void	storyline_1(void);
-static void	storyline_2(void);
-static void	storyline_3(void);
-static void	storyline_4(void);
-
-int	main()
+int	main(const int c, const char **v)
 {
-	Zombie		*luke = newZombie("Luke");
-	Zombie		matt("Matthew");
+	std::string		arg1;
+	std::string		name;
+	int			numb;
 
-	storyline_1();
-	matt.announce();
+	if (c > 1)
+		arg1 = std::string(v[1]);
+	numb = 42;
+	name = "";
+	if (c == 2)
+	{
+		if (isdigit(v[1][0]))
+			numb = stoi(arg1);
+		else
+			name = arg1;
 
-	// ------8<------
+	}
+	else if (c > 2)
+	{
+		numb = std::stoi(arg1);
+		name = std::string(v[2]);
+	}
+	//std::cout << numb << '\n' << name << std::endl; // debugger
 
-	storyline_2();
-	luke->announce();
+	Zombie		*army = zombieHorde(numb, name);
 
-	// ------8<------
+	announce_foreach(numb, army);
 
-	storyline_3();
-	randomChump("Paul");
-
-	// ------8<------
-
-	storyline_4();
-	delete	luke;
-}
-
-//
-
-static void	storyline_1(void)
-{
-	std::cout << _yellow "\n[ Meet Matthew, the first ";
-	std::cout << "man-made psychic-vampire of ";
-	std::cout << "the new era. ]\n" _reset ;
-	std::cout << _mag "[ Matthew is created on the ";
-	std::cout << _red "\"Stack\"" _reset ;
-	std::cout << _mag " ]\n[ ie. built with ";
-	std::cout << _red _ital"\"Zombie name(name)\"" _reset ;
-	std::cout << _mag " ]\n\n" _reset ;
-
-}
-
-static void	storyline_2(void)
-{
-	std::cout << _yellow "\n[ Here's Luke. Luke is different... ]\n";
-	std::cout << "[ While Matthew is a vampire, Luke is a ghost. ";
-	std::cout << "...A real one. ]\n" _reset ;
-	std::cout << _mag "[ Luke is created on the ";
-	std::cout << _red "\"Heap\"" _reset ;
-	std::cout << _mag " ]\n[ ie. built by using the ";
-	std::cout << _red _ital "\"new\"" _reset ;
-	std::cout << _mag " keyword ]\n\n" _reset ;
-}
-
-static void	storyline_3(void)
-{
-	std::cout << _yellow "\n[ Paul is born... ";
-	std::cout << "and dead almost instantly. ]\n\n" _reset;
-}
-
-static void	storyline_4(void)
-{
-	std::cout << _yellow "\n[ Before we go, let's ";
-	std::cout << "KILL Luke. ]\n[ Just because he is the ";
-	std::cout << _ital _red "heap " _reset << _yellow "guy. ]\n";
-	std::cout << "[ ...But we didn't kill Matthew. ]\n\n" _reset;
+	delete [] army;
 }

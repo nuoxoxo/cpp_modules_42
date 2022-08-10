@@ -26,7 +26,7 @@ bud	:=	$(src:.cpp=.o)
 
 %.o	:	%.cpp
 		@ echo "compiling [$^] "
-		@ $(comp) -c $< -o $@
+		@ $(comp) -c $^ -o $@
 
 $(name)	:	$(bud)
 		@ echo "compiling [$^] "
@@ -39,7 +39,6 @@ run	:	re
 		@ make clean
 
 all	:	$(name)
-
 
 clean	:
 		@ $(rmv) $(bud)

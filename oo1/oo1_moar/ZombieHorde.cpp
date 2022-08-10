@@ -12,10 +12,27 @@
 
 #include "Zombie.hpp"
 
-void	randomChump(std::string name)
+Zombie	*zombieHorde(int N, std::string name)
 {
-	Zombie		*paul = newZombie(name);
+	int		i;
+	Zombie		*zh = new Zombie[N];
 
-	paul->announce();
-	delete	paul;
+	i = -1;
+	while (++i < N)
+	{
+		zh[i].set_name(name);
+	}
+	return (zh);
+}
+
+void	announce_foreach(int N, Zombie *zh)
+{
+	int		i;
+
+	i = -1;
+	while (++i < N)
+	{
+		std::cout << _yellow "zombie no." _reset << 1 + i << ' ';
+		zh[i].announce();
+	}
 }

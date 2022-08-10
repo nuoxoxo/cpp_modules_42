@@ -18,23 +18,22 @@
 
 class	Zombie
 {
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-
-		std::string	set_name(std::string new_name) const;
-		std::string	get_name(void) const;
-		void		announce(void) const;
-
 	private:
 		std::string	name;
 		void		label(void) const;
+
+	public:
+		Zombie(void); // mod.
+		~Zombie(void);
+
+		void		set_name(std::string new_name); // new
+		/*	note . set_name can't be const		*/
+		void		announce(void) const;
+		std::string	get_name(void) const;
 };
 
-
-
-//	Zombie	*newZombie(std::string name); // deprecated
-//	void	randomChump(std::string name); // deprecated
+void		announce_foreach(int, Zombie *); // new
+Zombie		*zombieHorde(int, std::string); // new
 
 /*		colors			*/
 
@@ -46,5 +45,10 @@ class	Zombie
 # define _cyan		"\x1b[36m"
 # define _ital		"\x1b[3m"
 # define _reset		"\x1b[0m"
+
+/*		deprecated		*/
+
+//	Zombie	*newZombie(std::string name);
+//	void	randomChump(std::string name);
 
 #endif

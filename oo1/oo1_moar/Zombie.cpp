@@ -12,9 +12,16 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name) : name(name) {}
+Zombie::Zombie(void) : name("") {} // new
+//Zombie::Zombie(std::string name) : name(name) {} // deprecated
 
-//
+void	Zombie::set_name(std::string name)
+{
+	if (name == "")
+		this->name = "T-1000";
+	else
+		this->name = name;
+}
 
 std::string	Zombie::get_name(void) const
 {
@@ -23,8 +30,8 @@ std::string	Zombie::get_name(void) const
 
 void	Zombie::label(void) const
 {
-	//std::cout << '<' << this->name << '>' << ' ';
 	std::cout << _green "﹤" << this->name << "﹥" _reset;
+	//std::cout << '<' << this->name << '>' << ' ';
 }
 
 void	Zombie::announce(void) const
@@ -36,7 +43,5 @@ void	Zombie::announce(void) const
 Zombie::~Zombie(void)
 {
 	Zombie::label();
-	std::cout << _cyan "is dead. \n" _reset;
+	std::cout << _cyan "is destroyed. \n" _reset;
 }
-
-

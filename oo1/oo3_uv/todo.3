@@ -1,0 +1,35 @@
+
+
+
+Make a Weapon class
+	- which has
+		- a type string
+		- a getType method that returns a const reference to this string
+		- a setType
+
+create two classes
+	- HumanA
+	- HumanB
+		- both have a Weapon
+		- both a name
+		- both an attack() function that displays:
+			- NAME attacks with his WEAPON_TYPE
+	- HumanA and HumanB have two tiny differences
+		- HumanA takes the Weapon in its constructor
+			- HumanB doesn’t.
+		- HumanB may not always have a Weapon
+			- HumanA will ALWAYS be armed
+Goal :
+	- Make it so that 
+	following code produces 
+		- attacks with "crude spiked club" 
+		- THEN "some other type of club", in both test cases
+
+
+Q & A :
+	- In which case is it appropriate to store the Weapon
+		- as a pointer? 
+		- as a reference? 
+		- Why?
+
+
