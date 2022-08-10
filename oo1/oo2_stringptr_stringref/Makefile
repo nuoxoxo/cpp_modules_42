@@ -29,7 +29,7 @@ $(name)	:	$(bud)
 		@ echo "compiling [$^] "
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
-		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ printf "\"are you using the right compiler? \"\n\n"
 		@#@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
 
 run	:	re

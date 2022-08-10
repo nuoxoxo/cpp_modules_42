@@ -37,9 +37,9 @@ int	main(const int c, const char **v)
 	}
 	//std::cout << numb << '\n' << name << std::endl; // debugger
 
-	Zombie		*army = zombieHorde(numb, name);
+	Zombie		*flock = zombieHorde(numb, name);
 
-	announce_foreach(numb, army);
+	announce_foreach(numb, flock);
 
-	delete [] army;
+	delete [] flock;
 }
