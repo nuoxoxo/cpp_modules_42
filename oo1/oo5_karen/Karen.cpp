@@ -10,39 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
+#include "Karen.hpp"
 
+Karen::Karen(void) {}
+Karen::~Karen(void) {}
 
-/*	setting		*/
-
-
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+void	Karen::complain(std::string level)
 {
-	std::string		type;
 
-	type = this->weapon.getType();
-	std::cout << _gn << this->name << _rs ;
-	if (type == love)
-	{
-		std::cout << " gets ";
-		std::cout << _cn << type << _rs ;
-		std:: cout << " and shouts, \"look! i always got a weapon.\" \n";
-	}
-	else
-	{
-		std::cout << " picks up a huge ";
-		std::cout << _cn << type << _rs ;
-		std::cout << ", screams and ... runs away. \n";
-	}
 }

@@ -19,9 +19,7 @@ incl	:=	-I./
 
 
 src	:=	main.cpp \
-		HumanA.cpp \
-		HumanB.cpp \
-		Weapon.cpp
+		Karen.cpp
 
 #path	:=	src/
 #src	:=	$(foreach cpp, $(src), $(path)$(cpp))

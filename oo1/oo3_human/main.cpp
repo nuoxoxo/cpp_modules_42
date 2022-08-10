@@ -42,7 +42,7 @@ int	main()
 
 		std::cout << _yw "\nNew Test 1. \n" _rs ;
 		alex.attack();
-		//std::cout << _yw "...reset \n" _rs ;
+		//std::cout << "\tweapon: \"ice-cream\" \n";
 		club.setType("ice-cream");
 		alex.attack();
 	}
@@ -53,7 +53,6 @@ int	main()
 		std::cout << _yw "\nNew Test 2. \n" _rs ;
 		benji.setWeapon(club);
 		benji.attack();
-		//std::cout << _yw "...reset \n" _rs ;
 		club.setType("pack of macarons");
 		benji.attack();
 	}

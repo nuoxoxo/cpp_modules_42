@@ -10,39 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
+#include "Karen.hpp"
 
-
-/*	setting		*/
-
-
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+int	main( void )
 {
-	std::string		type;
+	Karen		kafka;
 
-	type = this->weapon.getType();
-	std::cout << _gn << this->name << _rs ;
-	if (type == love)
-	{
-		std::cout << " gets ";
-		std::cout << _cn << type << _rs ;
-		std:: cout << " and shouts, \"look! i always got a weapon.\" \n";
-	}
-	else
-	{
-		std::cout << " picks up a huge ";
-		std::cout << _cn << type << _rs ;
-		std::cout << ", screams and ... runs away. \n";
-	}
+	Kafka.complain("debug");
+	kafka.complain("info");
+	kafka.complain("warning");
+	kafka.complain("error");
+	kafka.complain("john conway");
 }

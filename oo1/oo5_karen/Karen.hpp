@@ -10,39 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
+#ifndef KAREN_HPP
+# define KAREN_HPP
 
+# include "iostream"
+# include "string"
 
-/*	setting		*/
-
-
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+class	Karen
 {
-	std::string		type;
+	private:
 
-	type = this->weapon.getType();
-	std::cout << _gn << this->name << _rs ;
-	if (type == love)
-	{
-		std::cout << " gets ";
-		std::cout << _cn << type << _rs ;
-		std:: cout << " and shouts, \"look! i always got a weapon.\" \n";
-	}
-	else
-	{
-		std::cout << " picks up a huge ";
-		std::cout << _cn << type << _rs ;
-		std::cout << ", screams and ... runs away. \n";
-	}
-}
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+
+	public:
+
+		Karen(void);
+		~Karen(void);
+
+		void	complain(std::string);
+};
+
+#endif
