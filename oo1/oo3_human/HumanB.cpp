@@ -10,35 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#include "iostream"
+#include "HumanB.hpp"
 
-# include "string"
 
-class Weapon
+/*	setting		*/
+
+
+HumanB::HumanB(std::string _) : name(_), weapon(nullptr) {}
+
+HumanB::~HumanB(void) {}
+
+Weapon	& HumanB::getWeapon(void) const { return (*(this->weapon)); }
+
+
+/*	actions		*/
+
+
+void	HumanB::setWeapon(Weapon & weapon)
 {
-	private:
-		std::string type;
+	this->weapon = & weapon;
+}
 
-	public:
-		Weapon(std::string type);
-		~Weapon(void);
-
-		const std::string	& getType(void) const; // &
-		void			setType(std::string & newType); // const
-		//void			setType(const std::string & newType);
-};
-
-#endif
-
-// ----------------8<----------[ TODO ]------------------------
-
-/*
-
-- todo a Weapon class, which has
-	- a type string
-	- a getType method 
-		- getType returns a const reference to the type string
-	- a setType method
-
-*/
+void	HumanB::attack(void) const
+{
+	std::cout << _gn << this->name << _rs;
+	std::cout << " picks up a mighty ";
+	std::cout << _cn << this->weapon->getType() << _rs;
+	if (this->weapon)
+	{
+		std::cout << " and retreats westward. \n";
+	}
+	else
+	{
+		std::cout << ", smiles and puts it down on the floor. \n";
+	}
+}

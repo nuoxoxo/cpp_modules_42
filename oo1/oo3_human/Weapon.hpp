@@ -10,27 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+# include "string"
 
-
-/*	setting		*/
-
-
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+class Weapon
 {
-	std::cout << this->name;
-	std::cout << " picks up a mighty ";
-	std::cout << this->weapon.getType();
-	std:: << ", screams and shouts and ... runs away. \n";
-}
+	private:
+		std::string type;
+
+	public:
+		Weapon(std::string type);
+		~Weapon(void);
+
+		const std::string	& getType(void) const; // &
+		void			setType(const std::string & type); // const
+
+		// "some other type of club" = is of type ` const char [n] `
+};
+
+# define _gn	"\x1b[32m"
+# define _cn	"\x1b[36m"
+# define _rs	"\x1b[0m"
+# define _yw	"\x1b[33m"
+
+#endif
+
+// ----------------8<----------[ TODO ]------------------------
+
+/*
+
+- todo a Weapon class, which has
+	- a type string
+	- a getType method 
+		- getType returns a const reference to the type string
+	- a setType method
+
+*/

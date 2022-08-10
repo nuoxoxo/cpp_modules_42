@@ -26,7 +26,7 @@ bud	:=	$(src:.cpp=.o)
 		@ $(comp) -c $^ -o $@
 
 $(name)	:	$(bud)
-		@ echo "compiling [$^] "
+		@ echo "compiling [$@] "
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"

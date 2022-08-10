@@ -18,26 +18,23 @@ rmv	:=	rm -rf
 incl	:=	-I./incs/
 
 
-src	:=	HumanA.cpp \
+src	:=	main.cpp \
+		HumanA.cpp \
 		HumanB.cpp \
 		Weapon.cpp
 
-#src	=	$(addprefix incs/, $(src))
-path	:=	src/
-src	:=	$(foreach cpp, $(src), $(path)$(cpp))
-src	+=	main.c
+#path	:=	src/
+#src	:=	$(foreach cpp, $(src), $(path)$(cpp))
+#src	+=	main.c
 
 bud	:=	$(src:.cpp=.o)
-
-bud_dir	:
-		@mkdir $@
 
 %.o	:	%.cpp
 		@ echo "compiling [$^] "
 		@ $(comp) -c $^ -o $@
 
 $(name)	:	$(bud)
-		@ echo "compiling [$^] "
+		@ echo "compiling [$@] "
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"

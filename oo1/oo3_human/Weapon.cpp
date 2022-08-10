@@ -11,45 +11,29 @@
 /* ************************************************************************** */
 
 #include "iostream"
-#include "HumanB.hpp"
+#include "Weapon.hpp"
 
+#define love "[\x1b[3msic]\x1b[0m nothing"
 
 /*	setting		*/
 
 
-HumanA::HumanB(std::string _) : name(_), weapon(nullptr) {}
+Weapon::Weapon(std::string _): type(_) {}
 
-HumanA::~HumanB(void) {}
+Weapon::~Weapon(void) {}
 
-Weapon	& HumanB::getWeapon(void) const { return (*(this->weapon)); }
-
-
-/*	actions		*/
+const std::string & Weapon::getType(void) const { return (this->type); }
 
 
-void	HumanB::setWeapon(Weapon & weapon)
+/*	weapon action		*/
+
+
+void	Weapon::setType(const std::string & type)
 {
-	if (weapon.getType() != "")
+	if (type != "")
 	{
-		this->weapon = & weapon;
+		this->type = type;
+		return ;
 	}
-	else
-	{
-		this-weapon = love;
-	}
-}
-
-void	HumanB::attack(void) const
-{
-	std::cout << this->name;
-	std::cout << " picks a mighty ";
-	std::cout << this->weapon->getType();
-	if (this->weapon)
-	{
-		std::cout << " and retreats westward. \n";
-	}
-	else
-	{
-		std::cout << ", smiles and puts it down on the floor. \n";
-	}
+	this->type = love;
 }
