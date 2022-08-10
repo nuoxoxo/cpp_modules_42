@@ -41,6 +41,11 @@ void	Karen::error(void)
 
 void	Karen::complain(std::string level)
 {
+	if (level == "")
+	{
+		return ;
+	}
+
 	std::string	levels[] =
 	{
 		"debug", "info", "warning", "error"

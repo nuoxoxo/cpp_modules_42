@@ -14,11 +14,14 @@
 
 int	main( void )
 {
-	Karen		kafka;
+	Karen		he;
 
-	kafka.complain("debug");
-	kafka.complain("info");
-	kafka.complain("warning");
-	kafka.complain("error");
-	kafka.complain("john conway");
+	he.complain("debug");
+	he.complain("info");
+	he.complain("warning");
+	he.complain("error");
+	he.complain("");
+	he.complain("john conway");
+	he.complain("terry davis");
+	he.complain("bjarne stroustrup");
 }
