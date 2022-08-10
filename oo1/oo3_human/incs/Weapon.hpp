@@ -24,13 +24,14 @@ class Weapon
 		Weapon(std::string type);
 		~Weapon(void);
 
-		const std::string	& getType(void) const;
-		void			setType(const std::string & newType);
+		const std::string	& getType(void) const; // &
+		void			setType(std::string & newType); // const
+		//void			setType(const std::string & newType);
 };
 
 #endif
 
-// ----------------8<----------[ FIXME ]------------------------
+// ----------------8<----------[ TODO ]------------------------
 
 /*
 

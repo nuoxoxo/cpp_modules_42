@@ -32,7 +32,8 @@ class HumanB
 		~HumanB(void);
 
 		Weapon		& getWeapon(void) const;
-		void		setWeapon(Weapon &) const; // set weapon
+		void		setWeapon(Weapon &); // shouldnt be const
+		//void		setWeapon(Weapon &) const;
 		void		attack(void) const;
 };
 

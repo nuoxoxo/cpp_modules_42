@@ -15,12 +15,15 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-incl	:=	-I./
+incl	:=	-I./incs/
 
-src	:=	main.cpp \
-		HumanA.cpp \
+
+src	:=	HumanA.cpp \
 		HumanB.cpp \
 		Weapon.cpp
+
+src	=	$(addprefix incs/, $(src))
+src	+=	main.c
 
 bud	:=	$(src:.cpp=.o)
 
