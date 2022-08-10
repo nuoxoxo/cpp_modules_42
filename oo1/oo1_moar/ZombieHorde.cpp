@@ -32,6 +32,7 @@ void	announce_foreach(int N, Zombie *zh)
 	i = -1;
 	while (++i < N)
 	{
+		std::cout << _yellow "zombie no." _reset << 1 + i << ' ';
 		zh[i].announce();
 	}
 }
