@@ -18,8 +18,6 @@ rmv	:=	rm -rf
 incl	:=	-I./
 
 src	:=	main.cpp \
-		Zombie.cpp \
-		ZombieHorde.cpp
 
 bud	:=	$(src:.cpp=.o)
 
@@ -32,7 +30,7 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
-		@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
+		@#@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
 
 run	:	re
 		@ ./out
