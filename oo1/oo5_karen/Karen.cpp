@@ -11,38 +11,37 @@
 /* ************************************************************************** */
 
 #include "iostream"
-#include "HumanA.hpp"
+#include "Weapon.hpp"
 
 
 /*	setting		*/
 
 
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+Weapon::Weapon(std::string type): type(type)
 {
-	std::string		type;
+	if (type != "")
+	{
+		this->type = type;
+		return ;
+	}
+	this->type = love;
+}
 
-	type = this->weapon.getType();
-	std::cout << _gn << this->name << _rs ;
-	if (type == love)
+Weapon::~Weapon(void) {}
+
+const std::string & Weapon::getType(void) const { return (this->type); }
+
+
+/*	weapon action		*/
+
+
+void	Weapon::setType(const std::string & type)
+{
+	//std::cout << "type : " << type <<  std::endl;
+	if (type != "")
 	{
-		std::cout << " gets ";
-		std::cout << _cn << type << _rs ;
-		std:: cout << " and shouts, \"look! i always got a weapon.\" \n";
+		this->type = type;
+		return ;
 	}
-	else
-	{
-		std::cout << " picks up a huge ";
-		std::cout << _cn << type << _rs ;
-		std::cout << ", screams and ... runs away. \n";
-	}
+	this->type = love;
 }

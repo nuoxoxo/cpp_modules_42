@@ -10,39 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
+# include "string"
 
-
-/*	setting		*/
-
-
-HumanA::HumanA(std::string _, Weapon & __) : name(_), weapon(__) {}
-
-HumanA::~HumanA(void) {}
-
-Weapon	& HumanA::getWeapon(void) const { return (this->weapon); }
-
-
-/*	actions		*/
-
-
-void	HumanA::attack(void) const
+class Weapon
 {
-	std::string		type;
+	private:
+		std::string type;
 
-	type = this->weapon.getType();
-	std::cout << _gn << this->name << _rs ;
-	if (type == love)
-	{
-		std::cout << " gets ";
-		std::cout << _cn << type << _rs ;
-		std:: cout << " and shouts, \"look! i always got a weapon.\" \n";
-	}
-	else
-	{
-		std::cout << " picks up a huge ";
-		std::cout << _cn << type << _rs ;
-		std::cout << ", screams and ... runs away. \n";
-	}
-}
+	public:
+		Weapon(std::string type);
+		~Weapon(void);
+
+		const std::string	& getType(void) const; // &
+		void			setType(const std::string & type); // const
+
+		// "some other type of club" = is of type ` const char [n] `
+};
+
+# define love	"[\x1b[3msic]\x1b[0m \x1b[33mnothing\x1b[0m"
+# define _gn	"\x1b[32m"
+# define _cn	"\x1b[36m"
+# define _rs	"\x1b[0m"
+# define _yw	"\x1b[33m"
+# define _br	"\x1b[33;1m"
+
+#endif
+
+// ----------------8<----------[ TODO ]------------------------
+
+/*
+
+- todo a Weapon class, which has
+	- a type string
+	- a getType method 
+		- getType returns a const reference to the type string
+	- a setType method
+
+*/
