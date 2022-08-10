@@ -10,38 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "Weapon.hpp"
+#include "Karen.hpp"
 
+Karen::Karen(void) {}
+Karen::~Karen(void) {}
 
-/*	setting		*/
-
-
-Weapon::Weapon(std::string type): type(type)
+void	Karen::complain(std::string level)
 {
-	if (type != "")
-	{
-		this->type = type;
-		return ;
-	}
-	this->type = love;
-}
 
-Weapon::~Weapon(void) {}
-
-const std::string & Weapon::getType(void) const { return (this->type); }
-
-
-/*	weapon action		*/
-
-
-void	Weapon::setType(const std::string & type)
-{
-	//std::cout << "type : " << type <<  std::endl;
-	if (type != "")
-	{
-		this->type = type;
-		return ;
-	}
-	this->type = love;
 }

@@ -10,51 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iostream"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include "Weapon.hpp"
+#include "Karen.hpp"
 
-int	main()
+int	main( void )
 {
-	//	[original tests]
-	{
-		Weapon		club = Weapon("crude spiked club");
-		HumanA		bob("Bob", club);
+	Karen		kafka;
 
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon		club = Weapon("crude spiked club");
-		HumanB		jim("Jim");
-
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	//	[new tests]
-	{
-		Weapon		club = Weapon("");
-		HumanA		alex("Alexander", club);
-
-		std::cout << _yw "\nNew Test 1. \n" _rs ;
-		alex.attack();
-		//std::cout << "\tweapon: \"ice-cream\" \n";
-		club.setType("ice-cream");
-		alex.attack();
-	}
-	{
-		Weapon		club = Weapon("");
-		HumanB		benji("Benjamin");
-
-		std::cout << _yw "\nNew Test 2. \n" _rs ;
-		benji.setWeapon(club);
-		benji.attack();
-		club.setType("pack of macarons");
-		benji.attack();
-	}
-
+	Kafka.complain("debug");
+	kafka.complain("info");
+	kafka.complain("warning");
+	kafka.complain("error");
+	kafka.complain("john conway");
 }
