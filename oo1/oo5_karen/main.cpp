@@ -16,7 +16,7 @@ int	main( void )
 {
 	Karen		kafka;
 
-	Kafka.complain("debug");
+	kafka.complain("debug");
 	kafka.complain("info");
 	kafka.complain("warning");
 	kafka.complain("error");
