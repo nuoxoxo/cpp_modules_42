@@ -32,7 +32,8 @@ int	main(const int c, const char **v)
 	}
 	else if (c > 2)
 	{
-		numb = std::stoi(arg1);
+		if (isdigit(v[1][0]))
+			numb = std::stoi(arg1);
 		name = std::string(v[2]);
 	}
 	//std::cout << numb << '\n' << name << std::endl; // debugger

@@ -17,7 +17,7 @@ rmv	:=	rm -rf
 
 incl	:=	-I./
 
-src	:=	main.cpp \
+src	:=	main.cpp
 
 bud	:=	$(src:.cpp=.o)
 
