@@ -18,6 +18,7 @@ rmv	:=	rm -rf
 incl	:=	-I./
 
 src	:=	main.cpp \
+		Stream_editor.cpp
 
 bud	:=	$(src:.cpp=.o)
 
