@@ -40,7 +40,7 @@ clean	:
 		@ $(rmv) $(bud)
 
 fclean	:	clean
-		@ $(rmv) $(name) a.out
+		@ $(rmv) $(name) a.out testsuite/*.replace
 
 f	:	fclean
 re	:	f all
