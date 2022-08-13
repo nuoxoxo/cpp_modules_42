@@ -1,5 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+name	:=	karenFilter
 rmv	:=	rm -rf
 
 incl	:=	-I./
@@ -17,11 +17,12 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
-		@ ./out
+		@ ./$@
+		@ printf "\n"
 		@ make clean
 
 run	:	re
-		@ ./out
+		@ ./$@
 		@ make clean
 
 all	:	$(name)

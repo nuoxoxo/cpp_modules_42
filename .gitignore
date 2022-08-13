@@ -50,6 +50,7 @@ minishell
 mutex_lock
 checker_OS
 *.*.replace
+karenFilter
 checker_Mac
 checker_linux
 showkey_macos
