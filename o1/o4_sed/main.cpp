@@ -10,28 +10,120 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Stream_editor.hpp"
+# include "iostream"
+# include "fstream"
+# include "string"
 
-void	usage(void);
+bool	check_params(int, char **);
+void	usage(std::string);
 
 int	main(int c, char *v[])
 {
-	Stream_editor		sed;
+	std::string::size_type	it;
+	std::ifstream		ifs;
+	std::ofstream		ofs;
+	std::string		s1, s2, file;
+	std::string		line;
+	std::string		text;
+	int			len;
 
-	if (c ^ 4)
-		return (usage(), 1);
-	if (!sed.setup_infile(v[1]))
+	if (!check_params(c, v))
+		return 1;
+	file = std::string(v[1]);
+	if (file == "")
 	{
-		std::cout << "err 1 \n";
+		usage("filename cannot be empty. ");
+		return 1;
 	}
-	if (!sed.replace(v[2], v[3]))
+	if (ifs.is_open())
+		ifs.close();
+	ifs.open(file);
+	if (ifs.fail())
 	{
-		std::cout << "err 2 \n";
+		usage("file not found ");
+		return 1;
 	}
 
+	/* the replacement proper begins here */
+
+	s1 = std::string(v[2]);
+	s2 = std::string(v[3]);
+	if (s1 == "" || s2 == "")
+	{
+		usage("either s1 or s2 is empty. ");
+		return 1;
+	}
+	len = s1.length();
+	while (getline(ifs, line))
+	{
+		it = line.find(s1);
+		while (it != std::string::npos)
+		{
+			line.erase(it, len);
+			line.insert(it, s2);
+			it = line.find(s1);
+		}
+		line += "\n";
+		text.append(line);
+	}
+	std::transform(file.begin(), file.end(), file.begin(), ::toupper);
+	file += ".replace";
+	ofs.open(file);
+	ofs << text;
+	ifs.close();
+	ofs.close();
 }
 
-void	usage(void)
+//
+
+/*
+bool	sub(std::string s1, std::string s2, std::ifstream is, std::ofstream os)
 {
-	std::cout << "usage \n";
+//	std::string::size_type	it;
+	std::string		line;
+	std::string		text;
+	int			len;
+
+	if (s1 == "" || s2 == "")
+	{
+		usage("either s1 or s2 is empty. ");
+		return false;
+	}
+	len = s1.length();
+	while (getline(is, line))
+		std::cout << line;
+	return true;
+}
+*/
+
+/*
+bool	setup_infile(std::ifstream ifs, std::string filename)
+{
+}
+*/
+
+bool	check_params(int c, char *v[])
+{
+	std::string		s1;
+	std::string		s2;
+	if (c ^ 4)
+	{
+		usage("");
+		return false;
+	}
+	s1 = std::string(v[2]);
+	s2 = std::string(v[3]);
+	if (s1 == "" || s2 == "")
+	{
+		usage("the argument cannot be empty. ");
+		return false;
+	}
+	return true;
+}
+
+void	usage(std::string msg)
+{
+	if (msg != "")
+		std::cerr << msg << "\n\n";
+	std::cerr << "Usage: ./replace file s1 s2 " << std::endl;
 }
