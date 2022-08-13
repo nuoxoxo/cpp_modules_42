@@ -31,13 +31,14 @@ bool	Stream_editor::replace(std::string s1, std::string s2)
 	len = s1.length();
 	while (getline(input_file_stream, line))
 	{
-		it = text.find(s1);
+		it = line.find(s1);
 		while (it != std::string::npos)
 		{
-			text.erase(it, len);
-			text.insert(it, s2);
-			it = text.find(s1);
+			line.erase(it, len);
+			line.insert(it, s2);
+			it = line.find(s1);
 		}
+		line += "\n";
 		text.append(line);
 	}
 
