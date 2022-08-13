@@ -12,7 +12,7 @@
 #* ****************************************************************** .py *** *#
 
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+name	:=	karenFilter
 rmv	:=	rm -rf
 
 incl	:=	-I./
@@ -38,7 +38,7 @@ $(name)	:	$(bud)
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
 
 run	:	re
-		@ ./out
+		@ ./$@
 		@ make clean
 
 all	:	$(name)
@@ -47,7 +47,7 @@ clean	:
 		@ $(rmv) $(bud)
 
 fclean	:	clean
-		@ $(rmv) $(name) a.out
+		@ $(rmv) $(name) out *.out 
 
 f	:	fclean
 re	:	f all

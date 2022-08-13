@@ -12,13 +12,12 @@
 
 #include "Karen.hpp"
 
-int	main( void )
+int	main(int c, char *v[])
 {
-	Karen		kafka;
+	Karen		Kafka;
 
-	kafka.complain("debug");
-	kafka.complain("info");
-	kafka.complain("warning");
-	kafka.complain("error");
-	kafka.complain("john conway");
+	if (c ^ 2)
+		return (usage(), 0);
+	//std::cout << std::endl; // against the subj
+	Kafka.complain(std::string(v[1]));
 }
