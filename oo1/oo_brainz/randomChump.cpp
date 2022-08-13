@@ -14,8 +14,8 @@
 
 void	randomChump(std::string name)
 {
-	Zombie		*paul = newZombie(name);
+	Zombie		*random_zombie = newZombie(name);
 
-	paul->announce();
-	delete	paul; // might be the embedded third way to kill a zombie
+	random_zombie->announce();
+	delete	random_zombie; // the embedded third way to kill a zombie
 }
