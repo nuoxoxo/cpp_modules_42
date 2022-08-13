@@ -12,16 +12,17 @@
 
 #include "Karen.hpp"
 
-int	main( void )
+int	main()
 {
-	Karen		he;
+	Karen		Roberto;
 
-	he.complain("debug");
-	he.complain("info");
-	he.complain("warning");
-	he.complain("error");
-	he.complain("");
-	he.complain("john conway");
-	he.complain("terry davis");
-	he.complain("bjarne stroustrup");
+	std::cout << std::endl;
+	Roberto.complain("debug");
+	Roberto.complain("info");
+	Roberto.complain("warning");
+	Roberto.complain("error");
+	Roberto.complain("");
+	Roberto.complain("john conway");
+	Roberto.complain("terry davis");
+	Roberto.complain("bjarne stroustrup");
 }
