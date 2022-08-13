@@ -47,6 +47,8 @@ random_ab
 minishell
 mutex_lock
 checker_OS
+*.replace
+*.*.replace
 checker_Mac
 checker_linux
 showkey_macos
