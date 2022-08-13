@@ -33,6 +33,7 @@ smurf
 atomic
 sample
 *.dSYM
+replace
 outfile
 fractol
 indexed
@@ -41,13 +42,13 @@ pthread
 *tester
 print_i
 original
+*.replace
 push_swap
 phonebook
 random_ab
 minishell
 mutex_lock
 checker_OS
-*.replace
 *.*.replace
 checker_Mac
 checker_linux
