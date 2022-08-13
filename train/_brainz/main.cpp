@@ -2,42 +2,32 @@
 # include "string"
 # include "zombie_color.hpp"
 
-
-using namespace	std;
-
-
 /*		class		*/
-
 
 class	Zombie
 {
 	private:
-
 		string	name;
 		void		label(void) const;
-
 	public:
-
 		Zombie(string name);
 		~Zombie(void);
-		string	get_name(void) const;
+		string		get_name(void) const;
 		void		announce(void) const;
 };
 
-
 /*		prototype		*/
 
+Zombie		*newZombie(string);
+void		randomChump(string);
+void		storyline_1(void);
+void		storyline_2(void);
+void		storyline_3(void);
+void		storyline_4(void);
 
-Zombie			*newZombie(string);
-void			randomChump(string);
-static void		storyline_1(void);
-static void		storyline_2(void);
-static void		storyline_3(void);
-static void		storyline_4(void);
-
+// class		Zombie; // cannot do that, explanation below
 
 /*		drive		*/
-
 
 int	main()
 {
@@ -56,6 +46,14 @@ int	main()
 	storyline_4();
 	delete	luke;
 }
+
+/*
+ *	when working with a class, the compiler has to know about the class' details
+ *	- not just that it exists -  
+ *	the compiler needs to ensure the entire proper layout on the stack
+ *	what parameters are required for the constructor, etc.
+ *	that's why we cannot prototype classes like functions
+ */
 
 
 /*		member functions		*/
@@ -104,7 +102,7 @@ void	randomChump(string name) {
 /*		storyline		*/
 
 
-static void	storyline_1(void)
+void	storyline_1(void)
 {
 	cout << _yellow "\n[ Meet Matthew, the first ";
 	cout << "man-made psychic-vampire of ";
@@ -118,7 +116,7 @@ static void	storyline_1(void)
 }
 
 
-static void	storyline_2(void)
+void	storyline_2(void)
 {
 	cout << _yellow "\n[ Here's Luke. Luke is different... ]\n";
 	cout << "[ While Matthew is a vampire, Luke is a ghost. ";
@@ -131,14 +129,14 @@ static void	storyline_2(void)
 }
 
 
-static void	storyline_3(void)
+void	storyline_3(void)
 {
 	cout << _yellow "\n[ Paul is born... ";
 	cout << "and dead almost instantly. ]\n\n" _reset;
 }
 
 
-static void	storyline_4(void)
+void	storyline_4(void)
 {
 	cout << _yellow "\n[ Before we go, let's ";
 	cout << "KILL Luke. ]\n[ Just because he is the ";
