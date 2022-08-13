@@ -72,6 +72,7 @@ string	Zombie::get_name(void) const
 void	Zombie::label(void) const
 { cout << _green "﹤" << this->name << "﹥" _reset; }
 
+
 void	Zombie::announce(void) const {
 	Zombie::label();
 	cout << "BraiiiiiiinnnzzzZ... \n";
