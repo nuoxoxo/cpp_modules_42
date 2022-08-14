@@ -29,7 +29,8 @@ class	Stream_editor
 	public:
 
 		Stream_editor(void);
-		~Stream_editor(void);
+		//~Stream_editor(void);
+		virtual			~Stream_editor(void);
 		bool			replace(std::string, std::string);
 		//bool			replace(std::string to_find, std::string to_replace_with);
 		bool			setup_infile(std::string filename);
