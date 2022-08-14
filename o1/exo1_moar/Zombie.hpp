@@ -23,15 +23,13 @@ class	Zombie
 		void		label(void) const;
 
 	public:
-		Zombie(void); // mod.
-		~Zombie(void);
-
+		Zombie(void);
+		virtual		~Zombie(void);
 		void		set_name(std::string new_name); // new
-		/*	note . set_name can't be const		*/
 		void		announce(void) const;
 		std::string	get_name(void) const;
 };
-
+\
 void		announce_foreach(int, Zombie *); // new
 Zombie		*zombieHorde(int, std::string); // new
 

@@ -13,7 +13,6 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(void) : name("") {} // new
-//Zombie::Zombie(std::string name) : name(name) {} // deprecated
 
 void	Zombie::set_name(std::string name)
 {
