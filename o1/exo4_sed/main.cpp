@@ -19,13 +19,13 @@ void	usage(std::string);
 
 int	main(int c, char *v[])
 {
-	std::string::size_type	it;
-	std::ifstream		ifs;
-	std::ofstream		ofs;
-	std::string		s1, s2, file;
-	std::string		line;
-	std::string		text;
-	int			len;
+	std::string::size_type		it;
+	std::ifstream			ifs;
+	std::ofstream			ofs;
+	std::string			s1, s2, file;
+	std::string			line;
+	std::string			text;
+	int				len;
 
 	if (!check_params(c, v))
 		return 1;
