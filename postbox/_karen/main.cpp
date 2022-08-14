@@ -44,40 +44,50 @@ Karen::Karen(void) {}
 
 Karen::~Karen(void) {}
 
-void	Karen::debug(void) {
+void	Karen::debug(void)
+{
 	std::cout << __FUNCTION__ << '\n' << debug_level;
 }
 
-void	Karen::info(void) {
+void	Karen::info(void)
+{
 	std::cout << __FUNCTION__ << '\n' << info_level;
 }
 
-void	Karen::warning(void) {
+void	Karen::warning(void)
+{
 	std::cout << __FUNCTION__ << '\n' << warning_level;
 }
 
-void	Karen::error(void) {
+void	Karen::error(void)
+{
 	std::cout << __FUNCTION__ << '\n' << error_level;
 }
 
-void	Karen::complain(std::string level) {
-	if (level != "") {
-		std::string	levels[] = {
+void	Karen::complain(std::string level)
+{
+	int		i;
+
+	if (level == "")
+		return ;
+
+	std::string	levels[] =
+	{
 		"debug",
 		"info",
 		"warning",
 		"error"
-		};
-		void	(Karen::*modes[]) (void) = {
-			& Karen::debug,
-			& Karen::info,
-			& Karen::warning,
-			& Karen::error
-		};
-		for (int i = 0; i < 4; ++i) {
-			if (levels[i] == level)
-				(this->*modes[i])();
-		}
-	}
-}
+	};
 
+	void	(Karen::*modes[]) (void) =
+	{
+		& Karen::debug,
+		& Karen::info,
+		& Karen::warning,
+		& Karen::error
+	};
+
+	for (i = 0; i < 4; ++i)
+		if (levels[i] == level)
+			(this->*modes[i])();
+}
