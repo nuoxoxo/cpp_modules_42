@@ -20,34 +20,41 @@ void	Karen::info(void)	{ std::cout << info_level; }
 void	Karen::warning(void)	{ std::cout << warning_level; }
 void	Karen::error(void)	{ std::cout << error_level; }
 
-void	Karen::complain(std::string level) {
+void	Karen::complain(std::string level)
+{
+	bool	found;
+	int		i;
+
 	if (level == "")
 		return ;
-	bool		found = false;
-	std::string	levels[] = {
+
+	std::string	levels[] =
+	{
 		"DEBUG",
 		"INFO",
 		"WARNING",
 		"ERROR"
 	};
-	void	(Karen::*modes[]) (void) = {
+
+	void	(Karen::*modes[]) (void) =
+	{
 		& Karen::debug,
 		& Karen::info,
 		& Karen::warning,
 		& Karen::error
 	};
-	for (int i = 0; i < 4; ++i) {
-		if (!found)
-		{
-			if (levels[i] == level)
-			{
-				(this->*modes[i])();
-				found = true;
-			}
-		}
-		else
+
+	found = false;
+	for (i = 0; i < 4; ++i)
+	{
+		if (found)
 		{
 			(this->*modes[i])();
+		}
+		else if (!found && levels[i] == level)
+		{
+			(this->*modes[i])();
+			found = true;
 		}
 	}
 	if (found)
@@ -57,6 +64,12 @@ void	Karen::complain(std::string level) {
 
 void	usage()
 {
-	std::cout << "Usage: ./karenFilter [ stuff_like_maybe_a_complain_level ] ";
+	std::cout << "\tUsage: ./karenFilter \x1b[32m" << "level \x1b[0m";
+	//std::cout << "[ stuff_like_maybe_a_complain_level ] \x1b[0m";
 	std::cout << std::endl;
 }
+
+/*
+green	"\x1b[32m"
+reset	"\x1b[0m"
+*/
