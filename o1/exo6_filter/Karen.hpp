@@ -13,7 +13,6 @@
 #ifndef KAREN_HPP
 # define KAREN_HPP
 
-
 #include "iostream"
 #include "string"
 
@@ -29,19 +28,22 @@ enum	Levels
 
 class	Karen {
 	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void		debug(void);
+		void		info(void);
+		void		warning(void);
+		void		error(void);
 	public:
 
 		Karen(void);
-		~Karen(void);
-		void	complain(std::string);
+		virtual		~Karen(void);
+		void		complain(std::string);
 };
 
 
 void	usage(void);
+
+
+//	def. all strings
 
 
 #define debug_level \
@@ -54,6 +56,5 @@ void	usage(void);
 "[ ERROR ]\nThis is unacceptable, I want to speak to the manager now.\n\n"
 
 #define insignificant "[ Probably complaining about insignificant problems ]\n\n"
-
 
 #endif
