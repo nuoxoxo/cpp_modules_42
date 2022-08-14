@@ -28,7 +28,6 @@ int	main(int c, char **v)
 	{
 		std::string	s(v[i]);
 
-
 		j = -1;
 		while (++j < (int) s.length())
 		{
