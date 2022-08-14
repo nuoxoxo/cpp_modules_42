@@ -15,14 +15,14 @@
 """
 the class will represent *fixed point numbers:
 	• Private members:
-		◦ An integer to store the fixed point value.
+		◦ An integer to store the fixed point value. --- > *fpv
 		◦ A static constant integer to store the number of fractional bits
-		└─── it will always be the 8
+		└─── it will always be the 8 --- >  *nofb
 	• Public members:
-		◦ A default constructor that init the fixed point value to 0.
-		◦ A destructor.
-		◦ A copy constructor.
-		◦ An assignation operator overload.
+		◦ A default constructor to init `fpv` to 0. // TODO . in methods
+		◦ A destructor.  // ~
+		◦ A copy constructor. // fixed(fixed const& )
+		◦ An assignation operator overload. --- > &op = (fixed const&)
 		◦ member function (1)
 		int getRawBits( void ) const; 
 			- returns the raw value of the fixed point value.
