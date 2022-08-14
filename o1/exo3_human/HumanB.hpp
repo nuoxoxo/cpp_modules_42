@@ -29,7 +29,7 @@ class HumanB
 	public:
 
 		HumanB(std::string name); // no weapon at hand
-		~HumanB(void);
+		virtual		~HumanB(void);
 
 		Weapon		& getWeapon(void) const;
 		void		setWeapon(Weapon &); // shouldnt be const

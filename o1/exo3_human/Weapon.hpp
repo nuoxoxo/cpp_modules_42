@@ -21,12 +21,9 @@ class Weapon
 
 	public:
 		Weapon(std::string type);
-		~Weapon(void);
-
-		const std::string	& getType(void) const; // &
+		virtual			~Weapon(void);
 		void			setType(const std::string & type); // const
-
-		// "some other type of club" = is of type ` const char [n] `
+		const std::string	& getType(void) const; // &
 };
 
 # define love	"[\x1b[3msic]\x1b[0m \x1b[33mnothing\x1b[0m"

@@ -28,15 +28,14 @@ class HumanA
 	public:
 
 		HumanA(std::string name, Weapon & weapon);
-		~HumanA(void);
-
+		virtual		~HumanA(void);
 		Weapon		& getWeapon(void) const;
 		void		attack(void) const;
 };
 
 #endif
 
-// ----------------8<----------[ FIXME ]------------------------
+// ----------------8<----------[ TODO ]------------------------
 
 /*
 
