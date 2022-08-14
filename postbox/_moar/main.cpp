@@ -10,16 +10,16 @@ using namespace	std;
 class	Zombie
 {
 	private:
-		string	name;
+		string		name;
 		void		label(void) const;
 
 	public:
 		Zombie(void);
-		~Zombie(void);
-
-		void		set_name(string new_name); // can't be const
+		//~Zombie(void);
+		virtual		~Zombie(void);
+		void		set_name(string); // can't be const
 		void		announce(void) const;
-		string	get_name(void) const;
+		string		get_name(void) const;
 };
 
 
