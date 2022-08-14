@@ -12,13 +12,7 @@
 
 #define insignificant "[ Probably complaining about insignificant problems ]\n\n"
 
-enum	Levels
-{
-	DEBUG = 0,
-	INFO,
-	WARNING,
-	ERROR
-};
+//	class
 
 class	Karen {
 	private:
@@ -33,15 +27,7 @@ class	Karen {
 		void	complain(std::string);
 };
 
-/*
-Karen::Karen(void);
-Karen::~Karen(void);
-void		Karen::debug(void);
-void		Karen::info(void);
-void		Karen::warning(void);
-void		Karen::error(void);
-void		Karen::complain(std::string);
-*/
+//	prototyping
 
 void		usage(void);
 
@@ -65,35 +51,44 @@ void	Karen::info(void)	{ std::cout << info_level; }
 void	Karen::warning(void)	{ std::cout << warning_level; }
 void	Karen::error(void)	{ std::cout << error_level; }
 
-void	Karen::complain(std::string level) {
+void	Karen::complain(std::string level)
+{
+	bool		found;
+	int		i;
+
 	if (level == "")
 		return ;
-	bool		found = false;
-	std::string	levels[] = {
+
+	std::string	levels[] =
+	{
 		"DEBUG",
 		"INFO",
 		"WARNING",
 		"ERROR"
 	};
-	void	(Karen::*modes[]) (void) = {
+
+	void	(Karen::*modes[]) (void) =
+	{
 		& Karen::debug,
 		& Karen::info,
 		& Karen::warning,
 		& Karen::error
 	};
-	for (int i = 0; i < 4; ++i) {
-		if (!found)
-		{
-			if (levels[i] == level)
-			{
-				(this->*modes[i])();
-				found = true;
-			}
-		}
-		else
+
+	found = false;
+	i = -1;
+	while (++i < 4)
+	{
+		if (found)
 		{
 			(this->*modes[i])();
 		}
+		else if (!found && levels[i] == level)
+		{
+			(this->*modes[i])();
+			found = true;
+		}
+		
 	}
 	if (found)
 		return ;

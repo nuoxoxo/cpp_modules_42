@@ -1,7 +1,6 @@
 #include "iostream"
 #include "string"
 
-
 #define debug_level \
 "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it! \n\n"
 #define info_level \
@@ -23,6 +22,8 @@ class	Karen {
 		void	complain(std::string);
 };
 
+//	driue
+
 int	main( void )
 {
 	Karen		he;
@@ -40,30 +41,43 @@ int	main( void )
 //	member funcs
 
 Karen::Karen(void) {}
+
 Karen::~Karen(void) {}
-void	Karen::debug(void)	{ std::cout << __FUNCTION__ << '\n' << debug_level; }
-void	Karen::info(void)	{ std::cout << __FUNCTION__ << '\n' << info_level; }
-void	Karen::warning(void)	{ std::cout << __FUNCTION__ << '\n' << warning_level; }
-void	Karen::error(void)	{ std::cout << __FUNCTION__ << '\n' << error_level; }
+
+void	Karen::debug(void) {
+	std::cout << __FUNCTION__ << '\n' << debug_level;
+}
+
+void	Karen::info(void) {
+	std::cout << __FUNCTION__ << '\n' << info_level;
+}
+
+void	Karen::warning(void) {
+	std::cout << __FUNCTION__ << '\n' << warning_level;
+}
+
+void	Karen::error(void) {
+	std::cout << __FUNCTION__ << '\n' << error_level;
+}
 
 void	Karen::complain(std::string level) {
-	if (level == "")
-		return ;
-	std::string	levels[] = {
+	if (level != "") {
+		std::string	levels[] = {
 		"debug",
 		"info",
 		"warning",
 		"error"
-	};
-	void	(Karen::*modes[]) (void) = {
-		& Karen::debug,
-		& Karen::info,
-		& Karen::warning,
-		& Karen::error
-	};
-	for (int i = 0; i < 4; ++i) {
-		if (levels[i] == level)
-			(this->*modes[i])();
+		};
+		void	(Karen::*modes[]) (void) = {
+			& Karen::debug,
+			& Karen::info,
+			& Karen::warning,
+			& Karen::error
+		};
+		for (int i = 0; i < 4; ++i) {
+			if (levels[i] == level)
+				(this->*modes[i])();
+		}
 	}
 }
 
