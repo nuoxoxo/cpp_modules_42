@@ -58,6 +58,6 @@ class	Fixed
 		// overloading the assignment operator
 		// will set raw val of `fpv`
 		// will return raw val of `fpv`
-}
+};
 
 #endif
