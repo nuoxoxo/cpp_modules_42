@@ -2,12 +2,14 @@
 # include "string"
 # include "zombie_color.hpp"
 
+using namespace std;
+
 /*		class		*/
 
 class	Zombie
 {
 	private:
-		string	name;
+		string		name;
 		void		label(void) const;
 	public:
 		Zombie(string name);
