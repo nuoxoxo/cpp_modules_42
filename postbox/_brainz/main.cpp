@@ -12,8 +12,8 @@ class	Zombie
 		string		name;
 		void		label(void) const;
 	public:
-		Zombie(string name);
-		~Zombie(void);
+		Zombie(string);
+		virtual		~Zombie(void);
 		string		get_name(void) const;
 		void		announce(void) const;
 };
