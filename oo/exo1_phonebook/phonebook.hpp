@@ -34,13 +34,13 @@ class	Phonebook
 		Console		console;
 
 		void		put_table() const;
-		void		put_columns(const Console &console, std::size_t i) const;
+		void		put_columns(const Console &console, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:
 		Phonebook();
-		~Phonebook();
-	
+
+		virtual		~Phonebook();
 		void		add();
 		void		search();
 		bool		is_empty() const;
