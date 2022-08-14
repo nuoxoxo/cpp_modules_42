@@ -10,21 +10,23 @@
 #define error_level \
 "This is unacceptable, I want to speak to the manager now. \n\n"
 
-class	Karen {
+class	Karen
+{
 	private:
-		void	debug(void);
-		void	info(void);
-		void	warning(void);
-		void	error(void);
+		void		debug(void);
+		void		info(void);
+		void		warning(void);
+		void		error(void);
 	public:
 		Karen(void);
-		~Karen(void);
-		void	complain(std::string);
+//		~Karen(void);
+		void		complain(std::string);
+		virtual		~Karen(void);
 };
 
 //	driue
 
-int	main( void )
+int	main(void)
 {
 	Karen		he;
 

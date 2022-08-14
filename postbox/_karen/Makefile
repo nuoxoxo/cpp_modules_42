@@ -1,4 +1,4 @@
-comp	:=	c++ -Wall -Werror -Wextra -std=c++98
+comp	:=	clang++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
