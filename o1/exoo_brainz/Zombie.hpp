@@ -15,7 +15,6 @@
 
 # include "iostream"
 # include "string"
-//# include "Color.hpp"
 
 class	Zombie
 {
@@ -25,10 +24,9 @@ class	Zombie
 
 	public:
 		Zombie(std::string name);
-		~Zombie(void);
-
-		std::string	get_name(void) const;
+		virtual		~Zombie(void);
 		void		announce(void) const;
+		std::string	get_name(void) const;
 };
 
 Zombie		*newZombie(std::string);
