@@ -25,14 +25,19 @@ class	Fixed {
 int	main()
 {
 
-	Fixed a; // constr called . destr called on exit
-	Fixed b( a ); // copy_constr & getRawBits called . destr called on exit 
-	Fixed c; // same as line 1
-	c = b; // *interesting : operator= assignment operator & getRawBits called
+	Fixed a; // constr ( + destr called on exit )
 
-	/*	if the 3 stdout lines are commented
-	
-		//	upper calls (4 lines above)
+	Fixed b( a ); // copy_constr + getRawBits ( + destr called on exit )
+
+	Fixed c; // constr ( + destr called on exit )
+
+	c = b; // operator= assignment operator + getRawBits
+
+
+	// only these calls are made if 3 stdout lines are commented out
+	/*
+		//	"Upper calls" (4 lines above)
+
 		Fixed  Default constructor called
 		Fixed Copy constructor called
 		getRawBits getRawBits member function called
@@ -40,9 +45,9 @@ int	main()
 		operator= Assignation operator called
 		getRawBits getRawBits member function called
 
-		... (calls that happen in the final std::cout part)
 
-		//	Below : default destr calls
+		//	default destr calls (called in final stdout part)
+
 		~Fixed Destructor called
 		~Fixed Destructor called
 		~Fixed Destructor called
