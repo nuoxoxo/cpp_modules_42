@@ -1,0 +1,81 @@
+
+------------8<--------[ Requirements ]----------------
+
+
+to turn in these stuff:
+	Makefile
+	main.cpp
+	Fixed.hpp
+	Fixed.cpp 
+
+functions : 
+	roundf from "cmath"
+
+
+------------8<--------[ Goals (2 of 'em) ]----------------
+
+
+(1) . add public member operator overloads to fixed class:
+
+	-	Six comparison operators: >, <, >=, <=, == and !=
+	-	Four arithmetic operators: +, -, *, and /
+	-	Increment and decrement operators
+		-	pre-increment
+		-	post-increment
+		-	pre-decrement
+		-	post-decrement 
+	*-	these operators will in-/decrement the fixed point 
+		value from the smallest representable ε such as 1 + ε > 1
+
+
+(2) . add public `static` member functions overloads to fixed class:
+
+	•	The static member function min 
+		-	min() takes references on 2 fixed point values
+		-	returns a reference to the smaller value
+		-	add an overload 
+			- overload takes references on 2 const fixed point values
+			- returns a reference to the smallest const value
+	•	The static member function max
+		-	max() takes references on 2 fixed point values
+		-	returns a reference to the bigger value
+		-	add an overload 
+			- overload takes references on 2 const fixed point values
+			- returns a reference to the bigger constant value.
+
+
+
+------------8<--------[ do this in main.cpp ]----------------
+
+```
+#include "iostream"
+
+int	main( void )
+{
+	Fixed		a;
+	Fixed const	b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max( a, b ) << std::endl;
+
+	return 0;
+}
+```
+
+------------8<--------[ model outputs ]----------------
+
+$> ./a.out 0
+0.00390625
+0.00390625
+0.00390625
+0.0078125
+10.1016
+10.1016
+$>
