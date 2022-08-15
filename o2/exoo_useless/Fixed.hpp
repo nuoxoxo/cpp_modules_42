@@ -46,9 +46,9 @@ class	Fixed
 
 	public:
 		Fixed(void);
-		Fixed(Fixed const &);
+		Fixed(Fixed const & input);
 		~Fixed(void);
-		Fixed			& operator = (Fixed const &);
+		Fixed			& operator = (Fixed const & input);
 		void			setRawBits(int const);
 		int			getRawBits(void) const;
 
