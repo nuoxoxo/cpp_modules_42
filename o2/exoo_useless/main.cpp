@@ -13,6 +13,8 @@
 #include "Fixed.hpp"
 #include <iostream>
 
+#include <iostream>
+
 int	   main( void ) {
 
 	Fixed a;
