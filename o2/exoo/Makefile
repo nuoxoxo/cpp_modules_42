@@ -1,5 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+name	:=	a.out
 rmv	:=	rm -rf
 src	:=	main.cpp Fixed.cpp
 bud	:=	$(src:%.cpp=%.o)
@@ -13,7 +13,7 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
-		@ ./out
+		@ ./$(name)
 		@ make clean
 
 run	:	re
@@ -26,7 +26,7 @@ clean	:
 		@ $(rmv) $(bud)
 
 fclean	:	clean
-		@ $(rmv) $(name) a.out
+		@ $(rmv) $(name) a.out out
 
 test	:	run
 f	:	fclean

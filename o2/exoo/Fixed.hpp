@@ -12,7 +12,7 @@
 
 /*
 
-"""
+""" exoo
 the class will represent *fixed point numbers:
 	• Private members:
 		◦ An integer to store the fixed point value. --- > *fpv
@@ -46,10 +46,10 @@ class	Fixed
 
 	public:
 		Fixed(void);
-		Fixed(Fixed const & input);
+		Fixed(const Fixed &);
 		~Fixed(void);
-		Fixed			& operator = (Fixed const & input);
-		void			setRawBits(int const);
+		Fixed			& operator = (const Fixed &);
+		void			setRawBits(int);
 		int			getRawBits(void) const;
 
 		// default constr to init the private `fpv`

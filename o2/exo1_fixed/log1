@@ -1,0 +1,42 @@
+Default constructor called
+Int constructor called
+[33m
+inside [0mFixed
+[36mconst Int x is [0m10
+[36mthis->number_of_fractional_bits : [0m8
+[36mx << (this->number_of_fractional_bits) : [0m2560 
+
+Float constructor called
+[33m
+inside [0mFixed
+[36mconst Float x is [0m42.42
+[36m1 << 8 : [0m256
+[36mx * 256 : [0m10859.5
+[36mx * (1<<8) : [0m10859.5
+[36mroundf(x*(1<<8) : [0m10860 
+
+Copy constructor called
+Assignation operator called
+Float constructor called
+[33m
+inside [0mFixed
+[36mconst Float x is [0m1234.43
+[36m1 << 8 : [0m256
+[36mx * 256 : [0m316015
+[36mx * (1<<8) : [0m316015
+[36mroundf(x*(1<<8) : [0m316015 
+
+Assignation operator called
+Destructor called
+a is 1234.43
+b is 10
+c is 42.4219
+d is 10
+a is 1234 as integer
+b is 10 as integer
+c is 42 as integer
+d is 10 as integer
+Destructor called
+Destructor called
+Destructor called
+Destructor called

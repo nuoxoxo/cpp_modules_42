@@ -20,10 +20,12 @@ Fixed::Fixed()
 	std::cout << "Default constructor" << called;
 }
 
-Fixed::Fixed(Fixed const & dummy)
+Fixed::Fixed(const Fixed & dummy)
 {
 	std::cout << "Copy constructor" << called;
-	this->fixed_point_value = dummy.getRawBits();
+	*this = dummy; // way2
+	// this->fixed_point_value = dummy.getRawBits(); // way1
+	
 }
 
 Fixed::~Fixed()
@@ -31,11 +33,10 @@ Fixed::~Fixed()
 	std::cout << "Destructor" << called;
 }
 
-Fixed	& Fixed::operator = (Fixed const & dummy)
+Fixed	& Fixed::operator = (const Fixed & dummy)
 {
 	std::cout << "Assignation operator" << called;
 	this->fixed_point_value = dummy.getRawBits();
-	//std::cout << "Assignation operator" << called;
 	return (*this);
 }
 
@@ -45,7 +46,7 @@ int	Fixed::getRawBits(void) const
 	return (this->fixed_point_value);
 }
 
-void	Fixed::setRawBits(int const raw)
+void	Fixed::setRawBits(int raw)
 {
 	std::cout << "setRawBits member function" << called;
 	this->fixed_point_value = raw;
