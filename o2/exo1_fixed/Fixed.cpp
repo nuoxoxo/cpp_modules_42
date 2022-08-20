@@ -54,21 +54,21 @@ Fixed::Fixed()
 Fixed::Fixed(const int x)
 {
 	std::cout << "Int constructor" << called;
-	/* test
+	// test
 	std::cout << yell inside rest << __FUNCTION__ << '\n';
 	std::cout << cy "const Int x is " rest << x << '\n';
 	std::cout << cy "this->number_of_fractional_bits : " rest;
 	std::cout << this->number_of_fractional_bits << '\n';
 	std::cout << cy "x << (this->number_of_fractional_bits) : " rest;
 	std::cout << (x << this->number_of_fractional_bits) << nl2;
-	// end */
+	// end //
 	this->fixed_point_value = (x << this->number_of_fractional_bits);
 }
 
 Fixed::Fixed(const float x)
 {
 	std::cout << "Float constructor" << called;
-	/* test
+	// test
 	std::cout << yell inside rest << __FUNCTION__ << '\n';
 	std::cout << cy "const Float x is " rest << x << '\n';
 	std::cout << cy "1 << 8 : " rest << (1 << 8) << '\n';
@@ -76,7 +76,7 @@ Fixed::Fixed(const float x)
 	std::cout << cy "x * (1<<8) : " rest << x * (1 << 8) << '\n';
 	std::cout << cy "roundf(x*(1<<8) : " rest ;
 	std::cout << std::roundf(x*(1 << 8)) << nl2;
-	// end */
+	// end //
 	this->fixed_point_value = std::roundf(x * (1 << 8));
 }
 
@@ -106,11 +106,11 @@ int	Fixed::getRawBits(void) const
 	return (this->fixed_point_value);
 }
 
-void	Fixed::setRawBits(int raw)
+void	Fixed::setRawBits(int val)
 {
 	// silenced to match output
 	//std::cout << "setRawBits member function" << called;
-	this->fixed_point_value = raw;
+	this->fixed_point_value = val;
 }
 
 //	new . 2Float . 2Int . overload ostrm
