@@ -26,6 +26,8 @@ demo
 out*
 main
 test
+log1
+log2
 inter
 union
 philo
