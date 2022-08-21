@@ -12,10 +12,6 @@
 
 #include "Fixed.hpp"
 
-//#define called " called\n"
-//#define inside "\ninside "
-//#define nl2 " \n\n"
-
 //	default, copy, destructor
 Fixed::Fixed()
 { this->fixed_point_value = 0; }
