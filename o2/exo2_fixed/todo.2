@@ -1,0 +1,81 @@
+
+------------8<--------[ Requirements ]----------------
+
+	- each class you write MUST have:
+		- a default constructor, 
+		- a copy contructor, 
+		- an assignation operator overload 
+		- a destructor. We won’t ask again.
+
+	- use roundf <cmath>
+
+------------8<--------[ Subjects ]----------------
+
+	•	Six comparison operators: >, <, >=, <=, == and !=.
+
+	•	Four arithmetic operators: +, -, *, and /.
+
+	• 	The pre-increment,
+		post-increment,
+		pre-decrement,
+		post-decrement operators, 
+		-	that will increment or decrement 
+			the fixed point value from the 
+			smallest representable ε such as 1 + ε > 1.
+
+-	Add the following public static member functions overloads
+
+	•	The static member function \min\ 
+		
+		-	takes references on two fixed point values 
+			returns a reference to the smallest value
+		-	an overload that takes references on 
+			two constant fixed point values 
+			returns a reference to the smallest constant value.
+
+	•	The static member function \max\ 
+
+		-	takes references on two fixed point values 
+			returns a reference to the biggest value
+		-	an overload that takes references on 
+			two constant fixed point values 
+			returns a reference to the biggest constant value.
+
+
+------------8<--------[ do this in main.cpp ]----------------
+
+
+```
+(cf. main)
+```
+
+#include <iostream>
+int
+main( void ) { Fixed a;
+Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+std::cout << a << std::endl;
+std::cout << ++a << std::endl;
+std::cout << a << std::endl;
+std::cout << a++ << std::endl;
+std::cout << a << std::endl;
+std::cout << b << std::endl;
+std::cout << Fixed::max( a, b ) << std::endl;
+return 0; }
+
+
+------------8<--------[ model outputs ]----------------
+
+$> ./a.out
+0
+0.00390625
+0.00390625
+0.00390625
+0.0078125
+10.1016
+10.1016
+$>
+
+
+
+
+end xxxxxxxxxxxxx

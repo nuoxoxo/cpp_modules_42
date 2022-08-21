@@ -14,9 +14,19 @@
 
 #define called " called\n"
 
+//	default constructor . way 1
+/*
 Fixed::Fixed()
 {
 	this->fixed_point_value = 0;
+	std::cout << "Default constructor" << called;
+}
+*/
+
+//	default constructor . way 2
+
+Fixed::Fixed() : fixed_point_value(0)
+{
 	std::cout << "Default constructor" << called;
 }
 
@@ -36,7 +46,8 @@ Fixed::~Fixed()
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
 	std::cout << "Assignation operator" << called;
-	this->fixed_point_value = dummy.getRawBits();
+	if (this != & dummy)
+		this->fixed_point_value = dummy.getRawBits();
 	return (*this);
 }
 
@@ -46,10 +57,10 @@ int	Fixed::getRawBits(void) const
 	return (this->fixed_point_value);
 }
 
-void	Fixed::setRawBits(int raw)
+void	Fixed::setRawBits(int val)
 {
 	std::cout << "setRawBits member function" << called;
-	this->fixed_point_value = raw;
+	this->fixed_point_value = value;
 }
 
 /*

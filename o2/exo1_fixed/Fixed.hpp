@@ -14,7 +14,7 @@
 # define FIXED_HPP
 
 # include "iostream"
-# include "cmath" // new
+# include "cmath" // part 1
 
 class	Fixed
 {
@@ -25,8 +25,8 @@ class	Fixed
 	public:
 		Fixed(void);
 
-		Fixed(const float); // new
-		Fixed(const int); // new
+		Fixed(const float); // part 1
+		Fixed(const int); // part 1
 
 		Fixed(const Fixed &);
 		~Fixed(void);
@@ -36,14 +36,12 @@ class	Fixed
 		void			setRawBits(int);
 		int			getRawBits(void) const;
 
-		float			toFloat() const ; // new
-		int			toInt() const ; // new
+		float			toFloat() const ; // part 1
+		int			toInt() const ; // part 1
 
 };
 
-std::ostream & operator << (std::ostream &, const Fixed &); // new
-// try reversing const & Fixed
-//std::ostream & operator << (std::ostream &, Fixed const &); // new
+std::ostream & operator << (std::ostream &, const Fixed &); // part 1
 
 # define cy	"\x1b[36m"
 # define yell	"\x1b[33m"
