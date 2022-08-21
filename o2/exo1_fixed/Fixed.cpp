@@ -15,6 +15,7 @@
 #define called " called\n"
 #define inside "\ninside "
 #define nl2 " \n\n"
+#define nl " \n"
 
 /*
 
@@ -55,12 +56,14 @@ Fixed::Fixed(const int x)
 {
 	std::cout << "Int constructor" << called;
 	// test
-	std::cout << yell inside rest << __FUNCTION__ << '\n';
-	std::cout << cy "const Int x is " rest << x << '\n';
+	std::cout << yell inside rest << __FUNCTION__ << nl;
+	std::cout << cy "const Int x is " rest << x << nl;
 	std::cout << cy "this->number_of_fractional_bits : " rest;
-	std::cout << this->number_of_fractional_bits << '\n';
+	std::cout << this->number_of_fractional_bits << nl;
 	std::cout << cy "x << (this->number_of_fractional_bits) : " rest;
-	std::cout << (x << this->number_of_fractional_bits) << nl2;
+	std::cout << (x << this->number_of_fractional_bits) << nl;
+	std::cout << cy "x << (Fixed::number_of_fractional_bits) : " rest;
+	std::cout << (x << Fixed::number_of_fractional_bits) << nl2;
 	// end //
 	this->fixed_point_value = (x << this->number_of_fractional_bits);
 }
@@ -69,12 +72,12 @@ Fixed::Fixed(const float x)
 {
 	std::cout << "Float constructor" << called;
 	// test
-	std::cout << yell inside rest << __FUNCTION__ << '\n';
-	std::cout << cy "const Float x is " rest << x << '\n';
-	std::cout << cy "1 << 8 : " rest << (1 << 8) << '\n';
-	std::cout << cy "x * 256 : " rest << (float) x * 256 << '\n';
-	std::cout << cy "x * (1<<8) : " rest << x * (1 << 8) << '\n';
-	std::cout << cy "roundf(x*(1<<8) : " rest ;
+	std::cout << yell inside rest << __FUNCTION__ << nl;
+	std::cout << cy "const Float x is " rest << x << nl;
+	std::cout << cy "1 << 8 : " rest << (1 << 8) << nl;
+	std::cout << cy "x * 256 : " rest << (float) x * 256 << nl;
+	std::cout << cy "x * (1 << 8) : " rest << x * (1 << 8) << nl;
+	std::cout << cy "roundf(x * (1 << 8) : " rest ;
 	std::cout << std::roundf(x*(1 << 8)) << nl2;
 	// end //
 	this->fixed_point_value = std::roundf(x * (1 << 8));

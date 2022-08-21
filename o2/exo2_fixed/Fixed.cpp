@@ -12,22 +12,17 @@
 
 #include "Fixed.hpp"
 
-#define called " called\n"
-#define inside "\ninside "
-#define nl2 " \n\n"
+//#define called " called\n"
+//#define inside "\ninside "
+//#define nl2 " \n\n"
 
-///	accounting : 3+3+2+2+1 = 11
-///	3x default . get set assign = 3 . 2x constr . 2x convtr . overload
-
-//	default
+//	default, copy, destructor
 Fixed::Fixed()
 { this->fixed_point_value = 0; }
 
-//	copy
 Fixed::Fixed(const Fixed & dummy)
 { *this = dummy; }
 
-//	destr
 Fixed::~Fixed()
 {}
 
@@ -35,21 +30,20 @@ Fixed::~Fixed()
 int Fixed::getRawBits(void) const
 { return (this->fixed_point_value); }
 
-void Fixed::setRawBits(int )
-{ this->fixed_point_value = raw; }
+void Fixed::setRawBits(int val)
+{ this->fixed_point_value = val; }
 
 //	assignment
-Fixed	& Fixed::operator = (const Fixed & dummy) // assignment
+Fixed	& Fixed::operator = (const Fixed & dummy)
 {
 	this->fixed_point_value = dummy.getRawBits(); 
 	return (*this);
 }
 
-//	int constr
+//	constructors
 Fixed::Fixed(const int x)
 { this->fixed_point_value = (x << this->number_of_fractional_bits); }
 
-//	float constr
 Fixed::Fixed(const float x)
 { this->fixed_point_value = std::roundf(x * (1 << 8)); }
 
@@ -60,8 +54,137 @@ float	Fixed::toFloat() const
 int	Fixed::toInt() const
 { return (this->fixed_point_value) >> (this->number_of_fractional_bits); }
 
-//	\<<\ overload
+//	\<<\ ostream overload
 std::ostream &	operator << (std::ostream & ostream, Fixed const & fx)
 { ostream << fx.toFloat(); return ostream; }
 
+//	above: part 1
+//	below: part 2
 
+/*	arithmetic		*/
+
+Fixed	Fixed::operator + (const Fixed & n) const
+{
+	return Fixed(this->toFloat() + n.toFloat());
+}
+
+Fixed	Fixed::operator - (const Fixed & n) const
+{
+	return Fixed(this->toFloat() - n.toFloat());
+}
+
+Fixed	Fixed::operator * (const Fixed &n) const
+{
+	return Fixed(this->toFloat() * n.toFloat());
+}
+
+Fixed	Fixed::operator / (const Fixed & n) const
+{
+	if (n.toInt() > 0)
+		return Fixed(this->toFloat() / n.toFloat());
+	else throw std::runtime_error("Cannot divide by zero"); // unique
+}
+
+/*	symbols		*/
+
+bool	Fixed::operator > (Fixed const & n) const
+{
+	return this->fixed_point_value > n.fixed_point_value;
+}
+
+bool	Fixed::operator < (const Fixed & n) const
+{
+	return this->fixed_point_value < n.fixed_point_value;
+}
+
+bool	Fixed::operator >= (const Fixed & n) const
+{
+	return this->getRawBits() >= n.getRawBits();
+}
+
+bool	Fixed::operator <= (const Fixed & n) const
+{
+	return this->getRawBits() <= n.getRawBits();;
+}
+
+bool	Fixed::operator == (const Fixed & n) const
+{
+	return this->getRawBits() == n.getRawBits();;
+}
+
+bool	Fixed::operator != (const Fixed & n) const
+{
+	return !(*this == n);
+}
+
+/*	increment . decrement		*/
+
+Fixed	& Fixed::operator ++ (void)
+{
+	this->fixed_point_value += 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator ++ (int)
+{
+	Fixed	old(*this);
+
+	++(*this);
+	return (old);
+}
+
+Fixed	& Fixed::operator -- (void)
+{
+	this->fixed_point_value -= 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator -- (int)
+{
+	Fixed	old(*this);
+
+	--(*this);
+	return (old);
+}
+
+/*	min . max		*/
+
+/*	
+ *	Subject dictates: 
+ *	
+ *	1. /static/ member functions
+ *		pass-in	: /references/ of 2 Fixeds
+ *		returns : /reference/ to the smaller one
+ *	
+ *	2. overloads
+ *		pass-in	: /references/ of 2 /constant/ Fixeds
+ *		returns	: /reference/ to the smaller /constant/
+ */
+
+Fixed	& Fixed::min(Fixed & n1, Fixed & n2)
+{
+	if (n1.fixed_point_value < n2.fixed_point_value)
+		return n1;
+	return n2;
+}
+
+Fixed	& Fixed::max(Fixed & n1, Fixed & n2)
+{
+	if (n1.fixed_point_value > n2.fixed_point_value)
+		return n1;
+	return n2;
+}
+
+Fixed const & Fixed::min(const Fixed & n1, const Fixed & n2)
+{
+	if (n1.fixed_point_value < n2.fixed_point_value)
+		return n1;
+	return n2;
+}
+
+Fixed const & Fixed::max(const Fixed & n1, const Fixed & n2)
+{
+	if (n1.fixed_point_value > n2.fixed_point_value)
+		return n1;
+	return n2;
+}
