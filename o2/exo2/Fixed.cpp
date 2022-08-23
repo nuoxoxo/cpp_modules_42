@@ -123,10 +123,10 @@ Fixed	& Fixed::operator ++ (void)
 
 Fixed	Fixed::operator ++ (int)
 {
-	Fixed	original(*this);
+	Fixed	temp(*this);
 
 	(*this).fixed_point_value += 1;
-	return (original);
+	return (temp);
 }
 
 Fixed	& Fixed::operator -- (void)
@@ -137,10 +137,10 @@ Fixed	& Fixed::operator -- (void)
 
 Fixed	Fixed::operator -- (int)
 {
-	Fixed	original(*this);
+	Fixed	temp(*this);
 
 	(*this).fixed_point_value -= 1;
-	return (original);
+	return (temp);
 }
 
 /*	min . max		*/

@@ -28,8 +28,7 @@ int	main()
 {
 	Int	n;
 
-	std::cout << n << std::endl;
-	n++;
+	std::cout << n++ << std::endl;
 	std::cout << n << std::endl;
 	std::cout << ++n << std::endl;
 }
@@ -42,32 +41,32 @@ Int::~Int() {}
 
 Int::Int(const Int & dummy) { *this = dummy; }
 
-Int	& Int::operator ++ (void)
+Int	Int::operator ++ (int) // post
+{
+	Int	temp(*this);
+
+	(*this).Val++;
+	return (temp);
+}
+
+Int	Int::operator -- (int) // post
+{
+	Int	temp(*this);
+
+	(*this).Val--;
+	return (temp);
+}
+
+Int	& Int::operator ++ (void) // pre
 {
 	this->Val += 1;
 	return (*this);
 }
 
-Int	& Int::operator -- (void)
+Int	& Int::operator -- (void) // pre
 {
 	this->Val -= 1;
 	return (*this);
-}
-
-Int	Int::operator ++ (int)
-{
-	Int	original(*this);
-
-	(*this).Val++;
-	return (original);
-}
-
-Int	Int::operator -- (int)
-{
-	Int	original(*this);
-
-	(*this).Val--;
-	return (original);
 }
 
 std::ostream & operator << (std::ostream & os, Int const & i)
