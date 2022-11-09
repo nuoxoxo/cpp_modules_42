@@ -43,7 +43,7 @@ class	Phonebook
 		void		add();
 		void		search();
 		bool		is_empty() const;
-		void		get_input(int, Contact &contact);
+		void		get_input(int, Contact & contact);
 		std::size_t	last_added;
 };
 

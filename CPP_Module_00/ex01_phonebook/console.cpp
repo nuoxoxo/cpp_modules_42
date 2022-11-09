@@ -12,13 +12,10 @@
 
 #include "console.hpp"
 
-Console::Console(
-	const std::string& first,
-	const std::string& last,
-	const std::string& nick) :
-	firstname(first),
-	lastname(last),
-	nickname(nick) {}
+Console::Console
+(const std::string& first, const std::string& last, const std::string& nick) :
+firstname(first), lastname(last), nickname(nick)
+{}
 
 const	std::string& Console::get_firstname() const
 {

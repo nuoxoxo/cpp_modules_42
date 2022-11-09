@@ -75,7 +75,7 @@ void	Phonebook::put_table() const
 		last = linter(contact[i].info[1]);
 		nick = linter(contact[i].info[2]);
 
-		Console		console(first, last, nick);
+		Console			console(first, last, nick);
 
 		put_columns(console, i);
 		std::cout << "\n-----------\n";

@@ -16,13 +16,14 @@ static void	to_lower(char &);
 
 int	main()
 {
-	std::string	usage;
-	std::string	input;
-	std::string	nocom;
-	std::string	tocut;
-	std::string	pbook;
-	int		err;
-	Phonebook	P;
+	std::string		usage;
+	std::string		input;
+	std::string		nocom;
+	std::string		tocut;
+	std::string		pbook;
+	Phonebook		P;
+	int			err;
+	
 
 	tocut = "\n ----------------8<-------------[ cut here ]------------------ \n";
 	usage = "> [Usage]: Enter your command [Add, Search, Exit]";
