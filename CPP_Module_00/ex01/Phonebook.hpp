@@ -56,6 +56,6 @@ class	Phonebook
 # define pbook "➜ Your awesome phonebook is online. \n"
 # define usage "➜ [Usage]: Enter your command [Add, Search, Exit]"
 # define nocom "Service unavailable. Please re-enter your command \n"
-# define tocut "------------8<----[ cut here ]------------ "
+# define tocut "----------8<----[ cut here ]---------------- "
 
 #endif

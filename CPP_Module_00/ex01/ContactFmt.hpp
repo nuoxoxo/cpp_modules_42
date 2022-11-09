@@ -25,7 +25,8 @@ class	ContactFmt
 
 	public:
 		ContactFmt();
-		~ContactFmt();
+		virtual		~ContactFmt();
+
 		ContactFmt
 		(
 			const	std::string &,

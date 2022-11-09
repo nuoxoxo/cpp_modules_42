@@ -19,7 +19,7 @@ class	Contact
 {
 	public:
 		Contact();
-		~Contact();
+		virtual		~Contact();
 
 		std::string		info[5];
 		static std::string	field[5];
