@@ -10,12 +10,11 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef __CONSOLE_H__
-# define __CONSOLE_H__
+#ifndef __CONTACT_FMT_H__
+# define __CONTACT_FMT_H__
 
-//# include "phonebook.hpp"
 # include "iostream"
-# include "contact.hpp"
+# include "Contact.hpp"
 
 class	ContactFmt
 {
@@ -26,17 +25,18 @@ class	ContactFmt
 
 	public:
 		ContactFmt();
+		~ContactFmt();
 		ContactFmt
 		(
 			const	std::string &,
 			const	std::string &,
 			const	std::string &
 		);
-		~ContactFmt();
+
 		const	std::string & get_firstname()	const;
 		const	std::string & get_lastname()	const;
 		const	std::string & get_nickname()	const;
-		void	display_info(const Contact &)	const;
+		void	fmt_printer(const Contact &)	const;
 };
 
 #endif

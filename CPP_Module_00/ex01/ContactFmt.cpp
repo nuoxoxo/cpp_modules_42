@@ -37,9 +37,9 @@ const	std::string & ContactFmt::get_nickname() const
 	return (nickname);
 }
 
-void	ContactFmt::display_info(const Contact & c) const
+void	ContactFmt::fmt_printer(const Contact & c) const
 {
-	std::cout << "First name: \t"	<< c.info[0] << "\n";
+	std::cout << "First name: "	<< c.info[0] << "\n";
 	std::cout << "Last name: "	<< c.info[1] << "\n";
 	std::cout << "Nickname: "	<< c.info[2] << "\n";
 	std::cout << "Phone number: "	<< c.info[3] << "\n";

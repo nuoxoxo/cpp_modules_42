@@ -10,29 +10,21 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 static void	to_lower(char &);
 
 int	main()
 {
-	std::string		usage;
 	std::string		input;
-	std::string		nocom;
-	std::string		tocut;
-	std::string		pbook;
 	Phonebook		P;
-	int			err;
+	int				err;
 
-	tocut = "------------8<----[ cut here ]------------ ";
-	pbook = "> Your awesome phonebook is online. \n";
-	usage = "> [Usage]: Enter your command [Add, Search, Exit]";
-	nocom = "Service unavailable. Please re-enter your command \n";
 	std::cout << tocut << nl2 << pbook << usage << empty_prompt;
 	err = -1;
 	while (1)
 	{
-		std::cout << "> ";
+		std::cout << "➜ ";
 		std::getline(std::cin, input);
 		std::for_each(input.begin(), input.end(), & to_lower);
 		if (input == "add")
@@ -47,13 +39,13 @@ int	main()
 		}
 		else if (input == "exit" || input == "exit()" || input == "quit")
 		{
-			std::cout << "> \n> All contacts will be lost forever. \n";
-			std::cout << "> Goodbye and have a nice day." << empty_prompt;
+			std::cout << "➜ \n➜ All contacts will be lost forever. \n";
+			std::cout << "➜ Goodbye and have a nice day." << empty_prompt;
 			break ;
 		}
 		else
 		{
-			if ( ! ++ err)
+			if ( ! ++err)
 				std::cout << nocom;
 			else
 				std::cout << "Please try harder! \n";

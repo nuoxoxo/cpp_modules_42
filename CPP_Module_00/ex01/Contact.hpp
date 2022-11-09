@@ -18,16 +18,19 @@
 class	Contact
 {
 	public:
+		Contact();
+		~Contact();
+
 		std::string		info[5];
 		static std::string	field[5];
 
 		enum Field
 		{
-			firstname,
-			lastname,
-			nickname,
-			phoneno,
-			darksec
+			first,
+			last,
+			nick,
+			phone,
+			dark
 		};
 };
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 
 Phonebook::Phonebook() : size() { contact = new Contact[8]; }
 Phonebook::~Phonebook() {}
@@ -19,15 +19,19 @@ void	Phonebook::add()
 {
 	Contact		c;
 
-	get_input(Contact::firstname, c);
-	get_input(Contact::lastname, c);
-	get_input(Contact::nickname, c);
-	get_input(Contact::phoneno, c);
-	get_input(Contact::darksec, c);
+	// get_input(Contact::firstname, c);
+	// get_input(Contact::lastname, c);
+	// get_input(Contact::nickname, c);
+	// get_input(Contact::phoneno, c);
+	// get_input(Contact::darksec, c);
+	get_input(Contact::first, c);
+	get_input(Contact::last, c);
+	get_input(Contact::nick, c);
+	get_input(Contact::phone, c);
+	get_input(Contact::dark, c);
 	contact[size % 8] = c;
 	last_added = (last_added + 1) % 8;
 	size += 1;
-	
 }
 
 std::string	Phonebook::linter(const std::string & line) const
@@ -41,15 +45,15 @@ std::string	Phonebook::linter(const std::string & line) const
 
 void	Phonebook::print_col(const ContactFmt & fmt, std::size_t i) const
 {
-	std::cout << std::setw(10) << i + 1 << '|';
-	std::cout << std::setw(10) << std::right << fmt.get_firstname() << '|';
-	std::cout << std::setw(10) << std::right << fmt.get_lastname() << '|';
-	std::cout << std::setw(10) << std::right << fmt.get_nickname() << '|';
+	std::cout << std::setw(width) << i + 1 << '|';
+	std::cout << std::setw(width) << std::right << fmt.get_firstname() << '|';
+	std::cout << std::setw(width) << std::right << fmt.get_lastname() << '|';
+	std::cout << std::setw(width) << std::right << fmt.get_nickname() << '|';
 }
 
 void	Phonebook::get_input(int i, Contact & c)
 {
-	std::cout << Contact::field[i] << "\n>> ";
+	std::cout << Contact::field[i] << "\n  ➜ ";
 	getline(std::cin, c.info[i]);
 }
 
@@ -63,7 +67,8 @@ void	Phonebook::print_all() const
 	std::string	first, last, nick;
 	std::size_t	i;
 
-	/// header
+	std::cout << std::setw(width + 5 + headsize) << head;
+	std::cout << std::setw(width + 5) << "\n\n";
 	i = -1;
 	while (++i < 8)
 	{
@@ -84,12 +89,12 @@ void	Phonebook::search()
 
 	if (is_empty())
 	{
-		std::cout << "There is nothing in this phonebook. \n";
+		std::cout << "The phonebook is empty. \n";
 		return ;
 	}
 	print_all();
 	std::cout << "Enter a number associated with your desire. \n";
-	std::cout << "Press 0 to return\n>> ";
+	std::cout << "Press 0 to return\n ➜ ";
 	std::cin >> i;
 	std::cin.clear();
 	if (!i)
@@ -106,7 +111,7 @@ void	Phonebook::search()
 	{
 		i = (i - 1) % 8;
 	}
-	ContactFmt.display_info(contact[i]);
+	contactfmt.fmt_printer(contact[i]);
 	std::cin.ignore(256, '\n');
 }
 

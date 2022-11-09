@@ -10,8 +10,10 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-//#include "phonebook.hpp"
-#include "contact.hpp"
+#include "Contact.hpp"
+
+Contact::Contact() {}
+Contact::~Contact() {}
 
 std::string	Contact::field[5] = 
 {

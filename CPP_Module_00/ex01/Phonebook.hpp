@@ -15,20 +15,20 @@
 
 # include "iostream"
 # include "iomanip" // for std::setw
-# include "contact.hpp"
+# include "Contact.hpp"
 # include "ContactFmt.hpp"
 
 class	Phonebook
 {
 	private:
-		std::size_t	size;
-		Contact		*contact;
-		ContactFmt		ContactFmt;
+		std::size_t		size;
+		ContactFmt		contactfmt;
+		Contact			*contact;
 
 		//std::size_t	last_added;
 
 		void		print_all(void) const;
-		void		print_col(const ContactFmt & ContactFmt, std::size_t) const;
+		void		print_col(const ContactFmt & contactfmt, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:
@@ -43,10 +43,19 @@ class	Phonebook
 		std::size_t	last_added;
 };
 
+# define width 10
 # define nl2 "\n\n"
 # define sp3 "   "
 # define sp4 "    "
 # define anm "=^..^= =^..^= =^..^="
-# define empty_prompt " \n> \n"
+# define head "- Phonebook -"
+# define headsize 14
+# define nocol "\033[0m"
+# define white "\033[0m"
+# define empty_prompt " \n➜ \n"
+# define pbook "➜ Your awesome phonebook is online. \n"
+# define usage "➜ [Usage]: Enter your command [Add, Search, Exit]"
+# define nocom "Service unavailable. Please re-enter your command \n"
+# define tocut "------------8<----[ cut here ]------------ "
 
 #endif
