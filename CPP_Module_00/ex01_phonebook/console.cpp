@@ -10,31 +10,34 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "console.hpp"
+#include "ContactFmt.hpp"
 
-Console::Console
+ContactFmt::ContactFmt() {}
+ContactFmt::~ContactFmt() {}
+
+ContactFmt::ContactFmt
 (
  	const std::string & first,
 	const std::string & last,
 	const std::string & nick
 ):	firstname(first), lastname(last), nickname(nick) {}
 
-const	std::string & Console::get_firstname() const
+const	std::string & ContactFmt::get_firstname() const
 {
 	return (firstname);
 }
 
-const	std::string & Console::get_lastname() const
+const	std::string & ContactFmt::get_lastname() const
 {
 	return (lastname);
 }
 
-const	std::string & Console::get_nickname() const
+const	std::string & ContactFmt::get_nickname() const
 {
 	return (nickname);
 }
 
-void	Console::display_info(const Contact & c) const
+void	ContactFmt::display_info(const Contact & c) const
 {
 	std::cout << "First name: \t"	<< c.info[0] << "\n";
 	std::cout << "Last name: "	<< c.info[1] << "\n";
@@ -42,6 +45,3 @@ void	Console::display_info(const Contact & c) const
 	std::cout << "Phone number: "	<< c.info[3] << "\n";
 	std::cout << "Dark secret: "	<< c.info[4] << "\n";
 }
-
-Console::Console() {}
-Console::~Console() {}

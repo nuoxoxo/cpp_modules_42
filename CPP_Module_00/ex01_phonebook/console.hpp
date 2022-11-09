@@ -17,7 +17,7 @@
 # include "iostream"
 # include "contact.hpp"
 
-class	Console
+class	ContactFmt
 {
 	private:
 		std::string	firstname;
@@ -25,14 +25,14 @@ class	Console
 		std::string	nickname;
 
 	public:
-		Console();
-		Console
+		ContactFmt();
+		ContactFmt
 		(
 			const	std::string &,
 			const	std::string &,
 			const	std::string &
 		);
-		~Console();
+		~ContactFmt();
 		const	std::string & get_firstname()	const;
 		const	std::string & get_lastname()	const;
 		const	std::string & get_nickname()	const;

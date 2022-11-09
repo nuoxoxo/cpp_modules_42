@@ -14,7 +14,7 @@
 # comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
 comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
 name		:=	phonebook
-src		:=	main.cpp contact.cpp console.cpp phonebook.cpp
+src		:=	main.cpp contact.cpp ContactFmt.cpp phonebook.cpp
 rmv		:=	rm -f
 
 bud		:=	$(src:.cpp=.o)

@@ -16,19 +16,19 @@
 # include "iostream"
 # include "iomanip" // for std::setw
 # include "contact.hpp"
-# include "console.hpp"
+# include "ContactFmt.hpp"
 
 class	Phonebook
 {
 	private:
 		std::size_t	size;
 		Contact		*contact;
-		Console		console;
+		ContactFmt		ContactFmt;
 
 		//std::size_t	last_added;
 
 		void		print_all(void) const;
-		void		print_col(const Console & console, std::size_t) const;
+		void		print_col(const ContactFmt & ContactFmt, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:

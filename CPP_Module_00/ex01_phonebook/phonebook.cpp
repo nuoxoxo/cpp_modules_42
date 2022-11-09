@@ -12,15 +12,8 @@
 
 #include "phonebook.hpp"
 
-Phonebook::Phonebook() : size()
-{
-	contact = new Contact[8];
-}
-
-Phonebook::~Phonebook()
-{
-
-}
+Phonebook::Phonebook() : size() { contact = new Contact[8]; }
+Phonebook::~Phonebook() {}
 
 void	Phonebook::add()
 {
@@ -46,12 +39,12 @@ std::string	Phonebook::linter(const std::string & line) const
 	return (line.substr(0, 9).append("."));
 }
 
-void	Phonebook::print_col(const Console &cs, std::size_t i) const
+void	Phonebook::print_col(const ContactFmt & fmt, std::size_t i) const
 {
 	std::cout << std::setw(10) << i + 1 << '|';
-	std::cout << std::setw(10) << std::right << cs.get_firstname() << '|';
-	std::cout << std::setw(10) << std::right << cs.get_lastname() << '|';
-	std::cout << std::setw(10) << std::right << cs.get_nickname() << '|';
+	std::cout << std::setw(10) << std::right << fmt.get_firstname() << '|';
+	std::cout << std::setw(10) << std::right << fmt.get_lastname() << '|';
+	std::cout << std::setw(10) << std::right << fmt.get_nickname() << '|';
 }
 
 void	Phonebook::get_input(int i, Contact & c)
@@ -78,9 +71,9 @@ void	Phonebook::print_all() const
 		last = linter(contact[i].info[1]);
 		nick = linter(contact[i].info[2]);
 
-		Console			console(first, last, nick);
+		ContactFmt			ContactFmt(first, last, nick);
 
-		print_col(console, i);
+		print_col(ContactFmt, i);
 		std::cout << "\n-----------\n";
 	}
 }
@@ -113,7 +106,7 @@ void	Phonebook::search()
 	{
 		i = (i - 1) % 8;
 	}
-	console.display_info(contact[i]);
+	ContactFmt.display_info(contact[i]);
 	std::cin.ignore(256, '\n');
 }
 
