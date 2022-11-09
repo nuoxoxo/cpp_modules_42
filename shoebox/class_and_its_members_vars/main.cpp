@@ -22,6 +22,7 @@ int	main()
 	point.b = 64;
 	point.v = 2;
 	print(point);
+	return (std::cin.get(), 0);
 }
 
 //
