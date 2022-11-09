@@ -10,14 +10,38 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-//#include "phonebook.hpp"
-#include "contact.hpp"
+#include "ContactFmt.hpp"
 
-std::string	Contact::field[5] = 
+ContactFmt::ContactFmt() {}
+ContactFmt::~ContactFmt() {}
+
+ContactFmt::ContactFmt
+(
+ 	const std::string & first,
+	const std::string & last,
+	const std::string & nick
+):	firstname(first), lastname(last), nickname(nick) {}
+
+const	std::string & ContactFmt::get_firstname() const
 {
-	"First Name",
-	"Last Name",
-	"Nickname",
-	"Phone No.",
-	"Darkest Secret"
-};
+	return (firstname);
+}
+
+const	std::string & ContactFmt::get_lastname() const
+{
+	return (lastname);
+}
+
+const	std::string & ContactFmt::get_nickname() const
+{
+	return (nickname);
+}
+
+void	ContactFmt::fmt_printer(const Contact & c) const
+{
+	std::cout << "First name: "	<< c.info[0] << "\n";
+	std::cout << "Last name: "	<< c.info[1] << "\n";
+	std::cout << "Nickname: "	<< c.info[2] << "\n";
+	std::cout << "Phone number: "	<< c.info[3] << "\n";
+	std::cout << "Dark secret: "	<< c.info[4] << "\n";
+}

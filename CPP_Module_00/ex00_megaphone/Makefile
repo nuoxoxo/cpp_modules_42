@@ -15,8 +15,10 @@ name		:=	megaphone
 
 # Check compiler requirement before going on
 
-comp		:=	clang++ -std=c++11 -Wall -Werror -Wextra
-#comp		:=	c++ -std=c++11 -Wall -Werror -Wextra
+# comp		:=	clang++ -std=c++11 -Wall -Werror -Wextra
+# comp		:=	c++ -std=c++11 -Wall -Werror -Wextra
+# comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
+comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
 
 src		:=	megaphone.cpp
 rmv		:=	rm -rf
@@ -30,9 +32,8 @@ all		:	$(name)
 
 $(name)		:	$(bud)
 			$(comp) -o $@ $<
-			@printf "\n- \n\n"
-			@./$(name)
-
+			@ printf "\n- \n\n"
+			@ ./$(name)
 
 clean		:
 			$(rmv) $(name)

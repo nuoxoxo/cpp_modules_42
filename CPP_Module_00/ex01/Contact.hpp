@@ -10,38 +10,28 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "console.hpp"
+#ifndef __CONTACT_HPP__
+# define __CONTACT_HPP__
 
-Console::Console(
-	const std::string& first,
-	const std::string& last,
-	const std::string& nick) :
-	firstname(first),
-	lastname(last),
-	nickname(nick) {}
+#include "string"
 
-const	std::string& Console::get_firstname() const
+class	Contact
 {
-	return (firstname);
-}
+	public:
+		Contact();
+		virtual		~Contact();
 
-const	std::string& Console::get_lastname() const
-{
-	return (lastname);
-}
+		std::string		info[5];
+		static std::string	field[5];
 
-const	std::string& Console::get_nickname() const
-{
-	return (nickname);
-}
+		enum Field
+		{
+			first,
+			last,
+			nick,
+			phone,
+			dark
+		};
+};
 
-void	Console::display_info(const Contact& c) const
-{
-	std::cout << "First name: \t" << c.info[0] << "\n";
-	std::cout << "Last name: " << c.info[1] << "\n";
-	std::cout << "Nickname: " << c.info[2] << "\n";
-	std::cout << "Phone number: " << c.info[3] << "\n";
-	std::cout << "Dark secret: " << c.info[4] << "\n";
-}
-
-Console::Console() {}
+#endif

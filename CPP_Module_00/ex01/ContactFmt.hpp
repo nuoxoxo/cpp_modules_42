@@ -10,25 +10,34 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef __CONTACT_HPP__
-# define __CONTACT_HPP__
+#ifndef __CONTACT_FMT_H__
+# define __CONTACT_FMT_H__
 
-#include "string"
+# include "iostream"
+# include "Contact.hpp"
 
-class	Contact
+class	ContactFmt
 {
-	public:
-		std::string		info[5];
-		static std::string	field[5];
+	private:
+		std::string	firstname;
+		std::string	lastname;
+		std::string	nickname;
 
-		enum Field
-		{
-			firstname,
-			lastname,
-			nickname,
-			phoneno,
-			darksec
-		};
+	public:
+		ContactFmt();
+		virtual		~ContactFmt();
+
+		ContactFmt
+		(
+			const	std::string &,
+			const	std::string &,
+			const	std::string &
+		);
+
+		const	std::string & get_firstname()	const;
+		const	std::string & get_lastname()	const;
+		const	std::string & get_nickname()	const;
+		void	fmt_printer(const Contact &)	const;
 };
 
 #endif

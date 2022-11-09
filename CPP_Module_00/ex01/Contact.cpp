@@ -10,31 +10,16 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef __CONSOLE_H__
-# define __CONSOLE_H__
+#include "Contact.hpp"
 
-//# include "phonebook.hpp"
-# include "iostream"
-# include "contact.hpp"
+Contact::Contact() {}
+Contact::~Contact() {}
 
-class	Console
+std::string	Contact::field[5] = 
 {
-	private:
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
-
-	public:
-		Console();
-		Console(
-			const	std::string &,
-			const	std::string &,
-			const	std::string &
-		);
-		const	std::string &get_firstname() const;
-		const	std::string &get_lastname() const;
-		const	std::string &get_nickname() const;
-		void	display_info(const Contact &) const;
+	"First Name",
+	"Last Name",
+	"Nickname",
+	"Phone No.",
+	"Darkest Secret"
 };
-
-#endif

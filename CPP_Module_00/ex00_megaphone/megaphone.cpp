@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-// Forbidden functions : None
-
 #include "iostream"
 
 int	main(int c, char **v)
 {
+	std::string	msg;
 	int		i;
 	int		j;
 
+	msg = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	if (c < 2)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << msg << '\n';
 		return (0);
 	}
 	i = 0;
