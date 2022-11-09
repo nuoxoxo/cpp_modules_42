@@ -21,15 +21,17 @@
 class	Phonebook
 {
 	private:
-		std::size_t		size;
-		ContactFmt		contactfmt;
-		Contact			*contact;
+		std::size_t		m_size;
+		ContactFmt		m_contactfmt;
+		Contact			*m_contact;
 
-		//std::size_t	last_added;
-
+	private:
 		void		print_all(void) const;
-		void		print_col(const ContactFmt & contactfmt, std::size_t) const;
+		void		print_col(const ContactFmt & m_contactfmt, std::size_t) const;
 		std::string	linter(const std::string &) const;
+
+	public:
+		std::size_t	last_added;
 
 	public:
 		Phonebook();
@@ -38,9 +40,7 @@ class	Phonebook
 		void		add(void);
 		void		search(void);
 		bool		is_empty(void) const;
-		void		get_input(int, Contact & contact);
-
-		std::size_t	last_added;
+		void		get_input(int, Contact & contact);		
 };
 
 # define width 10

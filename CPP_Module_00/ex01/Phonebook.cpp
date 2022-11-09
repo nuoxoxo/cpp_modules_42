@@ -12,26 +12,21 @@
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : size() { contact = new Contact[8]; }
+Phonebook::Phonebook() : m_size() { m_contact = new Contact[8]; }
 Phonebook::~Phonebook() {}
 
 void	Phonebook::add()
 {
 	Contact		c;
 
-	// get_input(Contact::firstname, c);
-	// get_input(Contact::lastname, c);
-	// get_input(Contact::nickname, c);
-	// get_input(Contact::phoneno, c);
-	// get_input(Contact::darksec, c);
 	get_input(Contact::first, c);
 	get_input(Contact::last, c);
 	get_input(Contact::nick, c);
 	get_input(Contact::phone, c);
 	get_input(Contact::dark, c);
-	contact[size % 8] = c;
+	m_contact[m_size % 8] = c;
 	last_added = (last_added + 1) % 8;
-	size += 1;
+	m_size += 1;
 }
 
 std::string	Phonebook::linter(const std::string & line) const
@@ -53,13 +48,21 @@ void	Phonebook::print_col(const ContactFmt & fmt, std::size_t i) const
 
 void	Phonebook::get_input(int i, Contact & c)
 {
-	std::cout << Contact::field[i] << "\n  ➜ ";
-	getline(std::cin, c.info[i]);
+	// std::cout << Contact::field[i] << "\n  ➜ ";
+	// getline(std::cin, c.info[i]);
+	std::string		input;
+	
+	while (input.empty())
+	{
+		std::cout << Contact::field[i] << "\n  ➜ ";
+		getline(std::cin, input);
+	}
+	c.info[i] = input;
 }
 
 bool	Phonebook::is_empty() const
 {
-	return (size == 0);
+	return (m_size == 0);
 }
 
 void	Phonebook::print_all() const
@@ -72,9 +75,9 @@ void	Phonebook::print_all() const
 	i = -1;
 	while (++i < 8)
 	{
-		first = linter(contact[i].info[0]);
-		last = linter(contact[i].info[1]);
-		nick = linter(contact[i].info[2]);
+		first = linter(m_contact[i].info[0]);
+		last = linter(m_contact[i].info[1]);
+		nick = linter(m_contact[i].info[2]);
 
 		ContactFmt			ContactFmt(first, last, nick);
 
@@ -111,7 +114,7 @@ void	Phonebook::search()
 	{
 		i = (i - 1) % 8;
 	}
-	contactfmt.fmt_printer(contact[i]);
+	m_contactfmt.fmt_printer(m_contact[i]);
 	std::cin.ignore(256, '\n');
 }
 

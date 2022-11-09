@@ -19,9 +19,9 @@
 class	ContactFmt
 {
 	private:
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
+		std::string		m_firstname;
+		std::string		m_lastname;
+		std::string		m_nickname;
 
 	public:
 		ContactFmt();
