@@ -25,7 +25,7 @@ int	main()
 	int			err;
 	
 
-	tocut = "\n ----------------8<-------------[ cut here ]------------------ \n";
+	tocut = "------------8<----[ cut here ]------------ ";
 	usage = "> [Usage]: Enter your command [Add, Search, Exit]";
 	nocom = "Service unavailable. Please re-enter your command \n";
 	pbook = "> Your awesome phonebook is online. \n";
