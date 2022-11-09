@@ -23,13 +23,12 @@ int	main()
 	std::string		pbook;
 	Phonebook		P;
 	int			err;
-	
 
 	tocut = "------------8<----[ cut here ]------------ ";
+	pbook = "> Your awesome phonebook is online. \n";
 	usage = "> [Usage]: Enter your command [Add, Search, Exit]";
 	nocom = "Service unavailable. Please re-enter your command \n";
-	pbook = "> Your awesome phonebook is online. \n";
-	std::cout << tocut << nl2 << pbook << usage << arr;
+	std::cout << tocut << nl2 << pbook << usage << empty_prompt;
 	err = -1;
 	while (1)
 	{
@@ -49,12 +48,12 @@ int	main()
 		else if (input == "exit" || input == "exit()" || input == "quit")
 		{
 			std::cout << "> \n> All contacts will be lost forever. \n";
-			std::cout << "> Goodbye and have a nice day." << arr;
+			std::cout << "> Goodbye and have a nice day." << empty_prompt;
 			break ;
 		}
 		else
 		{
-			if (!++err)
+			if ( ! ++ err)
 				std::cout << nocom;
 			else
 				std::cout << "Please try harder! \n";
@@ -62,7 +61,7 @@ int	main()
 	}
 }
 
-static void	to_lower(char &c)
+static void	to_lower(char & c)
 {
 	c = std::tolower(c);
 }

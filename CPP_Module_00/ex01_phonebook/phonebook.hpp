@@ -18,33 +18,35 @@
 # include "contact.hpp"
 # include "console.hpp"
 
-# define nl2 "\n\n"
-# define sp3 "   "
-# define sp4 "    "
-# define anm "=^..^= =^..^= =^..^="
-# define arr " \n> \n"
-
 class	Phonebook
 {
 	private:
 		std::size_t	size;
-		//std::size_t	last_added;
 		Contact		*contact;
 		Console		console;
 
-		void		put_table() const;
-		void		put_columns(const Console &console, std::size_t) const;
+		//std::size_t	last_added;
+
+		void		print_all(void) const;
+		void		print_col(const Console & console, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:
 		Phonebook();
-
 		virtual		~Phonebook();
-		void		add();
-		void		search();
-		bool		is_empty() const;
+
+		void		add(void);
+		void		search(void);
+		bool		is_empty(void) const;
 		void		get_input(int, Contact & contact);
+
 		std::size_t	last_added;
 };
+
+# define nl2 "\n\n"
+# define sp3 "   "
+# define sp4 "    "
+# define anm "=^..^= =^..^= =^..^="
+# define empty_prompt " \n> \n"
 
 #endif

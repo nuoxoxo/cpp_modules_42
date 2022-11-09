@@ -1,0 +1,60 @@
+# PhoneBook
+
+--- TODO ---
+
+class
+	- (?) Book::Book() : size ()
+	- no virtual destructor in console hpp
+
+io
+	- std::cout << std::setw( 10 ) << std::right << ...
+	- cin::ignore(256, '\n')
+
+subj.
+	- replace the last added (?) or the last item
+	- can we include "string"
+
+--- NOTES ---
+
+in the main
+
+- print working message
+- print usage message
+- Declare PhoneBook "P"
+- into the while loop (Kernel)
+	- prompt user for input
+	- lower the input via for_each + to_lower
+	- switch case (except that in cpp we can't switch string)
+	- case "add"
+		- P.add()
+		- print success when done
+	- case "search"
+		- P.search()
+	- case "quit"
+		- print warning
+		- print goodbye
+		- break the loop
+	- case (!input)
+		- 1st time print: service unavailable
+		- 2nd time on, print: plz try harder!
+
+in PhoneBook
+
+- private members
+	- var	size
+	- var	contact array
+	- var	console
+	- meth.	put_table
+	- meth. put_colms
+	- meth. linter
+
+- public members
+	- Constructor
+	- Destructor
+	- var	index of the last added item
+	- meth.	add
+	- meth. search
+	- meth. is_empty
+	- meth. get_input
+
+

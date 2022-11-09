@@ -26,15 +26,17 @@ class	Console
 
 	public:
 		Console();
-		Console(
+		Console
+		(
 			const	std::string &,
 			const	std::string &,
 			const	std::string &
 		);
-		const	std::string &get_firstname() const;
-		const	std::string &get_lastname() const;
-		const	std::string &get_nickname() const;
-		void	display_info(const Contact &) const;
+		~Console();
+		const	std::string & get_firstname()	const;
+		const	std::string & get_lastname()	const;
+		const	std::string & get_nickname()	const;
+		void	display_info(const Contact &)	const;
 };
 
 #endif

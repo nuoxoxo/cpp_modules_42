@@ -17,7 +17,10 @@ Phonebook::Phonebook() : size()
 	contact = new Contact[8];
 }
 
-Phonebook::~Phonebook() {}
+Phonebook::~Phonebook()
+{
+
+}
 
 void	Phonebook::add()
 {
@@ -34,7 +37,7 @@ void	Phonebook::add()
 	
 }
 
-std::string	Phonebook::linter(const std::string &line) const
+std::string	Phonebook::linter(const std::string & line) const
 {
 	if (line.length() < 11)
 	{
@@ -43,7 +46,7 @@ std::string	Phonebook::linter(const std::string &line) const
 	return (line.substr(0, 9).append("."));
 }
 
-void	Phonebook::put_columns(const Console &cs, std::size_t i) const
+void	Phonebook::print_col(const Console &cs, std::size_t i) const
 {
 	std::cout << std::setw(10) << i + 1 << '|';
 	std::cout << std::setw(10) << std::right << cs.get_firstname() << '|';
@@ -51,7 +54,7 @@ void	Phonebook::put_columns(const Console &cs, std::size_t i) const
 	std::cout << std::setw(10) << std::right << cs.get_nickname() << '|';
 }
 
-void	Phonebook::get_input(int i, Contact &c)
+void	Phonebook::get_input(int i, Contact & c)
 {
 	std::cout << Contact::field[i] << "\n>> ";
 	getline(std::cin, c.info[i]);
@@ -62,7 +65,7 @@ bool	Phonebook::is_empty() const
 	return (size == 0);
 }
 
-void	Phonebook::put_table() const
+void	Phonebook::print_all() const
 {
 	std::string	first, last, nick;
 	std::size_t	i;
@@ -77,7 +80,7 @@ void	Phonebook::put_table() const
 
 		Console			console(first, last, nick);
 
-		put_columns(console, i);
+		print_col(console, i);
 		std::cout << "\n-----------\n";
 	}
 }
@@ -91,7 +94,7 @@ void	Phonebook::search()
 		std::cout << "There is nothing in this phonebook. \n";
 		return ;
 	}
-	put_table();
+	print_all();
 	std::cout << "Enter a number associated with your desire. \n";
 	std::cout << "Press 0 to return\n>> ";
 	std::cin >> i;
