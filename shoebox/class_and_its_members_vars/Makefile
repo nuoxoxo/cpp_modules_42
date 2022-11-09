@@ -8,6 +8,10 @@ $(name)	:	$(src)
 		@ $(comp) $^ -o $@
 		@ ./$(name)
 
+
+
 f	:
 		@ rm -rf $(name) a.out
+
+run	:	re
 re	:	f all
