@@ -96,7 +96,6 @@ void	Phonebook::print_all() const
 	std::string	first, last, nick;
 	std::size_t	i;
 
-	// std::cout << std::setfill('.');
 	std::cout << std::setw(WIDTH + 2 + FMT_HEAD_SIZE) << FMT_HEAD;
 	std::cout << std::setw(WIDTH + 5) << "\n\n";
 	std::cout << std::setw(WIDTH) << "index" << '|';
