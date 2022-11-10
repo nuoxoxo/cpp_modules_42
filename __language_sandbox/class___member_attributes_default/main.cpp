@@ -4,11 +4,9 @@ using namespace std;
 
 class	_Point_
 {
-	public:
+	//public:
 		int	a, b, v;
 };
-
-//	twist: added public keyword within Point class
 
 void	print(_Point_ & p);
 

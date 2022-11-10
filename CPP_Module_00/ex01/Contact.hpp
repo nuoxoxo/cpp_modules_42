@@ -19,12 +19,13 @@ class	Contact
 {
 	public:
 		Contact();
-		virtual		~Contact();
+		virtual	~Contact();
 
-		std::string		info[5];
+	public:
 		static std::string	field[5];
+		std::string		info[5];
 
-		enum Field
+		enum	Field
 		{
 			first,
 			last,

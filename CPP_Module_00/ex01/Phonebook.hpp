@@ -15,47 +15,43 @@
 
 # include "iostream"
 # include "iomanip" // for std::setw
+
 # include "Contact.hpp"
-# include "ContactFmt.hpp"
+# include "Fmt.hpp"
 
 class	Phonebook
 {
 	private:
-		std::size_t		size;
-		ContactFmt		contactfmt;
-		Contact			*contact;
-
-		//std::size_t	last_added;
-
+		std::size_t		m_size;
+		Contact			*m_contact;
+		Fmt			m_fmt;
+	private:
 		void		print_all(void) const;
-		void		print_col(const ContactFmt & contactfmt, std::size_t) const;
+		void		print_col(const Fmt & m_fmt, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:
 		Phonebook();
-		virtual		~Phonebook();
+		virtual	~Phonebook();
 
 		void		add(void);
 		void		search(void);
 		bool		is_empty(void) const;
-		void		get_input(int, Contact & contact);
-
-		std::size_t	last_added;
+		void		get_input(int, Contact & contact);		
 };
 
-# define width 10
-# define nl2 "\n\n"
-# define sp3 "   "
-# define sp4 "    "
-# define anm "=^..^= =^..^= =^..^="
-# define head "- Phonebook -"
-# define headsize 14
-# define nocol "\033[0m"
-# define white "\033[0m"
-# define empty_prompt " \n➜ \n"
-# define pbook "➜ Your awesome phonebook is online. \n"
-# define usage "➜ [Usage]: Enter your command [Add, Search, Exit]"
-# define nocom "Service unavailable. Please re-enter your command \n"
-# define tocut "----------8<----[ cut here ]---------------- "
+# define CONTACT_SIZE 8
+# define WIDTH 10
+
+# define FMT_HEAD_SIZE 18
+# define FMT_HEAD "--- Phonebook ---"
+
+# define NL2 "\n\n"
+# define SKIP_PROMPT " \n➜ \n"
+
+# define NOCMD "Service unavailable. Please re-enter your command \n"
+# define USAGE "➜ [Usage]: Enter your command [Add, Search, Exit]"
+# define ONAIR "➜ Your awesome phonebook is online. \n"
+# define DELIM "----------8<----[ cut here ]---------------- "
 
 #endif

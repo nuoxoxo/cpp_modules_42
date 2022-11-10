@@ -14,7 +14,7 @@
 # comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
 comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
 name		:=	phonebook
-src		:=	main.cpp Contact.cpp ContactFmt.cpp Phonebook.cpp
+src		:=	main.cpp Contact.cpp Fmt.cpp Phonebook.cpp
 rmv		:=	rm -f
 
 bud		:=	$(src:.cpp=.o)
@@ -22,16 +22,16 @@ bud		:=	$(src:.cpp=.o)
 all		:	$(name)
 
 %.o		:	%.cpp
-			@ echo compiling [$@]
-			@ $(comp) -c $^
+			@ echo "\ncompiling" [$@]
+			$(comp) -c $^
 
 
 #$(name)		:	$(src)
 #		@ $(comp) $^ -o $@
 
 $(name)		:	$(bud)
-			@ echo compiling [$@]
-			@ $(comp) -o $@ $^
+			@ echo "\ncompiling" [$@]
+			$(comp) -o $@ $^
 			@ printf "\n- \n\n"
 
 clean		:

@@ -20,8 +20,8 @@ int	main()
 	Phonebook		P;
 	int				err;
 
-	std::cout << tocut << nl2 << pbook << usage << empty_prompt;
-	err = -1;
+	std::cout << DELIM << NL2 << ONAIR << USAGE << SKIP_PROMPT;
+	err = -2;
 	while (1)
 	{
 		std::cout << "➜ ";
@@ -37,18 +37,20 @@ int	main()
 		{
 			P.search();
 		}
-		else if (input == "exit" || input == "exit()" || input == "quit")
+		// else if (input == "exit" || input == "exit()" || input == "quit")
+		else if (input == "exit")
 		{
 			std::cout << "➜ \n➜ All contacts will be lost forever. \n";
-			std::cout << "➜ Goodbye and have a nice day." << empty_prompt;
+			std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
 			break ;
 		}
 		else
 		{
-			if ( ! ++err)
-				std::cout << nocom;
-			else
-				std::cout << "Please try harder! \n";
+			continue ;
+			// if ( ! ++err)
+			// 	std::cout << NOCMD;
+			// else
+			// 	std::cout << "Please try harder! \n";
 		}
 	}
 }

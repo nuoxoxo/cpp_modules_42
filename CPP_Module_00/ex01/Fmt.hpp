@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef __CONTACT_FMT_H__
-# define __CONTACT_FMT_H__
+#ifndef __FMT_H__
+# define __FMT_H__
 
 # include "iostream"
 # include "Contact.hpp"
 
-class	ContactFmt
+class	Fmt
 {
 	private:
-		std::string	firstname;
-		std::string	lastname;
-		std::string	nickname;
+		std::string		m_firstname;
+		std::string		m_lastname;
+		std::string		m_nickname;
 
 	public:
-		ContactFmt();
-		virtual		~ContactFmt();
+		Fmt();
+		virtual	~Fmt();
 
-		ContactFmt
+		Fmt
 		(
 			const	std::string &,
 			const	std::string &,
