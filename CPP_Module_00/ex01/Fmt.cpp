@@ -13,36 +13,33 @@
 #include "Fmt.hpp"
 
 Fmt::Fmt() {}
-Fmt::~Fmt() {}
 
 Fmt::Fmt
 (
- 	const std::string & first,
-	const std::string & last,
-	const std::string & nick
-):	m_firstname(first), 
-	m_lastname(last), 
-	m_nickname(nick)
-{
-	
-}
+ 	const std::string& first, const std::string& last, const std::string& nick
+) :	m_firstname(first), m_lastname(last), m_nickname(nick) {}
 
+/*
+	Notes: 
+		Above we use "init list" to init the const member vars.
+		This is the only time we can change the member vars.
+		An "init list" is therefore necessary before the constructor call.
+*/
+
+Fmt::~Fmt() {}
 
 const	std::string & Fmt::get_firstname() const
 {
-	// return (firstname);
 	return (m_firstname);
 }
 
 const	std::string & Fmt::get_lastname() const
 {
-	// return (lastname);
 	return (m_lastname);
 }
 
 const	std::string & Fmt::get_nickname() const
 {
-	// return (nickname);
 	return (m_nickname);
 }
 

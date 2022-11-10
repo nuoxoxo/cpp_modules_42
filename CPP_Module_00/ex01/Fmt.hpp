@@ -13,7 +13,7 @@
 #ifndef __FMT_H__
 # define __FMT_H__
 
-// # include "iostream"
+# include "iostream"
 # include "Contact.hpp"
 
 class	Fmt

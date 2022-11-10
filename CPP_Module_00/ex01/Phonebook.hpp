@@ -23,8 +23,8 @@ class	Phonebook
 {
 	private:
 		std::size_t		m_size;
-		Fmt		m_fmt;
 		Contact			*m_contact;
+		Fmt			m_fmt;
 	private:
 		void		print_all(void) const;
 		void		print_col(const Fmt & m_fmt, std::size_t) const;

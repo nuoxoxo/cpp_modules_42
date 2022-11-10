@@ -15,6 +15,12 @@
 Phonebook::Phonebook() : m_size() { m_contact = new Contact[CONTACT_SIZE]; }
 Phonebook::~Phonebook() {}
 
+/*
+	Notes:
+		"init list" is used to set the value of m_size, which is set for
+		the first time.
+*/
+
 void	Phonebook::add()
 {
 	Contact		c;

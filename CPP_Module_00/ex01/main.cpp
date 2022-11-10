@@ -21,7 +21,7 @@ int	main()
 	int				err;
 
 	std::cout << DELIM << NL2 << ONAIR << USAGE << SKIP_PROMPT;
-	err = -1;
+	err = -2;
 	while (1)
 	{
 		std::cout << "➜ ";
