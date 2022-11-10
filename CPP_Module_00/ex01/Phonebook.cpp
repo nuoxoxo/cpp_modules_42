@@ -12,7 +12,7 @@
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : m_size() { m_contact = new Contact[8]; }
+Phonebook::Phonebook() : m_size() { m_contact = new Contact[CONTACT_SIZE]; }
 Phonebook::~Phonebook() {}
 
 void	Phonebook::add()
@@ -24,8 +24,7 @@ void	Phonebook::add()
 	get_input(Contact::nick, c);
 	get_input(Contact::phone, c);
 	get_input(Contact::dark, c);
-	m_contact[m_size % 8] = c;
-	last_added = (last_added + 1) % 8;
+	m_contact[m_size % CONTACT_SIZE] = c;
 	m_size += 1;
 }
 
@@ -40,10 +39,10 @@ std::string	Phonebook::linter(const std::string & line) const
 
 void	Phonebook::print_col(const ContactFmt & fmt, std::size_t i) const
 {
-	std::cout << std::setw(width) << i + 1 << '|';
-	std::cout << std::setw(width) << std::right << fmt.get_firstname() << '|';
-	std::cout << std::setw(width) << std::right << fmt.get_lastname() << '|';
-	std::cout << std::setw(width) << std::right << fmt.get_nickname() << '|';
+	std::cout << std::setw(WIDTH) << i + 1 << '|';
+	std::cout << std::setw(WIDTH) << std::right << fmt.get_firstname() << '|';
+	std::cout << std::setw(WIDTH) << std::right << fmt.get_lastname() << '|';
+	std::cout << std::setw(WIDTH) << std::right << fmt.get_nickname() << '|';
 }
 
 void	Phonebook::get_input(int i, Contact & c)
@@ -70,10 +69,10 @@ void	Phonebook::print_all() const
 	std::string	first, last, nick;
 	std::size_t	i;
 
-	std::cout << std::setw(width + 5 + headsize) << head;
-	std::cout << std::setw(width + 5) << "\n\n";
+	std::cout << std::setw(WIDTH + 5 + FMT_HEAD_SIZE) << FMT_HEAD;
+	std::cout << std::setw(WIDTH + 5) << "\n\n";
 	i = -1;
-	while (++i < 8)
+	while (++i < CONTACT_SIZE)
 	{
 		first = linter(m_contact[i].info[0]);
 		last = linter(m_contact[i].info[1]);
@@ -112,10 +111,8 @@ void	Phonebook::search()
 	}
 	if (i)
 	{
-		i = (i - 1) % 8;
+		i = (i - 1) % CONTACT_SIZE;
 	}
 	m_contactfmt.fmt_printer(m_contact[i]);
 	std::cin.ignore(256, '\n');
 }
-
-

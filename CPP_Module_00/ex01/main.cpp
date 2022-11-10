@@ -20,7 +20,7 @@ int	main()
 	Phonebook		P;
 	int				err;
 
-	std::cout << tocut << nl2 << pbook << usage << empty_prompt;
+	std::cout << DELIM << NL2 << ONAIR << USAGE << SKIP_PROMPT;
 	err = -1;
 	while (1)
 	{
@@ -40,13 +40,13 @@ int	main()
 		else if (input == "exit" || input == "exit()" || input == "quit")
 		{
 			std::cout << "➜ \n➜ All contacts will be lost forever. \n";
-			std::cout << "➜ Goodbye and have a nice day." << empty_prompt;
+			std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
 			break ;
 		}
 		else
 		{
 			if ( ! ++err)
-				std::cout << nocom;
+				std::cout << NOCMD;
 			else
 				std::cout << "Please try harder! \n";
 		}

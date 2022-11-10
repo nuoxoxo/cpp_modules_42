@@ -23,7 +23,7 @@ all		:	$(name)
 
 %.o		:	%.cpp
 			@ echo compiling [$@]
-			@ $(comp) -c $^
+			$(comp) -c $^
 
 
 #$(name)		:	$(src)
@@ -31,7 +31,7 @@ all		:	$(name)
 
 $(name)		:	$(bud)
 			@ echo compiling [$@]
-			@ $(comp) -o $@ $^
+			$(comp) -o $@ $^
 			@ printf "\n- \n\n"
 
 clean		:

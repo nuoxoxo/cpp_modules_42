@@ -25,7 +25,7 @@ class	ContactFmt
 
 	public:
 		ContactFmt();
-		virtual		~ContactFmt();
+		virtual	~ContactFmt();
 
 		ContactFmt
 		(
