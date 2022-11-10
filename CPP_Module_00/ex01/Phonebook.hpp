@@ -17,17 +17,17 @@
 # include "iomanip" // for std::setw
 
 # include "Contact.hpp"
-# include "ContactFmt.hpp"
+# include "Fmt.hpp"
 
 class	Phonebook
 {
 	private:
 		std::size_t		m_size;
-		ContactFmt		m_contactfmt;
+		Fmt		m_fmt;
 		Contact			*m_contact;
 	private:
 		void		print_all(void) const;
-		void		print_col(const ContactFmt & m_contactfmt, std::size_t) const;
+		void		print_col(const Fmt & m_fmt, std::size_t) const;
 		std::string	linter(const std::string &) const;
 
 	public:

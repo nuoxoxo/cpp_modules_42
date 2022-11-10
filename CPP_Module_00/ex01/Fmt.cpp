@@ -10,38 +10,43 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "ContactFmt.hpp"
+#include "Fmt.hpp"
 
-ContactFmt::ContactFmt() {}
-ContactFmt::~ContactFmt() {}
+Fmt::Fmt() {}
+Fmt::~Fmt() {}
 
-ContactFmt::ContactFmt
+Fmt::Fmt
 (
  	const std::string & first,
 	const std::string & last,
 	const std::string & nick
-):	m_firstname(first), m_lastname(last), m_nickname(nick) {}
-// ):	firstname(first), lastname(last), nickname(nick) {}
+):	m_firstname(first), 
+	m_lastname(last), 
+	m_nickname(nick)
+{
+	
+}
 
-const	std::string & ContactFmt::get_firstname() const
+
+const	std::string & Fmt::get_firstname() const
 {
 	// return (firstname);
 	return (m_firstname);
 }
 
-const	std::string & ContactFmt::get_lastname() const
+const	std::string & Fmt::get_lastname() const
 {
 	// return (lastname);
 	return (m_lastname);
 }
 
-const	std::string & ContactFmt::get_nickname() const
+const	std::string & Fmt::get_nickname() const
 {
 	// return (nickname);
 	return (m_nickname);
 }
 
-void	ContactFmt::fmt_printer(const Contact & c) const
+void	Fmt::fmt_printer(const Contact & c) const
 {
 	std::cout << "First name: "	<< c.info[0] << "\n";
 	std::cout << "Last name: "	<< c.info[1] << "\n";

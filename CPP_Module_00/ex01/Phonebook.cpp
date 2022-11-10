@@ -37,7 +37,7 @@ std::string	Phonebook::linter(const std::string & line) const
 	return (line.substr(0, 9).append("."));
 }
 
-void	Phonebook::print_col(const ContactFmt & fmt, std::size_t i) const
+void	Phonebook::print_col(const Fmt & fmt, std::size_t i) const
 {
 	std::cout << std::setw(WIDTH) << i + 1 << '|';
 	std::cout << std::setw(WIDTH) << std::right << fmt.get_firstname() << '|';
@@ -78,9 +78,9 @@ void	Phonebook::print_all() const
 		last = linter(m_contact[i].info[1]);
 		nick = linter(m_contact[i].info[2]);
 
-		ContactFmt			ContactFmt(first, last, nick);
+		Fmt			Fmt(first, last, nick);
 
-		print_col(ContactFmt, i);
+		print_col(Fmt, i);
 		std::cout << "\n-----------\n";
 	}
 }
@@ -113,6 +113,6 @@ void	Phonebook::search()
 	{
 		i = (i - 1) % CONTACT_SIZE;
 	}
-	m_contactfmt.fmt_printer(m_contact[i]);
+	m_fmt.fmt_printer(m_contact[i]);
 	std::cin.ignore(256, '\n');
 }
