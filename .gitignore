@@ -9,6 +9,7 @@ Thumbs.db
 *.a
 *.o
 *.sum
+*.json
 *.class
 *.tasty
 
