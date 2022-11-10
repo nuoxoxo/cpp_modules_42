@@ -22,7 +22,7 @@ bud		:=	$(src:.cpp=.o)
 all		:	$(name)
 
 %.o		:	%.cpp
-			@ echo compiling [$@]
+			@ echo "\ncompiling" [$@]
 			$(comp) -c $^
 
 
@@ -30,7 +30,7 @@ all		:	$(name)
 #		@ $(comp) $^ -o $@
 
 $(name)		:	$(bud)
-			@ echo compiling [$@]
+			@ echo "\ncompiling" [$@]
 			$(comp) -o $@ $^
 			@ printf "\n- \n\n"
 

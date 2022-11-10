@@ -25,11 +25,16 @@ void	Phonebook::add()
 {
 	Contact		c;
 
-	get_input(Contact::first, c);
-	get_input(Contact::last, c);
-	get_input(Contact::nick, c);
-	get_input(Contact::phone, c);
-	get_input(Contact::dark, c);
+	// get_input(Contact::first, c);
+	// get_input(Contact::last, c);
+	// get_input(Contact::nick, c);
+	// get_input(Contact::phone, c);
+	// get_input(Contact::dark, c);
+	Phonebook::get_input(Contact::first, c);
+	Phonebook::get_input(Contact::last, c);
+	Phonebook::get_input(Contact::nick, c);
+	Phonebook::get_input(Contact::phone, c);
+	Phonebook::get_input(Contact::dark, c);
 	m_contact[m_size % CONTACT_SIZE] = c;
 	m_size += 1;
 }
@@ -67,7 +72,7 @@ void	Phonebook::get_input(int i, Contact & c)
 
 bool	Phonebook::is_empty() const
 {
-	return (m_size == 0);
+	return (Phonebook::m_size == 0);
 }
 
 void	Phonebook::print_all() const
@@ -80,13 +85,18 @@ void	Phonebook::print_all() const
 	i = -1;
 	while (++i < CONTACT_SIZE)
 	{
-		first = linter(m_contact[i].info[0]);
-		last = linter(m_contact[i].info[1]);
-		nick = linter(m_contact[i].info[2]);
+		// first = linter(m_contact[i].info[0]);
+		// last = linter(m_contact[i].info[1]);
+		// nick = linter(m_contact[i].info[2]);
+		first = Phonebook::linter(m_contact[i].info[0]);
+		last = Phonebook::linter(m_contact[i].info[1]);
+		nick = Phonebook::linter(m_contact[i].info[2]);
+
 
 		Fmt			Fmt(first, last, nick);
 
-		print_col(Fmt, i);
+		// print_col(Fmt, i);
+		Phonebook::print_col(Fmt, i);
 		std::cout << "\n-----------\n";
 	}
 }
