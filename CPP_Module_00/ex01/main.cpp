@@ -37,7 +37,8 @@ int	main()
 		{
 			P.search();
 		}
-		else if (input == "exit" || input == "exit()" || input == "quit")
+		// else if (input == "exit" || input == "exit()" || input == "quit")
+		else if (input == "exit")
 		{
 			std::cout << "➜ \n➜ All contacts will be lost forever. \n";
 			std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
@@ -45,10 +46,11 @@ int	main()
 		}
 		else
 		{
-			if ( ! ++err)
-				std::cout << NOCMD;
-			else
-				std::cout << "Please try harder! \n";
+			continue ;
+			// if ( ! ++err)
+			// 	std::cout << NOCMD;
+			// else
+			// 	std::cout << "Please try harder! \n";
 		}
 	}
 }

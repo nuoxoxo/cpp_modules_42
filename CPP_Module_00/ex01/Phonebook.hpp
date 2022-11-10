@@ -43,8 +43,8 @@ class	Phonebook
 # define CONTACT_SIZE 8
 # define WIDTH 10
 
-# define FMT_HEAD_SIZE 14
-# define FMT_HEAD "- Phonebook -"
+# define FMT_HEAD_SIZE 18
+# define FMT_HEAD "--- Phonebook ---"
 
 # define NL2 "\n\n"
 # define SKIP_PROMPT " \n➜ \n"
