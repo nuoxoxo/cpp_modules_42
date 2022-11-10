@@ -6,11 +6,15 @@ class	Human
 private:
 	std::string	m_name;
 public:
+	Human() : m_name("(none)") {}
+
+	/*
 	Human()
 	{
 		m_name = "(none)";
 	}
-	
+	*/
+
 	virtual ~Human()
 	{
 	}
@@ -19,7 +23,9 @@ public:
 	{
 		m_name = name;
 	}
-	
+
+
+
 	const std::string & GetName() const
 	{
 		return m_name;
