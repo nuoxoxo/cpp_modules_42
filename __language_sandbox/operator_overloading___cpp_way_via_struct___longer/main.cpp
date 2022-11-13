@@ -21,12 +21,14 @@ struct	V2
 
 	V2	operator + (const V2 & other) const
 	{
-		return _ADD_(other);
+		return V2(x + other.x, y + other.y);
+		// return _ADD_(other);
 	}
 
 	V2	operator * (const V2 & other) const
 	{
-		return _MULT_(other);
+		return V2(x * other.x, y * other.y);
+		// return _MULT_(other);
 	}
 
 	bool	operator == (const V2 & other) const
@@ -37,25 +39,6 @@ struct	V2
 	bool	operator != (const V2 & other) const
 	{
 		return !(*this == other);
-	}
-
-
-	//	we keep the old funcs but add the overloading above
-
-	V2	_ADD_(const V2 & other) const
-	{
-		return V2(x + other.x, y + other.y);
-	}
-
-	V2	_MULT_(const V2 & other) const
-	{
-		return V2(x * other.x, y * other.y);
-	}
-
-	void	_V2_PRINT_(void)
-	{
-		std::cout << "x: " << this->x << '\n' 
-			<< "y: " << this->y << '\n';
 	}
 };
 
@@ -77,17 +60,13 @@ int	main()
 	V2	position(4.2f, 4.2f);
 	V2	velocity(0.5f, 1.5f);
 	V2	gatorade(1.1f, 1.1f);
+	V2	g(1.1f, 1.1f);
 
-	V2	res1 = position._ADD_(velocity._MULT_(gatorade));
-	V2	res2 = position + velocity * gatorade; // operator precedence
+	V2	res = position + velocity * gatorade; // operator precedence
 
-	//	old printer
-	res1._V2_PRINT_();
-	//	new way of printing via Overloading the ostream
-	std::cout << res2;
+	std::cout << res;
 
-	//	the final overloading: '==' & '!='
 	std::cout << std::boolalpha;
-	std::cout << '\n' << (res1 == res2);
-	std::cout << '\n' << (res1 != res2) << std::endl;
+	std::cout << '\n' << (gatorade == g);
+	std::cout << '\n' << (gatorade != g) << std::endl;
 }
