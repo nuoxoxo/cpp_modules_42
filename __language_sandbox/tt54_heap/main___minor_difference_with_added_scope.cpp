@@ -23,31 +23,33 @@ std::ostream & operator << (std::ostream & stream, const myVector & v)
 
 int	main()
 {
-	// Stack allocation
+	// Stack allocation (added a scope)
 
-	int		stack_value = 42;
-	char		stack_array[Size];
-	myVector	stack_vec;
-
-	memset(stack_array, 'c', Size);
-	stack_vec.x = -1;
-	stack_vec.y = 0;
-	stack_vec.z = 1;
-
-	std::cout << ylo "\n======\t Stack \t====== \n\n" noc;
-	std::cout << stack_value << '\t';
-	std::cout << & stack_value << "\n";
-	for (int i = 0; i < Size; i++)
 	{
-		std::cout << stack_array[i];
-		if (i ^ Size - 1)
-			std::cout << ' ';
-		else
-			std::cout << '\t';
+		int		stack_value = 42;
+		char		stack_array[Size];
+		myVector	stack_vec;
+
+		memset(stack_array, 'c', Size);
+		stack_vec.x = -1;
+		stack_vec.y = 0;
+		stack_vec.z = 1;
+
+		std::cout << ylo "\n======\t Stack \t====== \n\n" noc;
+		std::cout << stack_value << '\t';
+		std::cout << & stack_value << "\n";
+		for (int i = 0; i < Size; i++)
+		{
+			std::cout << stack_array[i];
+			if (i ^ Size - 1)
+				std::cout << ' ';
+			else
+				std::cout << '\t';
+		}
+		std::cout << & stack_array << "\n\n";
+		std::cout << cyn "stack_vec: " noc << & stack_vec << "\n\n";
+		std::cout << stack_vec;
 	}
-	std::cout << & stack_array << "\n\n";
-	std::cout << cyn "stack_vec: " noc << & stack_vec << "\n\n";
-	std::cout << stack_vec;
 
 	// Heap allocation
 

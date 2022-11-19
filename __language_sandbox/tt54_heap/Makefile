@@ -1,6 +1,7 @@
 comp	:=	c++ -std=c++11 -Wall -Werror -Wextra
 src	:=	main.cpp
-name	:=	$(src:.cpp=)
+# src	:=	main___minor_difference_with_added_scope.cpp
+name	:=	a.out
 
 all	:	$(name)
 
