@@ -12,10 +12,9 @@
 #* ****************************************************************** nuo *** *#
 
 comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
-name		:=	phonebook
-src			:=	main.cpp Contact.cpp Phonebook.cpp Utils.cpp
+name		:=	tests
+src			:=	Account.cpp tests.cpp
 rmv			:=	rm -f
-
 bud			:=	$(src:.cpp=.o)
 all			:	$(name)
 

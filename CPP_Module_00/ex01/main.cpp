@@ -11,10 +11,8 @@
 /* ****************************************************************** nxu *** */
 
 #include "Phonebook.hpp"
-
-static void	lowercase_str(std::string&);
-static void	lowercase_char(char&) ;
-static void parse_input(std::string&);
+#include "Contact.hpp"
+#include "Utils.hpp"
 
 int main()
 {
@@ -34,7 +32,7 @@ int main()
             index = index > PHONEBOOK_THICKNESS ? index : 1;
             if (! this_guy.add())
                 break;
-            P.append(index, this_guy);
+            P.append(this_guy);
             index++;
         }
         else if (input == "search")
@@ -58,33 +56,3 @@ int main()
 
 //
 
-static void	parse_input(std::string & s)
-{
-	if (s == "")
-		return ;
-    lowercase_str(s);
-	std::string charset = " \t\v\r\n";
-    std::size_t start = s.find_first_not_of(charset);
-    std::size_t end = s.find_last_not_of(charset);
-
-	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
-    
-    s = start == end ? std::string(1, s[start]) : s.substr(start, end - start + 1);
-	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
-}
-
-static void	lowercase_str(std::string& s)
-{
-	int		i;
-
-	i = -1;
-	while (++i < (int) s.length())
-	{
-		lowercase_char(s[i]);
-	}
-}
-
-static void	lowercase_char(char & c)
-{
-	c = std::tolower(c);
-}
