@@ -11,31 +11,37 @@
 #*                                                                            *#
 #* ****************************************************************** nuo *** *#
 
-CC	= c++
+name		:=	megaphone
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+# Check compiler requirement before going on
 
-NAME	:= test
+# comp		:=	clang++ -std=c++11 -Wall -Werror -Wextra
+# comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
+comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
 
-SRCS	:= Account.cpp \
-		tests.cpp \
+src		:=	megaphone.cpp
+rmv		:=	rm -rf
 
-OBJS	:= $(SRCS:%.cpp=%.o)
+bud		:=	$(src:.cpp=.o)
 
-%.o : %.cpp
-	$(CC) $(CFLAGS) $< -c 
+all		:	$(name)
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+%.o		:	%.cpp
+			$(comp) -c $<
 
-all: $(NAME)
+$(name)		:	$(bud)
+			$(comp) -o $@ $<
+			@ printf "\n- \n\n"
+			@#@ ./$(name)
 
-clean:
-	rm -rf $(OBJS)
+clean		:
+			$(rmv) $(name)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean		:	clean
+			$(rmv) $(bud)
 
-re: fclean all
+f		:	fclean
 
-.PHONY: all clean fclean re
+re		:	f all
+
+.PHONY		:	fclean clean all re f

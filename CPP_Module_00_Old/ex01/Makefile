@@ -11,31 +11,34 @@
 #*                                                                            *#
 #* ****************************************************************** nuo *** *#
 
-CC	= c++
+# comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
+name		:=	phonebook
+src		:=	main.cpp Contact.cpp Fmt.cpp Phonebook.cpp
+rmv		:=	rm -f
 
-NAME	:= test
+bud		:=	$(src:.cpp=.o)
 
-SRCS	:= Account.cpp \
-		tests.cpp \
+all		:	$(name)
 
-OBJS	:= $(SRCS:%.cpp=%.o)
+%.o		:	%.cpp
+			@ echo "\ncompiling" [$@]
+			$(comp) -c $^
 
-%.o : %.cpp
-	$(CC) $(CFLAGS) $< -c 
+$(name)		:	$(bud)
+			@ echo "\ncompiling" [$@]
+			$(comp) -o $@ $^
+			@ printf "\n- \n\n"
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+clean		:
+			$(rmv) $(name)
 
-all: $(NAME)
+fclean		:	clean
+			$(rmv) $(bud) out *.out
 
-clean:
-	rm -rf $(OBJS)
+f		:	fclean
 
-fclean: clean
-	rm -rf $(NAME)
+re		:	f all
 
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY		:	fclean clean all re f

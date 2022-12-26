@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,29 +10,41 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef __CONTACT_HPP__
-# define __CONTACT_HPP__
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 
-#include "string"
+#include "iostream"
+#include "cstdlib"
+#include "string" 
+// #include "Phonebook.hpp"
 
-class	Contact
+class Contact
 {
+	std::string m_first_name;
+	std::string m_last_name;
+	std::string m_nickname;
+	std::string m_phone;
+	std::string m_secret;
+
 	public:
 		Contact();
-		virtual	~Contact();
+		virtual ~Contact();
 
 	public:
-		static std::string	keys[5];
-		std::string			vals[5];
-
-		enum	keys
-		{
-			first,
-			last,
-			nick,
-			phone,
-			dark
-		};
+		void set_first_name(std::string first)	{ this->m_first_name = first; std::cout << "set\n";}
+		void set_last_name(std::string last)	{ this->m_last_name = last; }
+		void set_nickname(std::string nick)		{ this->m_nickname = nick; }
+		void set_phone(std::string gameboy)		{ this->m_phone = gameboy; }
+		void set_secret(std::string stuff)		{ this->m_secret = stuff; }
+		std::string get_first_name() const		{ return (this->m_first_name); }
+		std::string get_last_name() const		{ return (this->m_last_name); }
+		std::string get_nickname() const		{ return (this->m_nickname); }
+		std::string get_phone() const			{ return (this->m_phone); }
+		std::string get_secret() const			{ return (this->m_secret); }
+		
+		void parse_input(std::string & s);
+		bool phone_number_is_numeric(std::string & s);
+		int	add(void);
 };
 
 #endif

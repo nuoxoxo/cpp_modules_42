@@ -1,24 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuxu              ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuxu             ...   ::::::::.fi       */
+/*   Updated: 2022/12/02 10:06:34 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef Phonebook_HPP
-# define Phonebook_HPP
+#ifndef __PHONEBOOK_H__
+# define __PHONEBOOK_H__
 
 # include "iostream"
 # include "iomanip" // for std::setw
 # include "cstdlib" // for exit()
-# include "Contact.hpp"
 
-# define PHONEBOOK_THICKNESS 8
+# include "Contact.hpp"
+# include "Fmt.hpp"
+
+class	Phonebook
+{
+	private:
+		std::size_t		m_size;
+		Contact			*m_contact;
+		Fmt				m_fmt;
+	private:
+		void			print_all(void) const;
+		void			print_col(const Fmt & m_fmt, std::size_t) const;
+		std::string		linter(const std::string &) const;
+
+	public:
+		Phonebook();
+		virtual	~Phonebook();
+
+		void		add(void);
+		void		search(void);
+		bool		is_empty(void) const;
+		void		get_input(int, Contact & contact);		
+		void		collect_garbage(void);
+		void		parse_input(std::string& s);
+};
+
+# define CONTACT_SIZE 8
 # define WIDTH 10
 
 # define FMT_HEAD_SIZE 18
@@ -29,32 +54,7 @@
 
 # define NOCMD "Service unavailable. Please re-enter your command \n"
 # define USAGE "➜ [Usage]: Enter your command [Add, Search, Exit]"
-# define ONAIR "➜ Your awesome Phonebook is online. \n"
-# define DELIM "----------8<----[ cut here ]---------------- \n"
-# define FRAME "+----------+----------+----------+----------+ \n"
-# define HEAD "|     index|first name| last name|  nickname| \n"
-
-class Phonebook
-{
-	private:
-		Contact			m_contacts[PHONEBOOK_THICKNESS];
-		std::size_t		m_size;
-	
-	public:
-		Phonebook();
-		virtual ~Phonebook();
-
-		void		append(int index, Contact this_guy);
-		int			search(Phonebook);
-		void		print_all(void);
-		void		print_col(int index);
-		int			empty(int index);
-		bool		is_empty(void) const;
-		// void		collect_garbage(void);
-		void		parse_input(std::string &);
-		std::string	linter(std::string);
-};
-
-bool isnumeric(const std::string &);
+# define ONAIR "➜ Your awesome phonebook is online. \n"
+# define DELIM "----------8<----[ cut here ]---------------- "
 
 #endif

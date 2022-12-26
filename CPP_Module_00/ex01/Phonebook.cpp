@@ -10,150 +10,111 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
+#include "iostream"
+#include "string"
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : m_size() { m_contact = new Contact[CONTACT_SIZE]; }
+Phonebook::Phonebook() : m_size() {}
 Phonebook::~Phonebook() {}
 
-void	Phonebook::add()
+bool	Phonebook::is_empty() const
 {
-	Contact		c;
-
-	Phonebook::get_input(Contact::first, c);
-	Phonebook::get_input(Contact::last, c);
-	Phonebook::get_input(Contact::nick, c);
-	Phonebook::get_input(Contact::phone, c);
-	Phonebook::get_input(Contact::dark, c);
-	m_contact[m_size % CONTACT_SIZE] = c;
-	m_size += 1;
+	return (!Phonebook::m_size);
 }
 
-void	Phonebook::collect_garbage()
+int Phonebook::empty(int index){
+    return (this->m_contacts[index].get_first_name() == "");
+}
+
+void Phonebook::append(int index, Contact this_guy){
+    (void) index;
+    // this->m_contacts[index] = this_guy;
+    this->m_contacts[m_size % PHONEBOOK_THICKNESS] = this_guy;
+    ++m_size;
+}
+
+std::string Phonebook::linter(std::string s)
 {
-	delete[]	m_contact;
+    if ((int) s.length() < 11)
+        return (s);
+    return (s.substr(0, 9) + '.');
+}
+
+void Phonebook::print_all(void)
+{
+	if (is_empty())
+    	return ;
+    int i = -1;
+    std::cout << FRAME << HEAD << FRAME;
+    while (++i < PHONEBOOK_THICKNESS)
+    {
+        if (this->m_contacts[i].get_first_name() == "") 
+			break ;
+        std::cout << "|" << std::setw(10) << i + 1 << "|" << std::setw(10)
+            << linter(this->m_contacts[i].get_first_name()) << "|" << std::setw(10)
+            << linter(this->m_contacts[i].get_last_name()) << "|" << std::setw(10)
+            << linter(this->m_contacts[i].get_nickname()) << "| \n" << FRAME;
+    }
+    return;
+}
+
+void Phonebook::print_col(int index){
+    if (index > 7 || this->m_contacts[index].get_first_name() == "")
+        return ;
+    std::cout << "First name: " << this->m_contacts[index].get_first_name() << std::endl;
+    std::cout << "Last name: " << this->m_contacts[index].get_last_name() << std::endl;
+    std::cout << "Nick name: " << this->m_contacts[index].get_nickname() << std::endl;
+    std::cout << "Phone number: " << this->m_contacts[index].get_phone() << std::endl;
+    std::cout << "Darkest secret: " << this->m_contacts[index].get_secret() << std::endl;
+}
+
+bool isnumeric(const std::string & s)
+{
+    return s.find_first_not_of("0123456789") == std::string::npos;
+}
+
+int	Phonebook::search(Phonebook P)
+{
+    int index = -1;
+    std::string input;
+
+    if (P.empty(0))
+    {
+        std::cout << "The Phonebook is empty.\n";
+        return (1);
+    }
+    P.print_all();
+    std::cout << "Enter a number associated with your desire. \n";
+    std::cout << "Press 0 to return\n ➜ ";
+    std::cin >> input;
+    if (std::cin.eof())
+        return (0);
+    if (input.empty() || !isnumeric(input))
+    {
+        std::cout << "Numeric value needed. \n";
+        return (std::cin.ignore(256, '\n'), 1);
+    }
+    index = atoi(input.c_str()) - 1;
+    if (-1 == index)
+        return (std::cin.ignore(256, '\n'), 1);
+    if (index < 0 || index > 7)
+        std::cout << "Reasonable range needed. \n";
+    else if (P.empty(index))
+        std::cout << "Contact " << index+1 << " not found. Try harder please. \n";
+    else
+        P.print_col(index);
+    std::cin.ignore(256, '\n');
+    return (1);
 }
 
 void	Phonebook::parse_input(std::string & s)
 {
 	if (s == "")
 		return ;
-	int	i = -1;
-	int len = (int) s.length();
-	while (++i < len)
-	{
-		if (s[i] != ' ')
-			break ;
-	}
-	s = s.substr(i);
-	i = len;
-	while (--i > -1)
-	{
-		if (s[i] != ' ')
-			break ;
-	}
-	if (i > len - 1)
-	{
-		s.erase(s.begin() + i + 1, s.end());
-	}
-}
-
-void	Phonebook::get_input(int i, Contact & c)
-{
-	std::string		input;
-	
-	while (input.empty())
-	{
-		std::cout << Contact::keys[i] << "\n➜➜ ";
-		getline(std::cin, input);
-		if (std::cin.eof())
-			exit (1);
-	}
-	// std::cerr << input << std::endl;
-	Phonebook::parse_input(input);
-	// std::cerr << input << std::endl;
-	c.vals[i] = input;
-}
-
-void	Phonebook::search()
-{
-	int		i;
-
-	if (Phonebook::is_empty())
-	{
-		std::cout << "The phonebook is empty. \n";
-		return ;
-	}
-	Phonebook::print_all();
-	std::cout << "Enter a number associated with your desire. \n";
-	std::cout << "Press 0 to return\n ➜ ";
-	std::cin >> i;
-	std::cin.clear();
-	if (i < 1)
-	{
-		std::cout << "Phonebook Index should be a positive integer. \n";
-		std::cin.ignore(256, '\n');
-		return ;
-	}
-	if (i)
-	{
-		i = (i - 1) % CONTACT_SIZE;
-	}
-	m_fmt.fmt_printer(m_contact[i]);
-	std::cin.ignore(256, '\n');
-}
-
-/*
-	Notes:
-		"init list" is used to set the value of m_size, which is set for
-		the first time.
-*/
-
-std::string	Phonebook::linter(const std::string & line) const
-{
-	if (line.length() < 11)
-	{
-		return (line);
-	}
-	return (line.substr(0, 9).append("."));
-}
-
-void	Phonebook::print_col(const Fmt & fmt, std::size_t i) const
-{
-	std::cout << std::setw(WIDTH) << i + 1 << '|';
-	std::cout << std::setw(WIDTH) << std::right << fmt.get_firstname() << '|';
-	std::cout << std::setw(WIDTH) << std::right << fmt.get_lastname() << '|';
-	std::cout << std::setw(WIDTH) << std::right << fmt.get_nickname() << '|';
-}
-
-void	Phonebook::print_all() const
-{
-	std::string	first, last, nick;
-	std::size_t	i;
-
-	std::cout << std::setw(WIDTH + 2 + FMT_HEAD_SIZE) << FMT_HEAD;
-	std::cout << std::setw(WIDTH + 5) << "\n\n";
-
-	std::cout << std::setw(WIDTH) << "index" << '|';
-	std::cout << std::setw(WIDTH) << "First Name" << '|';
-	std::cout << std::setw(WIDTH) << "Last Name" << '|';
-	std::cout << std::setw(WIDTH) << "Nick Name" << '|';
-	
-	std::cout << "\n-----------\n";
-	i = -1;
-	while (++i < CONTACT_SIZE)
-	{
-		first = Phonebook::linter(m_contact[i].vals[0]);
-		last = Phonebook::linter(m_contact[i].vals[1]);
-		nick = Phonebook::linter(m_contact[i].vals[2]);
-
-		Fmt			fmt(first, last, nick);
-
-		Phonebook::print_col(fmt, i);
-		std::cout << "\n-----------\n";
-	}
-}
-
-bool	Phonebook::is_empty() const
-{
-	return (Phonebook::m_size == 0);
+	std::string charset = " \t\v\r\n";
+    std::size_t start = s.find_first_not_of(charset);
+    std::size_t end = s.find_last_not_of(charset);
+	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
+    s = start == end ? std::string(1, s[start]) : s.substr(start, end - start + 1);
+	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
 }
