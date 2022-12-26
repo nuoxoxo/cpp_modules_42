@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -11,12 +11,12 @@
 /* ****************************************************************** nxu *** */
 
 #ifndef CONTACT_HPP
-#define CONTACT_HPP
+# define CONTACT_HPP
 
-#include "iostream"
-#include "cstdlib"
-#include "string" 
-// #include "Phonebook.hpp"
+# include "iostream"
+# include "cstdlib"
+# include "string" 
+# include "Utils.hpp"
 
 class Contact
 {
@@ -31,7 +31,7 @@ class Contact
 		virtual ~Contact();
 
 	public:
-		void set_first_name(std::string first)	{ this->m_first_name = first; std::cout << "set\n";}
+		void set_first_name(std::string first)	{ this->m_first_name = first;}
 		void set_last_name(std::string last)	{ this->m_last_name = last; }
 		void set_nickname(std::string nick)		{ this->m_nickname = nick; }
 		void set_phone(std::string gameboy)		{ this->m_phone = gameboy; }
@@ -41,9 +41,7 @@ class Contact
 		std::string get_nickname() const		{ return (this->m_nickname); }
 		std::string get_phone() const			{ return (this->m_phone); }
 		std::string get_secret() const			{ return (this->m_secret); }
-		
-		void parse_input(std::string & s);
-		bool phone_number_is_numeric(std::string & s);
+
 		int	add(void);
 };
 

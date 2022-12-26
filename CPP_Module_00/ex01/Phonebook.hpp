@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,13 +10,15 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#ifndef Phonebook_HPP
-# define Phonebook_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include "iostream"
+# include "string"
 # include "iomanip" // for std::setw
 # include "cstdlib" // for exit()
 # include "Contact.hpp"
+# include "Utils.hpp"
 
 # define PHONEBOOK_THICKNESS 8
 # define WIDTH 10
@@ -31,30 +33,29 @@
 # define USAGE "➜ [Usage]: Enter your command [Add, Search, Exit]"
 # define ONAIR "➜ Your awesome Phonebook is online. \n"
 # define DELIM "----------8<----[ cut here ]---------------- \n"
-# define FRAME "+----------+----------+----------+----------+ \n"
 # define HEAD "|     index|first name| last name|  nickname| \n"
+# define FRAME "+-------------------------------------------+\n"
 
 class Phonebook
 {
 	private:
 		Contact			m_contacts[PHONEBOOK_THICKNESS];
-		std::size_t		m_size;
+		std::size_t		m_cursor;
 	
 	public:
 		Phonebook();
 		virtual ~Phonebook();
 
-		void		append(int index, Contact this_guy);
-		int			search(Phonebook);
+		void		append(Contact this_guy);
 		void		print_all(void);
 		void		print_col(int index);
+		bool		is_empty() const;
 		int			empty(int index);
-		bool		is_empty(void) const;
-		// void		collect_garbage(void);
-		void		parse_input(std::string &);
+		int			search(Phonebook);
 		std::string	linter(std::string);
+		// void		collect_garbage(void);
 };
 
-bool isnumeric(const std::string &);
+
 
 #endif

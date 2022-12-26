@@ -10,27 +10,24 @@
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
-#include "iostream"
-#include "string"
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook() : m_size() {}
+Phonebook::Phonebook() : m_cursor() {}
 Phonebook::~Phonebook() {}
 
 bool	Phonebook::is_empty() const
 {
-	return (!Phonebook::m_size);
+	return (!Phonebook::m_cursor);
 }
 
 int Phonebook::empty(int index){
     return (this->m_contacts[index].get_first_name() == "");
 }
 
-void Phonebook::append(int index, Contact this_guy){
-    (void) index;
-    // this->m_contacts[index] = this_guy;
-    this->m_contacts[m_size % PHONEBOOK_THICKNESS] = this_guy;
-    ++m_size;
+void Phonebook::append(Contact this_guy)
+{
+    this->m_contacts[m_cursor % PHONEBOOK_THICKNESS] = this_guy;
+    ++m_cursor;
 }
 
 std::string Phonebook::linter(std::string s)
@@ -61,16 +58,12 @@ void Phonebook::print_all(void)
 void Phonebook::print_col(int index){
     if (index > 7 || this->m_contacts[index].get_first_name() == "")
         return ;
-    std::cout << "First name: " << this->m_contacts[index].get_first_name() << std::endl;
-    std::cout << "Last name: " << this->m_contacts[index].get_last_name() << std::endl;
-    std::cout << "Nick name: " << this->m_contacts[index].get_nickname() << std::endl;
-    std::cout << "Phone number: " << this->m_contacts[index].get_phone() << std::endl;
-    std::cout << "Darkest secret: " << this->m_contacts[index].get_secret() << std::endl;
-}
-
-bool isnumeric(const std::string & s)
-{
-    return s.find_first_not_of("0123456789") == std::string::npos;
+    std::cout << "\nContact no. " << index + 1 << ": \n\n";
+    std::cout << "First name: " << this->m_contacts[index].get_first_name() << '\n';
+    std::cout << "Last name: " << this->m_contacts[index].get_last_name() << '\n';
+    std::cout << "Nick name: " << this->m_contacts[index].get_nickname() << '\n';
+    std::cout << "Phone number: " << this->m_contacts[index].get_phone() << '\n';
+    std::cout << "Darkest secret: " << this->m_contacts[index].get_secret() << "\n\n";
 }
 
 int	Phonebook::search(Phonebook P)
@@ -105,16 +98,4 @@ int	Phonebook::search(Phonebook P)
         P.print_col(index);
     std::cin.ignore(256, '\n');
     return (1);
-}
-
-void	Phonebook::parse_input(std::string & s)
-{
-	if (s == "")
-		return ;
-	std::string charset = " \t\v\r\n";
-    std::size_t start = s.find_first_not_of(charset);
-    std::size_t end = s.find_last_not_of(charset);
-	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
-    s = start == end ? std::string(1, s[start]) : s.substr(start, end - start + 1);
-	// std::cout << '\'' << s << '\'' << s.length() << std::endl;
 }
