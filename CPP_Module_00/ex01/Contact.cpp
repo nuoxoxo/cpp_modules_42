@@ -15,7 +15,7 @@
 Contact::Contact() {}
 Contact::~Contact() {}
 
-std::string	Contact::field[5] = 
+std::string	Contact::keys[5] = 
 {
 	"First Name",
 	"Last Name",

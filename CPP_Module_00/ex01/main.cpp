@@ -12,50 +12,60 @@
 
 #include "Phonebook.hpp"
 
-static void	to_lower(char &);
+static void	lowercase_str(std::string &);
+static void	lowercase_char(char &) ;
 
 int	main()
 {
 	std::string		input;
 	Phonebook		P;
-	int				err;
 
 	std::cout << DELIM << NL2 << ONAIR << USAGE << SKIP_PROMPT;
-	err = -2;
-	while (1)
+	while (!std::cin.eof())
 	{
 		std::cout << "➜ ";
 		std::getline(std::cin, input);
-		std::for_each(input.begin(), input.end(), & to_lower);
+		lowercase_str(input);
+		P.parse_input(input);
+		std::cout << input << std::endl;
+
+		//	Switch between ADD, SEARCH & EXIT
+
 		if (input == "add")
 		{
 			P.add();
 			std::cout << "Contact added successfully! \n";
-
 		}
 		else if (input == "search")
 		{
 			P.search();
 		}
-		// else if (input == "exit" || input == "exit()" || input == "quit")
 		else if (input == "exit")
 		{
 			std::cout << "➜ \n➜ All contacts will be lost forever. \n";
 			std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
+			P.collect_garbage();
 			break ;
 		}
 		else
 		{
 			continue ;
-			// if ( ! ++err)
-			// 	std::cout << NOCMD;
-			// else
-			// 	std::cout << "Please try harder! \n";
 		}
 	}
 }
 
-static void	to_lower(char & c)
+static void	lowercase_str(std::string& s)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (int) s.length())
+	{
+		lowercase_char(s[i]);
+	}
+}
+
+static void	lowercase_char(char & c)
 {
 	c = std::tolower(c);
 }

@@ -22,10 +22,10 @@ class	Contact
 		virtual	~Contact();
 
 	public:
-		static std::string	field[5];
-		std::string		info[5];
+		static std::string	keys[5];
+		std::string			vals[5];
 
-		enum	Field
+		enum	keys
 		{
 			first,
 			last,

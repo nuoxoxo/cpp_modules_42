@@ -14,17 +14,10 @@
 
 Fmt::Fmt() {}
 
-Fmt::Fmt
-(
- 	const std::string& first, const std::string& last, const std::string& nick
-) :	m_firstname(first), m_lastname(last), m_nickname(nick) {}
-
-/*
-	Notes: 
-		Above we use "init list" to init the const member vars.
-		This is the only time we can change the member vars.
-		An "init list" is therefore necessary before the constructor call.
-*/
+Fmt::Fmt	(	const std::string& first, 
+				const std::string& last, 
+				const std::string& nick
+			) :	m_firstname(first), m_lastname(last), m_nickname(nick) { }
 
 Fmt::~Fmt() {}
 
@@ -45,9 +38,9 @@ const	std::string & Fmt::get_nickname() const
 
 void	Fmt::fmt_printer(const Contact & c) const
 {
-	std::cout << "First name: "	<< c.info[0] << "\n";
-	std::cout << "Last name: "	<< c.info[1] << "\n";
-	std::cout << "Nickname: "	<< c.info[2] << "\n";
-	std::cout << "Phone number: "	<< c.info[3] << "\n";
-	std::cout << "Dark secret: "	<< c.info[4] << "\n";
+	std::cout << "First name: "		<< c.vals[0] << "\n";
+	std::cout << "Last name: "		<< c.vals[1] << "\n";
+	std::cout << "Nickname: "		<< c.vals[2] << "\n";
+	std::cout << "Phone number: "	<< c.vals[3] << "\n";
+	std::cout << "Dark secret: "	<< c.vals[4] << "\n";
 }

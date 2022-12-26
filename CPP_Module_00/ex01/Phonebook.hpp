@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuxu              ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuxu             ...   ::::::::.fi       */
+/*   Updated: 2022/12/02 10:06:34 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
@@ -15,6 +15,7 @@
 
 # include "iostream"
 # include "iomanip" // for std::setw
+# include "cstdlib" // for exit()
 
 # include "Contact.hpp"
 # include "Fmt.hpp"
@@ -24,11 +25,11 @@ class	Phonebook
 	private:
 		std::size_t		m_size;
 		Contact			*m_contact;
-		Fmt			m_fmt;
+		Fmt				m_fmt;
 	private:
-		void		print_all(void) const;
-		void		print_col(const Fmt & m_fmt, std::size_t) const;
-		std::string	linter(const std::string &) const;
+		void			print_all(void) const;
+		void			print_col(const Fmt & m_fmt, std::size_t) const;
+		std::string		linter(const std::string &) const;
 
 	public:
 		Phonebook();
@@ -38,6 +39,8 @@ class	Phonebook
 		void		search(void);
 		bool		is_empty(void) const;
 		void		get_input(int, Contact & contact);		
+		void		collect_garbage(void);
+		void		parse_input(std::string& s);
 };
 
 # define CONTACT_SIZE 8

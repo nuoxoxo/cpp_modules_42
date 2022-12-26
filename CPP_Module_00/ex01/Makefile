@@ -12,6 +12,7 @@
 #* ****************************************************************** nuo *** *#
 
 # comp		:=	clang++ -std=c++98 -Wall -Werror -Wextra
+
 comp		:=	c++ -std=c++98 -Wall -Werror -Wextra
 name		:=	phonebook
 src		:=	main.cpp Contact.cpp Fmt.cpp Phonebook.cpp
@@ -24,10 +25,6 @@ all		:	$(name)
 %.o		:	%.cpp
 			@ echo "\ncompiling" [$@]
 			$(comp) -c $^
-
-
-#$(name)		:	$(src)
-#		@ $(comp) $^ -o $@
 
 $(name)		:	$(bud)
 			@ echo "\ncompiling" [$@]
