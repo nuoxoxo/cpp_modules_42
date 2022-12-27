@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuxu              ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuxu             ...   ::::::::.fi       */
+/*   Updated: 2022/12/27 13:46:41 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
@@ -14,7 +14,7 @@
 #include "Contact.hpp"
 #include "Utils.hpp"
 
-int main()
+int main(void)
 {
     std::string input;
     Phonebook P; 
@@ -42,9 +42,9 @@ int main()
         }
         else if (input == "exit")
         {
-            std::cout << "➜ \n➜ All contacts will be lost forever. \n";
-			std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
-			break ;
+		std::cout << "➜ \n➜ All contacts will be lost forever. \n";
+		std::cout << "➜ Goodbye and have a nice day." << SKIP_PROMPT;
+		break ;
         }
         else
         {
@@ -53,6 +53,4 @@ int main()
     }
     return (0);
 }
-
-//
 
