@@ -6,7 +6,7 @@
 /*   By:  nuxu <marvin@42.fr>                       ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuxu              ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuxu             ...   ::::::::.fi       */
+/*   Updated: 2022/12/27 13:07:08 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ****************************************************************** nxu *** */
 
@@ -14,7 +14,7 @@
 # define UTILS_HPP
 
 # include "iostream"
-// # include "string"
+# include "cstdlib"
 
 void	    lowercase_str(std::string &);
 void        lowercase_char(char &) ;
