@@ -35,7 +35,7 @@ a destructor ...
 
 tilde . " ~ "
 
-	- bitwise NOT operator
+	- operator bitwise Negate
 	- unlike & and |
 		- the bitwise NOT is applied to a single operand on the right
 	- it changes each bit to its opposite: 
@@ -47,7 +47,8 @@ tilde . " ~ "
 
 
 when a memb func is const
-	- it cannot hange any value of data members within the class
+	- used to access, not change, attributes
+	- it cannot change any value of data members within the class
 
 a func like _setter for eg. should not be const
 	- 'cause its job is to change/set values

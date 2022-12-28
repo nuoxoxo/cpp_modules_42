@@ -25,6 +25,12 @@ Zombie	*zombieHorde(int N, std::string name)
 	return (zh);
 }
 
+// how do we make sure the N is correct?
+//	No, we can't. because the ompiler doesn't know 
+//	what the pointer is pointing to.
+//	Unless we cache the N somewhere, in which 
+//	case `horde` should better be a Class 
+
 void	announce_foreach(int N, Zombie *zh)
 {
 	int		i;
