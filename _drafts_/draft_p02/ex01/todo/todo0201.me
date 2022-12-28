@@ -1,0 +1,86 @@
+
+------------8<--------[ Requirements ]----------------
+
+	- each class you write MUST have:
+		- a default constructor, 
+		- a copy contructor, 
+		- an assignation operator overload 
+		- a destructor. We won’t ask again.
+
+	- use roundf <cmath>
+
+------------8<--------[ Real Subjects ]----------------
+
+
+Add the following public constructors 
+add the following public member functions
+
+	• A constructor
+	
+		- takes a constant \integer\ as a parameter 
+		- converts it to the correspondant fixed(8) point value
+		- The fractional bits value is initialized like in ex00
+
+	• A constructor 
+
+		- takes a constant \floating point\ as a parameter 
+		- converts it to the correspondant fixed(8) point value 
+		- The fractional bits value is initialized like in ex00
+
+	• A member function 
+
+		- proto :	\float toFloat( void ) const;\ 
+		- converts the fixed point value to a floating point value.
+
+	• A member function
+
+		- proto :	\int toInt( void ) const;\ 
+		- converts the fixed point value to an integer value.
+
+	• overload the « operator 
+
+		- inserts a floating point version of the fpv into the param output stream.
+
+
+
+------------8<--------[ do this in main.cpp ]----------------
+
+```
+(cf. main)
+```
+
+------------8<--------[ model outputs ]----------------
+
+
+$> ./a.out
+Default constructor called
+Int constructor called
+Float constructor called
+Copy constructor called
+Assignation operator called
+Float constructor called
+Assignation operator called
+Destructor called
+a is 1234.43
+b is 10
+c is 42.4219
+d is 10
+a is 1234 as integer
+b is 10 as integer
+c is 42 as integer
+d is 10 as integer
+Destructor called
+Destructor called
+Destructor called
+Destructor called
+$>
+
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+

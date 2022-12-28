@@ -1,0 +1,81 @@
+
+------------8<--------[ Requirements ]----------------
+
+	- each class you write MUST have:
+		- a default constructor, 
+		- a copy contructor, 
+		- an assignation operator overload 
+		- a destructor. We won’t ask again.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+You know integers and you also know floating point numbers. How cute.
+Please read this 3-page article (1, 2, 3) to discover that you don’t. Go on, read it.
+Until today, any numbers you used in your programs were basically integers or floating point numbers, or any of their variants (short, char, long, double, etc). From your pre- vious reading, it’s safe to assume that integers and floating point numbers have opposite caracteristics.
+But today, this will change. You are going to discover a new and awesome number type: fixed point numbers! Always missing from most languages scalar types, fixed point numbers offer a valuable balance between performance, accuracy, range and precision that explains why these numbers are widely used in graphics, sound or scientific programming to name a few.
+As C++ lacks fixed point numbers, you’re going to add them yourself today. I’d rec- ommend this article from Berkeley as a start. If it’s good for them, it’s good for you. If you have no idea what Berkeley is, read this section of their wikipedia page.
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
+
+------------8<--------[ Real Subjects ]----------------
+
+
+Write an orthodox class to represent *fixed point numbers:
+	• Private members:
+		◦ An integer to store the fixed point value.
+		◦ A static constant integer to store the number of fractional bits
+		- This constant will always be the litteral 8.
+	• Public members:
+		◦ A default constructor that init the fixed point value to 0.
+		◦ A destructor.
+		◦ A copy constructor.
+		◦ An assignation operator overload.
+		◦ member function (1)
+		int getRawBits( void ) const; 
+			- returns the raw value of the fixed point value.
+		◦ member function (2)
+		void setRawBits( int const raw ); 
+			- it sets the raw value of the fixed point value.
+
+
+------------8<--------[ do this in main.cpp ]----------------
+
+```
+int main() {
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+	c = b;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+	return 0;
+}
+```
+
+
+------------8<--------[ model outputs ]----------------
+
+
+$> ./a.out
+Default constructor called
+Copy constructor called
+Assignation operator called // <-- This line may be missing depending on your implementation
+getRawBits member function called
+Default constructor called
+Assignation operator called
+getRawBits member function called
+getRawBits member function called
+0
+getRawBits member function called
+0
+getRawBits member function called
+0
+Destructor called
+Destructor called
+Destructor called
+$>
+
+
+
