@@ -17,26 +17,26 @@ Harl::~Harl(void) {}
 
 void	Harl::debug(void)
 {
-	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
-	std::cout << _y << DEBUG_LEVEL << _r ;
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << DEBUG_LEVEL << _R_ ;
 }
 
 void	Harl::info(void)
 {
-	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
-	std::cout << _y << INFO_LEVEL << _r ;
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << INFO_LEVEL << _R_ ;
 }
 
 void	Harl::warning(void)
 {
-	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
-	std::cout << _y << WARNING_LEVEL << _r ;
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << WARNING_LEVEL << _R_ ;
 }
 
 void	Harl::error(void)
 {
-	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
-	std::cout << _y << ERROR_LEVEL << _r ;
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << ERROR_LEVEL << _R_ ;
 }
 
 void	Harl::complain(std::string level)

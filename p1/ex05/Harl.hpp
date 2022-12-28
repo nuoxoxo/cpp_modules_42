@@ -50,11 +50,11 @@ public:
 
 //	def. colors
 
-# define _y "\x1b[33m"
-# define _g "\x1b[32;1m"
-# define _i "\x1b[3m"
-# define _r "\x1b[0m"
-# define _l " level"
+# define _Y_ "\x1b[33m"
+# define _G_ "\x1b[32;1m"
+# define _I_ "\x1b[3m"
+# define _R_ "\x1b[0m"
+# define _L_ " level"
 
 #endif
 
