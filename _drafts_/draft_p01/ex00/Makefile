@@ -15,7 +15,7 @@ comp	:=	c++ -std=c++98 -Wall -Werror -Wextra
 name	:=	out
 rmv	:=	rm -rf
 
-incl	:=	-I./
+# incl	:=	-I./
 
 src	:=	main.cpp Zombie.cpp \
 		newZombie.cpp \
@@ -32,6 +32,8 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
 
 run	:	re
 		@ ./out
