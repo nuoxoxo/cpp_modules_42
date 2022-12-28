@@ -10,36 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-Karen::Karen(void) {}
-Karen::~Karen(void) {}
+Harl::Harl(void) {}
+Harl::~Harl(void) {}
 
-void	Karen::debug(void)
+void	Harl::debug(void)
 {
 	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
 	std::cout << _y << DEBUG_LEVEL << _r ;
 }
 
-void	Karen::info(void)
+void	Harl::info(void)
 {
 	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
 	std::cout << _y << INFO_LEVEL << _r ;
 }
 
-void	Karen::warning(void)
+void	Harl::warning(void)
 {
 	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
 	std::cout << _y << WARNING_LEVEL << _r ;
 }
 
-void	Karen::error(void)
+void	Harl::error(void)
 {
 	std::cout << _g << __FUNCTION__ << _l << _r << std::endl;
 	std::cout << _y << ERROR_LEVEL << _r ;
 }
 
-void	Karen::complain(std::string level)
+void	Harl::complain(std::string level)
 {
 	if (level == "")
 	{
@@ -51,12 +51,12 @@ void	Karen::complain(std::string level)
 		"debug", "info", "warning", "error"
 	};
 
-	void	(Karen::*modes[]) (void) = 
+	void	(Harl::*modes[]) (void) = 
 	{
-		& Karen::debug,
-		& Karen::info,
-		& Karen::warning,
-		& Karen::error
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
 	};
 
 	for (int i = 0; i < 4; ++i)

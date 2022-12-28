@@ -15,11 +15,11 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-incl	:=	-I./
+# incl	:=	-I./
 
 
 src	:=	main.cpp \
-		Karen.cpp
+		Harl.cpp
 
 #path	:=	src/
 #src	:=	$(foreach cpp, $(src), $(path)$(cpp))
@@ -36,6 +36,8 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
 
 run	:	re
 		@ ./out
