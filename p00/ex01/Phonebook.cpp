@@ -77,49 +77,25 @@ int	Phonebook::search(Phonebook P)
         return (1);
     }
     P.print_all();
-    while (!std::cin.eof() || input == "")
+    std::cout << "Enter a number associated with your desire. \n";
+    std::cout << "Press 0 to return\n ➜ ";
+    std::cin >> input;
+    if (std::cin.eof())
+        return (0);
+    if (input.empty() || !isnumeric(input))
     {
-        std::cout << "Enter a number associated with your desire. \n";
-        std::cout << "Press 0 to return\n ➜ ";
-        std::cin >> input;
-        if (std::cin.eof())
-            return (0);
-        if (input.empty())
-        {
-            // std::cin.ignore(256, '\n');
-            continue ;
-        }
-        else
-        {
-            std::cin.ignore(256, '\n');
-            if (!isnumeric(input))
-            {
-                std::cout << "Numeric value needed. \n";
-                input = "";
-                continue ;
-            }
-            index = atoi(input.c_str()) - 1;
-            if (-1 == index)
-            {
-                break ;
-            }
-            else if (index < 0 || index > 7)
-            {
-                std::cout << "Reasonable range needed. \n";
-                input = "";
-                continue ;
-            }
-            else if (P.empty(index))
-            {
-                std::cout << "Contact " << index+1 << " not found. Try harder please. \n";
-                break ;
-            }
-            else
-            {
-                P.print_col(index);
-                break ;
-            }
-        }
+        std::cout << "Numeric value needed. \n";
+        return (std::cin.ignore(256, '\n'), 1);
     }
+    index = atoi(input.c_str()) - 1;
+    if (-1 == index)
+        return (std::cin.ignore(256, '\n'), 1);
+    if (index < 0 || index > 7)
+        std::cout << "Reasonable range needed. \n";
+    else if (P.empty(index))
+        std::cout << "Contact " << index+1 << " not found. Try harder please. \n";
+    else
+        P.print_col(index);
+    std::cin.ignore(256, '\n');
     return (1);
 }

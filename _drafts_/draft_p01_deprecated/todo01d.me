@@ -1,0 +1,73 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+----------------8<----------[ destructor ]------------------------
+
+a destructor ...
+	- is an instance member function 
+	- is a special member function like constructor
+		- it destroys the object created 
+		- theres *Only one destructor for any constructor ***
+		- Destruction === the reverse of an object Creation
+	- is the only way to destroy the object create 
+		- Hence a destructor can-not be overloaded ***
+	- is invoked automatically whenever an object is to be destroyed
+	- is automatically called when object goes out of scope ***
+	- is the last function called before an object is destroyed
+	- releases memory space occupied by the objects created 
+	- namesake
+		- same as their class name preceded by a tiled (~)	
+	- neither requires any argument nor returns any value
+
+
+----------------8<----------[ tilde . ~ ]------------------------
+
+tilde . " ~ "
+
+	- bitwise NOT operator
+	- unlike & and |
+		- the bitwise NOT is applied to a single operand on the right
+	- it changes each bit to its opposite: 
+		0 becomes 1
+		1 becomes 0
+
+
+----------8<----------[ const member function ]------------------
+
+
+when a memb func is const
+	- it cannot hange any value of data members within the class
+
+a func like _setter for eg. should not be const
+	- 'cause its job is to change/set values
+
+
+----------------8<----------[ convention ]------------------------
+
+class
+	- class should be a noun.
+	- upper case as word separators
+	- lower case for the rest of the word in the class
+	- 1st character in the class must be upper case
+	- NO underscores (‘_’) are permitted in classname
+
+private attribute
+	- should be prepended with the character ‘m’.
+	- after prepending ‘m’, the same rules of class apply
+	- ‘m’ also precedes other name modifiers also
+
+method function name 
+	- should begin with a verb
+	- 1st character of function method argument names should be lower case
+	- camelCase
