@@ -16,29 +16,47 @@
 # include "iostream"
 # include "string"
 
+
+/* <------8<------ Zombie class ------------------> */
+
+
 class	Zombie
 {
-	private:
-		std::string	name;
-		void		label(void) const;
 
-	public:
-		Zombie(std::string name);
-		virtual		~Zombie(void);
-		void		announce(void) const;
-		std::string	get_name(void) const;
+private:
+	std::string	name;
+
+private:	
+	void		label(void) const;
+
+public:
+	Zombie(std::string name);
+	virtual ~Zombie(void);
+
+public:
+	std::string	get_name(void) const;
+	void		announce(void) const;
+
 };
+
+
+/* <------8<------ Member functioons ------------------> */
+
 
 Zombie		*newZombie(std::string);
 void		randomChump(std::string);
 
+
+/* <------8<------ Zombie colors ------------------> */
+
+
 # define _YELLOW_	"\x1b[33m"
-# define _RED_		"\x1b[31m"
-# define _GREEN_		"\x1b[32m"
-# define _BLUE_		"\x1b[34m"
-# define _MAG_		"\x1b[35m"
-# define _CYAN_		"\x1b[36m"
-# define _ITAL_		"\x1b[3m"
-# define _REST_		"\x1b[0m"
+# define _GREEN_	"\x1b[32m"
+# define _RED_	"\x1b[31m"
+# define _BLUE_	"\x1b[34m"
+# define _MAG_	"\x1b[35m"
+# define _CYAN_	"\x1b[36m"
+# define _ITAL_	"\x1b[3m"
+# define _REST_	"\x1b[0m"
 
 #endif
