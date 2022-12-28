@@ -12,14 +12,14 @@
 #* ****************************************************************** .py *** *#
 
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	karenFilter
+name	:=	HarlFilter
 rmv	:=	rm -rf
 
 incl	:=	-I./
 
 
 src	:=	main.cpp \
-		Karen.cpp
+		Harl.cpp
 
 #path	:=	src/
 #src	:=	$(foreach cpp, $(src), $(path)$(cpp))

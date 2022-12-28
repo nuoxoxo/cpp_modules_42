@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
-Karen::Karen(void) {}
-Karen::~Karen(void) {}
+Harl::Harl(void) {}
+Harl::~Harl(void) {}
 
-void	Karen::debug(void)	{ std::cout << debug_level; }
-void	Karen::info(void)	{ std::cout << info_level; }
-void	Karen::warning(void)	{ std::cout << warning_level; }
-void	Karen::error(void)	{ std::cout << error_level; }
+void	Harl::debug(void)	{ std::cout << debug_level; }
+void	Harl::info(void)	{ std::cout << info_level; }
+void	Harl::warning(void)	{ std::cout << warning_level; }
+void	Harl::error(void)	{ std::cout << error_level; }
 
-void	Karen::complain(std::string level)
+void	Harl::complain(std::string level)
 {
 	bool	found;
 	int		i;
@@ -36,12 +36,12 @@ void	Karen::complain(std::string level)
 		"ERROR"
 	};
 
-	void	(Karen::*modes[]) (void) =
+	void	(Harl::*modes[]) (void) =
 	{
-		& Karen::debug,
-		& Karen::info,
-		& Karen::warning,
-		& Karen::error
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
 	};
 
 	found = false;
@@ -64,7 +64,7 @@ void	Karen::complain(std::string level)
 
 void	usage()
 {
-	std::cout << "\tUsage: ./karenFilter \x1b[32m" << "level \x1b[0m";
+	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m";
 	//std::cout << "[ stuff_like_maybe_a_complain_level ] \x1b[0m";
 	std::cout << std::endl;
 }

@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#ifndef Harl_HPP
+# define Harl_HPP
 
 #include "iostream"
 #include "string"
@@ -26,7 +26,7 @@ enum	Levels
 };
 
 
-class	Karen {
+class	Harl {
 	private:
 		void		debug(void);
 		void		info(void);
@@ -34,8 +34,8 @@ class	Karen {
 		void		error(void);
 	public:
 
-		Karen(void);
-		virtual		~Karen(void);
+		Harl(void);
+		virtual		~Harl(void);
 		void		complain(std::string);
 };
 

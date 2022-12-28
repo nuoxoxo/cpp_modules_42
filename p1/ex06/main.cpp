@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Karen.hpp"
+#include "Harl.hpp"
 
 int	main(int c, char *v[])
 {
-	Karen		Kafka;
+	Harl		Kafka;
 
 	if (c ^ 2)
 		return (usage(), 0);
