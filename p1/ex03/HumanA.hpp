@@ -18,19 +18,21 @@
 
 class HumanA
 {
-	/* Type A gets weapon from Constr., always armed. hence ampersand */
+/* Type A gets weapon from Constructor, ie. always armed. hence ampersand */
 
-	private:
+private:
 
-		std::string	name;
-		Weapon		& weapon; // &
+	std::string	name;
+	Weapon		& weapon; // &
 
-	public:
+public:
 
-		HumanA(std::string name, Weapon & weapon);
-		virtual		~HumanA(void);
-		Weapon		& getWeapon(void) const;
-		void		attack(void) const;
+	HumanA(std::string name, Weapon & weapon);
+	virtual	~HumanA(void);
+
+public:
+	Weapon&	getWeapon(void) const;
+	void	attack(void) const;
 };
 
 #endif

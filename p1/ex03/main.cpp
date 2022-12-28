@@ -17,40 +17,43 @@
 
 int	main()
 {
+
 	//	[original tests]
+	
 	{
-		Weapon		club = Weapon("crude spiked club");
-		HumanA		bob("Bob", club);
+		Weapon	club = Weapon("crude spiked club");
+		HumanA	bob("Bob", club);
 
 		bob.attack();
 		club.setType("some other type of club");
 		bob.attack();
 	}
 	{
-		Weapon		club = Weapon("crude spiked club");
-		HumanB		jim("Jim");
+		Weapon	club = Weapon("crude spiked club");
+		HumanB	jim("Jim");
 
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
 	}
+	
 	//	[new tests]
+	
 	{
-		Weapon		club = Weapon("");
-		HumanA		alex("Alexander", club);
+		Weapon	club = Weapon("");
+		HumanA	alex("Alexander", club);
 
-		std::cout << _yw "\nNew Test 1. \n" _rs ;
+		std::cout << _YELLOW_ "\nNew Test 1. \n" _REST_ ;
 		alex.attack();
-		//std::cout << "\tweapon: \"ice-cream\" \n";
 		club.setType("ice-cream");
 		alex.attack();
 	}
 	{
-		Weapon		club = Weapon("");
-		HumanB		benji("Benjamin");
+		Weapon	club = Weapon("");
+		HumanB	benji("Benjamin");
 
-		std::cout << _yw "\nNew Test 2. \n" _rs ;
+		std::cout << _YELLOW_ "\nNew Test 2. \n" _REST_ ;
 		benji.setWeapon(club);
 		benji.attack();
 		club.setType("pack of macarons");

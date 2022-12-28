@@ -37,7 +37,10 @@ $(name)	:	$(bud)
 		@ echo "compiling [$@] "
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
-		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ printf "\"hey, are you using the right compiler? \"\n\n"	
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+
 
 run	:	re
 		@ ./out

@@ -22,17 +22,16 @@ class Weapon
 		Weapon(std::string type);
 		virtual	~Weapon(void);
 	
-	puiblic:
+	public:
 		void			setType(const std::string & type);
-		const std::string	& getType(void) const; // &
+		const std::string&	getType(void) const; // &
 };
 
-# define love	"[\x1b[3msic]\x1b[0m \x1b[33mnothing\x1b[0m"
-# define _gn	"\x1b[32m"
-# define _cn	"\x1b[36m"
-# define _rs	"\x1b[0m"
-# define _yw	"\x1b[33m"
-# define _br	"\x1b[33;1m"
+# define _LOVE_	"[\x1b[3msic]\x1b[0m \x1b[33mnothing\x1b[0m"
+# define _CYAN_	"\x1b[36m"
+# define _REST_	"\x1b[0m"
+# define _YELLOW_	"\x1b[33m"
+# define _GREEN_	"\x1b[32m"
 
 #endif
 

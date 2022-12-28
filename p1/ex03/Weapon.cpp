@@ -24,7 +24,7 @@ Weapon::Weapon(std::string type): type(type)
 		this->type = type;
 		return ;
 	}
-	this->type = love;
+	this->type = _LOVE_;
 }
 
 Weapon::~Weapon(void) {}
@@ -43,5 +43,5 @@ void	Weapon::setType(const std::string & type)
 		this->type = type;
 		return ;
 	}
-	this->type = love;
+	this->type = _LOVE_;
 }

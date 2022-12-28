@@ -34,17 +34,17 @@ void	HumanB::setWeapon(Weapon & weapon)
 
 void	HumanB::attack(void) const
 {
-	std::cout << _gn << this->name << _rs;
-	if (this->weapon->getType() != love)
+	std::cout << _GREEN_ << this->name << _REST_;
+	if (this->weapon->getType() != _LOVE_)
 	{
 		std::cout << " picks up a large ";
-		std::cout << _cn << this->weapon->getType() << _rs;
+		std::cout << _CYAN_ << this->weapon->getType() << _REST_;
 		std::cout << " and retreats westward. \n";
 	}
 	else
 	{
 		std::cout << " gets ";
-		std::cout << _cn << this->weapon->getType() << _rs;
+		std::cout << _CYAN_ << this->weapon->getType() << _REST_;
 		std::cout << ", smiles and says, ";
 		std::cout << "\"i cannot fight with nothing.\" \n";
 	}
