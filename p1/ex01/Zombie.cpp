@@ -29,7 +29,7 @@ std::string	Zombie::get_name(void) const
 
 void	Zombie::label(void) const
 {
-	std::cout << _green << this->name << _reset;
+	std::cout << _green << this->name << ' ' << _reset;
 	// std::cout << _green "﹤" << this->name << "﹥" _reset;
 	//std::cout << '<' << this->name << '>' << ' ';
 }
