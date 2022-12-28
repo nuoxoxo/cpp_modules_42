@@ -8,6 +8,7 @@ all	:	$(name)
 $(name)	:	$(src)
 		@ $(comp) $^ -o $@
 		@ ./$(name)
+		@ make f
 
 f	:
 		@ rm -rf $(name) a.out

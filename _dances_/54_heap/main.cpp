@@ -68,6 +68,7 @@ int	main()
 	std::cout << ylo "\n======\t Heap \t====== \n\n" noc;
 	std::cout << * heap_value << '\t';
 	std::cout << & heap_value << "\n";
+	
 	for (int i = 0; i < Size; i++)
 	{
 		std::cout << heap_array[i];
@@ -82,14 +83,15 @@ int	main()
 
 	// Delete Heap-allocated memory
 
-	delete[]	heap_array;
-	delete		heap_value;
-	delete		heap_vec;
+	delete	[] heap_array;
+	delete	heap_value;
+	delete	heap_vec;
 
 	// Footnote
 
-	std::cout << ylo "\n" <<
-	"* Note the diff btw 2 blocks of addresses (high & low) \n" <<
-	"** Also note we delete Heap-allocated memory for every 'new' we use \n"
+	std::cout << ylo "\n"
+	<< "* Note the diff btw 2 blocks of addresses \n"
+	<< "** Also note that for every 'new' keyword we have used,  \n"
+	<< "** we free with operator 'delete' the mem it created. \n"
 	noc << std::endl;
 }
