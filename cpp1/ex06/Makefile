@@ -12,7 +12,7 @@
 #* ****************************************************************** .py *** *#
 
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	HarlFilter
+name	:=	harlFilter
 rmv	:=	rm -rf
 
 incl	:=	-I./
