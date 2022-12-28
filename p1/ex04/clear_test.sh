@@ -1,4 +1,4 @@
 #!/bin/bash
 
 make f
-rm testsuite/*.*.replace
+rm testsuite/*.replace

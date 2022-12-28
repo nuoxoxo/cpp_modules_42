@@ -7,41 +7,41 @@ rs='\033[0m' # reset
 
 make re
 
-echo "Test 0. replace ${c1}\"aa\"${rs} with ${c2}\"XX\"${rs} in ${c3}random_finnish ${rs}"
+echo "\ntest 0. replace ${c1}\"aa\"${rs} with ${c2}\"XX\"${rs} in ${c3}random_finnish ${rs}"
 ./replace  testsuite/random_finnish  aa  XX
-./replace  testsuite/RANDOM_FINNISH.replace  XX  aa
+./replace  testsuite/random_finnish.replace  XX  aa
 
-diff -s  testsuite/random_finnish  testsuite/RANDOM_FINNISH.REPLACE.replace
+diff -s  testsuite/random_finnish  testsuite/random_finnish.replace.replace
 #echo
 
-echo "test 1. replace ${c1}\"e\"${rs} with ${c2}\"(o ^ . ^)o\"${rs} in ${c3}random_portugese ${rs}"
+echo "\ntest 1. replace ${c1}\"e\"${rs} with ${c2}\"(o ^ . ^)o\"${rs} in ${c3}random_portugese ${rs}"
 ./replace  testsuite/random_portugese  e  "(o ^ . ^)o"
-./replace  testsuite/RANDOM_PORTUGESE.replace  "(o ^ . ^)o" e
+./replace  testsuite/random_portugese.replace  "(o ^ . ^)o" e
 
-diff -s  testsuite/random_portugese  testsuite/RANDOM_PORTUGESE.REPLACE.replace
+diff -s  testsuite/random_portugese  testsuite/random_portugese.replace.replace
 #echo
 
-echo "test 2. replace ${c1}\"do\"${rs} with ${c2}\"QWERTY\"${rs} in ${c3}random_dutch ${rs}"
+echo "\ntest 2. replace ${c1}\"do\"${rs} with ${c2}\"QWERTY\"${rs} in ${c3}random_dutch ${rs}"
 
 ./replace  testsuite/random_dutch  do  QWERTY
-./replace  testsuite/RANDOM_DUTCH.replace  QWERTY do
+./replace  testsuite/random_dutch.replace  QWERTY do
 
-diff -s  testsuite/random_dutch  testsuite/RANDOM_DUTCH.REPLACE.replace
+diff -s  testsuite/random_dutch  testsuite/random_dutch.replace.replace
 #echo
 
-echo "test 3. replace ${c1}\"se\"${rs} with ${c2}\"Distant Star\"${rs} in ${c3}random_italian ${rs}"
+echo "\ntest 3. replace ${c1}\"se\"${rs} with ${c2}\"Distant Star\"${rs} in ${c3}random_italian ${rs}"
 
 ./replace  testsuite/random_italian  se "Distant Stars"
-./replace  testsuite/RANDOM_ITALIAN.replace  "Distant Stars" se
+./replace  testsuite/random_italian.replace  "Distant Stars" se
 
-diff -s  testsuite/random_italian  testsuite/RANDOM_ITALIAN.REPLACE.replace
+diff -s  testsuite/random_italian  testsuite/random_italian.replace.replace
 #echo
 
 
-echo "test 4. replace ${c1}\"te\"${rs} with ${c2}\"4242\"${rs} in ${c3}random_german ${rs}"
+echo "\ntest 4. replace ${c1}\"te\"${rs} with ${c2}\"4242\"${rs} in ${c3}random_german ${rs}"
 
 ./replace  testsuite/random_german  te 4242
-./replace  testsuite/RANDOM_german.replace  4242 te
+./replace  testsuite/random_german.replace  4242 te
 
-diff -s  testsuite/random_german  testsuite/RANDOM_GERMAN.REPLACE.replace
+diff -s  testsuite/random_german  testsuite/random_german.replace.replace
 echo

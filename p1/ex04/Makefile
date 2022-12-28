@@ -15,8 +15,6 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	replace
 rmv	:=	rm -rf
 
-incl	:=	-I./
-
 src	:=	main.cpp 
 bud	:=	$(src:.cpp=.o)
 
@@ -27,12 +25,11 @@ bud	:=	$(src:.cpp=.o)
 $(name)	:	$(bud)
 		@ echo "compiling [$@] "
 		@ $(comp) $^ -o $@
-		@ printf "\n\t"
-		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ printf "\n"
+		@ printf "\t\"hey, are you using the right compiler? \"\n\n"
+		@ printf "\t\"also root dir should contain no .sh or testsuite \"\n\n"
 
 run	:	re
-		@ ./out
-		@ make clean
 
 all	:	$(name)
 
