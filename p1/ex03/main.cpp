@@ -41,17 +41,18 @@ int	main()
 			std::cout << e.what();
 		}*/
 
-		/* try-catch blocks only handle C++ exceptions. 
-		segmentation faults are lower-level stuff, 
-		try-catch ignores these events 
-		and behaves the same as if there was no try-catch block.
-		*/
-
 		jim.setWeapon(club);
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();
 	}
+
+	/*	
+		try-catch blocks only handle C++ exceptions. 
+		segmentation faults are lower-level stuff, 
+		try-catch ignores these events 
+		and behaves the same as if there was no try-catch block.
+	*/
 	
 	//	[new tests]
 	
