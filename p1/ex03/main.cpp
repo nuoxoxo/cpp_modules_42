@@ -31,6 +31,21 @@ int	main()
 	{
 		Weapon	club = Weapon("crude spiked club");
 		HumanB	jim("Jim");
+		
+		/*try
+		{
+			jim.attack();
+		}
+		catch (const std::overflow_error& e)
+		{
+			std::cout << e.what();
+		}*/
+
+		/* try-catch blocks only handle C++ exceptions. 
+		segmentation faults are lower-level stuff, 
+		try-catch ignores these events 
+		and behaves the same as if there was no try-catch block.
+		*/
 
 		jim.setWeapon(club);
 		jim.attack();

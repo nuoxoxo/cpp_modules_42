@@ -18,23 +18,22 @@
 
 class HumanB
 {
-	/* Type B takes no weapon, not always has a weapon. hence asterisk */
+/* Type B takes no weapon, ie. can be without weapon. hence asterisk */
 
-	private:
+private:
 
-		std::string	name;
-		Weapon		*weapon; // *
+	std::string	name;
+	Weapon		*weapon; // weapon pointer
 
 
-	public:
+public:
 
-		HumanB(std::string name); // no weapon at hand
-		virtual		~HumanB(void);
+	HumanB(std::string name); // no pre defined weapon
+	virtual		~HumanB(void);
 
-		Weapon		& getWeapon(void) const;
-		void		setWeapon(Weapon &); // shouldnt be const
-		//void		setWeapon(Weapon &) const;
-		void		attack(void) const;
+	Weapon		& getWeapon(void) const;
+	void		setWeapon(Weapon &);
+	void		attack(void) const;
 };
 
 // ----------------8<----------[ FIXME ]------------------------
