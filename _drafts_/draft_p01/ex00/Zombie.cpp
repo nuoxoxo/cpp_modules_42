@@ -23,7 +23,7 @@ std::string	Zombie::get_name(void) const
 
 void	Zombie::label(void) const
 {
-	std::cout << _green "﹤" << this->name << "﹥" _reset; // diff signs
+	std::cout << _GREEN_ "﹤" << this->name << "﹥" _REST_; // diff signs
 
 	/* to cleanup on submit */
 	// std::cout << '<' << this->name << '>' << ' '; // norm -gt -lt
@@ -38,7 +38,7 @@ void	Zombie::announce(void) const
 Zombie::~Zombie(void)
 {
 	Zombie::label();
-	std::cout << _cyan "is dead. \n" _reset;
+	std::cout << "is dead. \n";
 }
 
 

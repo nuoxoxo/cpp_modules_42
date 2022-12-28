@@ -6,19 +6,18 @@
 #*                     # \# \#  #           \  \# \# \                        *#
 #*                    #(   . . )            (         )\                      *#
 #*                   #  \_____#              \_______#  \                     *#
-#*                       []  []               [[] [[]    *.                   *#
+#*                       []  []               [[] [[]    *..fi                *#
 #*                       []] []]              [[] [[]                         *#
 #*                                                                            *#
 #* ****************************************************************** .py *** *#
 
-comp	:=	c++ -Wall -Werror -Wextra -std=c++98
+comp	:=	c++ -std=c++98 -Wall -Werror -Wextra
 name	:=	out
 rmv	:=	rm -rf
 
 incl	:=	-I./
 
-src	:=	main.cpp \
-		Zombie.cpp \
+src	:=	main.cpp Zombie.cpp \
 		newZombie.cpp \
 		randomChump.cpp
 

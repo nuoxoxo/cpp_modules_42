@@ -46,42 +46,42 @@ int	main()
 static void	storyline_1(void)
 {
 //	std::cout << "\n(1)";
-	std::cout << _yellow "\n[ Meet Matthew, the first ";
+	std::cout << _YELLOW_ "\n[ Meet Matthew, the first ";
 	std::cout << "man-made psychic-vampire of ";
-	std::cout << "the new era. ]\n" _reset ;
-	std::cout << _mag "[ Matthew is created on the ";
-	std::cout << _red "\"Stack\"" _reset ;
-	std::cout << _mag " ]\n[ ie. built with ";
-	std::cout << _red _ital"\"Zombie name(name)\"" _reset ;
-	std::cout << _mag " ]\n\n" _reset ;
+	std::cout << "the new era. ]\n" _REST_ ;
+	std::cout << _CYAN_ "[ Matthew is created on the ";
+	std::cout << _RED_ "\"Stack\"" _REST_ ;
+	std::cout << _CYAN_ " ]\n[ ie. built with ";
+	std::cout << _RED_ _ITAL_"\"Zombie name(name)\"" _REST_ ;
+	std::cout << _CYAN_ " ]\n\n" _REST_ ;
 
 }
 
 static void	storyline_2(void)
 {
 //	std::cout << "\n(2)";
-	std::cout << _yellow "\n[ Here's Luke. Luke is different... ]\n";
+	std::cout << _YELLOW_ "\n[ Here's Luke. Luke is different... ]\n";
 	std::cout << "[ While Matthew is a vampire, Luke is a ghost. ";
-	std::cout << "...A real one. ]\n" _reset ;
-	std::cout << _mag "[ Luke is created on the ";
-	std::cout << _red "\"Heap\"" _reset ;
-	std::cout << _mag " ]\n[ ie. built by using the ";
-	std::cout << _red _ital "\"new\"" _reset ;
-	std::cout << _mag " keyword ]\n\n" _reset ;
+	std::cout << "...A real one. ]\n" _REST_ ;
+	std::cout << _CYAN_ "[ Luke is created on the ";
+	std::cout << _RED_ "\"Heap\"" _REST_ ;
+	std::cout << _CYAN_ " ]\n[ ie. built by using the ";
+	std::cout << _RED_ _ITAL_ "\"new\"" _REST_ ;
+	std::cout << _CYAN_ " keyword ]\n\n" _REST_ ;
 }
 
 static void	storyline_3(void)
 {
 //	std::cout << "\n(3)";
-	std::cout << _yellow "\n[ Paul is born... ";
-	std::cout << "and dead almost instantly. ]\n\n" _reset;
+	std::cout << _YELLOW_ "\n[ Paul is born... ";
+	std::cout << "and dead almost instantly. ]\n\n" _REST_;
 }
 
 static void	storyline_4(void)
 {
 //	std::cout << "\n(4)";
-	std::cout << _yellow "\n[ Before we go, let's ";
+	std::cout << _YELLOW_ "\n[ Before we go, let's ";
 	std::cout << "KILL Luke. ]\n[ Just because he is the ";
-	std::cout << _ital _red "heap " _reset << _yellow "guy. ]\n";
-	std::cout << "[ ...But we didn't kill Matthew. ]\n\n" _reset;
+	std::cout << _ITAL_ _RED_ "heap " _REST_ << _YELLOW_ "guy. ]\n";
+	std::cout << "[ ...But we didn't kill Matthew. ]\n\n" _REST_;
 }
