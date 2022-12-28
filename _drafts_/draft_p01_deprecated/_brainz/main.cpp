@@ -1,35 +1,77 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                        ...      :::::::    */
+/*   _                                                  ...      :::    :::   */
+/*                                                    ... ...         :::     */
+/*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
+/*                                                ...........   :::           */
+/*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
+/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
 # include "iostream"
 # include "string"
 # include "zombie_color.hpp"
 
 using namespace std;
 
-/*		class		*/
+/* <------8<------ Zombie class ------------------> */
 
 class	Zombie
 {
-	private:
-		string		name;
-		void		label(void) const;
-	public:
-		Zombie(string);
-		virtual		~Zombie(void);
-		string		get_name(void) const;
-		void		announce(void) const;
+
+private:
+	string	name;
+
+private:
+	void	label(void) const;
+
+public:
+	Zombie(string);
+	virtual ~Zombie(void);
+
+public:
+	string	get_name(void) const;
+	void	announce(void) const;
+
 };
 
-/*		prototype		*/
+
+/* <------8<------ Member functioons ------------------> */
+
 
 Zombie		*newZombie(string);
 void		randomChump(string);
+
 void		storyline_1(void);
 void		storyline_2(void);
 void		storyline_3(void);
 void		storyline_4(void);
 
-// class		Zombie; // cannot do that, explanation below
+// class Zombie;
+// 	cannot do that, explanation below
+/*
+ *	when working with a class, the compiler has to know about the class' details
+ *	- not just that it exists -  
+ *	the compiler needs to ensure the entire proper layout on the stack
+ *	what parameters are required for the constructor, etc.
+ *	that's why we CANNOT prototype classes like functions
+ */
+
 
 /*		drive		*/
+
+
+#include "Zombie.hpp"
+
+static void	storyline_1(void);
+static void	storyline_2(void);
+static void	storyline_3(void);
+static void	storyline_4(void);
 
 int	main()
 {
@@ -39,23 +81,21 @@ int	main()
 	storyline_1();
 	matt.announce();
 
+	// ------8<------
+
 	storyline_2();
 	luke->announce();
+
+	// ------8<------
 
 	storyline_3();
 	randomChump("Paul");
 
+	// ------8<------
+
 	storyline_4();
 	delete	luke;
 }
-
-/*
- *	when working with a class, the compiler has to know about the class' details
- *	- not just that it exists -  
- *	the compiler needs to ensure the entire proper layout on the stack
- *	what parameters are required for the constructor, etc.
- *	that's why we cannot prototype classes like functions
- */
 
 
 /*		member functions		*/
@@ -145,3 +185,4 @@ void	storyline_4(void)
 	cout << _ital _red "heap " _reset << _yellow "guy. ]\n";
 	cout << "[ ...But we didn't kill Matthew. ]\n\n" _reset;
 }
+
