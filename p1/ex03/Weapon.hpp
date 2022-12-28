@@ -16,13 +16,14 @@
 
 class Weapon
 {
-	private:
-		std::string type;
+	std::string type;
 
 	public:
 		Weapon(std::string type);
-		virtual			~Weapon(void);
-		void			setType(const std::string & type); // const
+		virtual	~Weapon(void);
+	
+	puiblic:
+		void			setType(const std::string & type);
 		const std::string	& getType(void) const; // &
 };
 
@@ -43,6 +44,7 @@ class Weapon
 	- a type string
 	- a getType method 
 		- getType returns a const reference to the type string
-	- a setType method
+	- a setType method 
+		- not const coz modifies type
 
 */
