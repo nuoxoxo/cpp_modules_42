@@ -12,6 +12,7 @@
 #* ****************************************************************** .py *** *#
 
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
+# comp	:=	c++ -Wall -Werror -Wextra -std=c++98 -fsanitize=address
 name	:=	out
 rmv	:=	rm -rf
 

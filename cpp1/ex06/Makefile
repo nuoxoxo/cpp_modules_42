@@ -37,10 +37,6 @@ $(name)	:	$(bud)
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
 
-run	:	re
-		@ ./$@
-		@ make clean
-
 all	:	$(name)
 
 clean	:
