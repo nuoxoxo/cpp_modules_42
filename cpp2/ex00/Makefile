@@ -1,5 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	a.out
+name	:=	out
 rmv	:=	rm -rf
 src	:=	main.cpp Fixed.cpp
 bud	:=	$(src:%.cpp=%.o)
@@ -13,11 +13,12 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
-		@ ./$(name)
-		@ make clean
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+		@ echo ""
 
 run	:	re
-		@ ./out
+		@ ./$(name)
 		@ make clean
 
 all	:	$(name)

@@ -14,35 +14,38 @@
 # define FIXED_HPP
 
 # include "iostream"
-# include "cmath" // part 1
+# include "cmath" // x01
 
 class	Fixed
 {
-	private:
-		static const int	number_of_fractional_bits = 8;
-		int			fixed_point_value;
 
-	public:
-		Fixed(void);
+static const int	m_number_of_fractional_bits = 8;
+int			m_fixed_point_value;
 
-		Fixed(const float); // part 1
-		Fixed(const int); // part 1
+public:
+	Fixed(void);
+	Fixed(const int); // x01
+	Fixed(const float); // x01
 
-		Fixed(const Fixed &);
-		~Fixed(void);
+	Fixed(const Fixed &);
+	~Fixed(void);
 
-		Fixed			& operator = (const Fixed &);
+	void	setRawBits(int);
+	int	getRawBits(void) const;
 
-		void			setRawBits(int);
-		int			getRawBits(void) const;
+	float	toFloat() const ; // x01
+	int	toInt() const ; // x01
 
-		float			toFloat() const ; // part 1
-		int			toInt() const ; // part 1
-
+public:
+	Fixed & operator = (const Fixed &);
 };
 
-std::ostream & operator << (std::ostream &, const Fixed &); // part 1
+std::ostream & operator << (std::ostream &, const Fixed &); // x01
 
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
 # define cy	"\x1b[36m"
 # define yell	"\x1b[33m"
 # define rest	"\x1b[0m"
