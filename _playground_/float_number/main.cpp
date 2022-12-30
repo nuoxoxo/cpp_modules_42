@@ -12,12 +12,12 @@ int	main()
 	float	f;
 
 	f = 42.42;
-	cout << yell "42.42 and 256*42.42 " rest << endl;
+	cout << yell "42.42 and 256 * 42.42 " rest << endl;
 	cout << f << endl;
 	cout << 256 * f << nl2;
 
 	f = 42.42f;
-	cout << "w/ an f : " cy "42.42f and 256*42.42f " rest << endl;
+	cout << "w/ an f : " cy "42.42f and 256 * 42.42f " rest << endl;
 	cout << f << endl;
 	cout << 256 * f << nl2;
 
