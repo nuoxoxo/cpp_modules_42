@@ -13,8 +13,9 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
-		@ ./out
-		@ make clean
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+		@ echo ""
 
 run	:	re
 		@ ./out

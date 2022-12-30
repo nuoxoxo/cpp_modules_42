@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include "iostream"
+
 # define called " called\n"
 
 /*
@@ -26,8 +27,8 @@ Fixed point numbers:
 class	Fixed
 {
 
-int			value; // fixed point value / fpv
-static const int	number_of_fractional_bits = 8;
+int			m_fixed_point_value; // fixed point value / fpv
+static const int	m_fractional_bits = 8;
 
 public:
 	Fixed(void);
