@@ -11,12 +11,6 @@
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-#define called " called\n"
-#define inside "\ninside "
-#define nl2 " \n\n"
-#define nl " \n"
-
 /*
 
 """ exo1

@@ -16,6 +16,11 @@
 # include "iostream"
 # include "cmath" // part 1
 
+#define called " called\n"
+#define inside "\ninside "
+#define nl2 " \n\n"
+#define nl " \n"
+
 class	Fixed
 {
 	private:
