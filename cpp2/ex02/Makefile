@@ -21,6 +21,8 @@ run	:	re
 		@ ./out
 		@ make clean
 
+r	:	run
+
 all	:	$(name)
 
 clean	:
