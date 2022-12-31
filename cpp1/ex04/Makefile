@@ -27,7 +27,8 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n"
 		@ printf "\t\"hey, are you using the right compiler? \"\n\n"
-		@ printf "\t\"also root dir should contain no .sh or testsuite \"\n\n"
+		@ printf "\t\"del .sh or testsuite \"\n\n"
+		@ printf "\t\"use a tester \"\n\n"
 
 run	:	re
 

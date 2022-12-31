@@ -44,9 +44,9 @@ std::ostream & operator << (std::ostream &, const Fixed &); // x01
 
 # define called " called\n"
 # define inside "\ninside "
-# define cyan	"\x1b[36m"
-# define yell	"\x1b[33m"
-# define rest	"\x1b[0m"
+# define CYAN	"\x1b[36m"
+# define YELL	"\x1b[33m"
+# define REST	"\x1b[0m"
 # define nl2 " \n\n"
 # define nl " \n"
 

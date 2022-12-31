@@ -17,7 +17,7 @@
 
 std::ostream & operator << (std::ostream & ostream, Fixed const & fixed_num)
 {
-	ostream << fixed_num.toFloat() << yell " " << __FUNCTION__ << rest;
+	ostream << fixed_num.toFloat() << YELL " " << __FUNCTION__ << REST;
 	return ostream;
 }
 
@@ -32,15 +32,15 @@ Fixed::~Fixed() {std::cout << "Destructor" << called;}
 float	Fixed::toFloat() const
 {
 	// for debugging
-	std::cout << cyan nl << __FUNCTION__ <<  rest nl;
+	std::cout << CYAN nl << __FUNCTION__ <<  REST nl;
 	
 	std::cout << m_fixed_point_value;
-	std::cout << yell " (" << (m_fixed_point_value >> 8) << " << 8)" rest << nl;
+	std::cout << YELL " (" << (m_fixed_point_value >> 8) << " << 8)" REST << nl;
 	
 	std::cout << " / " << nl;
 	
 	std::cout << (1 << 8);
-	std::cout << cyan " (1 << 8)" rest << nl;
+	std::cout << CYAN " (1 << 8)" REST << nl;
 
 	std::cout << " = " << nl;
 	std::cout << ((float)m_fixed_point_value / (1 << 8)) << nl2;
@@ -52,15 +52,15 @@ float	Fixed::toFloat() const
 int	Fixed::toInt() const
 {
 	// for debugging
-	std::cout << cyan nl << __FUNCTION__ << rest nl;
+	std::cout << CYAN nl << __FUNCTION__ << REST nl;
 	
 	std::cout << m_fixed_point_value;
-	std::cout << yell " (" << (m_fixed_point_value >> 8) << " << 8)" rest << nl;
+	std::cout << YELL " (" << (m_fixed_point_value >> 8) << " << 8)" REST << nl;
 	
 	std::cout << " >> " << nl;
 	
 	std::cout << m_number_of_fractional_bits;
-	std::cout << cyan " (number of fractional bits)" rest << nl;
+	std::cout << CYAN " (number of fractional bits)" REST << nl;
 
 	std::cout << " = " << nl;
 	std::cout << ((m_fixed_point_value) >> (m_number_of_fractional_bits)) << nl2;
@@ -104,13 +104,13 @@ Fixed::Fixed(const int x)
 	// std::cout << "Int constructor" << called;
 	// silenced above line to match output
 	// test //
-	/*std::cout << yell inside rest << __FUNCTION__ << nl;
-	std::cout << cyan "const Int x is " rest << x << nl;
-	std::cout << cyan "this->m_number_of_fractional_bits : " rest;
+	/*std::cout << YELL inside REST << __FUNCTION__ << nl;
+	std::cout << CYAN "const Int x is " REST << x << nl;
+	std::cout << CYAN "this->m_number_of_fractional_bits : " REST;
 	std::cout << this->m_number_of_fractional_bits << nl;
-	std::cout << cyan "x << (this->m_number_of_fractional_bits) : " rest;
+	std::cout << CYAN "x << (this->m_number_of_fractional_bits) : " REST;
 	std::cout << (x << this->m_number_of_fractional_bits) << nl;
-	std::cout << cyan "x << (Fixed::m_number_of_fractional_bits) : " rest;
+	std::cout << CYAN "x << (Fixed::m_number_of_fractional_bits) : " REST;
 	std::cout << (x << Fixed::m_number_of_fractional_bits) << nl2;
 	*/// end //
 	this->m_fixed_point_value = (x << this->m_number_of_fractional_bits);
@@ -121,23 +121,23 @@ Fixed::Fixed(const float x)
 	// std::cout << "Float constructor" << called;
 	// silenced above line to match output
 	/*// debugging //
-	std::cout << yell inside rest << __FUNCTION__ << nl;
-	std::cout << cyan "const Float x is " rest << x << nl;
-	std::cout << cyan "1 << 8 : " rest << (1 << 8) << nl;
-	std::cout << cyan "x * 256 : " rest << (float) x * 256 << nl;
-	std::cout << cyan "x * (1 << 8) : " rest << x * (1 << 8) << nl;
-	std::cout << cyan "roundf(x * (1 << 8) : " rest ;
+	std::cout << YELL inside REST << __FUNCTION__ << nl;
+	std::cout << CYAN "const Float x is " REST << x << nl;
+	std::cout << CYAN "1 << 8 : " REST << (1 << 8) << nl;
+	std::cout << CYAN "x * 256 : " REST << (float) x * 256 << nl;
+	std::cout << CYAN "x * (1 << 8) : " REST << x * (1 << 8) << nl;
+	std::cout << CYAN "roundf(x * (1 << 8) : " REST ;
 	std::cout << std::roundf(x * (1 << 8)) << nl2;
 	*/// debugging ends //
 
 	// for debugging
-	std::cout << cyan nl << __FUNCTION__ << " constructor for float" rest nl;
+	std::cout << CYAN nl << __FUNCTION__ << " constructor for float" REST nl;
 	std::cout << x << nl ;;
 	
 	std::cout << " * " << nl;
 	
 	std::cout << (1 << 8);
-	std::cout << cyan " (1 << 8)" rest << nl;
+	std::cout << CYAN " (1 << 8)" REST << nl;
 
 	std::cout << " = " << nl;
 	std::cout << (x * (1 << 8)) << nl;
