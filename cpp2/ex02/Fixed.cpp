@@ -13,7 +13,7 @@
 #include "Fixed.hpp"
 
 
-/*		+ -	(arithmetic)	*/
+// arithmetic + -
 
 Fixed	Fixed::operator + (const Fixed & n) const
 {
@@ -25,7 +25,8 @@ Fixed	Fixed::operator - (const Fixed & n) const
 	return Fixed(this->toFloat() - n.toFloat());
 }
 
-/*		* /	(arithmetic)		*/
+
+// arithmetic * /
 
 Fixed	Fixed::operator * (const Fixed &n) const
 {
@@ -40,7 +41,7 @@ Fixed	Fixed::operator / (const Fixed & n) const
 }
 
 
-/*		< >		(symbols)		*/
+// symbols < >
 
 bool	Fixed::operator > (Fixed const & n) const
 {
@@ -52,7 +53,8 @@ bool	Fixed::operator < (const Fixed & n) const
 	return this->m_fixed_point_value < n.m_fixed_point_value;
 }
 
-/*		<= >= 	(symbols)		*/
+
+// symbols >= <=
 
 bool	Fixed::operator >= (const Fixed & n) const
 {
@@ -64,7 +66,8 @@ bool	Fixed::operator <= (const Fixed & n) const
 	return this->getRawBits() <= n.getRawBits();;
 }
 
-/*		== != 	(symbols)		*/
+
+// symbols == !=
 
 bool	Fixed::operator == (const Fixed & n) const
 {
@@ -76,7 +79,8 @@ bool	Fixed::operator != (const Fixed & n) const
 	return !(*this == n);
 }
 
-/*	pre-increment . pre-decrement		*/
+
+// pre-increment . pre-decrement
 
 Fixed	& Fixed::operator ++ (void)
 {
@@ -90,7 +94,8 @@ Fixed	& Fixed::operator -- (void)
 	return (*this);
 }
 
-/*	post-increment . post-decrement		*/
+
+// post-increment . post-decrement
 
 Fixed	Fixed::operator ++ (int)
 {
@@ -108,19 +113,8 @@ Fixed	Fixed::operator -- (int)
 	return (temp);
 }
 
-/*		min . max		*/
 
-/*	
- *	Subject dictates: 
- *	
- *	1. /static/ member functions
- *		pass-in	: /references/ of 2 Fixeds
- *		returns : /reference/ to the smaller one
- *	
- *	2. overloads
- *		pass-in	: /references/ of 2 /constant/ Fixeds
- *		returns	: /reference/ to the smaller /constant/
- */
+// naive sim of std::minmax
 
 Fixed	& Fixed::min(Fixed & n1, Fixed & n2)
 {
@@ -135,6 +129,18 @@ Fixed	& Fixed::max(Fixed & n1, Fixed & n2)
 		return n1;
 	return n2;
 }
+
+
+/*	Subject dictates member min/max functions & their overloaded versions
+ *	
+ *	1. /static/ member functions
+ *		pass-in	: /references/ of 2 Fixeds
+ *		returns : /reference/ to the smaller one
+ *	
+ *	2. overloads
+ *		pass-in	: /references/ of 2 /constant/ Fixeds
+ *		returns	: /reference/ to the smaller /constant/	*/
+
 
 Fixed const & Fixed::min(const Fixed & n1, const Fixed & n2)
 {
@@ -161,14 +167,23 @@ Fixed const & Fixed::max(const Fixed & n1, const Fixed & n2)
 
 std::ostream & operator << (std::ostream & ostream, Fixed const & fixed_num)
 {
-	ostream << fixed_num.toFloat() << YELL " " << __FUNCTION__ << REST;
+	ostream << fixed_num.toFloat();// << YELL " " << __FUNCTION__ << REST;
 	return ostream;
 }
 
+
 // Default
 
-Fixed::Fixed() : m_fixed_point_value() {std::cout << "Default constructor" << called;}
-Fixed::~Fixed() {std::cout << "Destructor" << called;}
+Fixed::Fixed() : m_fixed_point_value()
+{
+	std::cout << GREEN "Default constructor" << called REST;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << RED "Destructor" << called REST;
+}
+
 
 // Converter functions
 
@@ -217,8 +232,7 @@ int	Fixed::toInt() const
 
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
-	std::cout << "Copy assignment operator" << called;
-	// this->m_fixed_point_value = dummy.getRawBits();
+	std::cout << GREEN "Copy assignment operator" << called REST;
 	m_fixed_point_value = dummy.getRawBits();
 	return (*this);
 }
@@ -228,14 +242,13 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function" << called;
+	std::cout << GREEN "getRawBits member function" << called REST;
 	return (this->m_fixed_point_value);
 }
 
 void	Fixed::setRawBits(int val)
 {
-	std::cout << "setRawBits member function" << called;
-	// this->m_fixed_point_value = val;
+	std::cout << GREEN "setRawBits member function" << called REST;
 	m_fixed_point_value = val;
 }
 
@@ -293,6 +306,6 @@ Fixed::Fixed(const float x)
 
 Fixed::Fixed(const Fixed & dummy)
 {
-	std::cout << "Copy constructor" << called;
+	std::cout << GREEN "Copy constructor" << called REST;
 	*this = dummy;
 }

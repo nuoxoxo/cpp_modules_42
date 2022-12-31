@@ -77,6 +77,8 @@ std::ostream & operator << (std::ostream &, const Fixed &);
 # define REST	"\x1b[0m"
 # define nl2 " \n\n"
 # define nl " \n"
+# define GREEN	"\x1b[32m"
+# define RED	"\x1b[31m"
 
 #endif
 
