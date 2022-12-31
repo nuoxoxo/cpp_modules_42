@@ -12,69 +12,61 @@
 
 #include "Fixed.hpp"
 
+
+// ostream overload
+
+std::ostream & operator << (std::ostream & ostream, Fixed const & fixed_num)
+{
+	ostream << fixed_num.toFloat() << yell " " << __FUNCTION__ << rest;
+	return ostream;
+}
+
+
 // Default
 
-Fixed::Fixed() : fixed_point_value() {std::cout << "Default constructor" << called;}
+Fixed::Fixed() : m_fixed_point_value() {std::cout << "Default constructor" << called;}
 Fixed::~Fixed() {std::cout << "Destructor" << called;}
 
+// Converter functions
 
-// Constructors
-
-Fixed::Fixed(const int x)
+float	Fixed::toFloat() const
 {
-	std::cout << "Int constructor" << called;
-	// test
-	std::cout << yell inside rest << __FUNCTION__ << nl;
+	// for debugging
+	std::cout << cyan nl << __FUNCTION__ <<  rest nl;
 	
-	std::cout << cy "const Int x is " rest << x << nl;
-	std::cout << cy "this->number_of_fractional_bits : " rest;
-	std::cout << this->number_of_fractional_bits << nl;
-	std::cout << cy "x << (this->number_of_fractional_bits) : " rest;
-	std::cout << (x << this->number_of_fractional_bits) << nl;
-	std::cout << cy "x << (Fixed::number_of_fractional_bits) : " rest;
-	std::cout << (x << Fixed::number_of_fractional_bits) << nl2;
-	// end //
-	this->fixed_point_value = (x << this->number_of_fractional_bits);
+	std::cout << m_fixed_point_value;
+	std::cout << yell " (" << (m_fixed_point_value >> 8) << " << 8)" rest << nl;
+	
+	std::cout << " / " << nl;
+	
+	std::cout << (1 << 8);
+	std::cout << cyan " (1 << 8)" rest << nl;
+
+	std::cout << " = " << nl;
+	std::cout << ((float)m_fixed_point_value / (1 << 8)) << nl2;
+	// debugging ends
+
+	return (float) m_fixed_point_value / (1 << m_number_of_fractional_bits);
 }
 
-Fixed::Fixed(const float x)
+int	Fixed::toInt() const
 {
-	std::cout << "Float constructor" << called;
-	// test
-	std::cout << yell inside rest << __FUNCTION__ << nl;
+	// for debugging
+	std::cout << cyan nl << __FUNCTION__ << rest nl;
+	
+	std::cout << m_fixed_point_value;
+	std::cout << yell " (" << (m_fixed_point_value >> 8) << " << 8)" rest << nl;
+	
+	std::cout << " >> " << nl;
+	
+	std::cout << m_number_of_fractional_bits;
+	std::cout << cyan " (number of fractional bits)" rest << nl;
 
-	std::cout << cy "const Float x is " rest << x << nl;
-	std::cout << cy "1 << 8 : " rest << (1 << 8) << nl;
-	std::cout << cy "x * 256 : " rest << (float) x * 256 << nl;
-	std::cout << cy "x * (1 << 8) : " rest << x * (1 << 8) << nl;
-	std::cout << cy "roundf(x * (1 << 8) : " rest ;
-	std::cout << std::roundf(x*(1 << 8)) << nl2;
-	// end //
-	this->fixed_point_value = std::roundf(x * (1 << 8));
-}
+	std::cout << " = " << nl;
+	std::cout << ((m_fixed_point_value) >> (m_number_of_fractional_bits)) << nl2;
+	// debugging ends
 
-Fixed::Fixed(const Fixed & dummy)
-{
-	std::cout << "Copy constructor" << called;
-	*this = dummy;
-	// this->fixed_point_value = dummy.getRawBits(); // way1
-}
-
-
-// Getters . Setters
-
-int	Fixed::getRawBits(void) const
-{
-	// silenced to match output
-	//std::cout << "getRawBits member function" << called;
-	return (this->fixed_point_value);
-}
-
-void	Fixed::setRawBits(int val)
-{
-	// silenced to match output
-	//std::cout << "setRawBits member function" << called;
-	this->fixed_point_value = val;
+	return (m_fixed_point_value) >> (m_number_of_fractional_bits);
 }
 
 
@@ -82,38 +74,92 @@ void	Fixed::setRawBits(int val)
 
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
-	std::cout << "Assignation operator" << called;
-	this->fixed_point_value = dummy.getRawBits();
+	std::cout << "Copy assignment operator" << called;
+	// this->m_fixed_point_value = dummy.getRawBits();
+	m_fixed_point_value = dummy.getRawBits();
 	return (*this);
 }
 
 
-// Converter functions
+// Getters . Setters
 
-float	Fixed::toFloat() const
+int	Fixed::getRawBits(void) const
 {
-	return (float) this->fixed_point_value / (1 << 8);
+	std::cout << "getRawBits member function" << called;
+	return (this->m_fixed_point_value);
 }
 
-int	Fixed::toInt() const
+void	Fixed::setRawBits(int val)
 {
-	return (this->fixed_point_value) >> (this->number_of_fractional_bits);
+	std::cout << "setRawBits member function" << called;
+	// this->m_fixed_point_value = val;
+	m_fixed_point_value = val;
 }
 
 
-// ostream overload
+// Constructors
 
-std::ostream & operator << (std::ostream & ostream, Fixed const & fx)
+Fixed::Fixed(const int x)
 {
-	ostream << fx.toFloat();
-	return ostream;
+	// std::cout << "Int constructor" << called;
+	// silenced above line to match output
+	// test //
+	/*std::cout << yell inside rest << __FUNCTION__ << nl;
+	std::cout << cyan "const Int x is " rest << x << nl;
+	std::cout << cyan "this->m_number_of_fractional_bits : " rest;
+	std::cout << this->m_number_of_fractional_bits << nl;
+	std::cout << cyan "x << (this->m_number_of_fractional_bits) : " rest;
+	std::cout << (x << this->m_number_of_fractional_bits) << nl;
+	std::cout << cyan "x << (Fixed::m_number_of_fractional_bits) : " rest;
+	std::cout << (x << Fixed::m_number_of_fractional_bits) << nl2;
+	*/// end //
+	this->m_fixed_point_value = (x << this->m_number_of_fractional_bits);
 }
 
-// • overload the « operator 
-//	inserts a floating point version of the fixed point value into 
-//	the param output stream
+Fixed::Fixed(const float x)
+{
+	// std::cout << "Float constructor" << called;
+	// silenced above line to match output
+	/*// debugging //
+	std::cout << yell inside rest << __FUNCTION__ << nl;
+	std::cout << cyan "const Float x is " rest << x << nl;
+	std::cout << cyan "1 << 8 : " rest << (1 << 8) << nl;
+	std::cout << cyan "x * 256 : " rest << (float) x * 256 << nl;
+	std::cout << cyan "x * (1 << 8) : " rest << x * (1 << 8) << nl;
+	std::cout << cyan "roundf(x * (1 << 8) : " rest ;
+	std::cout << std::roundf(x * (1 << 8)) << nl2;
+	*/// debugging ends //
+
+	// for debugging
+	std::cout << cyan nl << __FUNCTION__ << " constructor for float" rest nl;
+	std::cout << x << nl ;;
+	
+	std::cout << " * " << nl;
+	
+	std::cout << (1 << 8);
+	std::cout << cyan " (1 << 8)" rest << nl;
+
+	std::cout << " = " << nl;
+	std::cout << (x * (1 << 8)) << nl;
+	std::cout << " roundf= " << nl;
+	std::cout << roundf(x * (1 << 8)) << nl2;
+	// debugging ends
+	
+	this->m_fixed_point_value = roundf(x * (1 << m_number_of_fractional_bits));
+}
+
+Fixed::Fixed(const Fixed & dummy)
+{
+	std::cout << "Copy constructor" << called;
+	*this = dummy;
+}
+
 
 /*
+• overload the << operator 
+	inserts a floating point version of the fixed point value into 
+	the param output stream
+*//*
 
 """ exo1
 do the following stuff

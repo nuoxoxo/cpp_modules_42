@@ -23,31 +23,31 @@ static const int	m_number_of_fractional_bits = 8;
 int			m_fixed_point_value;
 
 public:
-	Fixed(void);
+	Fixed();
+	~Fixed();
 	Fixed(const int); // x01
 	Fixed(const float); // x01
-
 	Fixed(const Fixed &);
-	~Fixed(void);
 
-	void	setRawBits(int);
-	int	getRawBits(void) const;
+	int	getRawBits( void ) const;
+	void	setRawBits( int const raw );
 
 	float	toFloat() const ; // x01
 	int	toInt() const ; // x01
 
 public:
 	Fixed & operator = (const Fixed &);
+
 };
 
 std::ostream & operator << (std::ostream &, const Fixed &); // x01
 
 # define called " called\n"
 # define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-# define cy	"\x1b[36m"
+# define cyan	"\x1b[36m"
 # define yell	"\x1b[33m"
 # define rest	"\x1b[0m"
+# define nl2 " \n\n"
+# define nl " \n"
 
 #endif
