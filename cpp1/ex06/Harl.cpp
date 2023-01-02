@@ -46,11 +46,11 @@ void	Harl::complain(std::string level)
 	{
 		if (found)
 		{
-			(this->modes[i])();
+			(this->*modes[i])();
 		}
 		else if (!found && levels[i] == level)
 		{
-			(this->modes[i])();
+			(this->*modes[i])();
 			found = true;
 		}
 	}
