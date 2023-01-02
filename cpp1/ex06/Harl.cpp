@@ -15,30 +15,6 @@
 Harl::Harl(void) {}
 Harl::~Harl(void) {}
 
-void	Harl::debug(void)
-{
-	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
-	std::cout << _Y_ << DEBUG_LEVEL << _R_ ;
-}
-
-void	Harl::info(void)
-{
-	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
-	std::cout << _Y_ << INFO_LEVEL << _R_ ;
-}
-
-void	Harl::warning(void)
-{
-	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
-	std::cout << _Y_ << WARNING_LEVEL << _R_ ;
-}
-
-void	Harl::error(void)
-{
-	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
-	std::cout << _Y_ << ERROR_LEVEL << _R_ ;
-}
-
 void	Harl::complain(std::string level)
 {
 	bool	found;
@@ -70,11 +46,11 @@ void	Harl::complain(std::string level)
 	{
 		if (found)
 		{
-			(this->*modes[i])();
+			(this->modes[i])();
 		}
 		else if (!found && levels[i] == level)
 		{
-			(this->*modes[i])();
+			(this->modes[i])();
 			found = true;
 		}
 	}
@@ -82,6 +58,36 @@ void	Harl::complain(std::string level)
 		return ;
 	std::cout << INSIGNIFICANT << std::endl;
 }
+
+
+// complaint functions
+
+void	Harl::debug(void)
+{
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << DEBUG_LEVEL << _R_ ;
+}
+
+void	Harl::info(void)
+{
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << INFO_LEVEL << _R_ ;
+}
+
+void	Harl::warning(void)
+{
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << WARNING_LEVEL << _R_ ;
+}
+
+void	Harl::error(void)
+{
+	std::cout << _G_ << __FUNCTION__ << _L_ << _R_ << std::endl;
+	std::cout << _Y_ << ERROR_LEVEL << _R_ ;
+}
+
+
+// Utils
 
 void	usage()
 {
