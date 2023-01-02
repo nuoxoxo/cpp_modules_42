@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuo              ...   ::::::::.fi       */
+/*   Updated: 2023/01/02 15:44:11 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef Harl_HPP
 # define Harl_HPP
 
-#include "iostream"
-#include "string"
+# include "iostream"
+# include "string"
 
 
 enum	Levels
@@ -26,17 +26,20 @@ enum	Levels
 };
 
 
-class	Harl {
-	private:
-		void		debug(void);
-		void		info(void);
-		void		warning(void);
-		void		error(void);
-	public:
+class	Harl
+{
 
-		Harl(void);
-		virtual		~Harl(void);
-		void		complain(std::string);
+private:
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
+public:
+
+	Harl(void);
+	virtual	~Harl(void);
+	void	complain(std::string);
+
 };
 
 

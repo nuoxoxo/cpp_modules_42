@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuo              ...   ::::::::.fi       */
+/*   Updated: 2023/01/02 15:53:29 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Harl_HPP
-# define Harl_HPP
+#ifndef HARl_HPP
+# define HARl_HPP
 
 # include "iostream"
 # include "string"
@@ -19,10 +19,12 @@
 class	Harl
 {
 
-void	debug(void);
-void	info(void);
-void	warning(void);
-void	error(void);
+private:
+
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 
 public:
 

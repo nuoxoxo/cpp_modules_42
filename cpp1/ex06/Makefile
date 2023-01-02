@@ -21,10 +21,6 @@ incl	:=	-I./
 src	:=	main.cpp \
 		Harl.cpp
 
-#path	:=	src/
-#src	:=	$(foreach cpp, $(src), $(path)$(cpp))
-#src	+=	main.c
-
 bud	:=	$(src:.cpp=.o)
 
 %.o	:	%.cpp
@@ -36,6 +32,12 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+
+run	:	re
+		@ ./$(name)
+		@ make clean
 
 all	:	$(name)
 

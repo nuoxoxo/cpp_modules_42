@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuo              ...   ::::::::.fi       */
+/*   Updated: 2023/01/02 15:45:27 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	Harl::complain(std::string level)
 	if (level == "")
 		return ;
 	
-	// transform(level.begin(), level.end(), level.begin(), ::toupper);
 	uppercase_str(level);
 
 	std::string	levels[] =
@@ -66,8 +65,8 @@ void	Harl::complain(std::string level)
 		& Harl::error
 	};
 
-	found = false;
-	for (i = 0; i < 4; ++i)
+	i = -1;
+	while (++i < 4)
 	{
 		if (found)
 		{
@@ -84,7 +83,13 @@ void	Harl::complain(std::string level)
 	std::cout << INSIGNIFICANT << std::endl;
 }
 
-void	uppercase_str(std::string& s)
+void	usage()
+{
+	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m";
+	std::cout << std::endl;
+}
+
+void	uppercase_str(std::string & s)
 {
 	int		i;
 
@@ -97,14 +102,3 @@ void	uppercase_str(std::string& s)
 
 void    uppercase_char(char & c) { c = std::toupper(c); }
 
-void	usage()
-{
-	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m";
-	//std::cout << "[ stuff_like_maybe_a_complain_level ] \x1b[0m";
-	std::cout << std::endl;
-}
-
-/*
-green	"\x1b[32m"
-reset	"\x1b[0m"
-*/
