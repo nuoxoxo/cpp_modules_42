@@ -31,7 +31,7 @@ int	main(const int c, const char **v)
 	// ------------8<------------
 
 	std::cout << _y "\nthe address pointed to by stringPTR : " _r << \
-		& (*stringPTR) ;
+		stringPTR ;
 
 	// ------------8<------------
 

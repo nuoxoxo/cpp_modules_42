@@ -47,7 +47,8 @@ void	Harl::complain(std::string level)
 	if (level == "")
 		return ;
 	
-	transform(level.begin(), level.end(), level.begin(), ::toupper);
+	// transform(level.begin(), level.end(), level.begin(), ::toupper);
+	uppercase_str(level);
 
 	std::string	levels[] =
 	{
@@ -82,6 +83,19 @@ void	Harl::complain(std::string level)
 		return ;
 	std::cout << INSIGNIFICANT << std::endl;
 }
+
+void	uppercase_str(std::string& s)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (int) s.length())
+	{
+		uppercase_char(s[i]);
+	}
+}
+
+void    uppercase_char(char & c) { c = std::toupper(c); }
 
 void	usage()
 {

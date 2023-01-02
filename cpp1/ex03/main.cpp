@@ -36,7 +36,7 @@ int	main()
 		{
 			jim.attack();
 		}
-		catch (const std::overflow_error& e)
+		catch (const std::overflow_error & e)
 		{
 			std::cout << e.what();
 		}*/

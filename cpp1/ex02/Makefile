@@ -31,6 +31,9 @@ $(name)	:	$(bud)
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@#@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+
 
 run	:	re
 		@ ./out

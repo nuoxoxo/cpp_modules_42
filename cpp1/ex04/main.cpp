@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                       .!.      .:+!^!+:.   */
-/*   _                                                  .":      .:!    .:!   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    :!. .!:         !:.     */
 /*   By: nuo <marvin@42.fr>                         +.+  :+:       :.:        */
 /*                                                .:+!+:._.:.    +.+          */
 /*   Created: ____/__/__ __:__:__ by nuo               :..    ...             */
-/*   Updated: ____/__/__ __:__:__ by nuo              :._    .:.:_:.:.:.      */
+/*   Updated: 2023/01/02 15:05:23 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "iostream"
 # include "fstream"
 # include "string"
+# include "cstdio"
 
 bool	_check_params_(int, char **);
 void	_usage_(const std::string);
@@ -22,19 +23,22 @@ int	main(int c, char *v[])
 	std::string::size_type	it;
 	std::ifstream		ifs;
 	std::ofstream		ofs;
-	std::string		file, from, to;
-	std::string		res, s;
+	std::string		from, to;
+		std::string		res, s;
+
 	int			L;
 
 	// try access v1
 	if (!_check_params_(c, v))
 		return 1;
-	file = std::string(v[1]);
+
+	std::string	file(v[1]);
+
 	if (file == "")
-		return (_usage_("fiLame cannot be empty. "), 1);
+		return (_usage_("filename cannot be empty. "), 1);
 	if (ifs.is_open())
 		ifs.close();
-	ifs.open(file);
+	ifs.open(file.c_str());
 	if (ifs.fail())
 		return (_usage_("file not found "), 1);
 
@@ -59,7 +63,7 @@ int	main(int c, char *v[])
 		res.append(s);
 	}
 	file += ".replace";
-	ofs.open(file);
+	ofs.open(file.c_str());
 	ofs << res;
 	ifs.close();
 	ofs.close();

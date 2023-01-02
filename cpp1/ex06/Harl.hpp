@@ -40,6 +40,8 @@ class	Harl {
 };
 
 
+void	uppercase_str(std::string &);
+void	uppercase_char(char &) ;
 void	usage(void);
 
 

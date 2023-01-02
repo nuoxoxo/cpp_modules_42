@@ -30,11 +30,20 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
+		@ echo "[ Heap ]"
+		@ echo "   ↓" && echo ""
+		@ echo "   ↑"
+		@ echo "[ Stack ]"
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 
+r	:	run
 run	:	re
 		@ ./out
+		@ make clean
+
+val	:	re
+		@ valgrind ./out
 		@ make clean
 
 all	:	$(name)

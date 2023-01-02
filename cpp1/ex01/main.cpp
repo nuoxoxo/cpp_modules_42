@@ -25,7 +25,8 @@ int	main(const int c, const char **v)
 	if (c == 2)
 	{
 		if (isdigit(v[1][0]))
-			numb = stoi(arg1);
+			sscanf(arg1.c_str(), "%d", & numb);
+			// numb = std::stoi(arg1);
 		else
 			name = arg1;
 
@@ -33,7 +34,8 @@ int	main(const int c, const char **v)
 	else if (c > 2)
 	{
 		if (isdigit(v[1][0]))
-			numb = std::stoi(arg1);
+			sscanf(arg1.c_str(), "%d", & numb);
+			// numb = std::stoi(arg1);
 		name = std::string(v[2]);
 	}
 	//std::cout << numb << '\n' << name << std::endl; // debugger

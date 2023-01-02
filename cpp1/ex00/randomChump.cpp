@@ -20,5 +20,5 @@ void	randomChump(std::string name)
 
 	delete	random_zombie; // the 3rd way to kill a zombie (embedded here)
 
-	// It cannot go anyway outside this cope anyway so we kill it here
+	// It cannot go anyway outside this scope anyway so we kill it here
 }

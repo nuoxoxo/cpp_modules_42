@@ -32,6 +32,11 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"hey, are you using the right compiler? \"\n\n"
+		@ echo "[ Heap ]"
+		@ echo "   ↓" && echo ""
+		@ echo "   ↑"
+		@ echo "[ Stack ]"
+
 		@ printf "Usage : ./out  [how_many]  [zombie_name] \n\n"
 
 run	:	re

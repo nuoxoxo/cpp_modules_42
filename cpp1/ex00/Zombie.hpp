@@ -40,9 +40,6 @@ public:
 };
 
 
-/* <------8<------ Member functioons ------------------> */
-
-
 Zombie		*newZombie(std::string);
 void		randomChump(std::string);
 

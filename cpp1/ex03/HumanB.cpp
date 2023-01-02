@@ -17,7 +17,7 @@
 /*	setting		*/
 
 
-HumanB::HumanB(std::string _) : name(_), weapon(nullptr) {}
+HumanB::HumanB(std::string _) : name(_), weapon(NULL) {}
 
 HumanB::~HumanB(void) {}
 

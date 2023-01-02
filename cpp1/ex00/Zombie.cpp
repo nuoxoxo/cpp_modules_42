@@ -23,7 +23,7 @@ std::string	Zombie::get_name(void) const
 
 void	Zombie::label(void) const
 {
-	std::cout << _GREEN_ << this->name << ' ' << _REST_; // diff signs
+	std::cout << _GREEN_ << this->name << _REST_; // diff signs
 	// subject dictates: no < > 
 	
 	/* using different signs */
@@ -35,13 +35,13 @@ void	Zombie::label(void) const
 void	Zombie::announce(void) const
 {
 	Zombie::label();
-	std::cout << "said 'BraiiiiiiinnnzzzZ...' \n";
+	std::cout << ": BraiiiiiiinnnzzzZ... \n";
 }
 
 Zombie::~Zombie(void)
 {
 	Zombie::label();
-	std::cout << "is dead. \n";
+	std::cout << " is dead. \n";
 }
 
 
