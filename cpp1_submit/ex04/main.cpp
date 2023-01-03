@@ -64,10 +64,14 @@ int	main(int c, char *v[])
 	}
 	file += ".replace";
 	ofs.open(file.c_str());
+	if (ofs.fail())
+		return (_usage_("file not found "), 1);
 	ofs << res;
 	ifs.close();
 	ofs.close();
 }
+
+//	deprecatd
 
 /*
 bool	sub(std::string from, std::string to, std::ifstream is, std::ofstream os)
