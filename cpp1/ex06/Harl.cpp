@@ -6,7 +6,7 @@
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: 2023/01/02 15:45:27 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/03 13:54:52 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	Harl::complain(std::string level)
 {
 	bool	found;
 	int		i;
-
+ 
 	if (level == "")
 		return ;
 	
@@ -40,6 +40,43 @@ void	Harl::complain(std::string level)
 		& Harl::warning,
 		& Harl::error
 	};
+	
+	found = false;
+	i = -1;
+	while (++i < 4)
+	{
+		if (levels[i] == level)
+		{
+			found = true;
+			break ;
+		}
+	}
+	
+	switch (i)
+	{
+		case 0:
+			(this->*modes[i++])();
+		case 1:
+			(this->*modes[i++])();
+		case 2:
+			(this->*modes[i++])();
+		case 3:
+			(this->*modes[i++])();
+		default:
+            		break;
+
+	}
+
+	if (found)
+		return ;
+
+	/*void	(Harl::*modes[]) (void) =
+	{
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
+	};
 
 	i = -1;
 	while (++i < 4)
@@ -53,10 +90,9 @@ void	Harl::complain(std::string level)
 			(this->*modes[i])();
 			found = true;
 		}
-	}
-	if (found)
-		return ;
-	std::cout << INSIGNIFICANT << std::endl;
+	}*/
+	
+	std::cout << INSIGNIFICANT;
 }
 
 

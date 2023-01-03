@@ -6,7 +6,7 @@
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nuo              ...   ::::::::.fi       */
+/*   Updated: 2023/01/03 09:42:20 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	Zombie
 		void		announce(void) const;
 		std::string	get_name(void) const;
 };
-\
+
 void		announce_foreach(int, Zombie *); // new
 Zombie		*zombieHorde(int, std::string); // new
 
