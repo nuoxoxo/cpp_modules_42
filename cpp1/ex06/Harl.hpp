@@ -17,15 +17,6 @@
 # include "string"
 
 
-enum	Levels
-{
-	DEBUG = 0,
-	INFO,
-	WARNING,
-	ERROR
-};
-
-
 class	Harl
 {
 
@@ -34,8 +25,8 @@ private:
 	void	info(void);
 	void	warning(void);
 	void	error(void);
-public:
 
+public:
 	Harl(void);
 	virtual	~Harl(void);
 	void	complain(std::string);

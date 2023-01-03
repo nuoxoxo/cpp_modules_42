@@ -33,7 +33,7 @@ void	Harl::complain(std::string level)
 		"ERROR"
 	};
 
-	void	(Harl::*modes[]) (void) =
+	void	(Harl::*modes[4]) (void) =
 	{
 		& Harl::debug,
 		& Harl::info,
@@ -127,8 +127,7 @@ void	Harl::error(void)
 
 void	usage()
 {
-	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m";
-	std::cout << std::endl;
+	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m \n";
 }
 
 void	uppercase_str(std::string & s)
