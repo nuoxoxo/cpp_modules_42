@@ -6,7 +6,7 @@
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: 2023/01/03 13:54:52 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/02 15:55:58 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,89 +14,6 @@
 
 Harl::Harl(void) {}
 Harl::~Harl(void) {}
-
-void	Harl::complain(std::string level)
-{
-	bool	found;
-	int		i;
- 
-	if (level == "")
-		return ;
-	
-	uppercase_str(level);
-
-	std::string	levels[] =
-	{
-		"DEBUG",
-		"INFO",
-		"WARNING",
-		"ERROR"
-	};
-
-	void	(Harl::*modes[4]) (void) =
-	{
-		& Harl::debug,
-		& Harl::info,
-		& Harl::warning,
-		& Harl::error
-	};
-	
-	found = false;
-	i = -1;
-	while (++i < 4)
-	{
-		if (levels[i] == level)
-		{
-			found = true;
-			break ;
-		}
-	}
-	
-	switch (i)
-	{
-		case 0:
-			(this->*modes[i++])();
-		case 1:
-			(this->*modes[i++])();
-		case 2:
-			(this->*modes[i++])();
-		case 3:
-			(this->*modes[i++])();
-		default:
-            		break;
-
-	}
-
-	if (found)
-		return ;
-
-	/*void	(Harl::*modes[]) (void) =
-	{
-		& Harl::debug,
-		& Harl::info,
-		& Harl::warning,
-		& Harl::error
-	};
-
-	i = -1;
-	while (++i < 4)
-	{
-		if (found)
-		{
-			(this->*modes[i])();
-		}
-		else if (!found && levels[i] == level)
-		{
-			(this->*modes[i])();
-			found = true;
-		}
-	}*/
-	
-	std::cout << INSIGNIFICANT;
-}
-
-
-// complaint functions
 
 void	Harl::debug(void)
 {
@@ -122,24 +39,57 @@ void	Harl::error(void)
 	std::cout << _Y_ << ERROR_LEVEL << _R_ ;
 }
 
-
-// Utils
-
-void	usage()
+void	Harl::complain(std::string level)
 {
-	std::cout << "\tUsage: ./HarlFilter \x1b[32m" << "level \x1b[0m \n";
-}
-
-void	uppercase_str(std::string & s)
-{
-	int		i;
-
-	i = -1;
-	while (++i < (int) s.length())
+	if (level == "")
 	{
-		uppercase_char(s[i]);
+		return ;
+	}
+
+	std::string	levels[] =
+	{
+		"debug", "info", "warning", "error"
+	};
+
+	void	(Harl::*modes[]) (void) = 
+	{
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
+	};
+
+	int i = -1;
+	while (++i < 4)
+	{
+		if (levels[i] == level)
+			(this->*modes[i])();
 	}
 }
 
-void    uppercase_char(char & c) { c = std::toupper(c); }
+/*
 
+• "DEBUG" level: 
+
+	"I love to get extra bacon 
+	for my 7XL-double-cheese-triple-pickle-special-ketchup burger. 
+	I just love it!"
+
+• "INFO" level: 
+
+	"I cannot believe adding extra bacon cost more money. 
+	You don’t put enough! 
+	If you did I would not have to ask for it!"
+
+• "WARNING" level: 
+
+	"I think I deserve to have some extra bacon for free. 
+	I’ve been coming here for years 
+	and you just started working here last month."
+
+• "ERROR" level: 
+
+	"This is unacceptable, 
+	I want to speak to the manager now."
+
+*/

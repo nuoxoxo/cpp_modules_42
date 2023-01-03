@@ -6,40 +6,35 @@
 /*   By: nuo <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nuo               ...    :::             */
-/*   Updated: 2023/01/02 15:44:11 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/02 15:53:29 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef Harl_HPP
-# define Harl_HPP
+#ifndef HARl_HPP
+# define HARl_HPP
 
 # include "iostream"
 # include "string"
-
 
 class	Harl
 {
 
 private:
+
 	void	debug(void);
 	void	info(void);
 	void	warning(void);
 	void	error(void);
 
 public:
+
 	Harl(void);
 	virtual	~Harl(void);
 	void	complain(std::string);
 
 };
 
-
-void	uppercase_str(std::string &);
-void	uppercase_char(char &) ;
-void	usage(void);
-
-
-//	def. all strings
+//	def all complaints
 
 /* 
 # define DEBUG_LEVEL "I love to get extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I just love it! \n\n"*/
@@ -54,7 +49,6 @@ void	usage(void);
 # define ERROR_LEVEL "This is unacceptable, I want to speak to the manager now. \n\n"*/
 # define ERROR_LEVEL "This is unacceptable! I want to speak to the manager now. \n\n"
 
-#define INSIGNIFICANT "[ Probably complaining about insignificant problems ]\n\n"
 
 //	def. colors
 
@@ -64,5 +58,31 @@ void	usage(void);
 # define _R_ "\x1b[0m"
 # define _L_ " level"
 
-
 #endif
+
+/*
+
+• "DEBUG" level: 
+
+	"I love to get extra bacon 
+	for my 7XL-double-cheese-triple-pickle-special-ketchup burger. 
+	I just love it!"
+
+• "INFO" level: 
+
+	"I cannot believe adding extra bacon cost more money. 
+	You don’t put enough! 
+	If you did I would not have to ask for it!"
+
+• "WARNING" level: 
+
+	"I think I deserve to have some extra bacon for free. 
+	I’ve been coming here for years 
+	and you just started working here last month."
+
+• "ERROR" level: 
+
+	"This is unacceptable, 
+	I want to speak to the manager now."
+
+*/
