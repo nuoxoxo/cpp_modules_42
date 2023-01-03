@@ -26,7 +26,8 @@ int	main(const int c, const char **v)
 	{
 		if (isdigit(v[1][0]))
 		{
-			sscanf(arg1.c_str(), "%d", & numb);
+			numb = atoi(arg1.c_str());
+			// sscanf(arg1.c_str(), "%d", & numb);
 			// numb = std::stoi(arg1);
 		}
 		else
@@ -42,14 +43,15 @@ int	main(const int c, const char **v)
 			// numb = std::stoi(arg1);
 		name = std::string(v[2]);
 	}
+
+	// protect your computer
 	if (numb < 0 || numb > (int) 1e8)
 	{
 		return 1;
 	}
 
-	Zombie		*flock = zombieHorde(numb, name);
-
+	// the part that matters
+	Zombie	*flock = zombieHorde(numb, name);
 	announce_foreach(numb, flock);
-
 	delete [] flock;
 }

@@ -24,7 +24,7 @@ int	main(int c, char *v[])
 	std::ifstream		ifs;
 	std::ofstream		ofs;
 	std::string		from, to;
-		std::string		res, s;
+	std::string		res, s;
 
 	int			L;
 
@@ -46,7 +46,7 @@ int	main(int c, char *v[])
 	from = std::string(v[2]);
 	to = std::string(v[3]);
 	if (from == "" || to == "")
-		return (_usage_("either from or to is empty. "), 1);
+		return (_usage_("either infile or outfile is empty. "), 1);
 	
 	// stream edit
 	L = from.length();
