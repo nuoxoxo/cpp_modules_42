@@ -24,7 +24,7 @@ int	main(int c, char *v[])
 	std::ifstream		ifs;
 	std::ofstream		ofs;
 	std::string		from, to;
-		std::string		res, s;
+	std::string		res, s;
 
 	int			L;
 
@@ -46,7 +46,7 @@ int	main(int c, char *v[])
 	from = std::string(v[2]);
 	to = std::string(v[3]);
 	if (from == "" || to == "")
-		return (_usage_("either from or to is empty. "), 1);
+		return (_usage_("either infile or outfile is empty. "), 1);
 	
 	// stream edit
 	L = from.length();
@@ -64,10 +64,14 @@ int	main(int c, char *v[])
 	}
 	file += ".replace";
 	ofs.open(file.c_str());
+	if (ofs.fail())
+		return (_usage_("file not found "), 1);
 	ofs << res;
 	ifs.close();
 	ofs.close();
 }
+
+//	deprecatd
 
 /*
 bool	sub(std::string from, std::string to, std::ifstream is, std::ofstream os)

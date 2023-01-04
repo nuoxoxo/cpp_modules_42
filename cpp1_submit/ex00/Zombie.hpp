@@ -46,7 +46,6 @@ void		randomChump(std::string);
 
 /* <------8<------ Zombie colors ------------------> */
 
-
 # define _YELLOW_	"\x1b[33m"
 # define _GREEN_	"\x1b[32m"
 # define _RED_	"\x1b[31m"
@@ -55,5 +54,14 @@ void		randomChump(std::string);
 # define _CYAN_	"\x1b[36m"
 # define _ITAL_	"\x1b[3m"
 # define _REST_	"\x1b[0m"
+
+
+/* <------8<------ tester functions ------------------> */
+
+void	storyline_1(void);
+void	storyline_2(void);
+void	storyline_3(void);
+void	storyline_4(void);
+
 
 #endif
