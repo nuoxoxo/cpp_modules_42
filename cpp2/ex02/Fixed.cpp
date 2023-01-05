@@ -35,9 +35,10 @@ Fixed	Fixed::operator * (const Fixed &n) const
 
 Fixed	Fixed::operator / (const Fixed & n) const
 {
-	if (n.toInt() > 0)
-		return Fixed(this->toFloat() / n.toFloat());
-	else throw std::runtime_error("Cannot divide by zero");
+	return Fixed(this->toFloat() / n.toFloat());
+	// if (n.toInt() > 0)
+	// 	return Fixed(this->toFloat() / n.toFloat());
+	// else throw std::runtime_error("Cannot divide by zero");
 }
 
 
