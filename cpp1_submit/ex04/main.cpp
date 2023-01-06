@@ -6,7 +6,7 @@
 /*   By: nuo <marvin@42.fr>                         +.+  :+:       :.:        */
 /*                                                .:+!+:._.:.    +.+          */
 /*   Created: ____/__/__ __:__:__ by nuo               :..    ...             */
-/*   Updated: 2023/01/02 15:05:23 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/06 08:28:26 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int	main(int c, char *v[])
 	
 	// stream edit
 	L = from.length();
+	// it = 0; // works with or w/o
 	while (getline(ifs, s))
 	{
 		it = s.find(from);
@@ -57,9 +58,11 @@ int	main(int c, char *v[])
 		{
 			s.erase(it, L);
 			s.insert(it, to);
-			it = s.find(from);
+			it += to.length(); // bug fixed :: to avoid the infinite loop......//FIXME
+			it = s.find(from, it); // bug fixed :: when do ./replace text lol lollol //FIXME
 		}
 		s += "\n";
+		it = 0; // bug fixed :: //FIXME
 		res.append(s);
 	}
 	file += ".replace";
