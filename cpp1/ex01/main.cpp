@@ -26,8 +26,10 @@ int	main(const int c, const char **v)
 	{
 		if (isdigit(v[1][0]))
 		{
-			sscanf(arg1.c_str(), "%d", & numb);
-			// numb = std::stoi(arg1);
+			std::stringstream ss(arg1);
+			if (!ss.eof())
+				ss >> numb;
+			// no sscanf . no atoi
 		}
 		else
 		{
@@ -38,18 +40,23 @@ int	main(const int c, const char **v)
 	else if (c > 2)
 	{
 		if (isdigit(v[1][0]))
-			sscanf(arg1.c_str(), "%d", & numb);
-			// numb = std::stoi(arg1);
+		{
+			std::stringstream ss(arg1);
+			if (!ss.eof())
+				ss >> numb;	
+			// no sscanf . no atoi
+		}
 		name = std::string(v[2]);
 	}
-	if (numb < 0 || numb > (int) 1e8)
+
+	// don't hurt computer
+	if (numb < 0 || numb > (int) 1e6)
 	{
 		return 1;
 	}
 
-	Zombie		*flock = zombieHorde(numb, name);
-
+	// the part that matters
+	Zombie	*flock = zombieHorde(numb, name);
 	announce_foreach(numb, flock);
-
 	delete [] flock;
 }

@@ -6,7 +6,7 @@
 /*   By: nuo <marvin@42.fr>                         +.+  :+:       :.:        */
 /*                                                .:+!+:._.:.    +.+          */
 /*   Created: ____/__/__ __:__:__ by nuo               :..    ...             */
-/*   Updated: 2023/01/02 15:05:23 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/06 08:28:26 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int c, char *v[])
 	std::ifstream		ifs;
 	std::ofstream		ofs;
 	std::string		from, to;
-		std::string		res, s;
+	std::string		res, s;
 
 	int			L;
 
@@ -46,10 +46,11 @@ int	main(int c, char *v[])
 	from = std::string(v[2]);
 	to = std::string(v[3]);
 	if (from == "" || to == "")
-		return (_usage_("either from or to is empty. "), 1);
+		return (_usage_("either infile or outfile is empty. "), 1);
 	
 	// stream edit
 	L = from.length();
+	// it = 0; // works with or w/o
 	while (getline(ifs, s))
 	{
 		it = s.find(from);
@@ -57,17 +58,23 @@ int	main(int c, char *v[])
 		{
 			s.erase(it, L);
 			s.insert(it, to);
-			it = s.find(from);
+			it += to.length(); // bug fixed :: to avoid the infinite loop......//FIXME
+			it = s.find(from, it); // bug fixed :: when do ./replace text lol lollol //FIXME
 		}
 		s += "\n";
+		it = 0; // bug fixed :: //FIXME
 		res.append(s);
 	}
 	file += ".replace";
 	ofs.open(file.c_str());
+	if (ofs.fail())
+		return (_usage_("file not found "), 1);
 	ofs << res;
 	ifs.close();
 	ofs.close();
 }
+
+//	deprecatd
 
 /*
 bool	sub(std::string from, std::string to, std::ifstream is, std::ofstream os)
