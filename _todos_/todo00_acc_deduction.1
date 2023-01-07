@@ -1,0 +1,180 @@
+# Public/Private
+```cc
+public:
+
+typedef Account		t;
+
+static int	getNbAccounts( void );
+static int	getTotalAmount( void );
+static int	getNbDeposits( void );
+static int	getNbWithdrawals( void );
+static void	displayAccountsInfos( void );
+
+Account( int initial_deposit );
+~Account( void );
+
+void	makeDeposit( int deposit );
+bool	makeWithdrawal( int withdrawal );
+int		checkAmount( void ) const;
+void	displayStatus( void ) const;
+```
+```cc
+private:
+
+static int	_nbAccounts;
+static int	_totalAmount;
+static int	_totalNbDeposits;
+static int	_totalNbWithdrawals;
+
+static void	_displayTimestamp( void );
+
+int				_accountIndex;
+int				_amount;
+int				_nbDeposits;
+int				_nbWithdrawals;
+
+Account( void );
+```
+# Deduction: Getter functions
+```cc
+public:
+
+typedef Account		t;
+
+static int	getNbAccounts( void ); // getter for `_nbAccounts`
+static int	getTotalAmount( void ); // getter for _totalAmount;
+static int	getNbDeposits( void ); // getter for `_totalNbDeposits`
+static int	getNbWithdrawals( void ); // getter for `_totalNbWithdrawals`
+```
+```cc
+private:
+
+static int	_nbAccounts; // getter `getNbAccounts`;
+static int	_totalAmount; // getter `getNbAccounts`
+static int	_totalNbDeposits; // getter `getNbDeposits`
+static int	_totalNbWithdrawals; // getter `getNbWithdrawals`
+```
+```cc
+public:
+
+static void	displayAccountsInfos( void );
+
+Account( int initial_deposit );
+~Account( void );
+
+void	makeDeposit( int deposit );
+bool	makeWithdrawal( int withdrawal );
+int		checkAmount( void ) const;
+void	displayStatus( void ) const;
+```
+```cc
+private:
+
+static void	_displayTimestamp( void );
+
+int				_accountIndex;
+int				_amount;
+int				_nbDeposits;
+int				_nbWithdrawals;
+
+Account( void );
+```
+
+# Deduce: Constructor called with msg displayed
+- the 1st inside tests.cpp is <kbd> Account::displayAccountsInfos() </kbd>
+- yet in <kbd> .log </kbd>
+  - 1st bulk is `... created` message
+  - <kbd> Account::displayAccountsInfos() </kbd> comes in the 2nd bulk
+- Flow:
+```cc
+[19920104_091532] index:0;amount:42;created
+[19920104_091532] index:1;amount:54;created
+[19920104_091532] index:2;amount:957;created
+[19920104_091532] index:3;amount:432;created
+[19920104_091532] index:4;amount:1234;created
+[19920104_091532] index:5;amount:0;created
+[19920104_091532] index:6;amount:754;created
+[19920104_091532] index:7;amount:16576;created
+// Constructor . not displayer-functions
+
+[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
+// 1st function call -> Account::displayAccountsInfos()
+// oneliner
+
+[19920104_091532] index:0;amount:42;deposits:0;withdrawals:0
+[19920104_091532] index:1;amount:54;deposits:0;withdrawals:0
+[19920104_091532] index:2;amount:957;deposits:0;withdrawals:0
+[19920104_091532] index:3;amount:432;deposits:0;withdrawals:0
+[19920104_091532] index:4;amount:1234;deposits:0;withdrawals:0
+[19920104_091532] index:5;amount:0;deposits:0;withdrawals:0
+[19920104_091532] index:6;amount:754;deposits:0;withdrawals:0
+[19920104_091532] index:7;amount:16576;deposits:0;withdrawals:0
+// (above -> for_each called) 
+// for account in accounts: display status
+// *NbDeposit and NbWithdraw are both 0 because all accounts have just been initiated 
+
+[19920104_091532] index:0;p_amount:42;deposit:5;amount:47;nb_deposits:1
+[19920104_091532] index:1;p_amount:54;deposit:765;amount:819;nb_deposits:1
+[19920104_091532] index:2;p_amount:957;deposit:564;amount:1521;nb_deposits:1
+[19920104_091532] index:3;p_amount:432;deposit:2;amount:434;nb_deposits:1
+[19920104_091532] index:4;p_amount:1234;deposit:87;amount:1321;nb_deposits:1
+[19920104_091532] index:5;p_amount:0;deposit:23;amount:23;nb_deposits:1
+[19920104_091532] index:6;p_amount:754;deposit:9;amount:763;nb_deposits:1
+[19920104_091532] index:7;p_amount:16576;deposit:20;amount:16596;nb_deposits:1
+// (above) 
+// Deposit changes and reveals Addition . makeDeposit
+// *p_amount :: previous amount -> amount = prev_amount + now_deposit
+
+[19920104_091532] accounts:8;total:21524;deposits:8;withdrawals:0
+// Account::displayAccountsInfos() AGAIN . oneliner
+
+[19920104_091532] index:0;amount:47;deposits:1;withdrawals:0
+[19920104_091532] index:1;amount:819;deposits:1;withdrawals:0
+[19920104_091532] index:2;amount:1521;deposits:1;withdrawals:0
+[19920104_091532] index:3;amount:434;deposits:1;withdrawals:0
+[19920104_091532] index:4;amount:1321;deposits:1;withdrawals:0
+[19920104_091532] index:5;amount:23;deposits:1;withdrawals:0
+[19920104_091532] index:6;amount:763;deposits:1;withdrawals:0
+[19920104_091532] index:7;amount:16596;deposits:1;withdrawals:0
+// (above -> for_each called) 
+// for account in accounts: display status
+
+[20221226_5211] index:0;p_amount:47;withdrawal:refused
+[20221226_5211] index:1;p_amount:819;withdrawal:34;amount:785;nb_withdrawals:1
+[20221226_5211] index:2;p_amount:1521;withdrawal:657;amount:864;nb_withdrawals:1
+[20221226_5211] index:3;p_amount:434;withdrawal:4;amount:430;nb_withdrawals:1
+[20221226_5211] index:4;p_amount:1321;withdrawal:76;amount:1245;nb_withdrawals:1
+[20221226_5211] index:5;p_amount:23;withdrawal:refused
+[20221226_5211] index:6;p_amount:763;withdrawal:657;amount:106;nb_withdrawals:1
+[20221226_5211] index:7;p_amount:16596;withdrawal:7654;amount:8942;nb_withdrawals:1
+// (above) 
+// Withdrawal changes, reveals Subtraction -> makeWithdrawal
+// *p_amount :: previous amount -> amount = prev_amount - now_withdraw
+// ** 2 cases of Refusal 
+
+
+[20221226_5211] accounts:8;total:12442;deposits:8;withdraws:6
+[20221226_5211] index:0;amount:47;deposits:0;withdrawals:0
+[20221226_5211] index:1;amount:785;deposits:0;withdrawals:1
+[20221226_5211] index:2;amount:864;deposits:0;withdrawals:1
+[20221226_5211] index:3;amount:430;deposits:0;withdrawals:1
+[20221226_5211] index:4;amount:1245;deposits:0;withdrawals:1
+[20221226_5211] index:5;amount:23;deposits:0;withdrawals:0
+[20221226_5211] index:6;amount:106;deposits:0;withdrawals:1
+[20221226_5211] index:7;amount:8942;deposits:0;withdrawals:1
+// for each
+
+[20221226_5211] index:7;amount:8942;closed
+[20221226_5211] index:6;amount:106;closed
+[20221226_5211] index:5;amount:23;closed
+[20221226_5211] index:4;amount:1245;closed
+[20221226_5211] index:3;amount:430;closed
+[20221226_5211] index:2;amount:864;closed
+[20221226_5211] index:1;amount:785;closed
+[20221226_5211] index:0;amount:47;closed
+// looks like Destructor calls
+// default as we have left the main() scope
+// C++ Destructor de-allocates memory in reverse order of initialization 
+  in order to protect possible internal resources of later initialized objects 
+
+```
