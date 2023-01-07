@@ -58,11 +58,11 @@ int	main(int c, char *v[])
 		{
 			s.erase(it, L);
 			s.insert(it, to);
-			it += to.length(); // bug fixed :: to avoid the infinite loop......//FIXME
-			it = s.find(from, it); // bug fixed :: when do ./replace text lol lollol //FIXME
+			it += to.length(); // bug fixed :: to avoid the infinite loop...
+			it = s.find(from, it); // when do ./replace text lol lollol
 		}
 		s += "\n";
-		it = 0; // bug fixed :: //FIXME
+		it = 0; // bug fixed
 		res.append(s);
 	}
 	file += ".replace";
