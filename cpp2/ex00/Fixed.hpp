@@ -14,8 +14,35 @@
 # define FIXED_HPP
 
 # include "iostream"
-
 # define called " called\n"
+
+
+class	Fixed
+{
+
+private:
+	int			m_fixed_point_value;
+	static const int	m_fractional_bits = 8;
+
+public:
+	// Canon
+	Fixed(void);
+	~Fixed(void);
+	Fixed(const Fixed &);
+
+	// Overlord
+	Fixed	& operator = (const Fixed &);	
+
+public:
+	// Getter Setter
+	void	setRawBits(int);
+	int	getRawBits(void) const;
+
+};
+
+#endif
+
+// Original Note 1
 
 /*
 Fixed point numbers:
@@ -24,26 +51,7 @@ Fixed point numbers:
 	◦ a specific number of bits reserved for the Fractional part
 */
 
-class	Fixed
-{
-
-int			m_fixed_point_value; // fixed point value / fpv
-static const int	m_fractional_bits = 8;
-
-public:
-	Fixed(void);
-	Fixed(const Fixed &);
-	~Fixed(void);
-	void	setRawBits(int);
-	int	getRawBits(void) const;
-
-public:
-
-	Fixed	& operator = (const Fixed &);	
-
-};
-
-#endif
+// Original Note 2
 
 /*
 """ ex00

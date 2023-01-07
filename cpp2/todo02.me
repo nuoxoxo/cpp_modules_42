@@ -1,3 +1,69 @@
+# The original README / issue for cpp2x0
+
+- back to #241 
+###### Writing order: Bottom up
+## x00 :: Todo
+- Private
+  - we need a `(int)` for <kbd> FXP Number Value </kbd> `((init to 0))`
+    - $\color {Goldenrod} \text { mantissa } $
+  - and a `(static const int)` for <kbd> number of fractional bits </kbd> `(alway 8)`
+    - $\color {Goldenrod} \text { exponent } $
+- Public
+  - `int` <kbd> getRawBits( void ) const </kbd> 
+    - -> return the _Raw value of_ <kbd> FXP Value </kbd> ((?))
+  - `void` <kbd> setRawBits( int const raw ) </kbd> 
+    - -> set the _Raw value of_ <kbd> FXP Value </kbd>
+  - Regular member
+    - default constr -> init  to 0
+    - copy constr + copy assignment overload
+    - destr
+## Concepts
+- Formula
+```py
+number = (sign ? -1 : 1) * 2 ^ (exponent) * 1.(mantissa bits)
+```
+- A float has 3 parts
+  - 3rd part - <kbd>mantissa</kbd> ie. 尾數 :: the float's $\color {Goldenrod} \text { actual\ digits } $
+  - 2nd part - <kbd>exponent</kbd> :: the float's $\color {Goldenrod} \text { magnitude } $
+  - 1st part - a <kbd>sign bit</kbd> at the left-most (the 31st) bit
+- A float is 4-byte (`ieee-754`)
+- IEEE-754 float's bit layout
+```
+ seeeeeeeemmmmmmmmmmmmmmmmmmmmmmm    meaning
+31                              0    bit #
+```
+- IEEE-754
+  - 'ieee' is short for <kbd> Institute of Electrical and Electronics Engineers </kbd>
+  - 'IEEE-754' is <kbd>IEEE Standard for Floating-Point Arithmetic</kbd>
+## What is Fixed point number?
+- A fixed point number has a specific number of bits (or digits) reserved for the integer part (the part to the left of the decimal point) and a specific number of bits reserved for the fractional part (the part to the right of the decimal point). 
+- No matter how large or small your number is, it will always use the __same number of bits__ for each portion. 
+## Why use Fixed point number?
+- [quote](https://stackoverflow.com/questions/10067510/fixed-point-arithmetic-in-c-programming) - The idea behind fixed-point arithmetic is that you store the values multiplied by a certain amount, use the multiplied values for all calculus, and divide it by the same amount when you want the result. The purpose of this technique is to use integer arithmetic (int, long...) while being able to represent fractions.
+- [quote](https://stackoverflow.com/questions/74405803/whats-the-meaning-of-shifting-in-fixed-point-arithmetic-when-implementing-it-in) - A fixed-point format represents a number as an integer multiplied by a fixed scale. Commonly the scale is some base b raised to some power e, so the integer f would represent the number f•be.
+## Why use static constant integer?
+<kbd> (cf.) ... a static constant integer to store the number of fractional bits </kbd>
+- `const` means READ-ONLY
+- `static` means initialized only once, then holding its value across function calls 
+- it means the integer is declared once and remains the same
+## OCCF / orthodox canonical class form
+```cc
+class A final
+{
+   public:
+      A ();
+      A (const A &a);
+      A & operator = (const A &a);
+      ~A ();
+};
+```
+```sh
+- Default constructor ........ A ()
+- Copy constructor ........... A(const A &)
+- Copy assignment operator ... A & operator = (const A &)
+- Destructor ................. ~A ()
+```
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
@@ -11,6 +77,4 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-3 exs
-(4th one not required)
 

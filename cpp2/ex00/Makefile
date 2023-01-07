@@ -1,4 +1,4 @@
-comp	:=	c++ -Wall -Werror -Wextra -std=c++98
+comp	:=	c++ -Wall -Wextra -Werror -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 src	:=	main.cpp Fixed.cpp
@@ -27,7 +27,7 @@ clean	:
 		@ $(rmv) $(bud)
 
 fclean	:	clean
-		@ $(rmv) $(name) a.out out
+		@ $(rmv) $(name) a.out $(name)
 
 test	:	run
 f	:	fclean
