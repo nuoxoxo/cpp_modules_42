@@ -25,6 +25,7 @@ int		main( void )
 	test_monster.toInt();
 	std::cout << test_monster << nl;
 	*/
+
 	Fixed	pi(3.1415926f);
 	pi.toInt();
 	std::cout << pi << nl;

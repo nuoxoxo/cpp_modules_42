@@ -14,29 +14,33 @@
 # define FIXED_HPP
 
 # include "iostream"
-# include "cmath" // x01
+# include "cmath" // added
 
 class	Fixed
 {
 
-static const int	m_number_of_fractional_bits = 8;
-int			m_fixed_point_value;
+private:
+	static const int	m_number_of_fractional_bits = 8;
+	int			m_fixed_point_value;
 
 public:
+	// Canon
 	Fixed();
 	~Fixed();
-	Fixed(const int); // x01
-	Fixed(const float); // x01
 	Fixed(const Fixed &);
-
-	int	getRawBits( void ) const;
-	void	setRawBits( int const raw );
-
-	float	toFloat() const ; // x01
-	int	toInt() const ; // x01
-
-public:
+	
+	// Overload
 	Fixed & operator = (const Fixed &);
+	Fixed(const float); // added
+	Fixed(const int); // added
+
+	// Coverter
+	float	toFloat() const ; // added
+	int		toInt() const ; // added 
+
+	// Getter Setter
+	int		getRawBits(void) const;
+	void	setRawBits(int);
 
 };
 
