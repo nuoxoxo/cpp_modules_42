@@ -13,17 +13,19 @@
 #include "Fixed.hpp"
 
 
-// Default
+// Canon
+
 Fixed::Fixed() : m_fixed_point_value() {std::cout << "Default constructor" << called;}
 Fixed::~Fixed() {std::cout << "Destructor" << called;}
 
-
-// Constructors
 Fixed::Fixed(const Fixed & dummy)
 {
 	std::cout << "Copy constructor" << called;
 	*this = dummy;
 }
+
+
+/// Overloading =
 
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
@@ -34,7 +36,8 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 }
 
 
-// Getters . setters
+/// Getters Setters
+
 int	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function" << called;
@@ -46,6 +49,7 @@ void	Fixed::setRawBits(int val)
 	std::cout << "setRawBits member function" << called;
 	this->m_fixed_point_value = val;
 }
+
 
 /*
 $> ./a.out
