@@ -17,8 +17,8 @@
 
 Point::Point(void): coor_x(), coor_y()
 {
-    std::cout << inside << __FUNCTION__ 
-    << YELL " Default constructor" << called REST;
+    // std::cout << inside << __FUNCTION__ << ' '
+    // << YELL " Default constructor" << called REST;
 }
 
 Point::Point(const Fixed newX, const Fixed newY): coor_x(newX), coor_y(newY)
@@ -28,15 +28,15 @@ Point::Point(const Fixed newX, const Fixed newY): coor_x(newX), coor_y(newY)
 
 Point::Point(Point const & dummy)
 {
-    std::cout << inside << __FUNCTION__ 
-    << YELL "Copy constructor" << called REST;
-    
+    // std::cout << inside << __FUNCTION__ << ' '
+    // << YELL "Copy constructor" << called REST;
+
     *this = dummy;
 }
 
 Point::~Point(void)
 {
-    std::cout << RED "Destructor" << called REST;
+    // std::cout << RED "Destructor" << called REST;
 }
 
 

@@ -182,12 +182,12 @@ std::ostream & operator << (std::ostream & ostream, Fixed const & fixed_num)
 
 Fixed::Fixed() : m_fixed_point_value()
 {
-	std::cout << YELL "Default constructor" << called REST;
+	// std::cout << YELL "Default constructor" << called REST;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << RED "Destructor" << called REST;
+	// std::cout << RED "Destructor" << called REST;
 }
 
 
@@ -238,7 +238,7 @@ int	Fixed::toInt() const
 
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
-	std::cout << YELL "Copy assignment operator" << called REST;
+	// std::cout << YELL "Copy assignment operator" << called REST;
 	m_fixed_point_value = dummy.getRawBits();
 	return (*this);
 }
@@ -248,13 +248,13 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << YELL "getRawBits member function" << called REST;
+	// std::cout << YELL "getRawBits member function" << called REST;
 	return (this->m_fixed_point_value);
 }
 
 void	Fixed::setRawBits(int val)
 {
-	std::cout << YELL "setRawBits member function" << called REST;
+	// std::cout << YELL "setRawBits member function" << called REST;
 	m_fixed_point_value = val;
 }
 
@@ -312,6 +312,6 @@ Fixed::Fixed(const float x)
 
 Fixed::Fixed(const Fixed & dummy)
 {
-	std::cout << YELL "Copy constructor" << called REST;
+	// std::cout << YELL "Copy constructor" << called REST;
 	*this = dummy;
 }
