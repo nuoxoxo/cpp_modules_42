@@ -21,9 +21,14 @@
 class	ClapTrap
 {
 
-private:
+// private: // Crucial fix: use protected
 
-	std::string		m_name;
+protected: // use protected in order to be accessible in children class
+
+
+	const static std::string		m_type;
+
+	std::string		m_name;	
 	int				m_hitPoints;
 	int				m_energyPoints;
 	int				m_attackDamage;

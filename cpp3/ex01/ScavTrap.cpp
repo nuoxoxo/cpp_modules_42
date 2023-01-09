@@ -11,17 +11,20 @@
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
+
+std::string const ScavTrap::m_type = "ScavTrap ";
 
 //  Default
 
-ScavTrap::ScavTrap() : m_name("_anonymous_")
+ScavTrap::ScavTrap() : ClapTrap()
 {
     this->m_hitPoints = 100; // scav
     this->m_energyPoints = 50; // scav
     this->m_attackDamage = 20; // scav
 
-    std::cout << LOWKEY "ScavTrap constructor" << called REST;
+    std::cout << LOWKEY << m_type << "constructor" << called REST;
 }
 
 ScavTrap::~ScavTrap()
@@ -60,7 +63,7 @@ ScavTrap & ScavTrap::operator = (ScavTrap const & other)
 
 //  Constructor overload
 
-ScavTrap::ScavTrap(std::string name) : m_name (name) // NEW (specs) in ex01 
+ScavTrap::ScavTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01 
 {
     this->m_hitPoints = 100; // scav
     this->m_energyPoints = 50; // scav
@@ -74,7 +77,7 @@ ScavTrap::ScavTrap(std::string name) : m_name (name) // NEW (specs) in ex01
 
 //  Game
 
-void    ScavTrap::guardGate(const std::string & other_name) // NEW in ex01
+void    ScavTrap::guardGate(void) // NEW in ex01
 {
     if (this->m_energyPoints < 1)
     {
@@ -86,8 +89,9 @@ void    ScavTrap::guardGate(const std::string & other_name) // NEW in ex01
         std::cout << NOATTACK;
         return ;
     }
-    printAttack(other_name);
-    this->m_energyPoints -= 1;
+    std::cout
+        << m_type << ITAL << m_name << REST
+        << CYAN " is assigned this role: " REST ITAL "Gate Guardian " REST nl;
 }
 
 /*
@@ -166,13 +170,6 @@ void    ScavTrap::printCurrentEnergyPts()
 
 
 //  Printers    {{ action }}
-
-void    ScavTrap::printGuardG(const std::string & other_name) // NEW in ex01
-{
-    std::cout
-        << m_type << ITAL << m_name << REST
-        << CYAN " is assigned this role: " REST ITAL "Gate Guardian " REST nl;
-}
 
 /*
 void    ScavTrap::printRepair(unsigned int n)

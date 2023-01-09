@@ -10,16 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-# define CLAPTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include "iostream"
 # include "cassert"
 # include "string"
-# include "scavtrap"
+# include "ClapTrap.hpp"
+
 
 class	ScavTrap : public ClapTrap
 {
+
+private:
+	const static std::string		m_type;
+
 public:
 
 	//	Canon
