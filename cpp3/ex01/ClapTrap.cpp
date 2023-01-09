@@ -77,14 +77,17 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
 void    ClapTrap::attack(const std::string & other_name)
 {
     if (this->m_energyPoints < 1)
-        std::cout << NOENG;
-    if (this->m_hitPoints < 1)
-        std::cout << NOATT;
-    else
     {
-        printAttack(other_name);
-        this->m_energyPoints -= 1;
+        std::cout << NOENERGY;
+        return ;
     }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+    printAttack(other_name);
+    this->m_energyPoints -= 1;
 }
 
 void    ClapTrap::takeDamage(unsigned int num)
@@ -94,7 +97,7 @@ void    ClapTrap::takeDamage(unsigned int num)
     this->m_hitPoints -= num;
     
     if (this->m_hitPoints < 1)
-        std::cout << NOATT;
+        std::cout << NOATTACK;
     else
         printCurrentHitPts();
 }

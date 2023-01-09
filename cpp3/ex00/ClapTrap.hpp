@@ -88,8 +88,8 @@ public:
 
 //	action
 
-# define NOATT RED "Not enough hit points to attack \n" REST
-# define NOENG RED "Not enough energy \n" REST
+# define NOATTACK RED "Not enough hit points to attack \n" REST
+# define NOENERGY RED "Not enough energy \n" REST
 
 
 //	deprecated
