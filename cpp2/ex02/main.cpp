@@ -186,6 +186,7 @@ static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No)
 
 static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No)
 {
+	std::cout << "Comparing " << l << ' ' << r << std::endl;
 	{
 		if (l == r)	std::cout << "Test " << No++ << " on `==` " << PASS << std::endl;
 		else		std::cout << "Test " << No++ << " on `==` " << FAIL << std::endl;
@@ -193,8 +194,8 @@ static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No)
 		assert(l == r);
 	}
 	{
-		if (l != r)	std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
-		else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+		if (l != r)	std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+		else		std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
 	
 		assert(!(l != r));
 	}
