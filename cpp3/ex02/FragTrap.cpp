@@ -1,198 +1,218 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        ...      :::::::    */
-// /*   FragTrap.hpp                                       :+:      :+:    :+:   */
-// /*                                                    ... ...         :::     */
-// /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
-// /*                                                ...........   :::           */
-// /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-// /*   Updated: 2023/01/09 14:55:42 by nuxu             ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ...      :::::::    */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    ... ...         :::     */
+/*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
+/*                                                ...........   :::           */
+/*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
+/*   Updated: 2023/01/09 14:55:42 by nuxu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "ScavTrap.hpp"
-// #include "ClapTrap.hpp"
-// #include "FragTrap.hpp"
-
-
-// std::string const ScavTrap::m_type = "FragTrap ";
-
-// //  Default
-
-// ScavTrap::ScavTrap() : ClapTrap()
-// {
-//     this->m_hitPoints = 100; // scav
-//     this->m_energyPoints = 50; // scav
-//     this->m_attackDamage = 20; // scav
-
-//     std::cout << LOWKEY << m_type << "constructor" << called REST;
-// }
-
-// ScavTrap::~ScavTrap()
-// {
-//     std::cout << LOWKEY << m_type << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
-// }
+#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 
-// //  Copy
+std::string const FragTrap::m_type = "FragTrap ";
 
-// ScavTrap::ScavTrap(ScavTrap const & other)
-// {
-//     *this = other;
+//  Default
 
-//     std::cout << LOWKEY << m_type << "Copy constructor" << called REST;
-// }
+FragTrap::FragTrap() : ClapTrap()
+{
+    this->m_hitPoints = 100; // frag
+    this->m_energyPoints = 100; // frag
+    this->m_attackDamage = 30; // frag
+
+    std::cout << LOWKEY << m_type << "constructor" << called REST;
+}
+
+FragTrap::~FragTrap()
+{
+    std::cout << LOWKEY << m_type << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
+}
 
 
-// // Copy assignment =
+//  Copy
 
-// ScavTrap & ScavTrap::operator = (ScavTrap const & other)
-// {
-//     std::cout << LOWKEY << m_type << "Copy assignment operator" << called REST;
+FragTrap::FragTrap(FragTrap const & other)
+{
+    *this = other;
+
+    std::cout << LOWKEY << m_type << "Copy constructor" << called REST;
+}
+
+
+// Copy assignment =
+
+FragTrap & FragTrap::operator = (FragTrap const & other)
+{
+    std::cout << LOWKEY << m_type << "Copy assignment operator" << called REST;
     
-//     if (this == & other)
-//         return *this;
+    if (this == & other)
+        return *this;
     
-//     this->m_name = other.m_name;
-//     this->m_hitPoints = other.m_hitPoints;
-//     this->m_energyPoints = other.m_energyPoints;
-//     this->m_attackDamage = other.m_attackDamage;
+    this->m_name = other.m_name;
+    this->m_hitPoints = other.m_hitPoints;
+    this->m_energyPoints = other.m_energyPoints;
+    this->m_attackDamage = other.m_attackDamage;
 
-//     return (*this);
-// }
-
-
-// //  Constructor overload
-
-// ScavTrap::ScavTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01 
-// {
-//     this->m_hitPoints = 100; // scav
-//     this->m_energyPoints = 50; // scav
-//     this->m_attackDamage = 20; // scav
-
-//     std::cout
-//         << LOWKEY << m_type << ITAL << m_name << REST
-//         << LOWKEY " constructor" << called REST;
-// }
+    return (*this);
+}
 
 
-// //  Game
+//  Constructor overload
 
-// void    ScavTrap::guardGate(void) // NEW in ex01
-// {
-//     if (this->m_energyPoints < 1)
-//     {
-//         std::cout << NOENERGY;
-//         return ;
-//     }
-//     if (this->m_hitPoints < 1)
-//     {
-//         std::cout << NOATTACK;
-//         return ;
-//     }
-//     std::cout
-//         << m_type << ITAL << m_name << REST
-//         << CYAN " is assigned this role: " REST ITAL "Gate Guardian " REST nl;
-// }
+FragTrap::FragTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01 
+{
+    this->m_hitPoints = 100; // scav
+    this->m_energyPoints = 50; // scav
+    this->m_attackDamage = 20; // scav
 
-// /*
-// void    ScavTrap::attack(const std::string & other_name)
-// {
-//     if (this->m_energyPoints < 1)
-//     {
-//         std::cout << NOENERGY;
-//         return ;
-//     }
-//     if (this->m_hitPoints < 1)
-//     {
-//         std::cout << NOATTACK;
-//         return ;
-//     }
-//     printAttack(other_name);
-//     this->m_energyPoints -= 1;
-// }
+    std::cout
+        << LOWKEY << m_type << ITAL << m_name << REST
+        << LOWKEY " constructor" << called REST;
+}
 
-// void    ScavTrap::takeDamage(unsigned int num)
-// { 
-//     printDamage(num);
 
-//     this->m_hitPoints -= num;
+//  Game
+
+void    FragTrap::highFivesGuys(void) // NEW in ex02
+{
+    if (this->m_energyPoints < 1)
+    {
+        std::cout << NOENERGY;
+        return ;
+    }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+
+    std::string     input;
     
-//     if (this->m_hitPoints < 1)
-//         std::cout << NOATTACK;
-//     else
-//         printCurrentHitPts();
-// }
+    std::cout << YELL "High. FIVE. GUUUUUUUYYYYYYYYYSSSSSsssssss! (yes/no): " REST;
+    std::cin >> input;
+    if (input == "yes")
+    {
+        std::cout
+        << m_type << ITAL << m_name << REST
+        << " 's " GREEN "High Five accepted. High Five given. " REST nl;
+    }
+    else if (input == "no")
+    {
+        std::cout
+        << m_type << ITAL << m_name << REST
+        << " 's " CYAN "High Five denied. " nl REST
+        << ITAL << m_name << REST CYAN " high fived itself. Sad. " nl REST;
+    }
+    else
+    {
+        std::cout
+        << RED "User typed " << input << ". \nWatch your language, " REST
+        << ITAL << m_name << REST << " said." nl;
+    }
+}
 
-// void    ScavTrap::beRepaired(unsigned int num)
-// {
-//     this->m_hitPoints += num;
-//     this->m_energyPoints += num - 1;
+/*
+void    FragTrap::attack(const std::string & other_name)
+{
+    if (this->m_energyPoints < 1)
+    {
+        std::cout << NOENERGY;
+        return ;
+    }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+    printAttack(other_name);
+    this->m_energyPoints -= 1;
+}
 
-//     printRepair(num);
-//     printCurrentHitPts();
-//     printCurrentEnergyPts();
+void    FragTrap::takeDamage(unsigned int num)
+{ 
+    printDamage(num);
 
-// }
-// */
+    this->m_hitPoints -= num;
+    
+    if (this->m_hitPoints < 1)
+        std::cout << NOATTACK;
+    else
+        printCurrentHitPts();
+}
 
+void    FragTrap::beRepaired(unsigned int num)
+{
+    this->m_hitPoints += num;
+    this->m_energyPoints += num - 1;
 
-// //  Getter {{ obsolete }}
+    printRepair(num);
+    printCurrentHitPts();
+    printCurrentEnergyPts();
 
-// /*
-// std::string ScavTrap::getName() const
-// {
-//     return (this->m_name);
-// }
-
-// int ScavTrap::getDama() const
-// {
-//     return (this->m_attackDamage);
-// }
-// */
-
-// //  Printers    {{ state }}
-
-// /*
-// void    ScavTrap::printCurrentHitPts()
-// {
-//     std::cout
-//         << "ScavTrap " << ITAL << m_name << REST
-//         << CYAN " currently has " << m_hitPoints << " hit points \n" REST;
-// }
-
-// void    ScavTrap::printCurrentEnergyPts()
-// {
-//     std::cout
-//         << "ScavTrap " << ITAL << m_name << REST
-//         << CYAN " currently has " << m_energyPoints << " health \n" REST;
-// }
-// */
+}
+*/
 
 
-// //  Printers    {{ action }}
+//  Getter {{ obsolete }}
 
-// /*
-// void    ScavTrap::printRepair(unsigned int n)
-// {
-//     std::cout
-//         << "ScavTrap " << ITAL << m_name << REST GREEN " gets repaired, gains "
-//         << n - 1 << " health and " << n << " hit points \n" REST;
-// }
+/*
+std::string FragTrap::getName() const
+{
+    return (this->m_name);
+}
 
-// void    ScavTrap::printDamage(unsigned int n)
-// {
-//     std::cout
-//         << "ScavTrap " << ITAL << m_name << REST
-//         << MAG " gets hit, losing "
-//         << n << " points of health! \n" REST;
-// }
+int FragTrap::getDama() const
+{
+    return (this->m_attackDamage);
+}
+*/
 
-// void    ScavTrap::printAttack(const std::string & other_name)
-// {
-//     std::cout
-//         << "ScavTrap " << ITAL << m_name << REST
-//         << YELL " attacks " REST ITAL << other_name << REST ", "
-//         << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
-// }
-// */
+//  Printers    {{ state }}
+
+/*
+void    FragTrap::printCurrentHitPts()
+{
+    std::cout
+        << "FragTrap " << ITAL << m_name << REST
+        << CYAN " currently has " << m_hitPoints << " hit points \n" REST;
+}
+
+void    FragTrap::printCurrentEnergyPts()
+{
+    std::cout
+        << "FragTrap " << ITAL << m_name << REST
+        << CYAN " currently has " << m_energyPoints << " health \n" REST;
+}
+*/
+
+
+//  Printers    {{ action }}
+
+/*
+void    FragTrap::printRepair(unsigned int n)
+{
+    std::cout
+        << "FragTrap " << ITAL << m_name << REST GREEN " gets repaired, gains "
+        << n - 1 << " health and " << n << " hit points \n" REST;
+}
+
+void    FragTrap::printDamage(unsigned int n)
+{
+    std::cout
+        << "FragTrap " << ITAL << m_name << REST
+        << MAG " gets hit, losing "
+        << n << " points of health! \n" REST;
+}
+
+void    FragTrap::printAttack(const std::string & other_name)
+{
+    std::cout
+        << "FragTrap " << ITAL << m_name << REST
+        << YELL " attacks " REST ITAL << other_name << REST ", "
+        << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
+}
+*/

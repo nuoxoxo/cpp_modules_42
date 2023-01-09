@@ -1,48 +1,47 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        ...      :::::::    */
-// /*   FragTrap.cpp                                       :+:      :+:    :+:   */
-// /*                                                    ... ...         :::     */
-// /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
-// /*                                                ...........   :::           */
-// /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-// /*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ...      :::::::    */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    ... ...         :::     */
+/*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
+/*                                                ...........   :::           */
+/*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
+/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #ifndef FRAGTRAP_HPP
-// # define FRAGTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
-// # include "iostream"
-// # include "cassert"
-// # include "string"
-// # include "ClapTrap.hpp"
+# include "iostream"
+# include "cassert"
+# include "string"
+# include "ClapTrap.hpp"
 
 
-// class	ScavTrap : public ClapTrap
-// {
+class	FragTrap : public ClapTrap
+{
 
-// private:
-// 	const static std::string		m_type; // needs redefinition
-// 	// otherwise inherited const string memeber is not allowed.
+private:
+	const static std::string		m_type;
 
-// public:
+public:
 
-// 	//	Canon
+	//	Canon
 
-// 	ScavTrap();
-// 	~ScavTrap();
-// 	ScavTrap(ScavTrap const &);
-// 	ScavTrap & operator = (ScavTrap const &);
+	FragTrap();
+	~FragTrap();
+	FragTrap(FragTrap const &);
+	FragTrap & operator = (FragTrap const &);
 
-// 	//	Overload
+	//	Overload
 
-// 	ScavTrap(std::string);
+	FragTrap(std::string);
 
-// 	//	New role
+	//	New talent
 
-// 	void guardGate();
+	void    highFivesGuys();
 
-// };
+};
 
-// #endif
+#endif
