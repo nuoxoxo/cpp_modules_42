@@ -1,202 +1,334 @@
+#include "iostream"
 #include "Fixed.hpp"
 
-#include <iostream>
+//	Comparison
+static void	Unit_Test_inequality_assert_right(Fixed& l, Fixed& r, int & No);
+static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No);
+static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No);
+static void	Unit_Test_inequality(void);
 
-void	ft_reverse(Fixed a, Fixed b, Fixed c, Fixed d) {
-	if (a >= b)
-		std::cout << "1 is broken" << std::endl;
-	if (b <= a)
-		std::cout << "2 is broken" << std::endl;
-	if (c != d)
-		std::cout << "3 is broken" << std::endl;
-	if (a == b)
-		std::cout << "4 is broken" << std::endl;
-	if (c == b)
-		std::cout << "5 is broken" << std::endl;
-	if (c > d)
-		std::cout << "6 is broken" << std::endl;
-	if (c < d)
-		std::cout << "7 is broken" << std::endl;
-	if (c != c)
-		std::cout << "8 is broken" << std::endl;
-}
+//	++ / -- (postfix & prefix)
+static void	Unit_Test_increm_decrem(void);
 
-void	ft_test_comparisons(void) {
-	Fixed	a (42.42f);
-	Fixed	b (42.43f);
-	Fixed	c (78);
-	Fixed	d = c;
+//	Arithmetic int
+static void	Unit_Test_arithmetic_printer_int__(Fixed & res, int & res2);
+static void	Unit_Test_arithmetic_int__(void);
 
-	if (a < b)
-		std::cout << "1 passed" << std::endl;
-	if (b > a)
-		std::cout << "2 passed" << std::endl;
-	if (c == d)
-		std::cout << "3 passed" << std::endl;
-	if (a != b)
-		std::cout << "4 passed" << std::endl;
-	if (c != b)
-		std::cout << "5 passed" << std::endl;
-	if (c <= d)
-		std::cout << "6 passed" << std::endl;
-	if (c >= d)
-		std::cout << "7 passed" << std::endl;
-	if (c == c)
-		std::cout << "8 passed" << std::endl;
-	ft_reverse(a, b, c, d);
-}
+//	Arithmetic float
+static void	Unit_Test_arithmetic_printer__(Fixed & res, float & res2);
+static void	Unit_Test_arithmetic_float__(void);
 
-void	ft_test_int(void) {
-	Fixed a (3);
-	Fixed b (39);
-	Fixed c;
+//	Min max element
+static void	Unit_Test_min_max__(void);
 
-	c = a + b;
-	std::cout << c << " should be 42" << std::endl;
-	c = a - b;
-	std::cout << c << " should be -36" << std::endl;
-	c = a * b;
-	std::cout << c << " should be 117" <<  std::endl;
-	c = a / b;
-	std::cout << c << " should be " << a/b <<  std::endl;
-	c = a + a;
-	std::cout << c << " should be 6" << std::endl;
-	a = a - a;
-	std::cout << a << " should be 0" << std::endl;
-}
 
-void	ft_test_arithmetics(void) {
-	Fixed a (1.5f);
-	Fixed b (0.5f);
-	Fixed c;
-
-	c = a + b;
-	std::cout << c << " should be 2" << std::endl;
-	c = a - b;
-	std::cout << c << " should be 1" << std::endl;
-	c = a * b;
-	std::cout << c << " should be 0.75" << std::endl;
-
-	c = a / b;
-	std::cout << c << " should be 3" << std::endl;
-	
-	c = a + a;
-	std::cout << c << " should be 3" << std::endl;
-	a = a - a;
-	std::cout << a << " should be 0" << std::endl;
-	ft_test_int();
-}
-
-void	ft_test_iterators(void)
+int	main( void )
 {
-	 Fixed a;
+	Unit_Test_inequality();
+	Unit_Test_arithmetic_float__();
+	Unit_Test_arithmetic_int__();
+	Unit_Test_increm_decrem();
+	Unit_Test_min_max__();
 
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a-- << std::endl;
-	std::cout << a << std::endl;
-	std::cout << --a << std::endl;
+	// provided by subject
+	{
+		Fixed	a;
+		Fixed	const b( Fixed( 5.05f ) * Fixed( 2 ) );
+
+		std::cout << a << std::endl;
+		std::cout << ++a << std::endl;
+		std::cout << a << std::endl;
+		std::cout << a++ << std::endl;
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << Fixed::max( a, b ) << std::endl;
+	} 
+	
+	// ft_test_final();
+	
+	std::cout 
+	<< YELL
+	<< "{{\n\tFor implementation details of Fixed(),\n\tplease check out the Python code.\n}}"
+	<< '\n' << REST;
 }
 
-void	ft_test_minmax(void)
+
+//	++ / -- (postfix & prefix)
+static void	Unit_Test_increm_decrem(void)
+{
+	Fixed F;
+
+	std::cout << GREEN "current: " << F << REST << " (we are inside " << __FUNCTION__ << ")\n";
+	
+	F++;
+	std::cout << GREEN "Number++\t" REST << std::endl;
+	std::cout << GREEN "current:\t" << F << REST << std::endl;
+	
+	std::cout << GREEN "++Number\t" << ++F << REST << std::endl;
+	std::cout << GREEN "current:\t" << F << REST << std::endl;
+	
+	F--;
+	std::cout << GREEN "Number--\t" REST << std::endl;
+	std::cout << GREEN "current:\t" << F << REST << std::endl;
+	
+	std::cout << GREEN "--Number\t" << --F << REST << std::endl;
+	std::cout << GREEN "current:\t" << F << REST << std::endl;
+
+	std::cout << REST;
+}
+
+//	Min Max elements
+static void	Unit_Test_min_max__(void)
 {
 	{
-		Fixed a(8.5f);
-		Fixed b(8.3f);
+		Fixed	const Monster_L(196);
+		Fixed	const Monster_R(883);
 	
-		std::cout << Fixed::min(a, b) << std::endl;
-		std::cout << Fixed::max(a, b) << std::endl;
+		std::cout << GREEN << __FUNCTION__ << REST << std::endl;
+		std::cout << GREEN "testing const: " REST << 196 << " vs " << 883 << std::endl;
+
+		std::cout << "Min: " << Fixed::min(Monster_L, Monster_R) << std::endl;
+		std::cout << "Max: " << Fixed::max(Monster_L, Monster_R) << std::endl;
+		assert(Monster_L == Fixed::min(Monster_L, Monster_R));
+		assert(Monster_R == Fixed::max(Monster_L, Monster_R));
 	}
 	{
-		Fixed const a(8.5f);
-		Fixed const b(8.3f);
+		Fixed	const pi (3.14159265359f);
+		Fixed	const tau(6.28318530718f);
 	
-		std::cout << Fixed::min(a, b) << std::endl;
-		std::cout << Fixed::max(a, b) << std::endl;
+		std::cout << GREEN << __FUNCTION__ << REST << std::endl;
+		std::cout << GREEN "testing const: " REST << pi << " vs " << tau << std::endl;
+		
+		std::cout << "Min: " << Fixed::min(pi, tau) << std::endl;
+		assert(pi == Fixed::min(pi, tau));
+
+		std::cout << "Max: " << Fixed::max(pi, tau) << std::endl;
+		assert(tau == Fixed::max(pi, tau));
+	}
+		{
+		Fixed	const Monster_L(196);
+		Fixed	const Monster_R(883);
+	
+		std::cout << GREEN << __FUNCTION__ << REST << std::endl;
+		std::cout << GREEN "testing non-const: " REST << 196 << " vs " << 883 << std::endl;
+
+		std::cout << "Min: " << Fixed::min(Monster_L, Monster_R) << std::endl;
+		std::cout << "Max: " << Fixed::max(Monster_L, Monster_R) << std::endl;
+		assert(Monster_L == Fixed::min(Monster_L, Monster_R));
+		assert(Monster_R == Fixed::max(Monster_L, Monster_R));
 	}
 	{
-		Fixed a(-8);
-		Fixed b(-3);
+		Fixed	pi (3.14159265359f);
+		Fixed	tau(6.28318530718f);
 	
-		std::cout << Fixed::min(a, b) << std::endl;
-		std::cout << Fixed::max(a, b) << std::endl;
+		std::cout << GREEN << __FUNCTION__ << REST << std::endl;
+		std::cout << GREEN "testing non-const: " REST << pi << " vs " << tau << std::endl;
+
+		std::cout << "Min: " << Fixed::min(pi, tau) << std::endl;
+		assert(pi == Fixed::min(pi, tau));
+
+		std::cout << "Max: " << Fixed::max(pi, tau) << std::endl;
+		assert(tau == Fixed::max(pi, tau));
 	}
-	{
-		Fixed const a(-8);
-		Fixed const b(-3);
-	
-		std::cout << Fixed::min(a, b) << std::endl;
-		std::cout << Fixed::max(a, b) << std::endl;
-	}
+
 }
 
-void	ft_test_final(void)
+
+//	Tests for Comparison Operators
+
+static void	Unit_Test_inequality_assert_right(Fixed& l, Fixed& r, int & No)
 {
-	Fixed a(0);
-	Fixed b(0.0f);
+	std::cout << "Comparing " << l << ' ' << r << std::endl;
 
-	std::cout << std::endl << "All thoses should be zero" << std::endl;
-	std::cout << a.toInt() << std::endl;
-	std::cout << a.toFloat() << std::endl;
-	std::cout << b.toInt() << std::endl;
-	std::cout << a.toFloat() << std::endl;
-	std::cout << a * b << std::endl;
-	std::cout << a / b << "   Exept for this one, who tends to be infinite" << std::endl;
-	std::cout << a + b << std::endl;
-	std::cout << a - b << std::endl;
-	if (a < b)
-		std::cout << "fail" << std::endl;
-	if (a > b)
-		std::cout << "fail" << std::endl;
-	if (a != b)
-		std::cout << "fail" << std::endl;
-	if (a <= b)
-		std::cout << "pass" << std::endl;
-	if (a >= b)
-		std::cout << "pass" << std::endl;
-	if (a == b)
-		std::cout << "pass" << std::endl;
-	a++;
-	std::cout << a << std::endl;
-	b++;
-	std::cout << b << std::endl;
-	std::cout << Fixed::min( a, b++ ) << std::endl;
-	std::cout << Fixed::min( ++a, b ) << std::endl;
+	{
+		if (l < r)	std::cout << "Test " << No++ << " on `<` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `<` " << FAIL << std::endl;
+		
+		assert(l < r);
+	}
+	{
+		if (r > l)	std::cout << "Test " << No++ << " on `>` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `>` " << FAIL << std::endl;
+		
+		assert(r > l);
+	}
+	{
+		if (l != r)	std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+		
+		assert(l != r);
+	}
 }
 
-int	main( void ) {
+static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No)
+{
+	std::cout << "Comparing " << l << ' ' << r << std::endl;
 
-	Fixed	a;
-	Fixed	const b( Fixed( 5.05f ) * Fixed( 2 ) );
-
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	ft_test_comparisons();
-	ft_test_arithmetics();
-	ft_test_iterators();
-	ft_test_minmax();
-	ft_test_final();
-	return (0);
+	{
+		if (l < r)	std::cout << "Test " << No++ << " on `<` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `<` " << FAIL << std::endl;
+	
+		assert(!(l < r));
+	}
+	{
+		if (r > l)	std::cout << "Test " << No++ << " on `>` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `>` " << FAIL << std::endl;
+		
+		assert(!(r > l));
+	}
+	{
+		if (l != r)	std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+		
+		assert(!(l != r));
+	}
 }
 
-/*
-------------8<--------[ model output ]----------------
+static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No)
+{
+	{
+		if (l == r)	std::cout << "Test " << No++ << " on `==` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `==` " << FAIL << std::endl;
 
-$> ./a.out
-0
-0.00390625
-0.00390625
-0.00390625
-0.0078125
-10.1016
-10.1016
-$>
+		assert(l == r);
+	}
+	{
+		if (l != r)	std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+	
+		assert(!(l != r));
+	}
+	{
+		if (l <= r)	std::cout << "Test " << No++ << " on `<=` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `<=` " << FAIL << std::endl;
+	
+		assert(l <= r);
+	}
+	{
+		if (l >= r)	std::cout << "Test " << No++ << " on `>=` " << PASS << std::endl;
+		else		std::cout << "Test " << No++ << " on `>=` " << FAIL << std::endl;
+	
+		assert(l >= r);
+	}
+}
 
-*/
+static void	Unit_Test_inequality(void)
+{
+	Fixed	a(3.14f), aa(3.15f);
+	Fixed	b(6.283f), bb(6.284f); // tau
+	Fixed	t(6.2831f), tt(6.2832f); // tau // precision limit at end of decimal place
+	Fixed	c(196883), d = c;
+	int		No = 0;
+
+	// primary
+
+	Unit_Test_inequality_assert_right(a, aa, No); // 2 decimal places precision
+	Unit_Test_inequality_assert_right(b, bb, No); // 3 decimal places precision
+	Unit_Test_inequality_assert_wrong(t, tt, No); // 4 decimal places precision
+	Unit_Test_inequality_assert_right(a, b, No); // Pi vs. Tau
+	Unit_Test_equality(c, d, No); // the monster vs. its copy
+	
+	// additional
+
+	if (b != c)	std::cout << "Test " << No++ << " on `!=` " << PASS << std::endl;
+	else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
+	
+	assert(b != c);
+}
+
+
+//	Tests (int) for Arithmetic Operators
+
+static void	Unit_Test_arithmetic_printer__(Fixed & res, float & res2)
+{
+	std::cout << GREEN << res << " vs. " << res2 << REST << std::endl;
+}
+
+static void	Unit_Test_arithmetic_float__(void)
+{
+	float	p = 3.14f, t = 6.28f;
+	Fixed	l(p), r(t);
+	Fixed	res;
+	float	res2;
+
+	// std::cout << std::boolalpha;
+
+	{
+		res = l + r;
+		res2 = p + t;
+		Unit_Test_arithmetic_printer__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = r - l;
+		res2 = t - p;
+		Unit_Test_arithmetic_printer__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = l * r;
+		res2 = p * t;
+		Unit_Test_arithmetic_printer__(res, res2);
+		assert(res != res2);
+	}
+	{
+		res = l / r;
+		res2 = p / t;
+		Unit_Test_arithmetic_printer__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = r / l;
+		res2 = t / p;
+		Unit_Test_arithmetic_printer__(res, res2);
+		assert(res == res2);
+	}
+}
+
+
+//	Tests (float) for Arithmetic Operators
+
+static void	Unit_Test_arithmetic_printer_int__(Fixed & res, int & res2)
+{
+	std::cout << GREEN << res << " vs. " << res2 << REST << std::endl;
+}
+
+static void	Unit_Test_arithmetic_int__(void)
+{
+	int		p = 196, t = 883, res2;
+	float	res3;
+	Fixed	l(p), r(t);
+	Fixed	res;
+
+	// std::cout << std::boolalpha;
+	{
+		res = l + r;
+		res2 = p + t;
+		Unit_Test_arithmetic_printer_int__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = r - l;
+		res2 = t - p;
+		Unit_Test_arithmetic_printer_int__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = l * r;
+		res2 = p * t;
+		Unit_Test_arithmetic_printer_int__(res, res2);
+		assert(res == res2);
+	}
+	{
+		res = l / r;
+		res3 = (float)p / (float)t;
+		Unit_Test_arithmetic_printer__(res, res3);
+		assert(res == res3);
+	}
+	{
+		res = r / l;
+		res3 = (float)t / (float)p;
+		Unit_Test_arithmetic_printer__(res, res3);
+		assert(res == res3);
+	}
+}
