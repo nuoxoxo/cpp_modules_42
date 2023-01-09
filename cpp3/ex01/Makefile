@@ -1,7 +1,7 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
-src	:=	main.cpp ClapTrap.cpp
+src	:=	main.cpp ClapTrap.cpp ScavTrap.cpp
 bud	:=	$(src:%.cpp=%.o)
 
 %.o	:	%.cpp

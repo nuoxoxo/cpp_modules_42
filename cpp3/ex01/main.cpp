@@ -18,7 +18,6 @@ static void     print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 R
 int main(void)
 {
     {
-        
         ScavTrap    wham("Wham!"); // ClapTrap    wham("Wham!");
         
         wham.attack("Kraftwerk");
@@ -28,38 +27,15 @@ int main(void)
 
     }
     print_ending();
-    
-    // {
-    //     ClapTrap    c("some bot");
-    //     ClapTrap    cc = c;
+    {
+        ClapTrap    mrOnion("Mr. Onion");
+        ScavTrap    grandma("Grandma!");
         
-    //     c.attack("The Angel");
-    //     c.takeDamage(4);
-    //     c.beRepaired(2);
-    //     cc.attack("The Entity");
-    //     cc.takeDamage(3);
-    //     cc.beRepaired(1);
-    // }
-    // print_ending();
-
-    // {
-    //     ClapTrap    s("Seele");
-    //     ClapTrap    ss(s);
-        
-    //     s.attack("Lilin");
-    //     s.takeDamage(4);
-    //     s.beRepaired(2);
-    //     ss.attack("Adam");
-    //     ss.takeDamage(3);
-    //     ss.beRepaired(1);
-    // }
-    // print_ending();
-
-    // {
-    //     ClapTrap().attack("them");
-    //     // ClapTrap().takeDamage(99);
-    //     // ClapTrap().beRepaired(99);
-    // }
-    // print_ending();
+        mrOnion.attack(grandma.getName());
+        grandma.takeDamage(mrOnion.getDama());
+        grandma.beRepaired(42);
+        grandma.guardGate();
+    }
+    print_ending();
 
 }
