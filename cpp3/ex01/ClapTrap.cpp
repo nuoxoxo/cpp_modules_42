@@ -154,7 +154,7 @@ void    ClapTrap::printDamage(unsigned int n)
     std::cout
         << "ClapTrap " << ITAL << m_name << REST
         << MAG " gets hit, losing "
-        << n << " points of damage! \n" REST;
+        << n << " points of health! \n" REST;
 }
 
 void    ClapTrap::printAttack(const std::string & other_name)
