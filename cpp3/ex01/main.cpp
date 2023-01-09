@@ -12,7 +12,7 @@
 
 #include "ClapTrap.hpp"
 
-static void     print_ending(void) {std::cout << LOWKEY "(...end test)" nl2 REST;};
+static void     print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
 
 int main(void)
 {
