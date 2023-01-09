@@ -8,6 +8,8 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
+/*                                Inheritance                                 */
+/*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
@@ -15,84 +17,38 @@
 -----------------------8<------ [ Requirements ] ------------------------------
 
 
-Exercise 00: Aaaaand... OPEN!
-Exercise : 00 Aaaaand... OPEN!
+ex00	--->	Aaand
 
-Turn-in directory : ex00/
+- Files
 
-Files to turn in : 
-        FragTrap.cpp 
-        FragTrap.hpp 
-        main.cpp 
+	- ClapTrap.hpp
+	- ClapTrap.cpp
+	- main.cpp
+	- Makefile
 
-Forbidden functions : None
+- Implementation
+	
+	- ClapTrap class
+	
+	--- private
+		- m_Name (got from `constr(std::string Name)` )
+		- m_Hits
+		- m_Energy
+		- m_Attack
+	--- public
+		• void attack (const std::string & target); // will take 1 energy
+		• void takeDamage (unsigned int amount);
+		• void beRepaired (unsigned int amount); // will take 1 energy
+		• ClapTrap can’t do anything if it has no hit points
+			or energy points left. ***
+	--- model message
+		"ClapTrap _Name_ attacks _Target_, causing _Damage_ points of damage!"
 
 
 -----------------------8<------ [ Goal ] ------------------------------
 
 
-Here you have to make a class that models the FR4G-TP assault robot/shoebox.
-
-The class will be called FragTrap, and will have the following attributes, (init.d to the values:
-
-        • Hit points (100)
-        • Max hit points (100)
-        • Energy points (100)
-        • Max energy points (100)
-        • Level (1)
-        • Name (Parameter of constructor)
-        • Melee attack damage (30)
-        • Ranged attack damage (20)
-        • Armor damage reduction (5)
-
-
-You will also give it a few functions to make it more life-like:
-
-        • rangedAttack(std::string const & target)
-        • meleeAttack(std::string const & target)
-        • takeDamage(unsigned int amount)
-        • beRepaired(unsigned int amount)
-
-* add-on description
-
-    ¡¡¡ member functions !!!
-    In all of these functions, 
-    you have to display something to describe what happens.
-    For example, 
-    
-        the rangedAttack function displays something along the lines of: 
-        FR4G-TP <name> attacks <target> at range, causing <damage> points of damage!
-
-    ¡¡¡ destr . constr !!!
-    The constructor and destructor must also display something, 
-    so people can see they have been called properly. 
-    
-    ¡¡¡ BONUS !!!
-    Bonus points if these messages are funny references
-    (If you don’t know what a FR4G-TP is, Google it at least, and use a few well-chosen quotes ...)
-
-* A few constraints:
-
-    • The number of hit points can never exceed the number of max hit points. 
-        Same for the energy points. 
-        * If you repair too much HP, then you set them to the max HP number. In the same way, they can’t fall below 0.
-        * When you take damage, you have to take your armor damage reduction into ac- count.
-    
-    • add a vaulthunter_dot_exe(std::string const & target) function
-    that will effect a semi-random attack on the target. 
-    Make it so each time it is called, 
-    it chooses a (preferably) funny attack chosen at random from a pool 
-    of at least 5 possible attacks. 
-
-
-Whatever you want to use to accomplish this is fine, but as usual, the more elegant your method, the better. 
-
-This function costs 25 energy points to run. 
-
-If you don’t have enough energy points, it will do nothing else than print something indicating it’s out of energy (not enough mana)
-
-You will provide a main function, with enough tests to demonstrate that your code is functional.
 
 
 
-end xxxxxxxxxxxxx
+
