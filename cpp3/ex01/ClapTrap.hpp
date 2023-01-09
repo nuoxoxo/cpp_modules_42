@@ -70,6 +70,7 @@ public:
 # define REST	"\033[0;0m"
 # define ITAL	"\033[3m"
 
+# define LOWKEY	"\033[0;2m"
 # define WHITE	"\033[1;37m"
 # define CYAN	"\033[0;36m"
 # define YELL	"\033[0;33m"

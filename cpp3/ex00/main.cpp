@@ -12,6 +12,8 @@
 
 #include "ClapTrap.hpp"
 
+static void     print_ending(void) {std::cout << LOWKEY "(...end test)" nl2 REST;};
+
 int main(void)
 {
     {
@@ -24,7 +26,7 @@ int main(void)
         wham.takeDamage(2);
         wham.beRepaired(4);
     }
-    std::cout << "(end test)" << nl;
+    print_ending();
     
     {
         ClapTrap    c("some bot");
@@ -37,7 +39,7 @@ int main(void)
         cc.takeDamage(3);
         cc.beRepaired(1);
     }
-    std::cout << "(end test)" << nl;
+    print_ending();
 
     {
         ClapTrap    s("Seele");
@@ -50,12 +52,13 @@ int main(void)
         ss.takeDamage(3);
         ss.beRepaired(1);
     }
-    std::cout << "(end test)" << nl;
+    print_ending();
 
     {
         ClapTrap().attack("them");
         // ClapTrap().takeDamage(99);
         // ClapTrap().beRepaired(99);
     }
-    std::cout << "(end test)" << nl;
+    print_ending();
+
 }

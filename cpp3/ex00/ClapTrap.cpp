@@ -21,12 +21,12 @@ ClapTrap::ClapTrap() : m_name("_anonymous_")
     this->m_energyPoints = 10;
     this->m_attackDamage = 0;
 
-    std::cout << WHITE "ClapTrap constructor" << called REST;
+    std::cout << LOWKEY "ClapTrap constructor" << called REST;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << WHITE "ClapTrap " << ITAL << m_name << REST << " destructor" << called REST;
+    std::cout << LOWKEY "ClapTrap " << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
 
 
@@ -36,7 +36,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 {
     *this = other;
 
-    std::cout << WHITE "Copy ClapTrap constructor" << called REST;
+    std::cout << LOWKEY "Copy ClapTrap constructor" << called REST;
 }
 
 
@@ -44,7 +44,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 
 ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 {
-    std::cout << WHITE "ClapTrap: Copy assignment operator" << called REST;
+    std::cout << LOWKEY "ClapTrap: Copy assignment operator" << called REST;
     
     if (this == & other)
         return *this;
@@ -67,8 +67,8 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
     this->m_attackDamage = 0;
 
     std::cout
-        << WHITE "ClapTrap " << ITAL << m_name << REST
-        << WHITE " constructor" << called REST;
+        << LOWKEY "ClapTrap " << ITAL << m_name << REST
+        << LOWKEY " constructor" << called REST;
 }
 
 
@@ -148,8 +148,8 @@ void    ClapTrap::printCurrentEnergyPts()
 void    ClapTrap::printRepair(unsigned int n)
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST 
-        << GREEN " gets repaired and gains " << n << " health \n" REST;
+        << "ClapTrap " << ITAL << m_name << REST GREEN " gets repaired, gains "
+        << n - 1 << " health and " << n << " hit points \n" REST;
 }
 
 void    ClapTrap::printDamage(unsigned int n)
@@ -164,6 +164,6 @@ void    ClapTrap::printAttack(const std::string & other_name)
 {
     std::cout
         << "ClapTrap " << ITAL << m_name << REST
-        << YELL " attacks " REST << other_name << ", "
+        << YELL " attacks " REST ITAL << other_name << REST ", "
         << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
 }
