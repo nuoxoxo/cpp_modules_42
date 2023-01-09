@@ -14,8 +14,9 @@ Reset   = '\033[0;0m'
 Linebreak = '\n-\n'
 FormulaF = 'raw bits \n' + Green + 'applied:' + Yello + ' n * (1 << 8) (for float)' + Reset
 FormulaI = 'raw bits \n' + Green + 'applied:' + Yello + ' n << 8 (for int)' + Reset
-toFloat  = 'toInt() \n'  + Green + 'applied:' + Yello + ' m / (1 << 8) ' + Reset
-toInt    = 'toFloat()\n' + Green + 'applied:' + Yello + ' m >> 8 ' + Reset
+toFloat  = 'toFloat() \n'  + Green + 'applied:' + Yello + ' m / (1 << 8) ' + Reset
+toInt    = 'toInt()\n' + Green + 'applied:' + Yello + ' m >> 8 ' + Reset
+
 
 # Fpv printer
 def fpv(n) -> None:
