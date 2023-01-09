@@ -91,13 +91,13 @@ void    FragTrap::highFivesGuys(void) // NEW in ex02
     }
 
     std::string     input;
+
+    input = get_input(YELL "High. FIVE. Go(U.U)oYS! (yes/no): " REST);
+    lowercase_str(input);
     
-    std::cout << YELL "High. FIVE. GUUUUUUUYYYYYYYYYSSSSSsssssss! (yes/no): " REST;
-    std::cin >> input;
     if (input == "yes")
     {
-        std::cout
-        << m_type << ITAL << m_name << REST
+        std::cout << m_type << ITAL << m_name << REST
         << " 's " GREEN "High Five accepted. High Five given. " REST nl;
     }
     else if (input == "no")
@@ -109,11 +109,41 @@ void    FragTrap::highFivesGuys(void) // NEW in ex02
     }
     else
     {
-        std::cout
-        << RED "User typed " << input << ". \nWatch your language, " REST
+        std::cout << RED "User typed "
+        << input << ". \nWatch your language, " REST
         << ITAL << m_name << REST << " said." nl;
     }
 }
+
+std::string get_input(std::string const msg)
+{
+    std::string input;
+
+    while (input.empty())
+	{
+        if (std::cin.eof())
+			exit(1);
+		std::cout << msg;
+		getline(std::cin, input);
+		if (input == "")
+			continue ;
+	}
+    // std::cout << "in get_input: " << input << std::endl; // show
+    return (input);
+}
+
+void	lowercase_str(std::string& s)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (int) s.length())
+	{
+		lowercase_char(s[i]);
+	}
+}
+
+void    lowercase_char(char & c) { c = std::tolower(c); }
 
 /*
 void    FragTrap::attack(const std::string & other_name)

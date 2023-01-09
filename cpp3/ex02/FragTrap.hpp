@@ -44,4 +44,9 @@ public:
 
 };
 
+std::string     get_input(std::string const);
+void	        lowercase_str(std::string &);
+void            lowercase_char(char &);
+
+
 #endif
