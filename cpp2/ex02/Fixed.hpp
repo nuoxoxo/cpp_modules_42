@@ -14,6 +14,8 @@
 # define FIXED_HPP
 
 # include "iostream"
+# include "cassert"
+// # include "iomanip" // booleanalpha
 # include "cmath"
 
 class	Fixed
@@ -23,33 +25,42 @@ static const int	m_number_of_fractional_bits = 8;
 int			m_fixed_point_value;
 
 public:
-	Fixed(void);
+	// Canon
+	Fixed();
+	~Fixed();
+	Fixed(const Fixed &);
+	
+	// Overload
+	Fixed & operator = (const Fixed &);
 	Fixed(const float);
 	Fixed(const int);
-	Fixed(const Fixed &);
-	~Fixed(void);
 
-	void			setRawBits(int);
-	int			getRawBits(void) const;
-	float			toFloat() const ;
-	int			toInt() const ;
+	// Coverter
+	float	toFloat() const ;
+	int		toInt() const ;
 
-	//	above: part 1
-	//	below: part 2
+	// Getter Setter
+	int		getRawBits(void) const;
+	void	setRawBits(int);
 
+	////		above: part 1
+	////		below: part 2
+
+	// Arithmetic Ops
 	Fixed	operator + (const Fixed &) const ;
 	Fixed	operator - (const Fixed &) const ;
 	Fixed	operator * (const Fixed &) const ;
 	Fixed	operator / (const Fixed &) const ;
 
-	Fixed	& operator = (const Fixed &);
-
+	// Post ++/--
 	Fixed	operator ++ (int);
-	Fixed	& operator ++ (void);
-
 	Fixed	operator -- (int);
+	
+	// Pre ++/--
+	Fixed	& operator ++ (void);
 	Fixed	& operator -- (void);
 
+	// Comparison Ops
 	bool	operator > (const Fixed &) const ;
 	bool	operator < (const Fixed &) const ;
 	bool	operator >= (const Fixed &) const ;
@@ -57,12 +68,18 @@ public:
 	bool	operator == (const Fixed &) const ;
 	bool	operator != (const Fixed &) const ;
 
-	//	take ref on 2 fpv, return a ref of the -er one
+
+	//	std::minmax, the naive simulation of
+	//		1) take ref on 2 fpv 
+	//		2) return a ref of the -er one
 
 	static	Fixed & min(Fixed &, Fixed &);
 	static	Fixed & max(Fixed &, Fixed &);
 
-	//	overload takes ref on 2 const fpv, return ref of the -er one
+
+	//	minmax() overloaded
+	//		1) take ref on 2 const fpv
+	//		2) return ref of the -er one
 
 	static const Fixed & min(const Fixed &, const Fixed &);
 	static const Fixed & max(const Fixed &, const Fixed &);
@@ -70,17 +87,21 @@ public:
 
 std::ostream & operator << (std::ostream &, const Fixed &);
 
+
+// printing
 # define called " called\n"
 # define inside "\ninside "
-# define CYAN	"\x1b[36m"
-# define YELL	"\x1b[33m"
-# define REST	"\x1b[0m"
 # define nl2 " \n\n"
 # define nl " \n"
+// colors
+# define CYAN	"\x1b[36m"
+// # define YELL	"\x1b[33;40m"
+# define YELL	"\033[0;33m"
+# define REST	"\x1b[0m"
 # define GREEN	"\x1b[32m"
 # define RED	"\x1b[31m"
-
-#endif
+# define PASS	GREEN "passed" REST
+# define FAIL	RED "failed" REST
 
 /*
 -	Add public static member functions overloads as follows
@@ -101,3 +122,5 @@ std::ostream & operator << (std::ostream &, const Fixed &);
 		two constant fixed point values 
 		returns a reference to the biggest constant value.
 */
+
+#endif

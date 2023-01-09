@@ -13,75 +13,80 @@
 #include "Fixed.hpp"
 
 
-// arithmetic + -
+// Arithmetic ` + - `
 
-Fixed	Fixed::operator + (const Fixed & n) const
+Fixed	Fixed::operator + (const Fixed & other) const
 {
-	return Fixed(this->toFloat() + n.toFloat());
+	return Fixed(toFloat() + other.toFloat());
 }
 
-Fixed	Fixed::operator - (const Fixed & n) const
+Fixed	Fixed::operator - (const Fixed & other) const
 {
-	return Fixed(this->toFloat() - n.toFloat());
+	return Fixed(toFloat() - other.toFloat());
 }
 
 
-// arithmetic * /
+// Arithmetic ` * / `
 
-Fixed	Fixed::operator * (const Fixed &n) const
+Fixed	Fixed::operator * (const Fixed & other) const
 {
-	return Fixed(this->toFloat() * n.toFloat());
+	return Fixed(toFloat() * other.toFloat());
 }
 
-Fixed	Fixed::operator / (const Fixed & n) const
+Fixed	Fixed::operator / (const Fixed & other) const
 {
-	return Fixed(this->toFloat() / n.toFloat());
+	return Fixed(toFloat() / other.toFloat());
+
+	// Old version
 	// if (n.toInt() > 0)
 	// 	return Fixed(this->toFloat() / n.toFloat());
 	// else throw std::runtime_error("Cannot divide by zero");
 }
 
 
-// symbols < >
+// Comparison Symbols ` < > `
 
-bool	Fixed::operator > (Fixed const & n) const
+bool	Fixed::operator > (Fixed const & other) const
 {
-	return this->m_fixed_point_value > n.m_fixed_point_value;
+	return m_fixed_point_value > other.m_fixed_point_value;
 }
 
-bool	Fixed::operator < (const Fixed & n) const
+bool	Fixed::operator < (const Fixed & other) const
 {
-	return this->m_fixed_point_value < n.m_fixed_point_value;
-}
-
-
-// symbols >= <=
-
-bool	Fixed::operator >= (const Fixed & n) const
-{
-	return this->getRawBits() >= n.getRawBits();
-}
-
-bool	Fixed::operator <= (const Fixed & n) const
-{
-	return this->getRawBits() <= n.getRawBits();;
+	return m_fixed_point_value < other.m_fixed_point_value;
 }
 
 
-// symbols == !=
+// Comparison symbols ` >= <= `
 
-bool	Fixed::operator == (const Fixed & n) const
+bool	Fixed::operator >= (const Fixed & other) const
 {
-	return this->getRawBits() == n.getRawBits();;
+	return getRawBits() >= other.getRawBits();
 }
 
-bool	Fixed::operator != (const Fixed & n) const
+bool	Fixed::operator <= (const Fixed & other) const
 {
-	return !(*this == n);
+	return getRawBits() <= other.getRawBits();
 }
 
 
-// pre-increment . pre-decrement
+// Comparison symbols ` == != `
+
+bool	Fixed::operator == (const Fixed & other) const
+{
+	return getRawBits() == other.getRawBits();
+}
+
+bool	Fixed::operator != (const Fixed & other) const
+{
+	// return (*this != other);
+	// bug  ->  `!=` called before definition
+
+	return !(*this == other);
+}
+
+
+// Pre-in{/de}crement
 
 Fixed	& Fixed::operator ++ (void)
 {
@@ -96,7 +101,7 @@ Fixed	& Fixed::operator -- (void)
 }
 
 
-// post-increment . post-decrement
+// Post-in{/de}crement
 
 Fixed	Fixed::operator ++ (int)
 {
@@ -177,7 +182,7 @@ std::ostream & operator << (std::ostream & ostream, Fixed const & fixed_num)
 
 Fixed::Fixed() : m_fixed_point_value()
 {
-	std::cout << GREEN "Default constructor" << called REST;
+	std::cout << YELL "Default constructor" << called REST;
 }
 
 Fixed::~Fixed()
@@ -233,7 +238,7 @@ int	Fixed::toInt() const
 
 Fixed	& Fixed::operator = (const Fixed & dummy)
 {
-	std::cout << GREEN "Copy assignment operator" << called REST;
+	std::cout << YELL "Copy assignment operator" << called REST;
 	m_fixed_point_value = dummy.getRawBits();
 	return (*this);
 }
@@ -243,13 +248,13 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << GREEN "getRawBits member function" << called REST;
+	std::cout << YELL "getRawBits member function" << called REST;
 	return (this->m_fixed_point_value);
 }
 
 void	Fixed::setRawBits(int val)
 {
-	std::cout << GREEN "setRawBits member function" << called REST;
+	std::cout << YELL "setRawBits member function" << called REST;
 	m_fixed_point_value = val;
 }
 
@@ -307,6 +312,6 @@ Fixed::Fixed(const float x)
 
 Fixed::Fixed(const Fixed & dummy)
 {
-	std::cout << GREEN "Copy constructor" << called REST;
+	std::cout << YELL "Copy constructor" << called REST;
 	*this = dummy;
 }
