@@ -68,7 +68,7 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
 
     std::cout
         << WHITE "ClapTrap " << ITAL << m_name << REST
-        << " constructor" << called REST;
+        << WHITE " constructor" << called REST;
 }
 
 

@@ -17,17 +17,17 @@ int main(void)
     {
         ClapTrap    wham("Wham!");
         
-        wham.attack("some bot");
+        wham.attack("Chuncky");
         wham.takeDamage(1);
         wham.beRepaired(3);
         wham.attack("another bot");
         wham.takeDamage(2);
         wham.beRepaired(4);
     }
-    std::cout << nl;
+    std::cout << "(end test)" << nl;
     
     {
-        ClapTrap    c("Chucky");
+        ClapTrap    c("some bot");
         ClapTrap    cc = c;
         
         c.attack("The Angel");
@@ -37,7 +37,7 @@ int main(void)
         cc.takeDamage(3);
         cc.beRepaired(1);
     }
-    std::cout << nl;
+    std::cout << "(end test)" << nl;
 
     {
         ClapTrap    s("Seele");
@@ -50,12 +50,12 @@ int main(void)
         ss.takeDamage(3);
         ss.beRepaired(1);
     }
-    std::cout << nl;
+    std::cout << "(end test)" << nl;
 
     {
         ClapTrap().attack("them");
         // ClapTrap().takeDamage(99);
         // ClapTrap().beRepaired(99);
     }
-    std::cout << nl;
+    std::cout << "(end test)" << nl;
 }
