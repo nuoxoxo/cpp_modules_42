@@ -1,0 +1,71 @@
+
+-----------8<------ [ Requirements ] ------------------------------
+
+
+	Makefile, 
+	Fixed.{h, hpp}, Fixed.cpp,
+	
+	<------ above: p2 ------>
+	<------ above: p3 ------>
+
+	Point.{h, hpp}, 
+	Point.cpp, 
+	bsp.cpp
+	
+	main.cpp
+
+-----------8<------ [ Subjects ] ------------------------------
+
+	(Goal :: to create the class Point in Orthodox Canonical Form that represents: )
+
+
+	> A 2D Point:
+		
+		• Private members:
+			◦ A Fixed const attribute x.
+			◦ A Fixed const attribute y.
+			◦ Anything else useful.
+
+		• Public members:
+			◦ A default constructor that initializes x and y to 0.
+			◦ A constructor that takes as parameters two constant floating-point numbers.
+				-	It initializes x and y with those parameters.
+			◦ A copy constructor.
+			◦ A copy assignment operator overload.
+			◦ A destructor.
+			◦ Anything else useful.
+
+
+	> Implement the a BSP function in the ***appropriate file*** (individual file):
+	
+		• `bool bsp( Point const a, Point const b, Point const c, Point const point); `
+
+
+	> Other members of the Class:
+
+		• The vertices of our beloved triangle
+			◦ this->a
+			◦ this->b
+			◦ this->c
+		• point: The point to check.
+			◦ this->X
+			◦ this->Y
+
+		• Returns: True if the point is inside the triangle. False otherwise.
+		
+		note :: if the point is a vertex or on the edge, it will return False.
+	
+	*Implement and turn in your own tests to ensure that your class behaves as expected.
+
+
+-----------------------8<------ [ do this in main.cpp ] ------------------------------
+
+
+{{ None }}
+
+
+-----------------------8<------ [ model output ] ------------------------------
+
+
+{{ None} }
+
