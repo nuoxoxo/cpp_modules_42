@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                Inheritance                                 */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+
+ex00	--->	Aaand
+
+- Files
+
+	- ClapTrap.hpp
+	- ClapTrap.cpp
+	- main.cpp
+	- Makefile
+
+- Implementation
+	
+	- ClapTrap class
+	
+	--- private
+		- m_Name (got from `constr(std::string Name)` )
+		- m_Hits
+		- m_Energy
+		- m_Attack
+	--- public
+		• void attack (const std::string & target); // will take 1 energy
+		• void takeDamage (unsigned int amount);
+		• void beRepaired (unsigned int amount); // will take 1 energy
+		• ClapTrap can’t do anything if it has no hit points
+			or energy points left. ***
+	--- model message
+		"ClapTrap _Name_ attacks _Target_, causing _Damage_ points of damage!"
+
+
+-----------------------8<------ [ Goal ] ------------------------------
+
