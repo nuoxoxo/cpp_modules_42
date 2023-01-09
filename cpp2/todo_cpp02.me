@@ -1,19 +1,36 @@
 # The original README / issue for cpp2x0
 
-- back to #241 
 ###### Writing order: Bottom up
-## x00 :: Todo
+## x01 :: $\color {CarnationPink} \text { DONE } $
+- Constructors
+  - <kbd> constructor( const int ) </kbd>
+    - convert the _int_ to _FXP Number Value_
+    - Formula: <kbd> i << 8 </kbd>
+  - <kbd> constructor( const float ) </kbd>
+    - convert the _float_ to _FXP Number Value_
+    - Formula: <kbd> roundf(f * (1 << 8)) </kbd>
+- Public members
+  - <kbd> int toInt( void ) const </kbd>
+    - convert the _FXP Number Value_ to _int_
+    - Formula: <kbd> m >> 8 </kbd>
+  - <kbd> float toFloat( void ) const </kbd>
+    - convert the _FXP Number Value_ to _float_
+    - Formula: <kbd> m / (1 << 8)  </kbd>
+- Helper function
+  - ostream (<kbd><<</kbd>) overload
+## x00 :: $\color {CarnationPink} \text { DONE } $
 - Private
-  - we need a `(int)` for <kbd> FXP Number Value </kbd> `((init to 0))`
-    - $\color {Goldenrod} \text { mantissa } $
+  - we need a `(int)` for <kbd> FXP Number Value </kbd> `(init to 0)`
+    - this is the subject-dictated so-called `raw_bite`
+    - ... but is it (?) $\color {Goldenrod} \text { mantissa } $
   - and a `(static const int)` for <kbd> number of fractional bits </kbd> `(alway 8)`
     - $\color {Goldenrod} \text { exponent } $
 - Public
   - `int` <kbd> getRawBits( void ) const </kbd> 
-    - -> return the _Raw value of_ <kbd> FXP Value </kbd> ((?))
+    - -> return the _Raw value of_ <kbd> FXP Value </kbd> (?)
   - `void` <kbd> setRawBits( int const raw ) </kbd> 
-    - -> set the _Raw value of_ <kbd> FXP Value </kbd>
-  - Regular member
+    - -> set the _Raw value of_ <kbd> FXP number </kbd> (?) why all this confusion
+  - Canon
     - default constr -> init  to 0
     - copy constr + copy assignment overload
     - destr
