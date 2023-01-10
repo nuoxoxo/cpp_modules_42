@@ -23,7 +23,7 @@ class	ScavTrap : public ClapTrap
 {
 
 private:
-	const static std::string		m_type; // needs redefinition
+	const static std::string		m_trait; // needs redefinition
 	// otherwise inherited const string memeber is not allowed.
 
 public:

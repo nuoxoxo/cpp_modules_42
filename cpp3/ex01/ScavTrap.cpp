@@ -14,7 +14,7 @@
 #include "ClapTrap.hpp"
 
 
-std::string const ScavTrap::m_type = "ScavTrap ";
+std::string const ScavTrap::m_trait = "(trait: ScavTrap ";
 
 //  Default
 
@@ -24,12 +24,12 @@ ScavTrap::ScavTrap() : ClapTrap()
     this->m_energyPoints = 50; // scav
     this->m_attackDamage = 20; // scav
 
-    std::cout << LOWKEY << m_type << "constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "constructor" << called REST;
 }
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << LOWKEY << m_type << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
+    std::cout << LOWKEY << m_trait << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
 
 
@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(ScavTrap const & other)
 {
     *this = other;
 
-    std::cout << LOWKEY << m_type << "Copy constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy constructor" << called REST;
 }
 
 
@@ -47,7 +47,7 @@ ScavTrap::ScavTrap(ScavTrap const & other)
 
 ScavTrap & ScavTrap::operator = (ScavTrap const & other)
 {
-    std::cout << LOWKEY << m_type << "Copy assignment operator" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy assignment operator" << called REST;
     
     if (this == & other)
         return *this;
@@ -70,7 +70,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01
     this->m_attackDamage = 20; // scav
 
     std::cout
-        << LOWKEY << m_type << ITAL << m_name << REST
+        << LOWKEY << m_trait << ITAL << m_name << REST
         << LOWKEY " constructor" << called REST;
 }
 
@@ -90,7 +90,7 @@ void    ScavTrap::guardGate(void) // NEW in ex01
         return ;
     }
     std::cout
-        << m_type << ITAL << m_name << REST
+        << m_trait << ITAL << m_name << REST
         << CYAN " is assigned this role: " REST ITAL "Gate Guardian " REST nl;
 }
 

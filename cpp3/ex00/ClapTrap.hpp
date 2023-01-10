@@ -23,7 +23,7 @@ class	ClapTrap
 
 private:
 
-	const static std::string		m_type;
+	const static std::string		m_trait;
 	
 	std::string		m_name;
 	int				m_hitPoints;

@@ -23,7 +23,7 @@ class	FragTrap : public ClapTrap
 {
 
 private:
-	const static std::string		m_type;
+	const static std::string		m_trait;
 
 public:
 
