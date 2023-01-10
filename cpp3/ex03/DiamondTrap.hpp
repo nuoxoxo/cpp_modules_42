@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,15 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "iostream"
 # include "string"
 # include "ClapTrap.hpp"
+# include "ScavTrap.hpp"
 
 
-class	ScavTrap : public ClapTrap
+class	DiamondTrap : public ClapTrap
 {
 
 private:
@@ -29,14 +30,14 @@ public:
 
 	//	Canon
 
-	ScavTrap();
-	~ScavTrap();
-	ScavTrap(ScavTrap const &);
-	ScavTrap & operator = (ScavTrap const &);
+	DiamondTrap();
+	~DiamondTrap();
+	DiamondTrap(DiamondTrap const &);
+	DiamondTrap & operator = (DiamondTrap const &);
 
 	//	Overload
 
-	ScavTrap(std::string);
+	DiamondTrap(std::string);
 
 	//	New role
 

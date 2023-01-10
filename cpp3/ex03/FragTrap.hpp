@@ -14,7 +14,6 @@
 # define FRAGTRAP_HPP
 
 # include "iostream"
-# include "cassert"
 # include "string"
 # include "ClapTrap.hpp"
 

@@ -14,12 +14,12 @@
 # define SCAVTRAP_HPP
 
 # include "iostream"
-# include "cassert"
 # include "string"
 # include "ClapTrap.hpp"
 
 
-class	ScavTrap : public ClapTrap
+// class	ScavTrap : public ClapTrap
+class	ScavTrap : virtual public ClapTrap
 {
 
 private:
