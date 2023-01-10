@@ -14,7 +14,7 @@
 #include "FragTrap.hpp"
 
 
-std::string const FragTrap::m_type = "FragTrap ";
+std::string const FragTrap::m_trait = "(trait: FragTrap) ";
 
 //  Default
 
@@ -24,12 +24,12 @@ FragTrap::FragTrap() : ClapTrap()
     this->m_energyPoints = 100; // frag
     this->m_attackDamage = 30; // frag
 
-    std::cout << LOWKEY << m_type << "constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "constructor" << called REST;
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << LOWKEY << m_type << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
+    std::cout << LOWKEY << m_trait << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
 
 
@@ -39,7 +39,7 @@ FragTrap::FragTrap(FragTrap const & other)
 {
     *this = other;
 
-    std::cout << LOWKEY << m_type << "Copy constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy constructor" << called REST;
 }
 
 
@@ -47,7 +47,7 @@ FragTrap::FragTrap(FragTrap const & other)
 
 FragTrap & FragTrap::operator = (FragTrap const & other)
 {
-    std::cout << LOWKEY << m_type << "Copy assignment operator" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy assignment operator" << called REST;
     
     if (this == & other)
         return *this;
@@ -70,7 +70,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01
     this->m_attackDamage = 20; // scav
 
     std::cout
-        << LOWKEY << m_type << ITAL << m_name << REST
+        << LOWKEY << m_trait << ITAL << m_name << REST
         << LOWKEY " constructor" << called REST;
 }
 
@@ -92,19 +92,20 @@ void    FragTrap::highFivesGuys(void) // NEW in ex02
 
     std::string     input;
 
-    input = get_input(YELL "High. FIVE. Go(U.U)oYS! (yes/no): " REST);
+    // input = get_input(YELL "Let Me Show You The Wonder of HIGH FIVEEE! (Y/N): " REST);
+    input = get_input(YELL "High 5, OK? (Y/N): " REST);
     lowercase_str(input);
     
-    if (input == "yes")
+    if (input == "yes" || input == "y")
     {
-        std::cout << m_type << ITAL << m_name << REST
-        << " 's " GREEN "High Five accepted. High Five given. " REST nl;
+        std::cout << m_trait << ITAL << m_name << REST
+        << " 's " GREEN "High 5 accepted. High 5 given. " REST nl;
     }
-    else if (input == "no")
+    else if (input == "no" || input == "n")
     {
         std::cout
-        << m_type << ITAL << m_name << REST
-        << " 's " CYAN "High Five denied. " nl REST
+        << m_trait << ITAL << m_name << REST
+        << " 's " CYAN "High 5 denied. " nl REST
         << ITAL << m_name << REST CYAN " high fived itself. Sad. " nl REST;
     }
     else

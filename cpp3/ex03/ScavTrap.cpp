@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,23 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
 
-std::string const ClapTrap::m_trait = "(trait: ClapTrap) ";
+std::string const ScavTrap::m_trait = "(trait: ScavTrap) ";
 
 //  Default
 
-ClapTrap::ClapTrap() : m_name("_anonymous_")
+// ScavTrap::ScavTrap() : ClapTrap()
+
+ScavTrap::ScavTrap() // works as well w/o 2nd half of above line
 {
-    this->m_hitPoints = 10;
-    this->m_energyPoints = 10;
-    this->m_attackDamage = 0;
+    m_name = "a_scavtrap";
+    this->m_hitPoints = 100; // scav
+    this->m_energyPoints = 50; // scav
+    this->m_attackDamage = 20; // scav
 
     std::cout << LOWKEY << m_trait << "constructor" << called REST;
 }
 
-ClapTrap::~ClapTrap()
+ScavTrap::~ScavTrap()
 {
     std::cout << LOWKEY << m_trait << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
@@ -34,7 +38,7 @@ ClapTrap::~ClapTrap()
 
 //  Copy
 
-ClapTrap::ClapTrap(ClapTrap const & other)
+ScavTrap::ScavTrap(ScavTrap const & other)
 {
     *this = other;
 
@@ -44,7 +48,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 
 // Copy assignment =
 
-ClapTrap & ClapTrap::operator = (ClapTrap const & other)
+ScavTrap & ScavTrap::operator = (ScavTrap const & other)
 {
     std::cout << LOWKEY << m_trait << "Copy assignment operator" << called REST;
     
@@ -62,11 +66,11 @@ ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 
 //  Constructor overload
 
-ClapTrap::ClapTrap(std::string name) : m_name(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01 
 {
-    this->m_hitPoints = 10;
-    this->m_energyPoints = 10;
-    this->m_attackDamage = 0;
+    this->m_hitPoints = 100; // scav
+    this->m_energyPoints = 50; // scav
+    this->m_attackDamage = 20; // scav
 
     std::cout
         << LOWKEY << m_trait << ITAL << m_name << REST
@@ -76,7 +80,25 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
 
 //  Game
 
-void    ClapTrap::attack(const std::string & other_name)
+void    ScavTrap::guardGate(void) // NEW in ex01
+{
+    if (this->m_energyPoints < 1)
+    {
+        std::cout << NOENERGY;
+        return ;
+    }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+    std::cout
+        << m_trait << ITAL << m_name << REST
+        << CYAN " is assigned this role: " REST ITAL "Gate Guardian " REST nl;
+}
+
+/*
+void    ScavTrap::attack(const std::string & other_name)
 {
     if (this->m_energyPoints < 1)
     {
@@ -92,7 +114,7 @@ void    ClapTrap::attack(const std::string & other_name)
     this->m_energyPoints -= 1;
 }
 
-void    ClapTrap::takeDamage(unsigned int num)
+void    ScavTrap::takeDamage(unsigned int num)
 { 
     printDamage(num);
 
@@ -104,7 +126,7 @@ void    ClapTrap::takeDamage(unsigned int num)
         printCurrentHitPts();
 }
 
-void    ClapTrap::beRepaired(unsigned int num)
+void    ScavTrap::beRepaired(unsigned int num)
 {
     this->m_hitPoints += num;
     this->m_energyPoints += num - 1;
@@ -114,58 +136,65 @@ void    ClapTrap::beRepaired(unsigned int num)
     printCurrentEnergyPts();
 
 }
+*/
 
 
 //  Getter {{ obsolete }}
 
-std::string ClapTrap::getName() const
+/*
+std::string ScavTrap::getName() const
 {
     return (this->m_name);
 }
 
-int ClapTrap::getDama() const
+int ScavTrap::getDama() const
 {
     return (this->m_attackDamage);
 }
+*/
 
 //  Printers    {{ state }}
 
-void    ClapTrap::printCurrentHitPts()
+/*
+void    ScavTrap::printCurrentHitPts()
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "ScavTrap " << ITAL << m_name << REST
         << CYAN " currently has " << m_hitPoints << " hit points \n" REST;
 }
 
-void    ClapTrap::printCurrentEnergyPts()
+void    ScavTrap::printCurrentEnergyPts()
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "ScavTrap " << ITAL << m_name << REST
         << CYAN " currently has " << m_energyPoints << " health \n" REST;
 }
+*/
 
 
 //  Printers    {{ action }}
 
-void    ClapTrap::printRepair(unsigned int n)
+/*
+void    ScavTrap::printRepair(unsigned int n)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST GREEN " gets repaired, gains "
+        << "ScavTrap " << ITAL << m_name << REST GREEN " gets repaired, gains "
         << n - 1 << " health and " << n << " hit points \n" REST;
 }
 
-void    ClapTrap::printDamage(unsigned int n)
+void    ScavTrap::printDamage(unsigned int n)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "ScavTrap " << ITAL << m_name << REST
         << MAG " gets hit, losing "
         << n << " points of health! \n" REST;
 }
 
-void    ClapTrap::printAttack(const std::string & other_name)
+void    ScavTrap::printAttack(const std::string & other_name)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "ScavTrap " << ITAL << m_name << REST
         << YELL " attacks " REST ITAL << other_name << REST ", "
         << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
 }
+*/

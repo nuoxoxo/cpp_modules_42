@@ -14,7 +14,6 @@
 # define CLAPTRAP_HPP
 
 # include "iostream"
-# include "cassert"
 # include "string"
 
 
@@ -23,7 +22,7 @@ class	ClapTrap
 
 private:
 
-	const static std::string		m_type;
+	const static std::string		m_trait;
 	
 	std::string		m_name;
 	int				m_hitPoints;
@@ -63,6 +62,7 @@ public:
 	void			printDamage(unsigned int);
 	void			printCurrentEnergyPts();
 	void			printCurrentHitPts();
+	// void			printCurrentState(); // deprecated
 
 };
 

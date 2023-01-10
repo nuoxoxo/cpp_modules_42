@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,38 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
 
 # include "iostream"
 # include "string"
 # include "ClapTrap.hpp"
 
 
-class	ScavTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap // added virtual
 {
 
 private:
-	const static std::string		m_trait; // needs redefinition
-	// otherwise inherited const string memeber is not allowed.
+	const static std::string		m_trait;
 
 public:
 
 	//	Canon
 
-	ScavTrap();
-	~ScavTrap();
-	ScavTrap(ScavTrap const &);
-	ScavTrap & operator = (ScavTrap const &);
+	FragTrap();
+	~FragTrap();
+	FragTrap(FragTrap const &);
+	FragTrap & operator = (FragTrap const &);
 
 	//	Overload
 
-	ScavTrap(std::string);
+	FragTrap(std::string);
 
-	//	New role
+	//	New talent
 
-	void guardGate();
+	void    highFivesGuys();
 
 };
+
+std::string     get_input(std::string const);
+void	        lowercase_str(std::string &);
+void            lowercase_char(char &);
+
 
 #endif
