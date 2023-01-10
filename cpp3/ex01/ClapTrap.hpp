@@ -25,7 +25,6 @@ class	ClapTrap
 
 protected: // use protected in order to be accessible in children class
 
-
 	const static std::string		m_trait;
 
 	std::string		m_name;	

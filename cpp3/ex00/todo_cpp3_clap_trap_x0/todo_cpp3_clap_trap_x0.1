@@ -45,5 +45,22 @@ ex00	--->	Aaand
 		"ClapTrap _Name_ attacks _Target_, causing _Damage_ points of damage!"
 
 
------------------------8<------ [ Goal ] ------------------------------
+-----------------------8<------ [ OCCF ] ------------------------------
 
+## OCCF / orthodox canonical class form
+```cc
+class A final
+{
+   public:
+      A ();
+      A (const A &a);
+      A & operator = (const A &a);
+      ~A ();
+};
+```
+```sh
+- Default constructor ........ A ()
+- Copy constructor ........... A(const A &)
+- Copy assignment operator ... A & operator = (const A &)
+- Destructor ................. ~A ()
+```
