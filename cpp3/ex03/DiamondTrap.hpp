@@ -10,20 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
+/*			Notes			*//*
+
+Virtual inheritance  is a C++ technique that ensures only one copy 
+of a base class's member variables are inherited by grandchild derived classes.
+
+In other words, `Vi` means that:
+	there will be only 1 instance of the base A class not 2 
+
+- (the diamond problem)
+*/
+
+
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
 # include "iostream"
 # include "string"
-# include "ClapTrap.hpp"
+// # include "ClapTrap.hpp"
 # include "ScavTrap.hpp"
+# include "FragTrap.hpp"
 
 
-class	DiamondTrap : public ClapTrap
+/*
+class	DiamondTrap : public ClapTrap 
+*/// previous definition
+
+class	DiamondTrap : public ScavTrap, public FragTrap
 {
 
 private:
-	const static std::string		m_trait; // needs redefinition
+	std::string m_name;
+	const static std::string	m_trait; // needs redefinition
 	// otherwise inherited const string memeber is not allowed.
 
 public:
@@ -41,7 +60,7 @@ public:
 
 	//	New role
 
-	void guardGate();
+	void whoAmI();
 
 };
 

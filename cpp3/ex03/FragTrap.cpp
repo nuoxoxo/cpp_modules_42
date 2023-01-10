@@ -18,9 +18,11 @@ std::string const FragTrap::m_trait = "(trait: FragTrap) ";
 
 //  Default
 
-FragTrap::FragTrap() : ClapTrap()
+// FragTrap::FragTrap() : ClapTrap() 
+FragTrap::FragTrap()
 {
-    this->m_hitPoints = 100; // frag
+    m_name = "a_fragtrap";
+    m_hitPoints = 100; // frag
     this->m_energyPoints = 100; // frag
     this->m_attackDamage = 30; // frag
 
@@ -92,19 +94,20 @@ void    FragTrap::highFivesGuys(void) // NEW in ex02
 
     std::string     input;
 
-    input = get_input(YELL "High. FIVE. Go(U.U)oYS! (yes/no): " REST);
+    // input = get_input(YELL "Let Me Show You The Wonder of HIGH FIVEEE! (Y/N): " REST);
+    input = get_input(YELL "High 5, OK? (Y/N): " REST);
     lowercase_str(input);
     
-    if (input == "yes")
+    if (input == "yes" || input == "y")
     {
         std::cout << m_trait << ITAL << m_name << REST
-        << " 's " GREEN "High Five accepted. High Five given. " REST nl;
+        << " 's " GREEN "High 5 accepted. High 5 given. " REST nl;
     }
-    else if (input == "no")
+    else if (input == "no" || input == "n")
     {
         std::cout
         << m_trait << ITAL << m_name << REST
-        << " 's " CYAN "High Five denied. " nl REST
+        << " 's " CYAN "High 5 denied. " nl REST
         << ITAL << m_name << REST CYAN " high fived itself. Sad. " nl REST;
     }
     else

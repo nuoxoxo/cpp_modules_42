@@ -17,7 +17,7 @@ std::string const ClapTrap::m_trait = "(trait: ClapTrap) ";
 
 //  Default
 
-ClapTrap::ClapTrap() : m_name("_anonymous_")
+ClapTrap::ClapTrap() : m_name("a_claptrap")
 {
     this->m_hitPoints = 10;
     this->m_energyPoints = 10;

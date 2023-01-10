@@ -18,8 +18,11 @@ std::string const ScavTrap::m_trait = "(trait: ScavTrap) ";
 
 //  Default
 
-ScavTrap::ScavTrap() : ClapTrap()
+// ScavTrap::ScavTrap() : ClapTrap()
+
+ScavTrap::ScavTrap() // works as well w/o 2nd half of above line
 {
+    m_name = "a_scavtrap";
     this->m_hitPoints = 100; // scav
     this->m_energyPoints = 50; // scav
     this->m_attackDamage = 20; // scav

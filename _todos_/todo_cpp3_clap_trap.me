@@ -1,0 +1,176 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                Inheritance                                 */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+
+
+ex03	--->	DiamondTrap
+
+In this exercise, you will create a monster: 
+a ClapTrap that’s half FragTrap, half ScavTrap. 
+
+It will be named DiamondTrap.
+
+DiamondTrap will inherit from both the FragTrap AND the ScavTrap. 
+
+
+-
+
+
+The DiamondTrap class will have a name private attribute. 
+
+Give to this attribute
+exactly the same variable’s name (not talking about the robot’s name here) than the one
+in the ClapTrap base class.
+
+To be more clear, here are two examples.
+If ClapTrap’s variable is name, give the name name to the one of the DiamondTrap.
+If ClapTrap’s variable is _name, give the name _name to the one of the DiamondTrap.
+
+Its attributes and member functions will be picked from either one of its parent classes:
+
+	• Name, which is passed as parameter to a constructor
+	• ClapTrap::name (parameter of the constructor + "_clap_name" suffix)
+	• Hit points (FragTrap)
+	• Energy points (ScavTrap)
+	• Attack damage (FragTrap)
+	• attack() (Scavtrap)
+
+
+
+In addition to the special functions of both its parent classes, DiamondTrap will have
+its own special capacity:
+
+		void whoAmI();
+
+This member function will display both its name and its ClapTrap name.
+
+Of course, the ClapTrap subobject of the DiamondTrap will be created once, and only
+once. Yes, there’s a trick.
+
+
+
+
+-----------------------8<------ [ above :: ex03 ] ------------------------------
+-----------------------8<------ [ below :: ex02 ] ------------------------------
+
+
+
+
+ex02	--->	Repetitve
+
+- Files
+
+	- FragTrap.hpp	(new)
+	- FragTrap.cpp	(new) // has nothing to do with ScavTrap
+		+
+	- ScavTrap.hpp
+	- ScavTrap.cpp
+	- ClapTrap.hpp
+	- ClapTrap.cpp
+	- main.cpp
+	- Makefile
+
+- Implementation
+	
+	- m_Name passed to constructor
+	- HitPoints = 100
+	- Energy = 100
+	- Attack = 30
+	- void highFivesGuys(void)
+		- This member function displays a positive 
+			high fives request on the standard output.
+
+
+
+-----------------------8<------ [ above :: ex02 ] ------------------------------
+-----------------------8<------ [ below :: ex01 ] ------------------------------
+
+
+
+ex01	--->	Serena
+
+- Files
+
+	- ScavTrap.hpp	(new)
+	- ScavTrap.cpp	(new)
+		+
+	- ClapTrap.hpp
+	- ClapTrap.cpp
+	- main.cpp
+	- Makefile
+
+- Implementation
+	
+	- ClapTrap class
+	
+
+	- use `protectd` in order to be accessible in children class
+
+
+-----------------------8<------ [ above :: ex01 ] ------------------------------
+-----------------------8<------ [ below :: ex00 ] ------------------------------
+
+
+ex00	--->	Aaand
+
+- Files
+
+	- ClapTrap.hpp
+	- ClapTrap.cpp
+	- main.cpp
+	- Makefile
+
+- Implementation
+	
+	- ClapTrap class
+	
+	--- private
+		- m_Name (got from `constr(std::string Name)` )
+		- m_Hits
+		- m_Energy
+		- m_Attack
+	--- public
+		• void attack (const std::string & target); // will take 1 energy
+		• void takeDamage (unsigned int amount);
+		• void beRepaired (unsigned int amount); // will take 1 energy
+		• ClapTrap can’t do anything if it has no hit points
+			or energy points left. ***
+	--- model message
+		"ClapTrap _Name_ attacks _Target_, causing _Damage_ points of damage!"
+
+
+-----------------------8<------ [ OCCF ] ------------------------------
+
+## OCCF / orthodox canonical class form
+```cc
+class A final
+{
+   public:
+      A ();
+      A (const A &a);
+      A & operator = (const A &a);
+      ~A ();
+};
+```
+```sh
+- Default constructor ........ A ()
+- Copy constructor ........... A(const A &)
+- Copy assignment operator ... A & operator = (const A &)
+- Destructor ................. ~A ()
+```
+

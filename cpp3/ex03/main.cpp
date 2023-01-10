@@ -13,20 +13,56 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-static void     print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
+static void print_ending(void) {std::cout<<LOWKEY nl"(...end test)"nl2 REST;};
 
 int main(void)
 {
     {
-        FragTrap    wham("Wham!"); // ScavTrap    wham("Wham!");
+        DiamondTrap    Suntory("Suntory!"); // ScavTrap    Suntory("Suntory!");
         
-        wham.attack("Pearl Jam");
-        wham.takeDamage(1);
-        wham.beRepaired(3);
-        wham.highFivesGuys();
-        wham.highFivesGuys();
-        wham.highFivesGuys();
+        Suntory.attack("The Stone Temple Pilot");
+        Suntory.takeDamage(1);
+        Suntory.beRepaired(3);
+        Suntory.highFivesGuys();
+        // Suntory.highFivesGuys(); // too
+        // Suntory.highFivesGuys(); // much
+        Suntory.guardGate();
+
+    }
+    print_ending();
+    {
+	DiamondTrap	kurt("cobain");
+
+	kurt.attack("Jerry");
+	kurt.whoAmI();
+	kurt.takeDamage(3);
+	kurt.beRepaired(5);
+	kurt.guardGate();
+	kurt.highFivesGuys();
+    }
+    print_ending();
+    {
+        DiamondTrap	Mark;
+        DiamondTrap	Luke(Mark);
+        DiamondTrap	John("John");
+
+        Mark.whoAmI();
+        Mark.guardGate();
+        Luke.whoAmI();
+        Luke.guardGate();
+        John.whoAmI();
+
+        John.highFivesGuys();
+
+        John.attack("Matthew");
+        
+	John.printCurrentEnergyPts();
+        John.takeDamage(10);
+        John.printCurrentEnergyPts();
+        John.beRepaired(5);
+        John.printCurrentEnergyPts();
 
     }
     print_ending();

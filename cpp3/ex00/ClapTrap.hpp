@@ -62,6 +62,7 @@ public:
 	void			printDamage(unsigned int);
 	void			printCurrentEnergyPts();
 	void			printCurrentHitPts();
+	// void			printCurrentState(); // deprecated
 
 };
 
