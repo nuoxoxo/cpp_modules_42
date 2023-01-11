@@ -42,9 +42,15 @@ bool bsp( Point const a, Point const b, Point const c, Point const to_check)
     if (!s1 || !s2 || !s3)
         return false;
 
-    has_same_sign = (
+    /*has_same_sign = (
         (s1 < 0 || s2 < 0 || s3 < 0) ||
         (s1 > 0 || s2 > 0 || s3 > 0)
+    );*/
+
+
+    has_same_sign = (
+        (s1 < 0 && s2 < 0 && s3 < 0) ||
+        (s1 > 0 && s2 > 0 && s3 > 0)
     );
 
     return (has_same_sign);
