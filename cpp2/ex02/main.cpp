@@ -60,8 +60,10 @@ int	main( void )
 	
 	std::cout 
 	<< YELL
-	<< "{{\n\tFor implementation details of Fixed(),\n\tplease check out the Python code.\n}}"
-	<< '\n' << REST;
+	<< "{{\n\tFor implementation details of Fixed(),\n\t"
+	<< "please check out the Python code.\n\n\t"
+	<< "https://github.com/nuoxoxo/fixed_py3_demo\n}}\n\n\n"
+	<< REST;
 }
 
 
