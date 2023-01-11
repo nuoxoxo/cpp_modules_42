@@ -13,24 +13,34 @@
 #include "iostream"
 #include "Fixed.hpp"
 
-//	Comparison
+
+// Comparison
+
 static void	Unit_Test_inequality_assert_right(Fixed& l, Fixed& r, int & No);
 static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No);
 static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No);
 static void	Unit_Test_inequality(void);
 
-//	++ / -- (postfix & prefix)
+
+// ++ / -- (postfix & prefix)
+
 static void	Unit_Test_increm_decrem(void);
 
-//	Arithmetic int
+
+// Arithmetic int
+
 static void	Unit_Test_arithmetic_printer_int__(Fixed & res, int & res2);
 static void	Unit_Test_arithmetic_int__(void);
 
-//	Arithmetic float
+
+// Arithmetic float
+
 static void	Unit_Test_arithmetic_printer__(Fixed & res, float & res2);
 static void	Unit_Test_arithmetic_float__(void);
 
-//	Min max element
+
+// Min max element
+
 static void	Unit_Test_min_max__(void);
 
 
@@ -64,6 +74,7 @@ int	main( void )
 	<< "please check out the Python code.\n\n\t"
 	<< "https://github.com/nuoxoxo/fixed_py3_demo\n}}\n\n\n"
 	<< REST;
+
 }
 
 
