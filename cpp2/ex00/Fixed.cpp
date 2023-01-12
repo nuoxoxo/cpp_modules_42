@@ -6,7 +6,7 @@
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/12 07:55:25 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/12 09:20:11 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,13 +47,14 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function" << called;
+	std::cout << __FUNCTION__ << " member function" << called;
 	return (this->m_fixed_point_value);
 }
 
 void	Fixed::setRawBits(int const val)
 {
-	std::cout << "setRawBits member function" << called;
+	std::cout << __FUNCTION__ << " member function" << called;
+	// std::cout << "setRawBits member function" << called;
 	this->m_fixed_point_value = val;
 }
 
