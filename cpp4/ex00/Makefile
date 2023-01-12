@@ -3,7 +3,8 @@ name	:=	out
 rmv	:=	rm -rf
 
 src	:=	main.cpp \
-		Animal.cpp
+		Animal.cpp \
+		Dog.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 

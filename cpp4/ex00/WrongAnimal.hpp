@@ -16,6 +16,7 @@
 # include "iostream"
 # include "string"
 
+
 class	Animal
 {
 
@@ -39,7 +40,7 @@ public:
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // note the `virtual destructor`
+	virtual void	makeSound() const;
 
 };
 
@@ -47,6 +48,7 @@ public:
 //	colors
 
 # define ITAL	"\033[3m"
+# define NOITAL	"\033[0m"
 
 # define LOWKEY	"\033[0;2m"
 # define WHITE	"\033[1;37m"
