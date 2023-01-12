@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*   Updated: 2023/01/12 07:58:46 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ public:
 	Fixed(const int); // added
 
 	// Coverter
-	float	toFloat() const ; // added
-	int		toInt() const ; // added 
+	float	toFloat( void ) const ; // added
+	int		toInt(void) const ; // added 
 
 	// Getter Setter
 	int		getRawBits(void) const;
-	void	setRawBits(int);
+	void	setRawBits(int const);
 
 };
 
