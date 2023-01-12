@@ -1,7 +1,9 @@
 comp	:=	c++ -Wall -Wextra -Werror -std=c++98
 name	:=	out
 rmv	:=	rm -rf
+
 src	:=	main.cpp Fixed.cpp
+
 bud	:=	$(src:%.cpp=%.o)
 
 %.o	:	%.cpp
