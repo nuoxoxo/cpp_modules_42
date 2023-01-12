@@ -10,63 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include "iostream"
 # include "string"
+# include "cstdlib" // rand
+# include "Animal.hpp"
 
 
-class	Animal
+class Cat : public Animal // note the `public` keyword
 {
 
-protected:
-
-	std::string	m_type;
+//protected:
+//	std::string	m_type;
 
 public:
 	// canon
-	Animal();
-	
-	Animal(const Animal &);
-	Animal & operator = (const Animal &);
-	
-	virtual	~Animal(); // note the `virtual` keyword here
+	Cat();
+	~Cat();
+	Cat(const Cat &);
+	Cat & operator = (const Cat &);
 	
 	// overload
-	Animal(std::string);
-
+	// Cat(std::string); // pas de dog('dog_name')
 	// getter
-	std::string	getType() const;
+	// std::string	getType() const; // pas de gettype pour chiens/chats
 
 	// method
-	virtual void	makeSound() const;
+	void	makeSound() const;
 
 };
 
 
-//	colors
-
-# define ITAL	"\033[3m"
-# define NOITAL	"\033[0m"
-
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
-
-# define REST	"\033[0;0m"
-
-
-//	formatting
-
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-
-
 #endif
+

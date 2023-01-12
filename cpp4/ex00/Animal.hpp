@@ -15,6 +15,7 @@
 
 # include "iostream"
 # include "string"
+# include "unistd.h" // usleep
 
 class	Animal
 {

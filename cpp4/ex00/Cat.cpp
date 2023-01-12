@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 
 
 // constructor . destructor
 
-Animal::Animal()
+Cat::Cat() : Animal("Cat")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-Animal::~Animal()
+Cat::~Cat()
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
@@ -30,7 +30,7 @@ Animal::~Animal()
 
 // copy
 
-Animal::Animal(const Animal & dummy)
+Cat::Cat(const Cat & dummy)
 {
 	*this = dummy;
 
@@ -42,7 +42,7 @@ Animal::Animal(const Animal & dummy)
 
 // copy assignement = 
 
-Animal & Animal::operator = (const Animal & dummy)
+Cat & Cat::operator = (const Cat & dummy)
 {
 	this->m_type = dummy.m_type;
 	std::cout << LOWKEY << __FUNCTION__
@@ -55,21 +55,21 @@ Animal & Animal::operator = (const Animal & dummy)
 
 // .method()
 
-void	Animal::makeSound() const
+void	Cat::makeSound() const
 {
-	/*
-	std::cout
-	<< YELL "Pet sounds ~ " ITAL << __FUNCTION__ 
-	<< YELL "()" called REST;
-	*/
+	std::string	sound_of_cats[3] = \
+	{
+		"\"Mew ~~ \"",
+		"\"Meow ~~ \"", 
+		"\"Purr ~~ \""
+	};
 
-	std::cout << YELL "\"Pet sounds ~ \" " REST nl;
+	srand(time(0));
+	int n = (int) rand() % 3;
+	// srand() debugger
+	// std::cout << r << ' ' << n << std::endl;
+
+	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
 }
 
 
-// getter
-
-std::string	Animal::getType() const
-{
-	return m_type;
-}

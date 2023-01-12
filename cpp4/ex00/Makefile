@@ -4,7 +4,8 @@ rmv	:=	rm -rf
 
 src	:=	main.cpp \
 		Animal.cpp \
-		Dog.cpp
+		Dog.cpp \
+		Cat.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
