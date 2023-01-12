@@ -14,7 +14,6 @@
 # define CLAPTRAP_HPP
 
 # include "iostream"
-# include "cassert"
 # include "string"
 
 
@@ -23,6 +22,8 @@ class	ClapTrap
 
 private:
 
+	const static std::string		m_trait;
+	
 	std::string		m_name;
 	int				m_hitPoints;
 	int				m_energyPoints;
@@ -61,6 +62,7 @@ public:
 	void			printDamage(unsigned int);
 	void			printCurrentEnergyPts();
 	void			printCurrentHitPts();
+	// void			printCurrentState(); // deprecated
 
 };
 
@@ -70,6 +72,7 @@ public:
 # define REST	"\033[0;0m"
 # define ITAL	"\033[3m"
 
+# define LOWKEY	"\033[0;2m"
 # define WHITE	"\033[1;37m"
 # define CYAN	"\033[0;36m"
 # define YELL	"\033[0;33m"
@@ -88,8 +91,8 @@ public:
 
 //	action
 
-# define NOATT RED "Not enough hit points to attack \n" REST
-# define NOENG RED "Not enough energy \n" REST
+# define NOATTACK RED "Not enough hit points to attack \n" REST
+# define NOENERGY RED "Not enough energy \n" REST
 
 
 //	deprecated

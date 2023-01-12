@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -11,22 +11,23 @@
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
 
-std::string const ClapTrap::m_trait = "(trait: ClapTrap) ";
+std::string const FragTrap::m_trait = "(trait: FragTrap) ";
 
 //  Default
 
-ClapTrap::ClapTrap() : m_name("_anonymous_")
+FragTrap::FragTrap() : ClapTrap()
 {
-    this->m_hitPoints = 10;
-    this->m_energyPoints = 10;
-    this->m_attackDamage = 0;
+    this->m_hitPoints = 100; // frag
+    this->m_energyPoints = 100; // frag
+    this->m_attackDamage = 30; // frag
 
     std::cout << LOWKEY << m_trait << "constructor" << called REST;
 }
 
-ClapTrap::~ClapTrap()
+FragTrap::~FragTrap()
 {
     std::cout << LOWKEY << m_trait << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
@@ -34,7 +35,7 @@ ClapTrap::~ClapTrap()
 
 //  Copy
 
-ClapTrap::ClapTrap(ClapTrap const & other)
+FragTrap::FragTrap(FragTrap const & other)
 {
     *this = other;
 
@@ -44,7 +45,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 
 // Copy assignment =
 
-ClapTrap & ClapTrap::operator = (ClapTrap const & other)
+FragTrap & FragTrap::operator = (FragTrap const & other)
 {
     std::cout << LOWKEY << m_trait << "Copy assignment operator" << called REST;
     
@@ -62,11 +63,11 @@ ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 
 //  Constructor overload
 
-ClapTrap::ClapTrap(std::string name) : m_name(name)
+FragTrap::FragTrap(std::string name) : ClapTrap (name) // NEW (specs) in ex01 
 {
-    this->m_hitPoints = 10;
-    this->m_energyPoints = 10;
-    this->m_attackDamage = 0;
+    this->m_hitPoints = 100; // scav
+    this->m_energyPoints = 50; // scav
+    this->m_attackDamage = 20; // scav
 
     std::cout
         << LOWKEY << m_trait << ITAL << m_name << REST
@@ -76,7 +77,77 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
 
 //  Game
 
-void    ClapTrap::attack(const std::string & other_name)
+void    FragTrap::highFivesGuys(void) // NEW in ex02
+{
+    if (this->m_energyPoints < 1)
+    {
+        std::cout << NOENERGY;
+        return ;
+    }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+
+    std::string     input;
+
+    // input = get_input(YELL "Let Me Show You The Wonder of HIGH FIVEEE! (Y/N): " REST);
+    input = get_input(YELL "High 5, OK? (Y/N): " REST);
+    lowercase_str(input);
+    
+    if (input == "yes" || input == "y")
+    {
+        std::cout << m_trait << ITAL << m_name << REST
+        << " 's " GREEN "High 5 accepted. High 5 given. " REST nl;
+    }
+    else if (input == "no" || input == "n")
+    {
+        std::cout
+        << m_trait << ITAL << m_name << REST
+        << " 's " CYAN "High 5 denied. " nl REST
+        << ITAL << m_name << REST CYAN " high fived itself. Sad. " nl REST;
+    }
+    else
+    {
+        std::cout << RED "User typed "
+        << input << ". \nWatch your language, " REST
+        << ITAL << m_name << REST << " said." nl;
+    }
+}
+
+std::string get_input(std::string const msg)
+{
+    std::string input;
+
+    while (input.empty())
+	{
+        if (std::cin.eof())
+			exit(1);
+		std::cout << msg;
+		getline(std::cin, input);
+		if (input == "")
+			continue ;
+	}
+    // std::cout << "in get_input: " << input << std::endl; // show
+    return (input);
+}
+
+void	lowercase_str(std::string& s)
+{
+	int		i;
+
+	i = -1;
+	while (++i < (int) s.length())
+	{
+		lowercase_char(s[i]);
+	}
+}
+
+void    lowercase_char(char & c) { c = std::tolower(c); }
+
+/*
+void    FragTrap::attack(const std::string & other_name)
 {
     if (this->m_energyPoints < 1)
     {
@@ -92,7 +163,7 @@ void    ClapTrap::attack(const std::string & other_name)
     this->m_energyPoints -= 1;
 }
 
-void    ClapTrap::takeDamage(unsigned int num)
+void    FragTrap::takeDamage(unsigned int num)
 { 
     printDamage(num);
 
@@ -104,7 +175,7 @@ void    ClapTrap::takeDamage(unsigned int num)
         printCurrentHitPts();
 }
 
-void    ClapTrap::beRepaired(unsigned int num)
+void    FragTrap::beRepaired(unsigned int num)
 {
     this->m_hitPoints += num;
     this->m_energyPoints += num - 1;
@@ -114,58 +185,65 @@ void    ClapTrap::beRepaired(unsigned int num)
     printCurrentEnergyPts();
 
 }
+*/
 
 
 //  Getter {{ obsolete }}
 
-std::string ClapTrap::getName() const
+/*
+std::string FragTrap::getName() const
 {
     return (this->m_name);
 }
 
-int ClapTrap::getDama() const
+int FragTrap::getDama() const
 {
     return (this->m_attackDamage);
 }
+*/
 
 //  Printers    {{ state }}
 
-void    ClapTrap::printCurrentHitPts()
+/*
+void    FragTrap::printCurrentHitPts()
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "FragTrap " << ITAL << m_name << REST
         << CYAN " currently has " << m_hitPoints << " hit points \n" REST;
 }
 
-void    ClapTrap::printCurrentEnergyPts()
+void    FragTrap::printCurrentEnergyPts()
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "FragTrap " << ITAL << m_name << REST
         << CYAN " currently has " << m_energyPoints << " health \n" REST;
 }
+*/
 
 
 //  Printers    {{ action }}
 
-void    ClapTrap::printRepair(unsigned int n)
+/*
+void    FragTrap::printRepair(unsigned int n)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST GREEN " gets repaired, gains "
+        << "FragTrap " << ITAL << m_name << REST GREEN " gets repaired, gains "
         << n - 1 << " health and " << n << " hit points \n" REST;
 }
 
-void    ClapTrap::printDamage(unsigned int n)
+void    FragTrap::printDamage(unsigned int n)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "FragTrap " << ITAL << m_name << REST
         << MAG " gets hit, losing "
         << n << " points of health! \n" REST;
 }
 
-void    ClapTrap::printAttack(const std::string & other_name)
+void    FragTrap::printAttack(const std::string & other_name)
 {
     std::cout
-        << m_trait << ITAL << m_name << REST
+        << "FragTrap " << ITAL << m_name << REST
         << YELL " attacks " REST ITAL << other_name << REST ", "
         << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
 }
+*/

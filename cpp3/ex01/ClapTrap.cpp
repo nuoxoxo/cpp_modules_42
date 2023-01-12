@@ -13,6 +13,8 @@
 #include "ClapTrap.hpp"
 
 
+std::string const ClapTrap::m_trait = "(trait: ClapTrap) ";
+
 //  Default
 
 ClapTrap::ClapTrap() : m_name("_anonymous_")
@@ -21,12 +23,12 @@ ClapTrap::ClapTrap() : m_name("_anonymous_")
     this->m_energyPoints = 10;
     this->m_attackDamage = 0;
 
-    std::cout << WHITE "ClapTrap constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "constructor" << called REST;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << WHITE "ClapTrap " << ITAL << m_name << REST << " destructor" << called REST;
+    std::cout << LOWKEY << m_trait << ITAL << m_name << REST LOWKEY << " destructor" << called REST;
 }
 
 
@@ -36,7 +38,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 {
     *this = other;
 
-    std::cout << WHITE "Copy ClapTrap constructor" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy constructor" << called REST;
 }
 
 
@@ -44,7 +46,7 @@ ClapTrap::ClapTrap(ClapTrap const & other)
 
 ClapTrap & ClapTrap::operator = (ClapTrap const & other)
 {
-    std::cout << WHITE "ClapTrap: Copy assignment operator" << called REST;
+    std::cout << LOWKEY << m_trait << "Copy assignment operator" << called REST;
     
     if (this == & other)
         return *this;
@@ -67,8 +69,8 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
     this->m_attackDamage = 0;
 
     std::cout
-        << WHITE "ClapTrap " << ITAL << m_name << REST
-        << " constructor" << called REST;
+        << LOWKEY << m_trait << ITAL << m_name << REST
+        << LOWKEY " constructor" << called REST;
 }
 
 
@@ -77,14 +79,17 @@ ClapTrap::ClapTrap(std::string name) : m_name(name)
 void    ClapTrap::attack(const std::string & other_name)
 {
     if (this->m_energyPoints < 1)
-        std::cout << NOENG;
-    if (this->m_hitPoints < 1)
-        std::cout << NOATT;
-    else
     {
-        printAttack(other_name);
-        this->m_energyPoints -= 1;
+        std::cout << NOENERGY;
+        return ;
     }
+    if (this->m_hitPoints < 1)
+    {
+        std::cout << NOATTACK;
+        return ;
+    }
+    printAttack(other_name);
+    this->m_energyPoints -= 1;
 }
 
 void    ClapTrap::takeDamage(unsigned int num)
@@ -94,7 +99,7 @@ void    ClapTrap::takeDamage(unsigned int num)
     this->m_hitPoints -= num;
     
     if (this->m_hitPoints < 1)
-        std::cout << NOATT;
+        std::cout << NOATTACK;
     else
         printCurrentHitPts();
 }
@@ -128,14 +133,14 @@ int ClapTrap::getDama() const
 void    ClapTrap::printCurrentHitPts()
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST
+        << m_trait << ITAL << m_name << REST
         << CYAN " currently has " << m_hitPoints << " hit points \n" REST;
 }
 
 void    ClapTrap::printCurrentEnergyPts()
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST
+        << m_trait << ITAL << m_name << REST
         << CYAN " currently has " << m_energyPoints << " health \n" REST;
 }
 
@@ -145,14 +150,14 @@ void    ClapTrap::printCurrentEnergyPts()
 void    ClapTrap::printRepair(unsigned int n)
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST 
-        << GREEN " gets repaired and gains " << n << " health \n" REST;
+        << m_trait << ITAL << m_name << REST GREEN " gets repaired, gains "
+        << n - 1 << " health and " << n << " hit points \n" REST;
 }
 
 void    ClapTrap::printDamage(unsigned int n)
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST
+        << m_trait << ITAL << m_name << REST
         << MAG " gets hit, losing "
         << n << " points of health! \n" REST;
 }
@@ -160,7 +165,7 @@ void    ClapTrap::printDamage(unsigned int n)
 void    ClapTrap::printAttack(const std::string & other_name)
 {
     std::cout
-        << "ClapTrap " << ITAL << m_name << REST
-        << YELL " attacks " REST << other_name << ", "
+        << m_trait << ITAL << m_name << REST
+        << YELL " attacks " REST ITAL << other_name << REST ", "
         << YELL "causing " << m_attackDamage << " points of damage! \n" REST;
 }

@@ -12,29 +12,22 @@
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 static void     print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
 
 int main(void)
 {
     {
-        ScavTrap    wham("Wham!"); // ClapTrap    wham("Wham!");
+        FragTrap    wham("Wham!"); // ScavTrap    wham("Wham!");
         
-        wham.attack("Kraftwerk");
+        wham.attack("Pearl Jam");
         wham.takeDamage(1);
         wham.beRepaired(3);
-        wham.guardGate();
+        wham.highFivesGuys();
+        wham.highFivesGuys();
+        wham.highFivesGuys();
 
-    }
-    print_ending();
-    {
-        ClapTrap    mrOnion("Mr. Onion");
-        ScavTrap    grandma("Grandma!");
-        
-        mrOnion.attack(grandma.getName());
-        grandma.takeDamage(mrOnion.getDama());
-        grandma.beRepaired(42);
-        grandma.guardGate();
     }
     print_ending();
 
