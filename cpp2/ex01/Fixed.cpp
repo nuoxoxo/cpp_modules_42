@@ -6,7 +6,7 @@
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/12 07:59:06 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/12 09:22:28 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,16 @@ int	Fixed::toInt(void) const
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function" << called;
+	// std::cout << __FUNCTION__ << " member function" << called;
+	// silenced above line to match output
 
 	return (this->m_fixed_point_value);
 }
 
 void	Fixed::setRawBits(int const val)
 {
-	std::cout << "setRawBits member function" << called;
+	// std::cout << __FUNCTION__ << " member function" << called;
+	// silenced above line to match output
 
 	m_fixed_point_value = val;
 }
@@ -120,8 +122,9 @@ void	Fixed::setRawBits(int const val)
 
 Fixed::Fixed(const int x)
 {
-	// std::cout << "Int constructor" << called;
+	std::cout << "Int constructor" << called;
 	// silenced above line to match output
+	
 	// test //
 	/*std::cout << YELL inside REST << __FUNCTION__ << nl;
 	std::cout << CYAN "const Int x is " REST << x << nl;
@@ -138,8 +141,9 @@ Fixed::Fixed(const int x)
 
 Fixed::Fixed(const float x)
 {
-	// std::cout << "Float constructor" << called;
+	std::cout << "Float constructor" << called;
 	// silenced above line to match output
+	
 	/*// debugging //
 	std::cout << YELL inside REST << __FUNCTION__ << nl;
 	std::cout << CYAN "const Float x is " REST << x << nl;
