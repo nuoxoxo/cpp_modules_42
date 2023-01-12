@@ -1,0 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                              Polymorphism 				      */
+/*                              abstract classes                              */
+/*                              interfaces                                    */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+
+
+ex00	--->	Polymorphism
+
+
+- Tests / main
+	- provide most complete tests possible
+
+
+- Display all Canon messages
+	- need all constr/destr messages
+	- different msg for different mem func
+
+
+- Start by implementing a simple base class called Animal. 
+It has one protected
+	- attribute:
+		• std::string type;
+
+- Dog - Implement a Dog class that inherits from Animal.
+- Cat - Implement a Cat class that inherits from Animal.
+
+
+
+-----------------------8<------ [ Goal ] ----------c--------------------
+
+
+
+- These two derived classes must set their type field depending on their name. 
+	
+	- Dog’s type will be initialized to "Dog"
+	- Cat’s type will be initialized to "Cat".
+
+- The type of the Animal class can be left empty or set to the value of your choice.
+
+- Every animal must be able to use the member function:
+	
+	- makeSound()
+	- It will print an appropriate sound (cats don’t bark).
+
+
+- Lastly, implement a WrongCat class that inherits from a WrongAnimal class. 
+
+- If you replace the Animal and the Cat by the wrong ones
+
+	in the code above, the WrongCat should output the WrongAnimal sound.
+
+
+
+
+
