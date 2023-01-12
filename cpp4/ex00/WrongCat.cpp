@@ -10,33 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 
 // constructor . destructor
 
-WrongAnimal::WrongAnimal() : m_type("_an_animal_")
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-WrongAnimal::~WrongAnimal()
+WrongCat::~WrongCat()
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
 }
 
-WrongAnimal::WrongAnimal(std::string type) : m_type(type)
-{
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor (overloaded)" << called REST;
-
-}
 
 // copy
 
-WrongAnimal::WrongAnimal(const WrongAnimal & dummy)
+WrongCat::WrongCat(const WrongCat & dummy)
 {
 	*this = dummy;
 
@@ -48,10 +42,9 @@ WrongAnimal::WrongAnimal(const WrongAnimal & dummy)
 
 // copy assignement = 
 
-WrongAnimal & WrongAnimal::operator = (const WrongAnimal & dummy)
+WrongCat & WrongCat::operator = (const WrongCat & dummy)
 {
 	this->m_type = dummy.m_type;
-
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
 
@@ -62,24 +55,21 @@ WrongAnimal & WrongAnimal::operator = (const WrongAnimal & dummy)
 
 // .method()
 
-void	WrongAnimal::makeSound() const
+void	WrongCat::makeSound() const
 {
-	/*
-	std::cout
-	<< YELL "Pet sounds ~ " ITAL << __FUNCTION__ 
-	<< YELL "()" called REST;
-	*/
+	std::string	sound_of_cats[3] = \
+	{
+		"\"Mew ~~ \"",
+		"\"Meow ~~ \"", 
+		"\"Purr ~~ \""
+	};
 
-	std::cout << m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+	srand(time(0));
+	int n = (int) rand() % 3;
+	// srand() debugger
+	// std::cout << r << ' ' << n << std::endl;
+
+	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
 }
 
 
-// getter
-
-std::string	WrongAnimal::getType() const
-{
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
-
-	return m_type;
-}

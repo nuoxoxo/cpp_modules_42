@@ -10,61 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include "iostream"
 # include "string"
+# include "cstdlib" // rand
 
-class	WrongAnimal
+# include "WrongAnimal.hpp"
+
+
+class WrongCat : public WrongAnimal // note the `public` keyword
 {
 
-protected:
-
-	std::string	m_type;
+//protected:
+//	std::string	m_type;
 
 public:
 	// canon
-	WrongAnimal();
-	
-	WrongAnimal(const WrongAnimal &);
-	WrongAnimal & operator = (const WrongAnimal &);
-	
-	virtual	~WrongAnimal(); // note the `virtual` keyword here
+	WrongCat();
+	~WrongCat();
+	WrongCat(const WrongCat &);
+	WrongCat & operator = (const WrongCat &);
 	
 	// overload
-	WrongAnimal(std::string);
-
+	// WrongCat(std::string); // pas de dog('dog_name')
 	// getter
-	std::string	getType() const;
+	// std::string	getType() const; // pas de gettype pour chiens/chats
 
 	// method
-	virtual void	makeSound() const; // note the `virtual destructor`
+	void	makeSound() const;
 
 };
 
 
-//	colors
-
-# define ITAL	"\033[3m"
-
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
-
-# define REST	"\033[0;0m"
-
-
-//	formatting
-
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-
-
 #endif
+

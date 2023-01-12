@@ -5,7 +5,9 @@ rmv	:=	rm -rf
 src	:=	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
-		Cat.cpp
+		Cat.cpp \
+		WrongCat.cpp \
+		WrongAnimal.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 

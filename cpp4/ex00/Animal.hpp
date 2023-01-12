@@ -32,7 +32,13 @@ public:
 	Animal & operator = (const Animal &);
 	
 	virtual	~Animal(); // note the `virtual` keyword here
-	
+
+
+	// need a virtual Destructor in Base class so that 
+	// 	the child class can use the virtual function
+	// 	of the Base class
+
+
 	// overload
 	Animal(std::string);
 
@@ -41,6 +47,13 @@ public:
 
 	// method
 	virtual void	makeSound() const; // note the `virtual destructor`
+	
+
+	// Virtual functions can be overridden by the child class 
+	// 	if the that child class changes the implementation 
+	// 	of the virtual function so that the base virtual 
+	// 	function isn't called.
+
 
 };
 

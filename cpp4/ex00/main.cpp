@@ -2,6 +2,9 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+
 static void	print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
 
 int main()
@@ -22,8 +25,10 @@ int main()
 		delete meta;
 		delete i;
 		delete j;
-		print_ending();
 	}
+	
+	print_ending();
+	
 	// some tests
 	{
 		// usleep(6 * microsecond); // uncomt to make srand useful
@@ -53,8 +58,10 @@ int main()
 		delete	Jeffe;
 		delete	Cathy;
 		delete	Dylan;
-		print_ending();
 	}
+	
+	print_ending();
+	
 	// more tests . testing srand w/ usleep
 	{
 		// usleep(6 * microsecond);
@@ -84,8 +91,31 @@ int main()
 		delete	Jeffe;
 		delete	Cathy;
 		delete	Dylan;
-		print_ending();
 	}
+	
+	print_ending();
+	
+	// subject
+	{
+		std::cout
+		<< CYAN "retry the subject main w/ WrongClass " nl REST;
 
+		const WrongAnimal* meta = new WrongAnimal();
+		const WrongAnimal* i = new WrongCat();	
+		
+		std::cout << meta->getType() << " " << std::endl;
+		std::cout << i->getType() << " " << std::endl;
+		
+		i->makeSound(); //will output the cat sound!
+		
+		meta->makeSound();
+		
+		delete meta;
+		delete i;
+	}
+	
+	print_ending();
+
+	(void) microsecond;
 	std::cout << "do valgrind. " nl2;
 }
