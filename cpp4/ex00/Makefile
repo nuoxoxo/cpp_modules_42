@@ -2,7 +2,8 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-src	:=	main.cpp
+src	:=	main.cpp \
+		Animal.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 

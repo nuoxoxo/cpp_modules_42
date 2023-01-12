@@ -10,63 +10,66 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
-
-# include "iostream"
-# include "string"
+#include "Animal.hpp"
 
 
-class	Animal
+// constructor . destructor
+
+Animal::Animal()
 {
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Constructor" << called REST;
+}
 
-protected:
-
-	std::string	m_type;
-
-public:
-	// canon
-	Animal();
-	
-	Animal(const Animal &);
-	Animal & operator = (const Animal &);
-	
-	virtual	~Animal(); // note the `virtual` keyword here
-	
-	// overload
-	Animal(std::string);
-
-	// getter
-	std::string	getType() const;
-
-	// method
-	virtual void	makeSound() const;
-
-};
+Animal::~Animal()
+{
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Destructor" << called REST;
+}
 
 
-//	colors
+// copy
 
-# define ITAL	"\033[3m"
-# define NOITAL	"\033[0m"
+Animal::Animal(const Animal & dummy)
+{
+	*this = dummy;
 
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Copy constructor" << called REST;
 
-# define REST	"\033[0;0m"
+}
 
 
-//	formatting
+// copy assignement = 
 
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
+Animal & Animal::operator = (const Animal & dummy)
+{
+	this->m_type = dummy.m_type;
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Copy assignment constructor" << called REST;
+
+	return (*this);
+
+}
 
 
-#endif
+// .method()
+
+void	Animal::makeSound() const
+{
+	/*
+	std::cout
+	<< YELL "Pet sounds ~ " ITAL << __FUNCTION__ 
+	<< YELL "()" called REST;
+	*/
+
+	std::cout << YELL "\"Pet sounds ~ \" " REST nl;
+}
+
+
+// getter
+
+std::string	Animal::getType() const
+{
+	return m_type;
+}
