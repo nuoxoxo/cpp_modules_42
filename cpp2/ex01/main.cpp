@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*   Updated: 2023/01/12 09:17:09 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,41 @@
 
 int		main( void )
 {
-	// Subject test
-	Fixed	a;
-	Fixed	b( a ); 
-	Fixed	c;
+	// Some test
+	
+	/*
+	Fixed	pi(3.1415926f);
+	
+	pi.toInt();
+	std::cout << pi << nl;
+	*/
 
-	c = b;
+
+	// Subject test
+
+	Fixed		a;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
+
+	a = Fixed( 1234.4321f );
 	
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
 	
-	// Personalized test
-	/*Fixed	test(42);
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+
+	// More test
+	
+	/*
+
+	Fixed	test(42);
+	
 	std::cout << test << nl;
 	
 	Fixed	test_ftoi(369.963f);
@@ -37,11 +59,8 @@ int		main( void )
 	Fixed	test_monster(196.883f);
 	test_monster.toInt();
 	std::cout << test_monster << nl;
+	
 	*/
-
-	Fixed	pi(3.1415926f);
-	pi.toInt();
-	std::cout << pi << nl;
 
 	return 0;
 }

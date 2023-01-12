@@ -13,6 +13,8 @@ $(name)	:	$(bud)
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
+		@ printf "see a demo if you like \n\n"
+		@ printf "\thttps://github.com/nuoxoxo/fixed_py3_demo \n\n"
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 		@ echo ""

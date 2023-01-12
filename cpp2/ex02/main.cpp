@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*   Updated: 2023/01/12 09:29:11 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ static void	Unit_Test_increm_decrem(void)
 	std::cout << GREEN "current:\t" << F << REST << std::endl;
 
 	std::cout << REST;
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 //	Min Max elements
@@ -155,7 +156,8 @@ static void	Unit_Test_min_max__(void)
 		std::cout << "Max: " << Fixed::max(pi, tau) << std::endl;
 		assert(tau == Fixed::max(pi, tau));
 	}
-
+	
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 
@@ -183,6 +185,8 @@ static void	Unit_Test_inequality_assert_right(Fixed& l, Fixed& r, int & No)
 		
 		assert(l != r);
 	}
+	
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No)
@@ -207,6 +211,8 @@ static void	Unit_Test_inequality_assert_wrong(Fixed& l, Fixed& r, int & No)
 		
 		assert(!(l != r));
 	}
+
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No)
@@ -236,6 +242,8 @@ static void	Unit_Test_equality(Fixed& l, Fixed& r, int & No)
 	
 		assert(l >= r);
 	}
+
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 static void	Unit_Test_inequality(void)
@@ -260,6 +268,8 @@ static void	Unit_Test_inequality(void)
 	else		std::cout << "Test " << No++ << " on `!=` " << FAIL << std::endl;
 	
 	assert(b != c);
+	
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 
@@ -308,7 +318,10 @@ static void	Unit_Test_arithmetic_float__(void)
 		res2 = t / p;
 		Unit_Test_arithmetic_printer__(res, res2);
 		assert(res == res2);
+	
 	}
+	
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }
 
 
@@ -357,4 +370,6 @@ static void	Unit_Test_arithmetic_int__(void)
 		Unit_Test_arithmetic_printer__(res, res3);
 		assert(res == res3);
 	}
+	
+	std::cout << "\n(" << __FUNCTION__ << " ends) \n" << std::endl;
 }

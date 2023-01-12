@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*   Updated: 2023/01/12 09:20:11 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@
 
 // Canon
 
-Fixed::Fixed() : m_fixed_point_value() {std::cout << "Default constructor" << called;}
-Fixed::~Fixed() {std::cout << "Destructor" << called;}
+Fixed::Fixed() : m_fixed_point_value()
+{
+	std::cout << "Default constructor" << called;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor" << called;
+}
 
 Fixed::Fixed(const Fixed & dummy)
 {
@@ -40,13 +47,14 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function" << called;
+	std::cout << __FUNCTION__ << " member function" << called;
 	return (this->m_fixed_point_value);
 }
 
-void	Fixed::setRawBits(int val)
+void	Fixed::setRawBits(int const val)
 {
-	std::cout << "setRawBits member function" << called;
+	std::cout << __FUNCTION__ << " member function" << called;
+	// std::cout << "setRawBits member function" << called;
 	this->m_fixed_point_value = val;
 }
 

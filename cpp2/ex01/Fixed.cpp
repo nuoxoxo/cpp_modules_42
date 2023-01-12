@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _                                                  ...      :::    :::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: ____/__/__ __:__:__ by nxu              ...   ::::::::.fi       */
+/*   Updated: 2023/01/12 09:22:28 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 // Canon
 
-Fixed::Fixed() : m_fixed_point_value() {std::cout << "Default constructor" << called;}
-Fixed::~Fixed() {std::cout << "Destructor" << called;}
+Fixed::Fixed() : m_fixed_point_value()
+{
+	std::cout << "Default constructor" << called;
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor" << called;
+}
 
 Fixed::Fixed(const Fixed & dummy)
 {
@@ -24,11 +31,11 @@ Fixed::Fixed(const Fixed & dummy)
 }
 
 
-// Overloading ` << ` with float(n)
+// Overloading ` << ` for case float(n)
 
 std::ostream & operator << (std::ostream & stream, Fixed const & fixed_number)
 {
-	// uncomment the trailing part to debug
+	// To debug, uncomment trailing part
 	stream << fixed_number.toFloat();// << YELL " " << __FUNCTION__ << REST;
 
 	return stream;
@@ -42,7 +49,6 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 	std::cout << "Copy assignment operator" << called;
 
 	m_fixed_point_value = dummy.getRawBits();
-	// this->m_fixed_point_value = dummy.getRawBits(); // same
 	
 	return (*this);
 }
@@ -50,7 +56,7 @@ Fixed	& Fixed::operator = (const Fixed & dummy)
 
 // Converter 
 
-float	Fixed::toFloat() const
+float	Fixed::toFloat(void) const
 {
 	/*// debugger starts
 	std::cout << CYAN nl << __FUNCTION__ <<  REST nl;
@@ -71,7 +77,7 @@ float	Fixed::toFloat() const
 	return (float) m_fixed_point_value / (1 << m_number_of_fractional_bits);
 }
 
-int	Fixed::toInt() const
+int	Fixed::toInt(void) const
 {
 	/*// debugger starts
 	std::cout << CYAN nl << __FUNCTION__ << REST nl;
@@ -97,14 +103,16 @@ int	Fixed::toInt() const
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function" << called;
+	// std::cout << __FUNCTION__ << " member function" << called;
+	// silenced above line to match output
 
 	return (this->m_fixed_point_value);
 }
 
-void	Fixed::setRawBits(int val)
+void	Fixed::setRawBits(int const val)
 {
-	std::cout << "setRawBits member function" << called;
+	// std::cout << __FUNCTION__ << " member function" << called;
+	// silenced above line to match output
 
 	m_fixed_point_value = val;
 }
@@ -114,8 +122,9 @@ void	Fixed::setRawBits(int val)
 
 Fixed::Fixed(const int x)
 {
-	// std::cout << "Int constructor" << called;
+	std::cout << "Int constructor" << called;
 	// silenced above line to match output
+	
 	// test //
 	/*std::cout << YELL inside REST << __FUNCTION__ << nl;
 	std::cout << CYAN "const Int x is " REST << x << nl;
@@ -132,8 +141,9 @@ Fixed::Fixed(const int x)
 
 Fixed::Fixed(const float x)
 {
-	// std::cout << "Float constructor" << called;
+	std::cout << "Float constructor" << called;
 	// silenced above line to match output
+	
 	/*// debugging //
 	std::cout << YELL inside REST << __FUNCTION__ << nl;
 	std::cout << CYAN "const Float x is " REST << x << nl;
