@@ -164,20 +164,20 @@ void	avltree::printer_bfs(avltree *root)
 int	main()
 {
 	avltree	*root = NULL;
-	//avltree	tree;
+	avltree	tree;
 	
-	root = root->Insert(root, new avltree(42));
+	root = tree.Insert(root, new avltree(42));
 	
-	root->Insert(root, new avltree(32));
-	root->Insert(root, new avltree(16));
-	root->Insert(root, new avltree(12));
-	root->Insert(root, new avltree(64));
-	root->Insert(root, new avltree(128));
-	root->Insert(root, new avltree(123));
-	root->Insert(root, new avltree(256));
+	tree.Insert(root, new avltree(32));
+	tree.Insert(root, new avltree(16));
+	tree.Insert(root, new avltree(12));
+	tree.Insert(root, new avltree(64));
+	tree.Insert(root, new avltree(128));
+	tree.Insert(root, new avltree(123));
+	tree.Insert(root, new avltree(256));
 
-	root->printer_inorder(root);
-	root->printer_bfs(root);
+	tree.printer_inorder(root);
+	tree.printer_bfs(root);
 
 }
 
