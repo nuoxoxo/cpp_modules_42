@@ -27,6 +27,17 @@ bstree::bstree() : val(0), l(none), r(none) {} // default constr
 bstree::bstree(int n) : val(n), l(none), r(none) {} // param constr
 bstree::~bstree() {}
 
+bstree	*bstree::Insert(bstree *node, int n)
+{
+	if (!node)
+		return (new bstree(n));
+	if (node->val < n)
+		node->r = Insert(node->r, n);
+	else if (node->val > n)
+		node->l = Insert(node->l, n);
+	return (node);
+}
+
 // inorder printer
 void	bstree::printer_inorder(bstree *node)
 {
@@ -42,20 +53,10 @@ void	bstree::printer_inorder(bstree *node)
 	printer_inorder(node->r);
 }
 
-bstree	*bstree::Insert(bstree *node, int n)
-{
-	if (!node)
-		return (new bstree(n));
-	if (node->val < n)
-		node->r = Insert(node->r, n);
-	else if (node->val > n)
-		node->l = Insert(node->l, n);
-	return (node);
-}
-
+// BFS printer
 void	bstree::printer_bfs(bstree *root)
 {
-	cout << nl "BFS " nl2;
+	cout << nl << __FUNCTION__ << nl2;
 	
 	deque<bstree *>	D;
 	D.push_front(root);
@@ -87,7 +88,8 @@ int	main()
 	tree.Insert(root, 128);
 	tree.Insert(root, 123);
 	tree.Insert(root, 256);
-
+	
+	cout << nl "Inorder " nl2; 
 	tree.printer_inorder(root);
 	tree.printer_bfs(root);
 
