@@ -13,6 +13,13 @@
 #include "Animal.hpp"
 
 
+/*
+ * 
+ *	Everything is the same as x0
+ *
+ */
+
+
 // constructor . destructor
 
 Animal::Animal() : m_type("_an_animal_")

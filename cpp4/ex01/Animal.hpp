@@ -21,42 +21,25 @@ class	Animal
 {
 
 protected:
-
 	std::string	m_type;
 
 public:
 	// canon
-	Animal();
-	
+	Animal();	
+	Animal(std::string);
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
-	
-	virtual	~Animal(); // note the `virtual` keyword here
 
-
-	// need a virtual Destructor in Base class so that 
-	// 	the child class can use the virtual function
-	// 	of the Base class
-
-
-	// overload
-	Animal(std::string);
+	virtual	~Animal(); // note the `virtual` keyword
 
 	// getter
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // note the `virtual destructor`
-	
+	virtual void	makeSound() const; // note `virtual` on destr
 
-	// Virtual functions can be overridden by the child class 
-	// 	if the that child class changes the implementation 
-	// 	of the virtual function so that the base virtual 
-	// 	function isn't called.
-
-
+	///	Everything the same as x0
 };
-
 
 //	colors
 
@@ -71,7 +54,6 @@ public:
 # define MAG	"\033[0;35m"
 
 # define REST	"\033[0;0m"
-
 
 //	formatting
 
