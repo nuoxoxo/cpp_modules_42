@@ -12,23 +12,13 @@
 
 #include "Cat.hpp"
 
-
-// constructor . destructor
+// canon
 
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
-
-Cat::~Cat()
-{
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
-}
-
-
-// copy
 
 Cat::Cat(const Cat & dummy)
 {
@@ -39,12 +29,10 @@ Cat::Cat(const Cat & dummy)
 
 }
 
-
-// copy assignement = 
-
 Cat & Cat::operator = (const Cat & dummy)
 {
-	this->m_type = dummy.m_type;
+	this->m
+
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
 
@@ -52,6 +40,13 @@ Cat & Cat::operator = (const Cat & dummy)
 
 }
 
+Cat::~Cat()
+{
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Destructor" << called REST;
+
+	delete m_brain; // added
+}
 
 // .method()
 
