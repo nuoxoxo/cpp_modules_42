@@ -23,12 +23,9 @@ public:
 	void	printer_bfs(bstree *root);
 };
 
-// constr
-bstree::bstree() : val(0), l(none), r(none) {}
+bstree::bstree() : val(0), l(none), r(none) {} // default constr
+bstree::bstree(int n) : val(n), l(none), r(none) {} // param constr
 bstree::~bstree() {}
-
-// param constr
-bstree::bstree(int n) { val = n, r = l = none; }
 
 // inorder printer
 void	bstree::printer_inorder(bstree *node)
