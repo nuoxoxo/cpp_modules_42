@@ -10,66 +10,59 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
 
-// constructor . destructor
+// canon
 
-Cat::Cat() : Animal("Cat")
+Brain::Brain()
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-Cat::~Cat()
-{
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
-}
-
-
-// copy
-
-Cat::Cat(const Cat & dummy)
+Brain::Brain(const Brain & dummy)
 {
 	*this = dummy;
 
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy constructor" << called REST;
-
 }
 
-
-// copy assignement = 
-
-Cat & Cat::operator = (const Cat & dummy)
+Brain & Brain::operator = (const Brain & dummy)
 {
-	this->m_type = dummy.m_type;
+	int i = -1;
+	while (++i < N)
+		m_idea[i] = dummy.m_idea[i];
+	
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
 
 	return (*this);
-
 }
 
+Brain::~Brain()
+{
+	std::cout << LOWKEY << __FUNCTION__
+	<< " Destructor" << called REST;
+}
 
-// .method()
-
-void	Cat::makeSound() const
+void	Brain::makeSound() const
 {
 	std::string	sound_of_cats[3] = \
 	{
-		"\"Mew ~~ \"",
-		"\"Meow ~~ \"", 
-		"\"Purr ~~ \""
+		"\"ts... (white noise) \"",
+		"\"pip, pip... (brainwave) \"", 
+		"\"tick, tock... (dr. manhattan) \""
 	};
 
 	srand(time(0));
 	int n = (int) rand() % 3;
+	
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;
 
-	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
+	std::cout
+	<< m_type << ": " YELL
+	<< sound_of_cats[n] << REST nl;
 }
-
-
