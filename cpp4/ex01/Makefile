@@ -1,18 +1,33 @@
-comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
-rmv	:=	rm -rf
+comp		:=	c++ -Wall -Werror -Wextra -std=c++98
+name		:=	out
+rmv		:=	rm -rf
 
-src	:=	main.cpp
 
-bud	:=	$(src:%.cpp=%.o)
+src		:=	main.cpp \
+		Animal.cpp \
+		Dog.cpp \
+		Cat.cpp \
+		WrongCat.cpp \
+		WrongAnimal.cpp
 
-%.o	:	%.cpp
+
+budfolder	:=	./bud/
+budpath		:=	$(budfolder)
+bud		:=	$(addprefix $(budfolder), $(src:.cpp=.o))
+
+
+$(budpath)	:
+		@ mkdir -p $(budpath)
+
+
+$(budfolder)%.o	:	%.cpp
 		@ echo "compiling [$^] "
-		@ $(comp) -c $^ -o $@
+		@ $(comp) -c $< -o $@
 
-$(name)	:	$(bud)
-		@ echo "compiling [$@] "
-		@ $(comp) $^ -o $@
+$(name)		:	$(budpath) $(bud)
+		@ echo "compiling [$@]"
+		@#@ echo "compiling [$^]"
+		@ $(comp) $(bud) -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@ echo "you can do [make f] "
@@ -24,14 +39,15 @@ run	:	re
 		@ make clean
 
 r	:	run
-
 all	:	$(name)
 
+
 clean	:
-		@ $(rmv) $(bud)
+		@ $(rmv) $(budfolder)
 
 fclean	:	clean
-		@ $(rmv) $(name) a.out
+		@ $(rmv) $(name) a.out *.o
+
 
 test	:	run
 f	:	fclean
