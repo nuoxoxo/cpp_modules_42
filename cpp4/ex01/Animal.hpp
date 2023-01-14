@@ -17,48 +17,29 @@
 # include "string"
 # include "unistd.h" // usleep
 
+
 class	Animal
 {
 
-protected: // Inheritance
-
+protected: // inheritance
 	std::string	m_type;
 
 public:
 	// canon
 	Animal();
-	
+	Animal(std::string);
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
+
+	virtual	~Animal(); // polymorphism
+
+	// method
+	virtual void	makeSound() const; // polymorphism
 	
-	virtual	~Animal(); // Polymorphism
-
-	// why virtual destructor
-	//
-	//	we need a virtual Destructor in Base class so that 
-	// 	the child class can use the virtual function
-	// 	of the Base class
-
-
-	// overload
-	Animal(std::string);
-
 	// getter
 	std::string	getType() const;
 
-	// method
-	virtual void	makeSound() const; // 
-	
-
-	// why virtual
-	//
-	// 	virtual functions can be overridden by the child class 
-	// 	if the that child class changes the implementation 
-	// 	of the virtual function so that the base virtual 
-	// 	function isn't called.
-
 };
-
 
 //	colors
 
@@ -74,13 +55,12 @@ public:
 
 # define REST	"\033[0;0m"
 
-
 //	formatting
 
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
+# define called	" called\n"
+# define inside	"\ninside "
+# define nl2	" \n\n"
+# define nl	" \n"
 
 
 #endif

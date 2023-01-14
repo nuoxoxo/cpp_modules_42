@@ -7,25 +7,25 @@ src		:=	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
 		Cat.cpp \
-		WrongCat.cpp \
-		WrongAnimal.cpp
+		Brain.cpp
 
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)
 bud		:=	$(addprefix $(budfolder), $(src:.cpp=.o))
 
+all		:	$(name)
+r		:	run
 
 $(budpath)	:
-		@ mkdir -p $(budpath)
+			@ mkdir -p $(budpath)
 
 
 $(budfolder)%.o	:	%.cpp
-		@ echo "compiling [$^] "
-		@ $(comp) -c $< -o $@
+			@ echo "compiling [$^] "
+			@ $(comp) -c $< -o $@
 
-
-$(name)		:	$(budpath) $(bud)
+$(name)		: $(budpath) $(bud)
 		@ echo "compiling [$@]"
 		@#@ echo "compiling [$^]"
 		@ $(comp) $(bud) -o $@
@@ -35,14 +35,10 @@ $(name)		:	$(budpath) $(bud)
 		@ echo "you can do [make run] "
 		@ echo ""
 
-
 run	:	re
 		@ ./out
 		@ make clean
 
-
-r	:	run
-all	:	$(name)
 
 
 clean	:
