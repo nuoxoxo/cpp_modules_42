@@ -2,9 +2,6 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-
 static void	print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
 
 int main()
