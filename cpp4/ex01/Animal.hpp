@@ -17,28 +17,28 @@
 # include "string"
 # include "unistd.h" // usleep
 
+
 class	Animal
 {
 
-protected:
+protected: // inheritance
 	std::string	m_type;
 
 public:
 	// canon
-	Animal();	
+	Animal();
 	Animal(std::string);
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
 
-	virtual	~Animal(); // note the `virtual` keyword
+	virtual	~Animal(); // polymorphism
 
+	// method
+	virtual void	makeSound() const; // 
+	
 	// getter
 	std::string	getType() const;
 
-	// method
-	virtual void	makeSound() const; // note `virtual` on destr
-
-	///	Everything the same as x0
 };
 
 //	colors
@@ -57,10 +57,10 @@ public:
 
 //	formatting
 
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
+# define called	" called\n"
+# define inside	"\ninside "
+# define nl2	" \n\n"
+# define nl	" \n"
 
 
 #endif
