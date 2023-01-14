@@ -14,19 +14,20 @@ budfolder	:=	./bud/
 budpath		:=	$(budfolder)
 bud		:=	$(addprefix $(budfolder), $(src:.cpp=.o))
 
+all		:	$(name)
 
 $(budpath)	:
-		@ mkdir -p $(budpath)
+		mkdir -p $(budpath)
 
 
-$(budfolder)%.o	:	%.cpp
-		@ echo "compiling [$^] "
-		@ $(comp) -c $< -o $@
+$(budfolder)%.o	: %.cpp
+		echo "compiling [$^] "
+		$(comp) -c $< -o $@
 
-$(name)		:	$(budpath) $(bud)
+$(name)		: $(budpath) $(bud)
 		@ echo "compiling [$@]"
 		@#@ echo "compiling [$^]"
-		@ $(comp) $(bud) -o $@
+		$(comp) $(bud) -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@ echo "you can do [make f] "
@@ -34,12 +35,11 @@ $(name)		:	$(budpath) $(bud)
 		@ echo ""
 
 run	:	re
-		@ ./out
-		@ make clean
+		./out
+		make clean
+
 
 r	:	run
-all	:	$(name)
-
 
 clean	:
 		@ $(rmv) $(budfolder)

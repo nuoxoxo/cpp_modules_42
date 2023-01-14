@@ -34,7 +34,7 @@ public:
 	virtual	~Animal(); // polymorphism
 
 	// method
-	virtual void	makeSound() const; // 
+	virtual void	makeSound() const; // polymorphism
 	
 	// getter
 	std::string	getType() const;
