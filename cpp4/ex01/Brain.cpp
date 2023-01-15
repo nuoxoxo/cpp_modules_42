@@ -10,26 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
 
-// canon
+// canon	done
 
-Animal::Animal() : m_type("(an_animal)")
+Brain::Brain()
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-Animal::~Animal()
+Brain::~Brain()
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
 }
 
-Animal::Animal(const Animal & dummy)
+Brain::Brain(const Brain & dummy)
 {
 	*this = dummy;
 
@@ -39,7 +39,7 @@ Animal::Animal(const Animal & dummy)
 
 }
 
-Animal & Animal::operator = (const Animal & dummy)
+Brain & Brain::operator = (const Brain & dummy)
 {
 	this->m_type = dummy.m_type;
 
@@ -51,9 +51,9 @@ Animal & Animal::operator = (const Animal & dummy)
 
 }
 
-// param constructor
+// param constructor	done
 
-Animal::Animal(std::string type) : m_type(type)
+Brain::Brain(std::string type) : m_type(type)
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
@@ -61,23 +61,35 @@ Animal::Animal(std::string type) : m_type(type)
 
 }
 
-// method
+// getter . setter
 
-void	Animal::makeSound() const
+std::string	* Brain::getIdea() const
 {
-	std::cout
-	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+	// std::cout << LOWKEY << __FUNCTION__ << called REST;
+
+	return m_idea;
 }
 
-
-// getter
-
-std::string	Animal::getType() const
+std::string	& Brain::getIdea(int i) const
 {
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
-
-	return m_type;
+	// std::cout << LOWKEY << __FUNCTION__ << called REST;
+	
+	if (i < 0 || i >= SIZE)
+	{
+		stdL::cout << "invalid index: " << i
+		<< ". valid range: 0 - " << B_SIZE << ". \n";
+		return (NULL);
+	}
+	return m_idea[i]
 }
 
-
+void	Brain::setIdea(int i, std::string s)
+{
+	if (i < 0 || i >= SIZE)
+	{
+		stdL::cout << "invalid index: " << i
+		<< ". valid range: 0 - " << B_SIZE << ". \n";
+		return ;
+	}
+	m_idea[i] = s;
+}

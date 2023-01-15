@@ -10,48 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+
+# define B_SIZE 100
 
 # include "iostream"
 # include "string"
 # include "unistd.h" // usleep
 
-class	Animal
+class	Brain
 {
 
-protected: // Inheritance
-	std::string	m_type;
+private:
+	std::string	m_idea[B_SIZE];
 
 public:
 	// canon
-	Animal();
-	Animal(const Animal &);
-	Animal & operator = (const Animal &);
-
-	virtual	~Animal(); // Polymorphism
-
-	// param constructor
-	Animal(std::string);
-
-	//	Why virtual destructor
-	//
-	//	virtual destructor is needed in Base class so that 
-	// 	the child class can use the virtual function
-	// 	of the Base class
+	Brain();
+	Brain(const Brain &);
+	Brain & operator = (const Brain &);
+	~Brain();
 
 	// getter
-	std::string	getType() const;
+	std::string	* getIdea() const;
+	std::string	& getIdea(int) const;
+	void		setIdea(int, std::string);
 
-	// method
-	virtual void	makeSound() const; // Polymorphism
-
-	//	virtual functions
-	//
-	// 	... now we have the option of modifying this 
-	// 	function in sub classes
 };
-
 
 //	colors
 
