@@ -5,9 +5,9 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-static void	print_ending(void) {std::cout << LOWKEY nl "(...end test)" nl2 REST;};
+static void	print_ending(void);
 
-int main()
+int	main()
 {
 	unsigned int	microsecond = (unsigned int) 1e5;
 
@@ -107,7 +107,6 @@ int main()
 		std::cout << i->getType() << " " << std::endl;
 		
 		i->makeSound(); //will output the cat sound!
-		
 		meta->makeSound();
 		
 		delete meta;
@@ -118,4 +117,11 @@ int main()
 
 	(void) microsecond;
 	std::cout << "do valgrind. " nl2;
+}
+
+static void	print_ending(void)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test ::::::::::::" nl2 REST;
 }

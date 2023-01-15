@@ -17,7 +17,6 @@
 # include "string"
 # include "unistd.h" // usleep
 
-
 class	Animal
 {
 
@@ -28,10 +27,11 @@ public:
 	// canon
 	Animal();
 	Animal(std::string);
-	Animal(const Animal &);
 	Animal & operator = (const Animal &);
-
 	virtual	~Animal(); // polymorphism
+
+	// paramconstructor
+	Animal(const Animal &);
 
 	// method
 	virtual void	makeSound() const; // polymorphism
