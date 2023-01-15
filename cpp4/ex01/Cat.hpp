@@ -15,15 +15,15 @@
 
 # include "iostream"
 # include "string"
-# include "cstdlib" // rand
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 
 class Cat : public Animal // note the `public` keyword
 {
 
-//protected:
-//	std::string	m_type;
+private:
+	Brain	*m_brain; // added Brain
 
 public:
 	// canon
@@ -32,11 +32,6 @@ public:
 	Cat(const Cat &);
 	Cat & operator = (const Cat &);
 	
-	// overload
-	// Cat(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens/chats
-
 	// method
 	void	makeSound() const;
 

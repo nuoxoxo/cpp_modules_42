@@ -44,9 +44,10 @@ Cat::Cat(const Cat & dummy)
 
 Cat & Cat::operator = (const Cat & dummy)
 {
-	this->m_type = dummy.m_type;
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
+	
+	this->m_type = dummy.m_type;
 
 	return (*this);
 
@@ -66,6 +67,7 @@ void	Cat::makeSound() const
 
 	srand(time(0));
 	int n = (int) rand() % 3;
+	
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;
 

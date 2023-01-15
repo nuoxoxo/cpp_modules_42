@@ -16,6 +16,7 @@
 # include "iostream"
 # include "string"
 # include "unistd.h" // usleep
+# include "cstdlib" // rand
 
 class	Animal
 {

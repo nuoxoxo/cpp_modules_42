@@ -12,19 +12,22 @@
 
 #include "Cat.hpp"
 
-
-// constructor . destructor
+// canon
 
 Cat::Cat() : Animal("Cat")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
+
+	m_brain = new Brain(); // added Brain
 }
 
 Cat::~Cat()
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
+
+	delete m_brain;
 }
 
 
@@ -44,9 +47,10 @@ Cat::Cat(const Cat & dummy)
 
 Cat & Cat::operator = (const Cat & dummy)
 {
-	this->m_type = dummy.m_type;
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
+	
+	m_brain = new Brain(*dummy.m_brain);
 
 	return (*this);
 
@@ -66,6 +70,7 @@ void	Cat::makeSound() const
 
 	srand(time(0));
 	int n = (int) rand() % 3;
+
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;
 
