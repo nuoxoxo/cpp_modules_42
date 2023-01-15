@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "iostream"
 # include "string"
@@ -19,7 +19,7 @@
 # include "Brain.hpp"
 
 
-class Cat : public Animal // note the `public` keyword
+class Dog : public Animal // note the `public` keyword
 {
 
 private:
@@ -27,10 +27,10 @@ private:
 
 public:
 	// canon
-	Cat();
-	~Cat();
-	Cat(const Cat &);
-	Cat & operator = (const Cat &);
+	Dog();
+	~Dog();
+	Dog(const Dog &);
+	Dog & operator = (const Dog &);
 	
 	// method
 	void	makeSound() const;
