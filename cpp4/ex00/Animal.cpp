@@ -51,6 +51,7 @@ Animal & Animal::operator = (const Animal & dummy)
 
 }
 
+
 // param constructor
 
 Animal::Animal(std::string type) : m_type(type)
@@ -60,6 +61,7 @@ Animal::Animal(std::string type) : m_type(type)
 	<< " Constructor (overloaded)" << called REST;
 
 }
+
 
 // method
 

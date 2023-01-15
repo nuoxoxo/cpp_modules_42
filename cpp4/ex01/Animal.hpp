@@ -34,22 +34,15 @@ public:
 	// param constructor
 	Animal(std::string);
 
-	//	Why virtual destructor
-	//
-	//	virtual destructor is needed in Base class so that 
-	// 	the child class can use the virtual function
-	// 	of the Base class
-
 	// getter
 	std::string	getType() const;
 
 	// method
 	virtual void	makeSound() const; // Polymorphism
 
-	//	virtual functions
-	//
-	// 	... now we have the option of modifying this 
-	// 	function in sub classes
+	// notes
+	// why virtual destructor - cf. x00
+	// why virtual functions - cf. x00
 };
 
 
