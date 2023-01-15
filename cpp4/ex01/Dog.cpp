@@ -12,19 +12,22 @@
 
 #include "Dog.hpp"
 
-
-// constructor . destructor
+// canon
 
 Dog::Dog() : Animal("Dog")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
+
+	m_brain = new Brain(); // added Brain
 }
 
 Dog::~Dog()
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
+
+	delete m_brain;
 }
 
 
@@ -44,16 +47,17 @@ Dog::Dog(const Dog & dummy)
 
 Dog & Dog::operator = (const Dog & dummy)
 {
-	this->m_type = dummy.m_type;
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
+	
+	m_brain = new Brain(*dummy.m_brain);
 
 	return (*this);
 
 }
 
 
-// .method()
+// method
 
 void	Dog::makeSound() const
 {
@@ -66,6 +70,7 @@ void	Dog::makeSound() const
 
 	srand(time(0));
 	int n = (int) rand() % 3;
+
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;
 
@@ -73,10 +78,3 @@ void	Dog::makeSound() const
 }
 
 
-// getter
-/*
-std::string	Dog::getType() const
-{
-	return m_type;
-}
-*/

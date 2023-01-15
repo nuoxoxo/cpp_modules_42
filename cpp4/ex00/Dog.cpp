@@ -44,9 +44,10 @@ Dog::Dog(const Dog & dummy)
 
 Dog & Dog::operator = (const Dog & dummy)
 {
-	this->m_type = dummy.m_type;
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
+	
+	this->m_type = dummy.m_type;
 
 	return (*this);
 
@@ -66,6 +67,7 @@ void	Dog::makeSound() const
 
 	srand(time(0));
 	int n = (int) rand() % 3;
+	
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;
 
