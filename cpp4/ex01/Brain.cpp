@@ -15,7 +15,7 @@
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+Animal::Animal() : m_type("_an_animal_")
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__

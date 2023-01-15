@@ -21,35 +21,42 @@ class	Animal
 {
 
 protected: // Inheritance
+
 	std::string	m_type;
 
 public:
 	// canon
 	Animal();
+	
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
-
+	
 	virtual	~Animal(); // Polymorphism
 
-	// param constructor
-	Animal(std::string);
-
-	//	Why virtual destructor
+	// why virtual destructor
 	//
-	//	virtual destructor is needed in Base class so that 
+	//	we need a virtual Destructor in Base class so that 
 	// 	the child class can use the virtual function
 	// 	of the Base class
+
+
+	// overload
+	Animal(std::string);
 
 	// getter
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // Polymorphism
+	virtual void	makeSound() const; // 
+	
 
-	//	virtual functions
+	// why virtual
 	//
-	// 	... now we have the option of modifying this 
-	// 	function in sub classes
+	// 	virtual functions can be overridden by the child class 
+	// 	if the that child class changes the implementation 
+	// 	of the virtual function so that the base virtual 
+	// 	function isn't called.
+
 };
 
 
