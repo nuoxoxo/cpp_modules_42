@@ -42,8 +42,8 @@ public:
 	virtual void	makeSound() const; // Polymorphism
 
 	// notes
-	// why virtual destructor - cf. x00
-	// why virtual functions - cf. x00
+	// why virtual destructor - q.v. x00
+	// why virtual functions - q.v. x00
 };
 
 
