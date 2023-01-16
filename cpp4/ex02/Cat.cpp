@@ -14,7 +14,7 @@
 
 // canon
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : PureVirtualAnimal("Cat")
 {
 	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;

@@ -15,11 +15,11 @@
 
 # include "iostream"
 # include "string"
-# include "Animal.hpp"
+# include "PureVirtualAnimal.hpp"
 # include "Brain.hpp"
 
 
-class Dog : public Animal // note the `public` keyword
+class Dog : public PureVirtualAnimal // note the `public` keyword
 {
 
 private:

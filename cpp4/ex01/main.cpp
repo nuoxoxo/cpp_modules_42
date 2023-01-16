@@ -1,5 +1,4 @@
 #include "cassert"
-#include "time.h"
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
@@ -82,6 +81,7 @@ int	main()
 		
 		
 	}
+
 	print_ending();
 	
 	// more tests . check idea
@@ -113,6 +113,12 @@ int	main()
 		delete dd;
 		// delete ddd;
 		// no need to free this dog
+	}
+	
+	print_ending();
+
+	{
+		Animal	aa;
 	}
 }
 

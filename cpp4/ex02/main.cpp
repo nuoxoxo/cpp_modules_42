@@ -1,6 +1,6 @@
 #include "cassert"
-#include "time.h"
-#include "Animal.hpp"
+#include "exception"
+#include "PureVirtualAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
@@ -14,8 +14,8 @@ int	main()
 
 	// main provided
 	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const PureVirtualAnimal* j = new Dog();
+		const PureVirtualAnimal* i = new Cat();
 		delete j;//should not create a leak
 		delete i;
 		// ...
@@ -24,9 +24,9 @@ int	main()
 
 	print_ending();
 
-	// subject test (filling an array of Animal(s))
+	// subject test (filling an array of PureVirtualAnimal(s))
 	{
-		Animal	*gang[B_SIZE];
+		PureVirtualAnimal	*gang[B_SIZE];
 		int	i;
 		int	num_cats, num_dogs, num_other;
 		
@@ -82,6 +82,7 @@ int	main()
 		
 		
 	}
+	
 	print_ending();
 	
 	// more tests . check idea
@@ -89,6 +90,7 @@ int	main()
 	{
 		Dog	*dd = new Dog();
 
+		dd->makeSound();
 		dd->brain()->makeSound();
 		srand(time(0));
 		int i = (int) rand() % (B_SIZE + 1);
@@ -114,6 +116,21 @@ int	main()
 		// delete ddd;
 		// no need to free this dog
 	}
+	
+	print_ending();
+	/*
+	{
+		try
+		{
+			PureVirtualAnimal	pva;
+			// PureVirtualAnimal *pva = new PureVirtualAnimal();
+		}
+		catch (const std::exception & e)
+		{
+			std::cout << e.what() << nl;
+		}
+	}
+	*/
 }
 
 static void	print_ending(void)

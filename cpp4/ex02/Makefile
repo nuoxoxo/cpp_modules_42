@@ -3,7 +3,7 @@ name		:=	out
 rmv		:=	rm -rf
 
 src		:=	main.cpp \
-			Animal.cpp \
+			PureVirtualAnimal.cpp \
 			Dog.cpp \
 			Cat.cpp \
 			Brain.cpp
