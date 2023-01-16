@@ -9,7 +9,7 @@ static void	print_ending(void);
 
 int	main()
 {
-	unsigned int	microsecond = (unsigned int) 1e5;
+	srand(time(0));
 
 	// subject
 	{
@@ -31,8 +31,6 @@ int	main()
 	
 	// some tests
 	{
-		// usleep(6 * microsecond); // uncomt to make srand useful
-		
 		Animal	*Jeffe = new Animal();
 		Animal	Jorge("Jorge");
 
@@ -64,8 +62,6 @@ int	main()
 	
 	// more tests . testing srand w/ usleep
 	{
-		// usleep(6 * microsecond);
-
 		Animal	*Jeffe = new Animal();
 		Animal	Jorge("Jorge");
 
@@ -115,7 +111,6 @@ int	main()
 	
 	print_ending();
 
-	(void) microsecond;
 	std::cout << "do valgrind. " nl2;
 }
 

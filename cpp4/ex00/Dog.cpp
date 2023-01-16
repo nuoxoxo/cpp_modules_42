@@ -65,7 +65,6 @@ void	Dog::makeSound() const
 		"\"Ouaf-ouaf ~ \""
 	};
 
-	srand(time(0));
 	int n = (int) rand() % 3;
 	
 	// srand() debugger

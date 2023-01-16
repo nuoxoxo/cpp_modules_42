@@ -10,34 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include "iostream"
 # include "string"
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "unistd.h" // usleep
+# include "cstdlib" // rand
 
-
-class Dog : public Animal // note the `public` keyword
+class	Animal
 {
 
-private:
-	Brain	*m_brain; // added Brain
+protected: // Inheritance
+	std::string	m_type;
 
 public:
 	// canon
-	Dog();
-	~Dog();
-	Dog(const Dog &);
-	Dog & operator = (const Dog &);
-	
-	// method
-	Brain	*brain() const;
-	void	makeSound() const;
+	Animal();
+	Animal(const Animal &);
+	Animal & operator = (const Animal &);
 
+	virtual	~Animal(); // Polymorphism
+
+	// param constructor
+	Animal(std::string);
+
+	// getter
+	std::string	getType() const;
+
+	// method
+	virtual void	makeSound() const; // Polymorphism
+
+	// notes
+	// why virtual destructor - cf. x00
+	// why virtual functions - cf. x00
 };
 
 
-#endif
+//	colors
 
+# define ITAL	"\033[3m"
+
+# define LOWKEY	"\033[0;2m"
+# define WHITE	"\033[1;37m"
+# define CYAN	"\033[0;36m"
+# define YELL	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define MAG	"\033[0;35m"
+
+# define REST	"\033[0;0m"
+
+
+//	formatting
+
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
+
+
+#endif

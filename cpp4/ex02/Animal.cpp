@@ -10,67 +10,82 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+/*
+ * 
+ *	everything the same as x00
+ * 
+ */
+
+#include "Animal.hpp"
 
 
-// constructor . destructor
+// canon
 
-Cat::Cat() : Animal("Cat")
+Animal::Animal() : m_type("(an_animal)")
 {
-	std::cout << LOWKEY << __FUNCTION__
+	std::cout
+	<< LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-Cat::~Cat()
+Animal::~Animal()
 {
-	std::cout << LOWKEY << __FUNCTION__
+	std::cout
+	<< LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
 }
 
-
-// copy
-
-Cat::Cat(const Cat & dummy)
+Animal::Animal(const Animal & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
+	std::cout
+	<< LOWKEY << __FUNCTION__
 	<< " Copy constructor" << called REST;
 
 }
 
-
-// copy assignement = 
-
-Cat & Cat::operator = (const Cat & dummy)
+Animal & Animal::operator = (const Animal & dummy)
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
-	
 	this->m_type = dummy.m_type;
+
+	std::cout
+	<< LOWKEY << __FUNCTION__
+	<< " Copy assignment constructor" << called REST;
 
 	return (*this);
 
 }
 
 
-// .method()
+// param constructor
 
-void	Cat::makeSound() const
+Animal::Animal(std::string type) : m_type(type)
 {
-	std::string	sound_of_cats[3] = \
-	{
-		"\"Mew ~~ \"",
-		"\"Meow ~~ \"", 
-		"\"Purr ~~ \""
-	};
+	std::cout
+	<< LOWKEY << __FUNCTION__
+	<< " Constructor (overloaded)" << called REST;
 
-	int n = (int) rand() % 3;
-	
-	// srand() debugger
-	// std::cout << r << ' ' << n << std::endl;
+}
 
-	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
+
+// method
+
+void	Animal::makeSound() const
+{
+	std::cout
+	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+}
+
+
+// getter
+
+std::string	Animal::getType() const
+{
+	std::cout
+	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
+
+	return m_type;
 }
 
 

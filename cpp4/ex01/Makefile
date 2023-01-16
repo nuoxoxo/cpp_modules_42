@@ -6,8 +6,7 @@ src		:=	main.cpp \
 			Animal.cpp \
 			Dog.cpp \
 			Cat.cpp \
-			WrongAnimal.cpp \
-			WrongCat.cpp
+			Brain.cpp
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)
@@ -36,6 +35,9 @@ $(name)	:	$(budpath) $(bud)
 
 run	:	re
 		@ ./out
+		@ echo ""
+		@ echo "do valgrind."
+		@ echo ""
 		@ make clean
 
 r	:	run
