@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Utils.hpp                                          :+:      :+:    :+:   */
+/*   Cpp04.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "iostream"
+#ifndef CPP04_HPP
+# define CPP04_HPP
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
+# include "iostream"
+# include "string"
+# include "cstdlib" // rand
+
 
 void	print_canon(std::string, std::string);
 void	print_ending(void);
@@ -21,7 +24,6 @@ void	print_ending(void);
 //	colors
 
 # define ITAL	"\033[3m"
-
 # define LOWKEY	"\033[0;2m"
 # define WHITE	"\033[1;37m"
 # define CYAN	"\033[0;36m"

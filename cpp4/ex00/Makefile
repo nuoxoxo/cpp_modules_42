@@ -6,7 +6,7 @@ src		:=	main.cpp \
 			Animal.cpp \
 			Dog.cpp \
 			Cat.cpp \
-			Utils.cpp \
+			Cpp04.cpp \
 			WrongAnimal.cpp \
 			WrongCat.cpp
 

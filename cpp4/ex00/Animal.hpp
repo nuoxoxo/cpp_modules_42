@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 15:52:42 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "Utils.hpp"
+# include "Cpp04.hpp"
 
 class	Animal
 {

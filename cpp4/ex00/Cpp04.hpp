@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Utils.hpp                                          :+:      :+:    :+:   */
+/*   Cpp04.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,10 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "iostream"
+#ifndef CPP04_HPP
+# define CPP04_HPP
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
+# include "iostream"
+# include "string"
+# include "cstdlib" // rand
+
 
 void	print_canon(std::string, std::string);
 void	print_ending(void);

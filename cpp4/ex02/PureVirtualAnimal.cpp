@@ -78,10 +78,3 @@ std::string	PureVirtualAnimal::getType() const
 
 	return m_type;
 }
-
-//	utils
-
-void	print_canon(std::string funcName, std::string canonName)
-{
-	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
-}
