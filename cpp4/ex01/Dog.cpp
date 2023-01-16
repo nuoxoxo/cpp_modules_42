@@ -71,9 +71,6 @@ void	Dog::makeSound() const
 
 	int n = (int) rand() % 3;
 
-	// srand() debugger
-	// std::cout << r << ' ' << n << std::endl;
-
 	std::cout << m_type << ": " YELL << sound_of_dogs[n] << REST nl;
 }
 
