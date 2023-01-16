@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Utils.hpp                                          :+:      :+:    :+:   */
+/*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:23 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "iostream"
+#include "Utils.hpp"
 
-#ifndef UTILS_HPP
-# define UTILS_HPP
+void	print_canon(std::string funcName, std::string canonName)
+{
+	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
+}
 
-void	print_canon(std::string, std::string);
-void	print_ending(void);
-
-//	colors
-
-# define ITAL	"\033[3m"
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
-
-# define REST	"\033[0;0m"
-
-
-//	formatting
-
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-
-#endif
+void	print_ending(void)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test ::::::::::::" nl2 REST;
+}

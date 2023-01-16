@@ -18,7 +18,6 @@
 # include "cstdlib" // rand
 # include "Utils.hpp"
 
-
 class	Animal
 {
 

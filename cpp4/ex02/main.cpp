@@ -3,7 +3,6 @@
 #include "PureVirtualAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-
 #include "Brain.hpp" // added brain
 
 static void	print_ending(void);
