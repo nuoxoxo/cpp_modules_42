@@ -15,6 +15,7 @@
 
 # include "iostream"
 # include "string"
+# include "Cpp04.hpp"
 
 class	WrongAnimal
 {
@@ -44,27 +45,26 @@ public:
 };
 
 
-//	colors
+// //	colors
 
-# define ITAL	"\033[3m"
+// # define ITAL	"\033[3m"
 
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
+// # define LOWKEY	"\033[0;2m"
+// # define WHITE	"\033[1;37m"
+// # define CYAN	"\033[0;36m"
+// # define YELL	"\033[0;33m"
+// # define GREEN	"\033[0;32m"
+// # define RED	"\033[0;31m"
+// # define MAG	"\033[0;35m"
 
-# define REST	"\033[0;0m"
+// # define REST	"\033[0;0m"
 
 
-//	formatting
+// //	formatting
 
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-
+// # define called " called\n"
+// # define inside "\ninside "
+// # define nl2 " \n\n"
+// # define nl " \n"
 
 #endif

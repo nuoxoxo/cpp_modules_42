@@ -15,8 +15,8 @@
 
 # include "iostream"
 # include "string"
-# include "unistd.h" // usleep
 # include "cstdlib" // rand
+# include "Cpp04.hpp"
 
 class	Animal
 {
@@ -42,8 +42,8 @@ public:
 	virtual void	makeSound() const; // Polymorphism
 
 	// notes
-	// why virtual destructor - cf. x00
-	// why virtual functions - cf. x00
+	// why virtual destructor - q.v. x00
+	// why virtual functions - q.v. x00
 };
 
 
@@ -69,5 +69,6 @@ public:
 # define nl2 " \n\n"
 # define nl " \n"
 
+void	print_canon(std::string funcName, std::string canonName);
 
 #endif

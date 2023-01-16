@@ -6,6 +6,7 @@ src		:=	main.cpp \
 			Animal.cpp \
 			Dog.cpp \
 			Cat.cpp \
+			Cpp04.cpp \
 			Brain.cpp
 
 budfolder	:=	./bud/

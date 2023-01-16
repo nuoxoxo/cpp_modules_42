@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   Cpp04.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef CPP04_HPP
+# define CPP04_HPP
 
 # include "iostream"
 # include "string"
-# include "Animal.hpp"
+# include "cstdlib" // rand
 
 
-class Cat : public Animal // note the `public` keyword
-{
+void	print_canon(std::string, std::string);
+void	print_ending(void);
 
-public:
-	// canon
-	Cat();
-	~Cat();
-	Cat(const Cat &);
-	Cat & operator = (const Cat &);
 
-	// method
-	void	makeSound() const;
+//	colors
 
-};
+# define ITAL	"\033[3m"
+# define LOWKEY	"\033[0;2m"
+# define WHITE	"\033[1;37m"
+# define CYAN	"\033[0;36m"
+# define YELL	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define MAG	"\033[0;35m"
 
+# define REST	"\033[0;0m"
+
+
+//	formatting
+
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
 
 #endif
-

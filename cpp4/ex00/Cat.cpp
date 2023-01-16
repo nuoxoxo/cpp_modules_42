@@ -12,40 +12,28 @@
 
 #include "Cat.hpp"
 
-
 // constructor . destructor
 
 Cat::Cat() : Animal("Cat")
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Cat::~Cat()
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
-
-
-// copy
 
 Cat::Cat(const Cat & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
-
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 }
-
-
-// copy assignement = 
 
 Cat & Cat::operator = (const Cat & dummy)
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
 	this->m_type = dummy.m_type;
 
@@ -54,7 +42,7 @@ Cat & Cat::operator = (const Cat & dummy)
 }
 
 
-// .method()
+// method
 
 void	Cat::makeSound() const
 {
@@ -66,9 +54,6 @@ void	Cat::makeSound() const
 	};
 
 	int n = (int) rand() % 3;
-	
-	// srand() debugger
-	// std::cout << r << ' ' << n << std::endl;
 
 	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
 }

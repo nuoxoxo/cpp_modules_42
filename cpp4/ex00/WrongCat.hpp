@@ -23,9 +23,6 @@
 class WrongCat : public WrongAnimal // note the `public` keyword
 {
 
-//protected:
-//	std::string	m_type;
-
 public:
 	// canon
 	WrongCat();

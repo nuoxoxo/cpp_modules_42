@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   Cpp04.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:23 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Cpp04.hpp"
 
-# include "iostream"
-# include "string"
-# include "Animal.hpp"
-
-
-class Cat : public Animal // note the `public` keyword
+void	print_canon(std::string funcName, std::string canonName)
 {
+	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
+}
 
-public:
-	// canon
-	Cat();
-	~Cat();
-	Cat(const Cat &);
-	Cat & operator = (const Cat &);
-
-	// method
-	void	makeSound() const;
-
-};
-
-
-#endif
-
+void	print_ending(void)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test ::::::::::::" nl2 REST;
+}

@@ -17,25 +17,19 @@
 
 Brain::Brain()
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Brain::~Brain()
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 Brain::Brain(const Brain & dummy)
 {
 	*this = dummy;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -48,9 +42,7 @@ Brain & Brain::operator = (const Brain & dummy)
 		m_idea[i] = dummy.m_idea[i];
 	}
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
 	return (*this);
 
@@ -79,15 +71,11 @@ void	Brain::makeSound() const
 
 const std::string	* Brain::getIdea() const
 {
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-
 	return m_idea;
 }
 
 const std::string	& Brain::getIdea(int i) const
-{
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-	
+{	
 	/*
 	if (i < 0 || i >= B_SIZE)
 	{

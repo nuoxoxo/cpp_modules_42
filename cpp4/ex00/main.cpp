@@ -5,7 +5,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-static void	print_ending(void);
+#include "Cpp04.hpp"
 
 int	main()
 {
@@ -69,9 +69,13 @@ int	main()
 		Jorge.makeSound();
 		
 
-		Dog	*Dylan = new Dog();
+		Dog		*Dylan = new Dog();		// is a dog on removal of `virtual`
+		Animal	*Dylan2 = new Dog();	// is an Animal object on removal of `virtual`
+		// Dog		*Dylan3 = new Animal(); // cannot declare in a reversed hierarchy
 
 		Dylan->makeSound();
+		Dylan2->makeSound();
+		// Dylan3->makeSound();
 
 		/*
 		try { Dog Jorge("Jorge"); }
@@ -112,11 +116,4 @@ int	main()
 	print_ending();
 
 	std::cout << "do valgrind. " nl2;
-}
-
-static void	print_ending(void)
-{
-	std::cout
-	<< LOWKEY nl 
-	<< ":::::::::::: end test ::::::::::::" nl2 REST;
 }

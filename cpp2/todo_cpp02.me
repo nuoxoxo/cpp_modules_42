@@ -59,7 +59,7 @@ number = (sign ? -1 : 1) * 2 ^ (exponent) * 1.(mantissa bits)
 - [quote](https://stackoverflow.com/questions/10067510/fixed-point-arithmetic-in-c-programming) - The idea behind fixed-point arithmetic is that you store the values multiplied by a certain amount, use the multiplied values for all calculus, and divide it by the same amount when you want the result. The purpose of this technique is to use integer arithmetic (int, long...) while being able to represent fractions.
 - [quote](https://stackoverflow.com/questions/74405803/whats-the-meaning-of-shifting-in-fixed-point-arithmetic-when-implementing-it-in) - A fixed-point format represents a number as an integer multiplied by a fixed scale. Commonly the scale is some base b raised to some power e, so the integer f would represent the number f•be.
 ## Why use static constant integer?
-<kbd> (cf.) ... a static constant integer to store the number of fractional bits </kbd>
+<kbd> (q.v.) ... a static constant integer to store the number of fractional bits </kbd>
 - `const` means READ-ONLY
 - `static` means initialized only once, then holding its value across function calls 
 - it means the integer is declared once and remains the same

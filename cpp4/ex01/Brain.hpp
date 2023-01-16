@@ -17,7 +17,8 @@
 
 # include "iostream"
 # include "string"
-# include "unistd.h" // usleep
+# include "cstdlib" // rand
+# include "Cpp04.hpp"
 
 class	Brain
 {

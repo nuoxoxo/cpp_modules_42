@@ -3,10 +3,8 @@
 #include "PureVirtualAnimal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-
 #include "Brain.hpp" // added brain
-
-static void	print_ending(void);
+#include "Cpp04.hpp" // added brain
 
 int	main()
 {
@@ -118,6 +116,7 @@ int	main()
 	}
 	
 	print_ending();
+
 	/*
 	{
 		try
@@ -131,11 +130,4 @@ int	main()
 		}
 	}
 	*/
-}
-
-static void	print_ending(void)
-{
-	std::cout
-	<< LOWKEY nl 
-	<< ":::::::::::: end test ::::::::::::" nl2 REST;
 }

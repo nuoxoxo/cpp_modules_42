@@ -12,64 +12,46 @@
 
 #include "WrongAnimal.hpp"
 
-
 // constructor . destructor
 
 WrongAnimal::WrongAnimal() : m_type("_an_animal_")
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 WrongAnimal::~WrongAnimal()
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
-
-WrongAnimal::WrongAnimal(std::string type) : m_type(type)
-{
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor (overloaded)" << called REST;
-
-}
-
-// copy
 
 WrongAnimal::WrongAnimal(const WrongAnimal & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
-
-
-// copy assignement = 
 
 WrongAnimal & WrongAnimal::operator = (const WrongAnimal & dummy)
 {
 	this->m_type = dummy.m_type;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
 	return (*this);
 
 }
 
+WrongAnimal::WrongAnimal(std::string type) : m_type(type)
+{
+	print_canon(std::string(__FUNCTION__), "Parameter Constructor");
 
-// .method()
+}
+
+// method
 
 void	WrongAnimal::makeSound() const
 {
-	/*
-	std::cout
-	<< YELL "Pet sounds ~ " ITAL << __FUNCTION__ 
-	<< YELL "()" called REST;
-	*/
-
 	std::cout << m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
 }
 
@@ -78,8 +60,7 @@ void	WrongAnimal::makeSound() const
 
 std::string	WrongAnimal::getType() const
 {
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
+	print_canon(m_type + ":", std::string(__FUNCTION__));
 
 	return m_type;
 }

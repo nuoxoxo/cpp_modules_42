@@ -21,20 +21,12 @@
 class Dog : public Animal // note the `public` keyword
 {
 
-//protected:
-//	std::string	m_type;
-
 public:
 	// canon
 	Dog();
 	~Dog();
 	Dog(const Dog &);
 	Dog & operator = (const Dog &);
-	
-	// overload
-	// Dog(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens
 
 	// method
 	void	makeSound() const;
