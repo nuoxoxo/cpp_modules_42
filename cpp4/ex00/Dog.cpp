@@ -24,20 +24,6 @@ Dog::~Dog()
 	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
-
-// copy
-
-Dog::Dog(const Dog & dummy)
-{
-	*this = dummy;
-
-	print_canon(std::string(__FUNCTION__), "Copy constructor");
-
-}
-
-
-// copy assignement = 
-
 Dog & Dog::operator = (const Dog & dummy)
 {
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
@@ -48,6 +34,13 @@ Dog & Dog::operator = (const Dog & dummy)
 
 }
 
+Dog::Dog(const Dog & dummy)
+{
+	*this = dummy;
+
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
+
+}
 
 // method
 
