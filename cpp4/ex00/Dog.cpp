@@ -53,8 +53,6 @@ void	Dog::makeSound() const
 		"\"Ouaf-ouaf ~ \""
 	};
 
-	int n = (int) rand() % 3;
-
-	std::cout << m_type << ": " YELL << sound_of_dogs[n] << REST nl;
+	std::cout << m_type << ": " YELL << sound_of_dogs[(int) rand() % 3] << REST nl;
 }
 

@@ -9,6 +9,8 @@
 
 int	main()
 {
+	int		i = 0;
+
 	srand(time(0));
 
 	// subject
@@ -58,7 +60,7 @@ int	main()
 		delete	Dylan;
 	}
 	
-	print_ending();
+	print_ending(i++);
 	
 	// more tests . testing srand w/ usleep
 	{
@@ -71,16 +73,17 @@ int	main()
 
 		Dog		*Dylan = new Dog();		// is a dog on removal of `virtual`
 		Animal	*Dylan2 = new Dog();	// is an Animal object on removal of `virtual`
-		// Dog		*Dylan3 = new Animal(); // cannot declare in a reversed hierarchy
+		
+		// Dog	*Dylan3 = new Animal(); // mission impossible <- declare in reversed hierarchy
 
 		Dylan->makeSound();
 		Dylan2->makeSound();
-		// Dylan3->makeSound();
+
+		// Dylan3->makeSound(); // mission impossible
 
 		/*
 		try { Dog Jorge("Jorge"); }
-		catch (const std::runtime_error & e)
-		{ std::cerr << e.what() << std::endl; }
+		catch (const std::runtime_error & e) { std::cerr << e.what() << std::endl; }
 		*/
 		
 		Cat	*Cathy = new Cat();
@@ -93,15 +96,17 @@ int	main()
 		delete	Dylan;
 	}
 	
-	print_ending();
+	print_ending(i++);
 	
 	// subject
 	{
 		std::cout
 		<< CYAN "retry the subject main w/ WrongClass " nl REST;
 
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* i = new WrongCat();	
+		WrongAnimal* meta = new WrongAnimal();
+		WrongAnimal* i = new WrongCat();
+
+		// WrongAnimal* wrong_cat = new Cat(); // mission impossible
 		
 		std::cout << meta->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
@@ -113,7 +118,7 @@ int	main()
 		delete i;
 	}
 	
-	print_ending();
+	print_ending(i++);
 
 	std::cout << "do valgrind. " nl2;
 }

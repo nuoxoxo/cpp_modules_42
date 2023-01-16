@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _Cpp04__HPP
-# define _Cpp04__HPP
+#ifndef _CPP04__HPP
+# define _CPP04__HPP
 
 # include "iostream"
 # include "string"
@@ -19,6 +19,7 @@
 
 
 void	print_canon(std::string, std::string);
+void	print_ending(int);
 void	print_ending(void);
 
 

@@ -29,11 +29,6 @@ public:
 	~WrongCat();
 	WrongCat(const WrongCat &);
 	WrongCat & operator = (const WrongCat &);
-	
-	// overload
-	// WrongCat(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens/chats
 
 	// method
 	void	makeSound() const;

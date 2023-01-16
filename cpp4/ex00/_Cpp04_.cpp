@@ -17,6 +17,13 @@ void	print_canon(std::string funcName, std::string canonName)
 	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
 }
 
+void	print_ending(int i)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test " << i << " ::::::::::::" nl2 REST;
+}
+
 void	print_ending(void)
 {
 	std::cout

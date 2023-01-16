@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _Cpp04__HPP
-# define _Cpp04__HPP
+#ifndef _CPP04__HPP
+# define _CPP04__HPP
 
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
+# include "cassert"
 
 
 void	print_canon(std::string, std::string);

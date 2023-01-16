@@ -60,6 +60,10 @@ int	main()
 				++num_other;
 			}
 		}
+
+		assert(num_dogs == 50);
+		assert(num_cats == 50);
+		assert(! num_other);
 		
 		// destroyer
 		i = -1;
@@ -116,7 +120,4 @@ int	main()
 	
 	print_ending();
 
-	{
-		Animal	aa;
-	}
 }
