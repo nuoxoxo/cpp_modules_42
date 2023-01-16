@@ -21,7 +21,7 @@
 
 // canon
 
-PureVirtualAnimal::PureVirtualAnimal() : m_type("(an_animal)")
+PureVirtualAnimal::PureVirtualAnimal() : m_type("(an animal)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }

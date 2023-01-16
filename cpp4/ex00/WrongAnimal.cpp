@@ -14,7 +14,7 @@
 
 // constructor . destructor
 
-WrongAnimal::WrongAnimal() : m_type("_an_animal_")
+WrongAnimal::WrongAnimal() : m_type("_an animal_")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }

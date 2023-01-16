@@ -21,7 +21,7 @@
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+Animal::Animal() : m_type("(an animal)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }
