@@ -21,7 +21,7 @@
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+Animal::Animal() : m_type("(an animal)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }
@@ -54,9 +54,7 @@ Animal & Animal::operator = (const Animal & dummy)
 
 Animal::Animal(std::string type) : m_type(type)
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor (overloaded)" << called REST;
+	print_canon(std::string(__FUNCTION__), "Parameter Constructor");
 
 }
 

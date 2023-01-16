@@ -18,7 +18,7 @@
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
-# include "Cpp04.hpp"
+# include "_Cpp04_.hpp"
 
 class	Brain
 {

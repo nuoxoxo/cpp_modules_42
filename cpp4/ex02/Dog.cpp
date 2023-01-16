@@ -16,14 +16,14 @@
 
 Dog::Dog() : PureVirtualAnimal("Dog")
 {
-	print_canon(std::string(__FUNCTION__), "Constructor");
+	// print_canon(std::string(__FUNCTION__), "Constructor");
 
 	m_brain = new Brain(); // added Brain
 }
 
 Dog::~Dog()
 {
-	print_canon(std::string(__FUNCTION__), "Destructor");
+	// print_canon(std::string(__FUNCTION__), "Destructor");
 
 	delete m_brain; // added Brain
 }

@@ -17,12 +17,12 @@
 
 Brain::Brain()
 {
-	print_canon(std::string(__FUNCTION__), "Constructor");
+	// print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Brain::~Brain()
 {
-	print_canon(std::string(__FUNCTION__), "Destructor");
+	// print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 Brain::Brain(const Brain & dummy)

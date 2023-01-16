@@ -53,9 +53,7 @@ void	Cat::makeSound() const
 		"\"Purr ~~ \""
 	};
 
-	int n = (int) rand() % 3;
-
-	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
+	std::cout << m_type << ": " YELL << sound_of_cats[(int) rand() % 3] << REST nl;
 }
 
 

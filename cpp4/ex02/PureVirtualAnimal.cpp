@@ -21,14 +21,14 @@
 
 // canon
 
-PureVirtualAnimal::PureVirtualAnimal() : m_type("(an_animal)")
+PureVirtualAnimal::PureVirtualAnimal() : m_type("(an animal)")
 {
-	print_canon(std::string(__FUNCTION__), "Constructor");
+	// print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 PureVirtualAnimal::~PureVirtualAnimal()
 {
-	print_canon(std::string(__FUNCTION__), "Destructor");
+	// print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 PureVirtualAnimal::PureVirtualAnimal(const PureVirtualAnimal & dummy)
@@ -54,9 +54,7 @@ PureVirtualAnimal & PureVirtualAnimal::operator = (const PureVirtualAnimal & dum
 
 PureVirtualAnimal::PureVirtualAnimal(std::string type) : m_type(type)
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor (overloaded)" << called REST;
+	// print_canon(std::string(__FUNCTION__), "Parameter Constructor");
 
 }
 
@@ -74,7 +72,7 @@ PureVirtualAnimal::PureVirtualAnimal(std::string type) : m_type(type)
 
 std::string	PureVirtualAnimal::getType() const
 {
-	print_canon(m_type + ":", std::string(__FUNCTION__));
+	// print_canon(m_type + ":", std::string(__FUNCTION__));
 
 	return m_type;
 }

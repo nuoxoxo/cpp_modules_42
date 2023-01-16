@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   Cpp04.cpp                                          :+:      :+:    :+:   */
+/*   _Cpp04_.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,11 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cpp04.hpp"
+#include "_Cpp04_.hpp"
 
 void	print_canon(std::string funcName, std::string canonName)
 {
 	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
+}
+
+void	print_ending(int i)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test " << i << " ::::::::::::" nl2 REST;
 }
 
 void	print_ending(void)

@@ -14,7 +14,7 @@
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+Animal::Animal() : m_type("(an animal)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }
@@ -37,7 +37,6 @@ Animal & Animal::operator = (const Animal & dummy)
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
 	this->m_type = dummy.m_type;
-
 	return (*this);
 
 }

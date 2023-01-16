@@ -40,9 +40,9 @@ WrongCat::WrongCat(const WrongCat & dummy)
 
 WrongCat & WrongCat::operator = (const WrongCat & dummy)
 {
-	this->m_type = dummy.m_type;
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
+	this->m_type = dummy.m_type;
 	return (*this);
 
 }

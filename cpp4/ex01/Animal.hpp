@@ -16,7 +16,7 @@
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
-# include "Cpp04.hpp"
+# include "_Cpp04_.hpp"
 
 class	Animal
 {
@@ -46,29 +46,5 @@ public:
 	// why virtual functions - q.v. x00
 };
 
-
-//	colors
-
-# define ITAL	"\033[3m"
-
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
-
-# define REST	"\033[0;0m"
-
-
-//	formatting
-
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
-
-void	print_canon(std::string funcName, std::string canonName);
 
 #endif

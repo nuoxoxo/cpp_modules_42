@@ -71,9 +71,6 @@ void	Cat::makeSound() const
 
 	int n = (int) rand() % 3;
 
-	// srand() debugger
-	// std::cout << r << ' ' << n << std::endl;
-
 	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
 }
 
