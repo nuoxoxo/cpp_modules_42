@@ -15,7 +15,7 @@
 
 # include "iostream"
 # include "string"
-# include "unistd.h" // usleep
+// # include "unistd.h" // usleep
 # include "cstdlib" // rand
 
 class	PureVirtualAnimal

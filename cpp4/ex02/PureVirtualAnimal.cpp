@@ -71,11 +71,11 @@ PureVirtualAnimal::PureVirtualAnimal(std::string type) : m_type(type)
 
 // method
 
-void	PureVirtualAnimal::makeSound() const
-{
-	std::cout
-	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
-}
+// void	PureVirtualAnimal::makeSound() const
+// {
+// 	std::cout
+// 	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+// }
 
 
 // getter

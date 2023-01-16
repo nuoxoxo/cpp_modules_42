@@ -15,7 +15,7 @@
 
 # include "iostream"
 # include "string"
-# include "unistd.h" // usleep
+// # include "unistd.h" // usleep
 # include "cstdlib" // rand
 
 class	Animal
@@ -30,27 +30,17 @@ public:
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
 
-	virtual	~Animal(); // Polymorphism
+	virtual	~Animal(); // Polymorphism	// Why virtual destructor -> vide infra
 
 	// param constructor
 	Animal(std::string);
-
-	//	Why virtual destructor
-	//
-	//	virtual destructor is needed in Base class so that 
-	// 	the child class can use the virtual function
-	// 	of the Base class
 
 	// getter
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // Polymorphism
+	virtual void	makeSound() const;	// Polymorphism // Why virtual destructor -> vide infra
 
-	//	virtual functions
-	//
-	// 	... now we have the option of modifying this 
-	// 	function in sub classes
 };
 
 
@@ -78,3 +68,23 @@ public:
 
 
 #endif
+
+/*
+
+> Why virtual destructor ? 
+
+	- because you might potentially delete an instance of a Subclass
+through a pointer to the SUperclass
+
+	- also if a Superclass has any virtual function, it should have a virtual destructor
+
+	* Classes not designed to be Superclasses or not designed to be used _polymorphically_
+should NOT declare virtual destructors
+
+*//*
+
+> why virtual functions ?
+
+	- ... now we have the option of modifying this function in sub classes
+
+*/
