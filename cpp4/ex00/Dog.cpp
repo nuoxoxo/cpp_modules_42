@@ -12,19 +12,16 @@
 
 #include "Dog.hpp"
 
-
 // constructor . destructor
 
 Dog::Dog() : Animal("Dog")
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Dog::~Dog()
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 
@@ -34,8 +31,7 @@ Dog::Dog(const Dog & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -44,8 +40,7 @@ Dog::Dog(const Dog & dummy)
 
 Dog & Dog::operator = (const Dog & dummy)
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
 	this->m_type = dummy.m_type;
 
@@ -66,18 +61,7 @@ void	Dog::makeSound() const
 	};
 
 	int n = (int) rand() % 3;
-	
-	// srand() debugger
-	// std::cout << r << ' ' << n << std::endl;
 
 	std::cout << m_type << ": " YELL << sound_of_dogs[n] << REST nl;
 }
 
-
-// getter
-/*
-std::string	Dog::getType() const
-{
-	return m_type;
-}
-*/

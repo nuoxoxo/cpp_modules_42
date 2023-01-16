@@ -16,16 +16,14 @@
 
 Cat::Cat() : PureVirtualAnimal("Cat")
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 
 	m_brain = new Brain(); // added Brain
 }
 
 Cat::~Cat()
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 
 	delete m_brain; // added Brain
 }
@@ -37,8 +35,7 @@ Cat::Cat(const Cat & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -47,8 +44,7 @@ Cat::Cat(const Cat & dummy)
 
 Cat & Cat::operator = (const Cat & dummy)
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
 	m_brain = new Brain(*dummy.m_brain); // added Brain
 

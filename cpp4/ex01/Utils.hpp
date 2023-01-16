@@ -1,46 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
-
 # include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "Utils.hpp"
 
-class	Brain
-{
+#ifndef UTILS_HPP
+# define UTILS_HPP
 
-private:
-	std::string	m_idea[B_SIZE];
-
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
-
-	// getter
-	const std::string	* getIdea() const;
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
-
-};
+void	print_canon(std::string, std::string);
+void	print_ending(void);
 
 //	colors
 
@@ -63,6 +39,5 @@ public:
 # define inside "\ninside "
 # define nl2 " \n\n"
 # define nl " \n"
-
 
 #endif

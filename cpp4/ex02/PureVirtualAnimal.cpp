@@ -23,25 +23,19 @@
 
 PureVirtualAnimal::PureVirtualAnimal() : m_type("(an_animal)")
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 PureVirtualAnimal::~PureVirtualAnimal()
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 PureVirtualAnimal::PureVirtualAnimal(const PureVirtualAnimal & dummy)
 {
 	*this = dummy;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -49,9 +43,7 @@ PureVirtualAnimal & PureVirtualAnimal::operator = (const PureVirtualAnimal & dum
 {
 	this->m_type = dummy.m_type;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
 	return (*this);
 
@@ -82,10 +74,14 @@ PureVirtualAnimal::PureVirtualAnimal(std::string type) : m_type(type)
 
 std::string	PureVirtualAnimal::getType() const
 {
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
+	print_canon(m_type + ":", std::string(__FUNCTION__));
 
 	return m_type;
 }
 
+//	utils
 
+void	print_canon(std::string funcName, std::string canonName)
+{
+	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
+}

@@ -4,8 +4,7 @@
 #include "Cat.hpp"
 
 #include "Brain.hpp" // added brain
-
-static void	print_ending(void);
+#include "Utils.hpp"
 
 int	main()
 {
@@ -120,11 +119,4 @@ int	main()
 	{
 		Animal	aa;
 	}
-}
-
-static void	print_ending(void)
-{
-	std::cout
-	<< LOWKEY nl 
-	<< ":::::::::::: end test ::::::::::::" nl2 REST;
 }

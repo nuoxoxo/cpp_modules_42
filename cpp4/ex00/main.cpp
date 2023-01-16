@@ -5,7 +5,7 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-static void	print_ending(void);
+#include "Utils.hpp"
 
 int	main()
 {
@@ -112,11 +112,4 @@ int	main()
 	print_ending();
 
 	std::cout << "do valgrind. " nl2;
-}
-
-static void	print_ending(void)
-{
-	std::cout
-	<< LOWKEY nl 
-	<< ":::::::::::: end test ::::::::::::" nl2 REST;
 }

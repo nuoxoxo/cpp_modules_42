@@ -23,25 +23,19 @@
 
 Animal::Animal() : m_type("(an_animal)")
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Animal::~Animal()
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 Animal::Animal(const Animal & dummy)
 {
 	*this = dummy;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -49,9 +43,7 @@ Animal & Animal::operator = (const Animal & dummy)
 {
 	this->m_type = dummy.m_type;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
 	return (*this);
 
@@ -82,8 +74,7 @@ void	Animal::makeSound() const
 
 std::string	Animal::getType() const
 {
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
+	print_canon(m_type + ":", std::string(__FUNCTION__));
 
 	return m_type;
 }

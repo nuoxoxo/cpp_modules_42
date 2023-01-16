@@ -12,7 +12,6 @@
 
 #include "Animal.hpp"
 
-
 // canon
 
 Animal::Animal() : m_type("(an_animal)")
@@ -35,9 +34,9 @@ Animal::Animal(const Animal & dummy)
 
 Animal & Animal::operator = (const Animal & dummy)
 {
-	this->m_type = dummy.m_type;
-
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
+	
+	this->m_type = dummy.m_type;
 
 	return (*this);
 
@@ -69,12 +68,4 @@ std::string	Animal::getType() const
 	print_canon(m_type + ":", std::string(__FUNCTION__));
 
 	return m_type;
-}
-
-
-//	utils
-
-void	print_canon(std::string funcName, std::string canonName)
-{
-	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
 }

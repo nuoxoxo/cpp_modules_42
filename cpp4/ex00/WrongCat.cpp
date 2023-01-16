@@ -12,19 +12,16 @@
 
 #include "WrongCat.hpp"
 
-
 // constructor . destructor
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 WrongCat::~WrongCat()
 {
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Destructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 
@@ -34,8 +31,7 @@ WrongCat::WrongCat(const WrongCat & dummy)
 {
 	*this = dummy;
 
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
 
 }
 
@@ -45,8 +41,7 @@ WrongCat::WrongCat(const WrongCat & dummy)
 WrongCat & WrongCat::operator = (const WrongCat & dummy)
 {
 	this->m_type = dummy.m_type;
-	std::cout << LOWKEY << __FUNCTION__
-	<< " Copy assignment constructor" << called REST;
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
 	return (*this);
 
