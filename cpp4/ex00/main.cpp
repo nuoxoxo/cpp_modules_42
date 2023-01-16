@@ -69,9 +69,13 @@ int	main()
 		Jorge.makeSound();
 		
 
-		Dog	*Dylan = new Dog();
+		Dog		*Dylan = new Dog(); // try removing virtual in AnimalHPP 
+		Animal	*Dylan2 = new Dog();
+		// Dog		*Dylan3 = new Animal(); // cannot declare in a reversed hierarchy
 
 		Dylan->makeSound();
+		Dylan2->makeSound();
+		// Dylan3->makeSound();
 
 		/*
 		try { Dog Jorge("Jorge"); }
