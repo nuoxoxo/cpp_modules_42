@@ -130,4 +130,10 @@ int	main()
 		}
 	}
 	*/
+
+	{
+		// const PureVirtualAnimal* j = new PureVirtualAnimal();
+		
+		;
+	}
 }
