@@ -18,6 +18,7 @@
 // # include "unistd.h" // usleep
 # include "cstdlib" // rand
 
+
 class	Animal
 {
 
@@ -66,6 +67,7 @@ public:
 # define nl2 " \n\n"
 # define nl " \n"
 
+void	print_canon(std::string funcName, std::string canonName);
 
 #endif
 
