@@ -16,13 +16,14 @@
 # include "iostream"
 # include "string"
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 
 class Dog : public Animal // note the `public` keyword
 {
 
-//protected:
-//	std::string	m_type;
+private:
+	Brain	*m_brain; // added Brain
 
 public:
 	// canon
@@ -31,12 +32,8 @@ public:
 	Dog(const Dog &);
 	Dog & operator = (const Dog &);
 	
-	// overload
-	// Dog(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens
-
 	// method
+	Brain	*brain() const;
 	void	makeSound() const;
 
 };

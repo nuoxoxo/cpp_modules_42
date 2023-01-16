@@ -64,7 +64,6 @@ void	WrongCat::makeSound() const
 		"\"Purr ~~ \""
 	};
 
-	srand(time(0));
 	int n = (int) rand() % 3;
 	// srand() debugger
 	// std::cout << r << ' ' << n << std::endl;

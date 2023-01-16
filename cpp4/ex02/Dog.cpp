@@ -10,76 +10,75 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-
+#include "Dog.hpp"
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+Dog::Dog() : PureVirtualAnimal("Dog")
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
+	std::cout << LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
+
+	m_brain = new Brain(); // added Brain
 }
 
-Animal::~Animal()
+Dog::~Dog()
 {
-	std::cout
-	<< LOWKEY << __FUNCTION__
+	std::cout << LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
+
+	delete m_brain; // added Brain
 }
 
-Animal::Animal(const Animal & dummy)
+
+// copy
+
+Dog::Dog(const Dog & dummy)
 {
 	*this = dummy;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
+	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy constructor" << called REST;
 
 }
 
-Animal & Animal::operator = (const Animal & dummy)
-{
-	this->m_type = dummy.m_type;
 
-	std::cout
-	<< LOWKEY << __FUNCTION__
+// copy assignement = 
+
+Dog & Dog::operator = (const Dog & dummy)
+{
+	std::cout << LOWKEY << __FUNCTION__
 	<< " Copy assignment constructor" << called REST;
+	
+	m_brain = new Brain(*dummy.m_brain); // added Brain
 
 	return (*this);
 
 }
 
 
-// param constructor
-
-Animal::Animal(std::string type) : m_type(type)
-{
-	std::cout
-	<< LOWKEY << __FUNCTION__
-	<< " Constructor (overloaded)" << called REST;
-
-}
-
-
 // method
 
-void	Animal::makeSound() const
+Brain	*Dog::brain() const
 {
-	std::cout
-	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+	return m_brain;
 }
 
-
-// getter
-
-std::string	Animal::getType() const
+void	Dog::makeSound() const
 {
-	std::cout
-	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;
+	std::string	sound_of_dogs[3] = \
+	{
+		"\"Woof-woof ~ \"",
+		"\"Ruff-ruff ~ \"", 
+		"\"Ouaf-ouaf ~ \""
+	};
 
-	return m_type;
+	int n = (int) rand() % 3;
+
+	// srand() debugger
+	// std::cout << r << ' ' << n << std::endl;
+
+	std::cout << m_type << ": " YELL << sound_of_dogs[n] << REST nl;
 }
 
 

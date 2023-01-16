@@ -10,36 +10,54 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef PUREVIRTUALANIMAL_HPP
+# define PUREVIRTUALANIMAL_HPP
 
 # include "iostream"
 # include "string"
 # include "unistd.h" // usleep
+# include "cstdlib" // rand
 
-
-class	Animal
+class	PureVirtualAnimal
 {
 
-protected: // inheritance
+protected:
 	std::string	m_type;
 
 public:
 	// canon
-	Animal();
-	Animal(std::string);
-	Animal(const Animal &);
-	Animal & operator = (const Animal &);
+	PureVirtualAnimal();
+	PureVirtualAnimal(const PureVirtualAnimal &);
+	PureVirtualAnimal & operator = (const PureVirtualAnimal &);
 
-	virtual	~Animal(); // polymorphism
+	virtual	~PureVirtualAnimal();
 
-	// method
-	virtual void	makeSound() const; // polymorphism
-	
+	// param constructor
+	PureVirtualAnimal(std::string);
+
 	// getter
 	std::string	getType() const;
 
+	// method
+	virtual void	makeSound() const = 0; // pure virtual function
+
+	// ::notes::
+	// 
+	// a Pure Virtual Function: of which declaration ends in `= 0`
+	// A P.V. function implicitly makes the class `abstract`
+	// 
+	// Abstract classes cannot be `instantiated`
+	//
+	// Subclasses should override/implement all inherited PV functions
+	// If they do not, they too will become abstract.
+	//
+	// (deep.)
+	//
+	//
+	// why virtual destructor - cf. x00
+	// why virtual functions - cf. x00
 };
+
 
 //	colors
 
@@ -55,12 +73,13 @@ public:
 
 # define REST	"\033[0;0m"
 
+
 //	formatting
 
-# define called	" called\n"
-# define inside	"\ninside "
-# define nl2	" \n\n"
-# define nl	" \n"
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
 
 
 #endif

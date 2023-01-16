@@ -10,26 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+/*
+ * 
+ *	everything the same as x00
+ * 
+ */
+
+#include "PureVirtualAnimal.hpp"
 
 
 // canon
 
-Animal::Animal() : m_type("(an_animal)")
+PureVirtualAnimal::PureVirtualAnimal() : m_type("(an_animal)")
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
 	<< " Constructor" << called REST;
 }
 
-Animal::~Animal()
+PureVirtualAnimal::~PureVirtualAnimal()
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
 	<< " Destructor" << called REST;
 }
 
-Animal::Animal(const Animal & dummy)
+PureVirtualAnimal::PureVirtualAnimal(const PureVirtualAnimal & dummy)
 {
 	*this = dummy;
 
@@ -39,7 +45,7 @@ Animal::Animal(const Animal & dummy)
 
 }
 
-Animal & Animal::operator = (const Animal & dummy)
+PureVirtualAnimal & PureVirtualAnimal::operator = (const PureVirtualAnimal & dummy)
 {
 	this->m_type = dummy.m_type;
 
@@ -54,7 +60,7 @@ Animal & Animal::operator = (const Animal & dummy)
 
 // param constructor
 
-Animal::Animal(std::string type) : m_type(type)
+PureVirtualAnimal::PureVirtualAnimal(std::string type) : m_type(type)
 {
 	std::cout
 	<< LOWKEY << __FUNCTION__
@@ -65,7 +71,7 @@ Animal::Animal(std::string type) : m_type(type)
 
 // method
 
-void	Animal::makeSound() const
+void	PureVirtualAnimal::makeSound() const
 {
 	std::cout
 	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
@@ -74,7 +80,7 @@ void	Animal::makeSound() const
 
 // getter
 
-std::string	Animal::getType() const
+std::string	PureVirtualAnimal::getType() const
 {
 	std::cout
 	<< LOWKEY << m_type << ": " << __FUNCTION__ << called REST;

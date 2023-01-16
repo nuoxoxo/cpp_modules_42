@@ -2,14 +2,12 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-
 src		:=	main.cpp \
-		Animal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp
-
+			Animal.cpp \
+			Dog.cpp \
+			Cat.cpp \
+			WrongAnimal.cpp \
+			WrongCat.cpp
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)
@@ -25,20 +23,20 @@ $(budfolder)%.o	:	%.cpp
 			@ echo "compiling [$^] "
 			@ $(comp) -c $< -o $@
 
-$(name)		:	$(budpath) $(bud)
-			@ echo "compiling [$@]"
-			@ echo "compiling [$^]"
-			@ $(comp) $(bud) -o $@
-			@ printf "\n\t"
-			@ printf "\"are you using the right compiler? \"\n\n"
-			@ echo "you can do [make f] "
-			@ echo "you can do [make run] "
-			@ echo ""
+$(name)	:	$(budpath) $(bud)
+		@ echo "compiling [$@]"
+		@ $(comp) $(bud) -o $@
+		@ printf "\n\t"
+		@ printf "\"are you using the right compiler? \"\n\n"
+		@ echo "you can do [make f] "
+		@ echo "you can do [make run] "
+		@ echo ""
+		@ echo "--------------------- "
+		@ echo ""
 
 run	:	re
-		./out
-		make clean
-
+		@ ./out
+		@ make clean
 
 r	:	run
 

@@ -10,33 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include "iostream"
 # include "string"
-# include "Animal.hpp"
+# include "PureVirtualAnimal.hpp"
+# include "Brain.hpp"
 
 
-class Dog : public Animal // note the `public` keyword
+class Cat : public PureVirtualAnimal // note the `public` keyword
 {
 
-//protected:
-//	std::string	m_type;
+private:
+	Brain	*m_brain; // added Brain
 
 public:
 	// canon
-	Dog();
-	~Dog();
-	Dog(const Dog &);
-	Dog & operator = (const Dog &);
+	Cat();
+	~Cat();
+	Cat(const Cat &);
+	Cat & operator = (const Cat &);
 	
-	// overload
-	// Dog(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens
-
 	// method
+	Brain	*brain() const;
 	void	makeSound() const;
 
 };

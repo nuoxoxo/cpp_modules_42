@@ -16,47 +16,41 @@
 # include "iostream"
 # include "string"
 # include "unistd.h" // usleep
+# include "cstdlib" // rand
 
 class	Animal
 {
 
 protected: // Inheritance
-
 	std::string	m_type;
 
 public:
 	// canon
 	Animal();
-	
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
-	
+
 	virtual	~Animal(); // Polymorphism
 
-	// why virtual destructor
+	// param constructor
+	Animal(std::string);
+
+	//	Why virtual destructor
 	//
-	//	we need a virtual Destructor in Base class so that 
+	//	virtual destructor is needed in Base class so that 
 	// 	the child class can use the virtual function
 	// 	of the Base class
-
-
-	// overload
-	Animal(std::string);
 
 	// getter
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // 
-	
+	virtual void	makeSound() const; // Polymorphism
 
-	// why virtual
+	//	virtual functions
 	//
-	// 	virtual functions can be overridden by the child class 
-	// 	if the that child class changes the implementation 
-	// 	of the virtual function so that the base virtual 
-	// 	function isn't called.
-
+	// 	... now we have the option of modifying this 
+	// 	function in sub classes
 };
 
 

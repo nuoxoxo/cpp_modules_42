@@ -10,37 +10,58 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
+
+# define B_SIZE 100
 
 # include "iostream"
 # include "string"
-# include "Animal.hpp"
+# include "unistd.h" // usleep
 
-
-class Dog : public Animal // note the `public` keyword
+class	Brain
 {
 
-//protected:
-//	std::string	m_type;
+private:
+	std::string	m_idea[B_SIZE];
 
 public:
 	// canon
-	Dog();
-	~Dog();
-	Dog(const Dog &);
-	Dog & operator = (const Dog &);
-	
-	// overload
-	// Dog(std::string); // pas de dog('dog_name')
-	// getter
-	// std::string	getType() const; // pas de gettype pour chiens
+	Brain();
+	Brain(const Brain &);
+	Brain & operator = (const Brain &);
+	~Brain();
 
-	// method
+	// getter
+	const std::string	* getIdea() const;
+	const std::string	& getIdea(int) const;
+	
+	void	setIdea(int, std::string);
 	void	makeSound() const;
 
 };
 
+//	colors
+
+# define ITAL	"\033[3m"
+
+# define LOWKEY	"\033[0;2m"
+# define WHITE	"\033[1;37m"
+# define CYAN	"\033[0;36m"
+# define YELL	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define MAG	"\033[0;35m"
+
+# define REST	"\033[0;0m"
+
+
+//	formatting
+
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
+
 
 #endif
-

@@ -15,7 +15,6 @@
 
 # include "iostream"
 # include "string"
-# include "cstdlib" // rand
 # include "Animal.hpp"
 
 
