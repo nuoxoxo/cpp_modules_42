@@ -48,7 +48,7 @@ WrongCat & WrongCat::operator = (const WrongCat & dummy)
 }
 
 
-// .method()
+// method
 
 void	WrongCat::makeSound() const
 {

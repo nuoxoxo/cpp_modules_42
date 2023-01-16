@@ -21,6 +21,7 @@
 void	print_canon(std::string, std::string);
 void	print_ending(void);
 
+
 //	colors
 
 # define ITAL	"\033[3m"

@@ -49,7 +49,7 @@ Dog & Dog::operator = (const Dog & dummy)
 }
 
 
-// .method()
+// method
 
 void	Dog::makeSound() const
 {

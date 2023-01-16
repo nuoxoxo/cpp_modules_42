@@ -48,7 +48,7 @@ WrongAnimal::WrongAnimal(std::string type) : m_type(type)
 
 }
 
-// .method()
+// method
 
 void	WrongAnimal::makeSound() const
 {
