@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                              try                                           */
+/*                              catch                                         */
+/*                              exceptions                                    */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+
+A Bureaucrat must have:
+	• A constant name.
+	• And a grade that 
+		- ranges from 1 (highest grade) 
+		- to 150 (lowest possible grade)
+
+Any attempt to instantiate a Bureaucrat using an invalid grade 
+	- must throw an exception:
+		- either a Bureaucrat::GradeTooHighException 
+		- or a Bureaucrat::GradeTooLowException.
+
+
+-----------------------8<------ [ Goal ] ----------c--------------------
+
+
+You will provide getters for both these attributes: 
+	- getName() 
+	- getGrade(). 
+
+Implement also two member functions 
+	- to increment 
+	- or decrement the bureaucrat grade.
+	- If the grade is out of range
+		> both of them throw the same exceptions as the constructor.
+Implement an overload of the insertion («) operator to print:
+	- (without the angle brackets):
+		- <name>, bureaucrat grade <grade>.
+
+turn in a set of tests!
