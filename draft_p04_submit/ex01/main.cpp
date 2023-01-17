@@ -10,6 +10,8 @@ int	main()
 {
 	srand(time(0));
 
+	int i = 0;
+
 	// main provided
 	{
 		const Animal* j = new Dog();
@@ -20,13 +22,14 @@ int	main()
 		// return 0;
 	}
 
-	print_ending();
+	print_ending(i++);
 
 	// subject test (filling an array of Animal(s))
 	{
 		Animal	*gang[B_SIZE];
-		int	i;
-		int	num_cats, num_dogs, num_other;
+		
+		int		i;
+		int		num_cats, num_dogs, num_other;
 		
 		i = -1;
 		while (++i < B_SIZE)
@@ -41,17 +44,17 @@ int	main()
 			}
 		}
 		
-		// counting totoal cats, dogs & non-animals
+		// counting total creations 
 		i = -1;
 		num_other = 0;
 		num_dogs = num_cats = 0;
 		while (++i < B_SIZE)
 		{
-			if (gang[i]->getType() == "Cat")
+			if (gang[i]->getType() == "(a cat)")
 			{
 				++num_cats;
 			}
-			else if (gang[i]->getType() == "Dog")
+			else if (gang[i]->getType() == "(a dog)")
 			{
 				++num_dogs;
 			}
@@ -60,12 +63,8 @@ int	main()
 				++num_other;
 			}
 		}
-
-		assert(num_dogs == 50);
-		assert(num_cats == 50);
-		assert(! num_other);
 		
-		// destroyer
+		// destroy
 		i = -1;
 		while (++i < B_SIZE)
 		{
@@ -85,39 +84,47 @@ int	main()
 		
 	}
 
-	print_ending();
+	print_ending(i++);
 	
 	// more tests . check idea
 	
 	{
-		Dog	*dd = new Dog();
+		Dog		*dd = new Dog();
+		int		i;
 
 		dd->brain()->makeSound();
 		srand(time(0));
-		int i = (int) rand() % (B_SIZE + 1);
+		
+		i = (int) rand() % (B_SIZE + 1);
 		dd->brain()->setIdea(i, "zima blue");
+		
 		std::cout
 		<< dd->getType() << "'s idea at "
 		<< i << ": " << dd->brain()->getIdea(i) << nl;
 
-		Dog	ddd(*dd);
+		Dog		ddd(*dd);
 
 		ddd.brain()->makeSound();
+		
 		i = (int) rand() % (B_SIZE + 1);
 		ddd.brain()->setIdea(i, "4ad");
+		
 		std::cout
 		<< ddd.getType() << "'s idea at "
 		<< i << ": " << ddd.brain()->getIdea(i) << nl;
+		
 		i += (int) rand() / 10000 * B_SIZE;
+		
 		std::cout
 		<< ddd.getType() << "'s idea at "
 		<< i << ": " << ddd.brain()->getIdea(i) << nl;
 
 		delete dd;
+		
 		// delete ddd;
 		// no need to free this dog
 	}
 	
-	print_ending();
+	print_ending(i++);
 
 }

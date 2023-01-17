@@ -20,7 +20,9 @@
 
 
 void	print_canon(std::string, std::string);
-void	print_ending(void);
+
+void	print_ending(int);
+void	print_ending();
 
 //	colors
 

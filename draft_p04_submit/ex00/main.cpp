@@ -38,7 +38,6 @@ int	main()
 
 		Jeffe->makeSound();
 		Jorge.makeSound();
-		
 
 		Dog	*Dylan = new Dog();
 
@@ -88,7 +87,7 @@ int	main()
 		
 		Cat	*Cathy = new Cat();
 		
-		Cathy->makeSound();
+		Cathy->makeSound(); 
 
 		// bye
 		delete	Jeffe;

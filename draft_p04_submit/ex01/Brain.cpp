@@ -35,7 +35,7 @@ Brain::Brain(const Brain & dummy)
 
 Brain & Brain::operator = (const Brain & dummy)
 {
-	int	i = -1;
+	int		i = -1;
 	
 	while (++i < B_SIZE)
 	{

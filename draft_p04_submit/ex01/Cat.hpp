@@ -23,17 +23,19 @@ class Cat : public Animal // note the `public` keyword
 {
 
 private:
+
 	Brain	*m_brain; // added Brain
 
 public:
+
 	// canon
 	Cat();
 	~Cat();
 	Cat(const Cat &);
 	Cat & operator = (const Cat &);
 	
-	// method
 	Brain	*brain() const;
+
 	void	makeSound() const;
 
 };

@@ -14,7 +14,7 @@
 
 // canon
 
-Dog::Dog() : PureVirtualAnimal("Dog")
+Dog::Dog() : PureVirtualAnimal("(a dog)")
 {
 	// print_canon(std::string(__FUNCTION__), "Constructor");
 

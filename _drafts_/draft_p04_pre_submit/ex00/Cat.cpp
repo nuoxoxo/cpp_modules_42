@@ -14,7 +14,7 @@
 
 // constructor . destructor
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : Animal("(a cat)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }

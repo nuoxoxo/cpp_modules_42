@@ -25,8 +25,9 @@ int	main()
 	// subject test (filling an array of PureVirtualAnimal(s))
 	{
 		PureVirtualAnimal	*gang[B_SIZE];
-		int	i;
-		int	num_cats, num_dogs, num_other;
+
+		int					i;
+		int					num_cats, num_dogs, num_other;
 		
 		i = -1;
 		while (++i < B_SIZE)
@@ -41,17 +42,17 @@ int	main()
 			}
 		}
 		
-		// counting totoal cats, dogs & non-animals
+		// counting total creations 
 		i = -1;
 		num_other = 0;
 		num_dogs = num_cats = 0;
 		while (++i < B_SIZE)
 		{
-			if (gang[i]->getType() == "Cat")
+			if (gang[i]->getType() == "(a cat)")
 			{
 				++num_cats;
 			}
-			else if (gang[i]->getType() == "Dog")
+			else if (gang[i]->getType() == "(a dog)")
 			{
 				++num_dogs;
 			}
@@ -61,7 +62,7 @@ int	main()
 			}
 		}
 		
-		// destroyer
+		// destroy
 		i = -1;
 		while (++i < B_SIZE)
 		{
@@ -131,9 +132,4 @@ int	main()
 	}
 	*/
 
-	{
-		// const PureVirtualAnimal* j = new PureVirtualAnimal();
-		
-		;
-	}
 }
