@@ -63,7 +63,7 @@ int	main()
 
 		
 		
-		// destroyer
+		// destroy
 		i = -1;
 		while (++i < B_SIZE)
 		{

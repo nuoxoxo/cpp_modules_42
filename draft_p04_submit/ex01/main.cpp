@@ -60,10 +60,8 @@ int	main()
 				++num_other;
 			}
 		}
-
 		
-		
-		// destroyer
+		// destroy
 		i = -1;
 		while (++i < B_SIZE)
 		{
