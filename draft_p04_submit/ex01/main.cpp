@@ -10,6 +10,8 @@ int	main()
 {
 	srand(time(0));
 
+	int i = 0;
+
 	// main provided
 	{
 		const Animal* j = new Dog();
@@ -20,13 +22,14 @@ int	main()
 		// return 0;
 	}
 
-	print_ending();
+	print_ending(i++);
 
 	// subject test (filling an array of Animal(s))
 	{
 		Animal	*gang[B_SIZE];
-		int	i;
-		int	num_cats, num_dogs, num_other;
+		
+		int		i;
+		int		num_cats, num_dogs, num_other;
 		
 		i = -1;
 		while (++i < B_SIZE)
@@ -81,7 +84,7 @@ int	main()
 		
 	}
 
-	print_ending();
+	print_ending(i++);
 	
 	// more tests . check idea
 	
@@ -121,6 +124,6 @@ int	main()
 		// no need to free this dog
 	}
 	
-	print_ending();
+	print_ending(i++);
 
 }

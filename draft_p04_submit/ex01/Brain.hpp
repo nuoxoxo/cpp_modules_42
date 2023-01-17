@@ -28,7 +28,7 @@ private:
 	std::string	m_idea[B_SIZE];
 
 public:
-	
+
 	// canon
 	Brain();
 	Brain(const Brain &);
