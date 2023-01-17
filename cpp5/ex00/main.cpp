@@ -98,8 +98,11 @@ int	main()
 	{
 		int	level = 5;
 		try {
-			Bureaucrat mec("mec", level + 1);
-			for (int i=level; i; --i) {
+			Bureaucrat mec("mec", level);
+			
+			std::cout << mec;
+			
+			for (int i=level-1; i; --i) {
 				mec.gradeUp();
 			}
 			std::cout << mec;

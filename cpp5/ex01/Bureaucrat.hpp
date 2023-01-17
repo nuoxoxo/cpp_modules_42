@@ -13,13 +13,13 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include "iostream"
-# include "string"
 # include "_Cpp05_.hpp"
-# include "Form.hpp"
+# include "Form.hpp" // added
 
 # define G_HIGH 1
 # define G_LOW 150
+
+class	Form; // added
 
 class	Bureaucrat
 {

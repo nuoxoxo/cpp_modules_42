@@ -13,8 +13,6 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include "iostream"
-# include "string"
 # include "_Cpp05_.hpp"
 
 # define G_HIGH 1
