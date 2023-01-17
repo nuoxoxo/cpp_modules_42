@@ -46,7 +46,7 @@ int	main()
 		}
 		try {
 			Bureaucrat jeffe("Jeffe", 1);	
-			jeffe.gradeDown();
+			jeffe.gradeUp();
 			std::cout << jeffe;
 		} catch (std::exception & e) {
 			std::cout << e.what();
@@ -63,9 +63,9 @@ int	main()
 		try {
 			Bureaucrat jorge("Jorge", 149);
 			std::cout << jorge;
-			jorge.gradeUp();
+			jorge.gradeDown();
 			std::cout << jorge;
-			jorge.gradeUp();
+			jorge.gradeDown();
 			std::cout << jorge;
 		} catch (std::exception & e) {
 			std::cout << e.what();
@@ -74,30 +74,38 @@ int	main()
 	print_ending(++count, "increment");
 	{
 		try {
-			Bureaucrat jorge_("Jorge", 150);
-			Bureaucrat jorge(jorge_);
-			std::cout << jorge;;
+			Bureaucrat rojas_("Rojas", 150);
+			Bureaucrat rojas(rojas_);
+			std::cout << rojas;;
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
 		try {
-			Bureaucrat jorge_("Jorge", 149);	
-			Bureaucrat jorge(jorge_);
-			std::cout << jorge;
-			jorge.gradeUp();
-			std::cout << jorge;
-			jorge.gradeUp();
-			std::cout << jorge;
+			Bureaucrat rojas_("Rojas", 149);	
+			Bureaucrat rojas(rojas_);
+			std::cout << rojas;
+			rojas.gradeDown();
+			std::cout << rojas;
+			rojas.gradeDown();
+			std::cout << rojas;
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
-		// std::cout << jorge_; // impossible
-		// std::cout << jorge; // impossible
+		// std::cout << rojas_; // out of scope
+		// std::cout << rojas; // out of scope
 	}
 	print_ending(++count, "idem + copy constr");
 	{
+		int	level = 5;
 		try {
-			Bureaucrat rojas("Rojas", 5);
+			Bureaucrat mec("mec", level + 1);
+			for (int i=level; i; --i) {
+				mec.gradeUp();
+			}
+			std::cout << mec;
+		} catch (std::exception & outburst) {
+			std::cout << outburst.what();
 		}
 	}
+	print_ending(++count, "for loop");
 }

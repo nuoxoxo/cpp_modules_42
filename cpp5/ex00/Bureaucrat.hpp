@@ -17,8 +17,8 @@
 # include "string"
 # include "_Cpp05_.hpp"
 
-# define G_HIGH 150
-# define G_LOW 1
+# define G_HIGH 1
+# define G_LOW 150
 
 class	Bureaucrat
 {

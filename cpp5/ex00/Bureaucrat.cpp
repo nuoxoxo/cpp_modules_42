@@ -31,13 +31,13 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & dummy )
 
 Bureaucrat::Bureaucrat(std::string s, int G) : m_name(s), m_grade(G)
 {
-	if (m_grade < G_LOW)
-	{
-		throw ( GradeTooLowException() );
-	}
-	else if (m_grade > G_HIGH)
+	if (m_grade < G_HIGH)
 	{
 		throw ( GradeTooHighException() );
+	}
+	else if (m_grade > G_LOW)
+	{
+		throw ( GradeTooLowException() );
 	}
 }
 
@@ -81,7 +81,7 @@ void	Bureaucrat::gradeUp()
 {
 	print_canon(std::string(__FUNCTION__), "method");
 	// print_canon(std::string(__FUNCTION__), "Parameter Constructor");
-	if (++m_grade > G_HIGH)
+	if (--m_grade < G_HIGH)
 	{
 		throw( GradeTooHighException() );
 	}
@@ -90,7 +90,7 @@ void	Bureaucrat::gradeUp()
 void	Bureaucrat::gradeDown()
 {
 	print_canon(std::string(__FUNCTION__), "method");
-	if (--m_grade < G_LOW)
+	if (++m_grade > G_LOW)
 	{
 		throw( GradeTooLowException() );
 	}
@@ -98,12 +98,12 @@ void	Bureaucrat::gradeDown()
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Error: Grade too low. \n");
+	return (CYAN "Error: Grade too low. \n" REST);
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Error: Grade too high. \n")
+	return (YELL "Error: Grade too high. \n" REST)
 	;
 }
 
