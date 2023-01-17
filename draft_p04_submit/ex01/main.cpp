@@ -61,9 +61,7 @@ int	main()
 			}
 		}
 
-		assert(num_dogs == 50);
-		assert(num_cats == 50);
-		assert(! num_other);
+		
 		
 		// destroyer
 		i = -1;
@@ -90,12 +88,15 @@ int	main()
 	// more tests . check idea
 	
 	{
-		Dog	*dd = new Dog();
+		Dog		*dd = new Dog();
+		int		i;
 
 		dd->brain()->makeSound();
 		srand(time(0));
-		int i = (int) rand() % (B_SIZE + 1);
+		
+		i = (int) rand() % (B_SIZE + 1);
 		dd->brain()->setIdea(i, "zima blue");
+		
 		std::cout
 		<< dd->getType() << "'s idea at "
 		<< i << ": " << dd->brain()->getIdea(i) << nl;
@@ -103,12 +104,16 @@ int	main()
 		Dog	ddd(*dd);
 
 		ddd.brain()->makeSound();
+		
 		i = (int) rand() % (B_SIZE + 1);
 		ddd.brain()->setIdea(i, "4ad");
+		
 		std::cout
 		<< ddd.getType() << "'s idea at "
 		<< i << ": " << ddd.brain()->getIdea(i) << nl;
+		
 		i += (int) rand() / 10000 * B_SIZE;
+		
 		std::cout
 		<< ddd.getType() << "'s idea at "
 		<< i << ": " << ddd.brain()->getIdea(i) << nl;

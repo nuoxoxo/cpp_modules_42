@@ -53,7 +53,7 @@ public:
 	- because you might potentially delete an instance of a Subclass
 through a pointer to the Superclass
 
-	- also, if a Superclass has any virtual function, it should have a virtual destructor
+	- if a Superclass has any virtual function, it should have a virtual destructor
 
 	* Classes not designed to be Superclasses or not designed to be used _polymorphically_
 should NOT declare virtual destructors
