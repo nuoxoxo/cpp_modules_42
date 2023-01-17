@@ -44,7 +44,7 @@ int	main()
 			}
 		}
 		
-		// counting totoal cats, dogs & non-animals
+		// counting total creations 
 		i = -1;
 		num_other = 0;
 		num_dogs = num_cats = 0;

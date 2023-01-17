@@ -25,8 +25,9 @@ int	main()
 	// subject test (filling an array of PureVirtualAnimal(s))
 	{
 		PureVirtualAnimal	*gang[B_SIZE];
-		int	i;
-		int	num_cats, num_dogs, num_other;
+
+		int					i;
+		int					num_cats, num_dogs, num_other;
 		
 		i = -1;
 		while (++i < B_SIZE)
@@ -41,7 +42,7 @@ int	main()
 			}
 		}
 		
-		// counting totoal cats, dogs & non-animals
+		// counting total creations 
 		i = -1;
 		num_other = 0;
 		num_dogs = num_cats = 0;
