@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {{}}.hpp                                           :+:      :+:    :+:   */
+/*   {}.hpp                                             :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,20 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#ifndef FORM_HPP
+# define FORM_HPP
 
-Bureaucrat::Bureaucrat() : m_name("somebody"), m_grade(150) {}
-Bureaucrat::~Bureaucrat() {}
+# include "_Cpp05_.hpp"
+# include "Bureaucrat.hpp" // added
 
-Bureaucrat::Bureaucrat(const Bureaucrat & dummy) : m_name(dummy.m_name)
-{
-	*this = src;
-}
+class	Form; // added
 
-Bureaucrat & Bureaucrat::operator = (Bureaucrat const & dummy )
-{
-	m_grade = dummy.m_grade;
-	return *this;
-}
-
-
+#endif
