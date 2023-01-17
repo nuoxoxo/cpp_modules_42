@@ -34,7 +34,6 @@ public:
 	~Brain();
 
 	// getter
-	const std::string	* getIdea() const;
 	const std::string	& getIdea(int) const;
 	
 	void	setIdea(int, std::string);
