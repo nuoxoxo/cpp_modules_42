@@ -1,5 +1,3 @@
-# My solutions to 42 CPP Pool
-
 Notes                |   |
 :------------------- | - |
 4.3 - AMateria       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/61)
