@@ -17,11 +17,11 @@
 # include "string"
 
 
-void	print_canon(std::string &, std::string &);
+void	print_canon(const std::string, const std::string);
 void	print_ending(int);
 void	print_ending(void);
 void	print_ending(std::string &);
-void	print_ending(int, std::string &);
+void	print_ending(int, const std::string);
 
 
 //	colors

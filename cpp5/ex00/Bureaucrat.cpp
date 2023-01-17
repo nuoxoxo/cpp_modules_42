@@ -57,7 +57,8 @@ std::ostream & operator << (std::ostream & ostream, Bureaucrat const * person)
 {
 	ostream
 	<< person->getName() <<  ", bureaucrat grade "
-	<< person->getGrade();
+	<< person->getGrade() << nl;
+
 	return (ostream);
 }
 
@@ -78,6 +79,8 @@ int	Bureaucrat::getGrade() const
 
 void	Bureaucrat::gradeUp()
 {
+	print_canon(std::string(__FUNCTION__), "method");
+	// print_canon(std::string(__FUNCTION__), "Parameter Constructor");
 	if (++m_grade > G_HIGH)
 	{
 		throw( GradeTooHighException() );
@@ -86,6 +89,7 @@ void	Bureaucrat::gradeUp()
 
 void	Bureaucrat::gradeDown()
 {
+	print_canon(std::string(__FUNCTION__), "method");
 	if (--m_grade < G_LOW)
 	{
 		throw( GradeTooLowException() );

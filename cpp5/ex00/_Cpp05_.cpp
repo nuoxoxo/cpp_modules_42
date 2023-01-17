@@ -12,7 +12,7 @@
 
 #include "_Cpp05_.hpp"
 
-void	print_canon(std::string& funcName, std::string& canonName)
+void	print_canon(const std::string funcName, const std::string canonName)
 {
 	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
 }
@@ -34,14 +34,14 @@ void	print_ending(void)
 void	print_ending(std::string & s)
 {
 	std::cout
-	<< LOWKEY nl2 
+	<< LOWKEY nl2
 	<< ":::::::::::: end test (" << s << ") ::::::::::::" nl2 REST;
 }
 
-void	print_ending(int i, std::string & s)
+void	print_ending(int i, const std::string s)
 {
 	std::cout
-	<< LOWKEY nl2 
+	<< LOWKEY nl 
 	<< ":::::::::::: end test "
 	<< i << " (" << s << ") ::::::::::::" nl2 REST;
 }
