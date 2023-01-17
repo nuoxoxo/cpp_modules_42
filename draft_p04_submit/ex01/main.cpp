@@ -102,7 +102,7 @@ int	main()
 		<< dd->getType() << "'s idea at "
 		<< i << ": " << dd->brain()->getIdea(i) << nl;
 
-		Dog	ddd(*dd);
+		Dog		ddd(*dd);
 
 		ddd.brain()->makeSound();
 		
@@ -120,6 +120,7 @@ int	main()
 		<< i << ": " << ddd.brain()->getIdea(i) << nl;
 
 		delete dd;
+		
 		// delete ddd;
 		// no need to free this dog
 	}

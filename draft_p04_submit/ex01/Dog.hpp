@@ -32,8 +32,8 @@ public:
 	Dog(const Dog &);
 	Dog & operator = (const Dog &);
 	
-	// method
 	Brain	*brain() const;
+
 	void	makeSound() const;
 
 };
