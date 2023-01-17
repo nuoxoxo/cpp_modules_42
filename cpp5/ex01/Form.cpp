@@ -10,10 +10,4 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
-
-# include "iostream"
-# include "string"
-# include "_Cpp05_.hpp"
-# include "Bureaucrat.hpp"
+# include "Form.hpp"
