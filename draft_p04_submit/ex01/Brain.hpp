@@ -24,19 +24,22 @@ class	Brain
 {
 
 private:
+
 	std::string	m_idea[B_SIZE];
 
 public:
+	
 	// canon
 	Brain();
 	Brain(const Brain &);
 	Brain & operator = (const Brain &);
 	~Brain();
 
-	// getter
-	const std::string	& getIdea(int) const;
-	
+	// getter setter 
+	const std::string & getIdea(int) const;
 	void	setIdea(int, std::string);
+	
+	// method
 	void	makeSound() const;
 
 };
