@@ -19,13 +19,203 @@
 
 -----------------------8<------ [ Requirements ] ------------------------------
 
+============ (1) ============
+
+Interfaces don’t exist in C++98 (not even in C++20). 
+Pure abstract classes are commonly called interfaces
+
+- Implement interfaces
+
+	- Complete the definition of the following AMateria
+	- implement the necessary member functions.
+
+```
+class AMateria
+{
+
+	protected:
+		[...]
+
+	public:
+		AMateria(std::string const & type);
+		[...]
+		std::string const & getType() const; //Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
+
+};
+
+```
+
+============ (2) ============
 
 
+
+- Implement the Materias concrete classes Ice and Cure. 
+
+	- Use their name in lowercase ("ice" for Ice, "cure" for Cure) to set their types. (??? m_ice . m_cure)
+	- their member function
+		
+		- clone() 
+			
+			- return a new instance of the same type (i.e., if you clone an Ice Materia, you will get a new Ice Materia)
+		
+		- use(ICharacter &) 
+			
+			• display Ice: "* shoots an ice bolt at <name> *"
+			• display Cure: "* heals <name>’s wounds *"
+		
+			<name> ( w/o curly in actual code !! ) is the name of the `Character` passed as parameter. 
+			
+			*** While assigning a Materia to another, copying the type doesn’t make sense.
+
+- Implement the Character concrete class, 
+	
+	- which implements the following interface:
+
+```
+
+class ICharacter
+{
+	public:
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+
+};
+
+```
+
+	- The Character possesses an inventory of 4 slots ---> 4 Materias at most
+		
+		- inventory is empty at construction
+		- They equip the Materias in the first empty slot they find. 
+			- in this order: from slot 0 to slot 3. 
+				- In case they try to add a Materia to a full inventory, 
+				- or use/unequip an unexisting Materia, don’t do anything
+				(but still, bugs are forbidden). 
+			- The unequip() member function must NOT delete the Materia!
+
+		- (Handle the Materias your character left on the floor as you like. (lightbulb))
+
+		- Save the addresses before calling unequip(), or anything else,
+			- don’t forget that you have to avoid memory leaks.
+		
+		- The use(int, ICharacter & ) member function w
+			- use the Materia at the slot[idx]
+			- pass the target parameter to the AMateria::use function.
+			
+			* Your character’s inventory will be able to support any type of AMateria
+
+		- Your Character must have a constructor taking its name as a parameter. 
+		- Any copy (using copy constructor or copy assignment operator) of a Character must be deep.
+			- During copy, the Materias of a Character must be deleted before the new ones are added
+				to inventory. 
+		- Materias must be deleted when a Character is destroyed.
+
+	- interface prototype ( === Reprise === ):
+
+	```
+
+	class ICharacter
+	{
+		public:
+			virtual ~ICharacter() {}
+			virtual std::string const & getName() const = 0;
+			virtual void equip(AMateria* m) = 0;
+			virtual void unequip(int idx) = 0;
+			virtual void use(int idx, ICharacter& target) = 0;
+
+	};
+
+```
+
+
+- Write the concrete class MateriaSource
+
+	- which implement the following interface:
+
+
+```
+
+class IMateriaSource
+{
+	public:
+
+		virtual ~IMateriaSource() {}
+		virtual void learnMateria(AMateria*) = 0;
+		virtual AMateria* createMateria(std::string const & type) = 0;
+};
+
+```
+
+
+		- • learnMateria(AMateria*)
+			- Copies the Materia passed as a parameter and store it in memory 
+				- so it can be cloned later. 
+			- Like the Character, the MateriaSource can know at most 4 Materias.
+				- They are not necessarily unique.
+
+		- • createMateria(std::string const &)
+			- Returns a new Materia. 
+			- The latter is a copy of the Materia previously learned by
+					the MateriaSource whose type equals the one passed as parameter. 
+			- Returns 0 if the type is unknown.
+
+		- your MateriaSource must be able to learn from "templates" of Materias to
+create them when needed. 
+		- Then, you will be able to generate a new Materia 
+			- using just a string that identifies its type.
+
+
+
+- Model Output
+
+```
+
+int main()
+{
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+	
+	AMateria* tmp;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	
+	ICharacter* bob = new Character("bob");
+	
+	me->use(0, *bob);
+	me->use(1, *bob);
+	
+	delete bob;
+	delete me;
+	delete src;
+	
+	return 0;
+}
+
+```
+```
+$> clang++ -W -Wall -Werror *.cpp
+$> ./a.out | cat -e
+* shoots an ice bolt at bob
+```
 
 
 
 -----------------------8<------ [ above :: ex03 ] ------------------------------
 -----------------------8<------ [ below :: ex02 ] ------------------------------
+
+
 
 
 Creating Animal objects doesn’t make sense after all. It’s true, they make no sound!
