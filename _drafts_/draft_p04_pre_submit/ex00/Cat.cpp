@@ -10,37 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Cat.hpp"
 
-# define B_SIZE 100
+// constructor . destructor
 
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
-
-class	Brain
+Cat::Cat() : Animal("Cat")
 {
+	print_canon(std::string(__FUNCTION__), "Constructor");
+}
 
-private:
-	std::string	m_idea[B_SIZE];
+Cat::~Cat()
+{
+	print_canon(std::string(__FUNCTION__), "Destructor");
+}
 
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+Cat::Cat(const Cat & dummy)
+{
+	*this = dummy;
 
-	// getter
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
+}
+
+Cat & Cat::operator = (const Cat & dummy)
+{
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	this->m_type = dummy.m_type;
 
-};
+	return (*this);
+
+}
 
 
-#endif
+// method
+
+void	Cat::makeSound() const
+{
+	std::string	sound_of_cats[3] = \
+	{
+		"\"Mew ~~ \"",
+		"\"Meow ~~ \"", 
+		"\"Purr ~~ \""
+	};
+
+	std::cout << m_type << ": " YELL << sound_of_cats[(int) rand() % 3] << REST nl;
+}
+
+

@@ -18,10 +18,12 @@
 class	Animal
 {
 
-protected: // Inheritance
+protected:	// Inheritance
+	
 	std::string	m_type;
 
 public:
+	
 	// canon
 	Animal();
 	Animal(const Animal &);
@@ -49,9 +51,9 @@ public:
 > Why virtual destructor ? 
 
 	- because you might potentially delete an instance of a Subclass
-through a pointer to the SUperclass
+through a pointer to the Superclass
 
-	- also if a Superclass has any virtual function, it should have a virtual destructor
+	- also, if a Superclass has any virtual function, it should have a virtual destructor
 
 	* Classes not designed to be Superclasses or not designed to be used _polymorphically_
 should NOT declare virtual destructors

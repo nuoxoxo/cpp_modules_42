@@ -71,8 +71,8 @@ int	main()
 		Jorge.makeSound();
 		
 
-		Dog		*Dylan = new Dog();		// is a dog upon removing of `virtual`
-		Animal	*Dylan2 = new Dog();	// is an Animal object upon removing of `virtual`
+		Dog		*Dylan = new Dog();		// is a dog on removal of `virtual`
+		Animal	*Dylan2 = new Dog();	// is an Animal object on removal of `virtual`
 		
 		// Dog	*Dylan3 = new Animal(); // mission impossible <- declare in reversed hierarchy
 

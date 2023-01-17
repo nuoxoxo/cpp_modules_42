@@ -10,36 +10,49 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#ifndef PUREVIRTUALANIMAL_HPP
+# define PUREVIRTUALANIMAL_HPP
 
-# define B_SIZE 100
-
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
 # include "_Cpp04_.hpp"
 
-class	Brain
+class	PureVirtualAnimal
 {
 
-private:
-	std::string	m_idea[B_SIZE];
+protected:
+	std::string	m_type;
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+	PureVirtualAnimal();
+	PureVirtualAnimal(const PureVirtualAnimal &);
+	PureVirtualAnimal & operator = (const PureVirtualAnimal &);
+
+	virtual	~PureVirtualAnimal();
+
+	// param constructor
+	PureVirtualAnimal(std::string);
 
 	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	std::string	getType() const;
 
+	// method
+	virtual void	makeSound() const = 0; // pure virtual function
+
+	// ::notes::
+	// 
+	// a Pure Virtual Function: of which declaration ends in `= 0`
+	// A P.V. function implicitly makes the class `abstract`
+	// 
+	// Abstract classes cannot be `instantiated`
+	//
+	// Subclasses should override/implement all inherited PV functions
+	// If they do not, they too will become abstract.
+	//
+	// (deep.)
+	//
+	//
+	// why virtual destructor - q.v. x00
+	// why virtual functions - q.v. x00
 };
 
 

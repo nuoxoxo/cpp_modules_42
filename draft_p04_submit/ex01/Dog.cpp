@@ -10,37 +10,68 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Dog.hpp"
 
-# define B_SIZE 100
+// canon
 
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
-
-class	Brain
+Dog::Dog() : Animal("Dog")
 {
+	print_canon(std::string(__FUNCTION__), "Constructor");
 
-private:
-	std::string	m_idea[B_SIZE];
+	m_brain = new Brain(); // added Brain
+}
 
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+Dog::~Dog()
+{
+	print_canon(std::string(__FUNCTION__), "Destructor");
 
-	// getter
+	delete m_brain; // added Brain
+}
+
+
+// copy
+
+Dog::Dog(const Dog & dummy)
+{
+	*this = dummy;
+
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
+
+}
+
+
+// copy assignement = 
+
+Dog & Dog::operator = (const Dog & dummy)
+{
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	m_brain = new Brain(*dummy.m_brain); // added Brain
 
-};
+	return (*this);
+
+}
 
 
-#endif
+// method
+
+Brain	*Dog::brain() const
+{
+	return m_brain;
+}
+
+void	Dog::makeSound() const
+{
+	std::string	sound_of_dogs[3] = \
+	{
+		"\"Woof-woof ~ \"",
+		"\"Ruff-ruff ~ \"", 
+		"\"Ouaf-ouaf ~ \""
+	};
+
+	int n = (int) rand() % 3;
+
+	std::cout << m_type << ": " YELL << sound_of_dogs[n] << REST nl;
+}
+
+

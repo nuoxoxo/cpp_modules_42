@@ -71,15 +71,15 @@ int	main()
 		Jorge.makeSound();
 		
 
-		Dog		*Dylan = new Dog();		// is a dog upon removing of `virtual`
-		Animal	*Dylan2 = new Dog();	// is an Animal object upon removing of `virtual`
+		Dog		*Dylan = new Dog();		// is dog on removing `virtual`
+		Animal	*Dylan2 = new Dog();	// is animal upon removing `virtual`
 		
-		// Dog	*Dylan3 = new Animal(); // mission impossible <- declare in reversed hierarchy
+		// Dog	*Dylan3 = new Animal(); // impossible . reversed hierarchy
 
 		Dylan->makeSound();
 		Dylan2->makeSound();
 
-		// Dylan3->makeSound(); // mission impossible
+		// Dylan3->makeSound(); // impossible
 
 		/*
 		try { Dog Jorge("Jorge"); }
@@ -106,12 +106,12 @@ int	main()
 		WrongAnimal* meta = new WrongAnimal();
 		WrongAnimal* i = new WrongCat();
 
-		// WrongAnimal* wrong_cat = new Cat(); // mission impossible
+		// WrongAnimal* wrong_cat = new Cat(); // impossible
 		
 		std::cout << meta->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 		
-		i->makeSound(); //will output the cat sound!
+		i->makeSound(); //will output the cat sound! 
 		meta->makeSound();
 		
 		delete meta;

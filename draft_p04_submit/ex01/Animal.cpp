@@ -10,22 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+/*
+ * 
+ *	everything the same as x00
+ * 
+ */
+
+#include "Animal.hpp"
 
 
-// canon	done
+// canon
 
-Brain::Brain()
+Animal::Animal() : m_type("(an animal)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
-Brain::~Brain()
+Animal::~Animal()
 {
 	print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
-Brain::Brain(const Brain & dummy)
+Animal::Animal(const Animal & dummy)
 {
 	*this = dummy;
 
@@ -33,14 +39,9 @@ Brain::Brain(const Brain & dummy)
 
 }
 
-Brain & Brain::operator = (const Brain & dummy)
+Animal & Animal::operator = (const Animal & dummy)
 {
-	int	i = -1;
-	
-	while (++i < B_SIZE)
-	{
-		m_idea[i] = dummy.m_idea[i];
-	}
+	this->m_type = dummy.m_type;
 
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
@@ -48,52 +49,32 @@ Brain & Brain::operator = (const Brain & dummy)
 
 }
 
+
+// param constructor
+
+Animal::Animal(std::string type) : m_type(type)
+{
+	print_canon(std::string(__FUNCTION__), "Parameter Constructor");
+
+}
+
+
 // method
 
-void	Brain::makeSound() const
+void	Animal::makeSound() const
 {
-	std::string	sound_of_a_brain[3] = \
-	{
-		"\"tssstsss... (white noise) \"",
-		"\"pip!~ pip!~... (brainwave) \"", 
-		"\"tick, tock... (dr. manhattan) \""
-	};
-
-	int n = (int) rand() % 3;
-
 	std::cout
-	<< "some brain: " YELL
-	<< sound_of_a_brain[n] << REST nl;
+	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
 }
 
 
-// getter . setter
+// getter
 
-const std::string	& Brain::getIdea(int i) const
+std::string	Animal::getType() const
 {
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-	
-	/*
-	if (i < 0 || i >= B_SIZE)
-	{
-		std::cout << "invalid index: " << i
-		<< ". valid range: 0 - " << B_SIZE << ". \n";
-		return (nullptr); // (??)
-	}
+	print_canon(m_type + ":", std::string(__FUNCTION__));
 
-	return m_idea[i];
-	*/
-
-	return m_idea[i % B_SIZE];
+	return m_type;
 }
 
-void	Brain::setIdea(int i, std::string s)
-{
-	if (i < 0 || i >= B_SIZE)
-	{
-		std::cout << "invalid index: " << i
-		<< ". valid range: 0 - " << B_SIZE << ". \n";
-		return ;
-	}
-	m_idea[i] = s;
-}
+

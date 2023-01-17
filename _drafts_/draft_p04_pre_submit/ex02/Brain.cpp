@@ -17,12 +17,12 @@
 
 Brain::Brain()
 {
-	print_canon(std::string(__FUNCTION__), "Constructor");
+	// print_canon(std::string(__FUNCTION__), "Constructor");
 }
 
 Brain::~Brain()
 {
-	print_canon(std::string(__FUNCTION__), "Destructor");
+	// print_canon(std::string(__FUNCTION__), "Destructor");
 }
 
 Brain::Brain(const Brain & dummy)
@@ -69,10 +69,13 @@ void	Brain::makeSound() const
 
 // getter . setter
 
-const std::string	& Brain::getIdea(int i) const
+const std::string	* Brain::getIdea() const
 {
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-	
+	return m_idea;
+}
+
+const std::string	& Brain::getIdea(int i) const
+{	
 	/*
 	if (i < 0 || i >= B_SIZE)
 	{

@@ -8,7 +8,7 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                              Polymorphism 				      */
+/*                              Polymorphism 				                  */
 /*                              abstract classes                              */
 /*                              interfaces                                    */
 /*                                                                            */
@@ -27,18 +27,18 @@ Pure abstract classes are commonly called interfaces
 - Implement interfaces
 
 	- Complete the definition of the following AMateria
-	- implement the necessary member functions.
+	- implement the necessary member functions 
 
 ```
 class AMateria
 {
 
 	protected:
-		// [...]
+		[...]
 
 	public:
 		AMateria(std::string const & type);
-		// [...]
+		[...]
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
@@ -92,22 +92,18 @@ class ICharacter
 		
 		- inventory is empty at construction
 		- They equip the Materias in the first empty slot they find. 
-
 			- in this order: from slot 0 to slot 3. 
 				- In case they try to add a Materia to a full inventory, 
 				- or use/unequip an unexisting Materia, don’t do anything
 				(but still, bugs are forbidden). 
-		
 			- The unequip() member function must NOT delete the Materia!
 
 		- (Handle the Materias your character left on the floor as you like. (lightbulb))
 
 		- Save the addresses before calling unequip(), or anything else,
-		
 			- don’t forget that you have to avoid memory leaks.
 		
 		- The use(int, ICharacter & ) member function w
-		
 			- use the Materia at the slot[idx]
 			- pass the target parameter to the AMateria::use function.
 			
@@ -115,10 +111,8 @@ class ICharacter
 
 		- Your Character must have a constructor taking its name as a parameter. 
 		- Any copy (using copy constructor or copy assignment operator) of a Character must be deep.
-		
 			- During copy, the Materias of a Character must be deleted before the new ones are added
 				to inventory. 
-		
 		- Materias must be deleted when a Character is destroyed.
 
 	- interface prototype ( === Reprise === ):
@@ -159,15 +153,12 @@ class IMateriaSource
 
 
 		- • learnMateria(AMateria*)
-		
 			- Copies the Materia passed as a parameter and store it in memory 
 				- so it can be cloned later. 
-		
 			- Like the Character, the MateriaSource can know at most 4 Materias.
 				- They are not necessarily unique.
 
 		- • createMateria(std::string const &)
-		
 			- Returns a new Materia. 
 			- The latter is a copy of the Materia previously learned by
 					the MateriaSource whose type equals the one passed as parameter. 
@@ -175,9 +166,7 @@ class IMateriaSource
 
 		- your MateriaSource must be able to learn from "templates" of Materias to
 create them when needed. 
-		
 		- Then, you will be able to generate a new Materia 
-		
 			- using just a string that identifies its type.
 
 
@@ -301,7 +290,7 @@ It has one protected
 
 
 
-- These two derived classes must set their type-field depending on their name. 
+- These two derived classes must set their type field depending on their name. 
 	
 	- Dog’s type will be initialized to "Dog"
 	- Cat’s type will be initialized to "Cat".

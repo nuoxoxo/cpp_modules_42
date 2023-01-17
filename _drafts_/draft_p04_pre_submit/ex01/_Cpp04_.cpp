@@ -1,46 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   _Cpp04_.cpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:23 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "_Cpp04_.hpp"
 
-# define B_SIZE 100
-
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
-
-class	Brain
+void	print_canon(std::string funcName, std::string canonName)
 {
+	std::cout << LOWKEY << funcName << ' ' << canonName << called REST;
+}
 
-private:
-	std::string	m_idea[B_SIZE];
-
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
-
-	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
-
-};
-
-
-#endif
+void	print_ending(void)
+{
+	std::cout
+	<< LOWKEY nl 
+	<< ":::::::::::: end test ::::::::::::" nl2 REST;
+}

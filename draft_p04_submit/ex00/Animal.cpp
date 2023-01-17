@@ -10,37 +10,61 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
+#include "Animal.hpp"
 
-# define B_SIZE 100
+// canon
 
-# include "iostream"
-# include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
-
-class	Brain
+Animal::Animal() : m_type("(an animal)")
 {
+	print_canon(std::string(__FUNCTION__), "Constructor");
+}
 
-private:
-	std::string	m_idea[B_SIZE];
+Animal::~Animal()
+{
+	print_canon(std::string(__FUNCTION__), "Destructor");
+}
 
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+Animal::Animal(const Animal & dummy)
+{
+	*this = dummy;
 
-	// getter
+	print_canon(std::string(__FUNCTION__), "Copy constructor");
+
+}
+
+Animal & Animal::operator = (const Animal & dummy)
+{
+	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	this->m_type = dummy.m_type;
+	return (*this);
 
-};
+}
 
 
-#endif
+// param constructor
+
+Animal::Animal(std::string type) : m_type(type)
+{
+	print_canon(std::string(__FUNCTION__), "Parameter Constructor");
+
+}
+
+
+// method
+
+void	Animal::makeSound() const
+{
+	std::cout
+	<< m_type << ": " YELL "\"Pet sounds ~ \" " REST nl;
+}
+
+
+// getter
+
+std::string	Animal::getType() const
+{
+	print_canon(m_type + ":", std::string(__FUNCTION__));
+
+	return m_type;
+}

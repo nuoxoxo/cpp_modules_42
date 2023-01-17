@@ -10,36 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
 # include "_Cpp04_.hpp"
 
-class	Brain
+class	Animal
 {
 
-private:
-	std::string	m_idea[B_SIZE];
+protected: // Inheritance
+	std::string	m_type;
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+	Animal();
+	Animal(const Animal &);
+	Animal & operator = (const Animal &);
+
+	virtual	~Animal(); // Polymorphism
+
+	// param constructor
+	Animal(std::string);
 
 	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	std::string	getType() const;
 
+	// method
+	virtual void	makeSound() const; // Polymorphism
+
+	// notes
+	// why virtual destructor - q.v. x00
+	// why virtual functions - q.v. x00
 };
 
 

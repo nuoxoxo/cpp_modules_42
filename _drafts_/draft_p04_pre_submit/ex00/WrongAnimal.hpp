@@ -10,37 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include "iostream"
 # include "string"
-# include "cstdlib" // rand
 # include "_Cpp04_.hpp"
 
-class	Brain
+class	WrongAnimal
 {
 
-private:
-	std::string	m_idea[B_SIZE];
+protected:
+
+	std::string	m_type;
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+	WrongAnimal();
+	
+	WrongAnimal(const WrongAnimal &);
+	WrongAnimal & operator = (const WrongAnimal &);
+	
+	virtual	~WrongAnimal(); // note the `virtual` keyword here
+	
+	// overload
+	WrongAnimal(std::string);
 
 	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+	std::string	getType() const;
+
+	// method
+	virtual void	makeSound() const; // note the `virtual destructor`
 
 };
-
 
 #endif

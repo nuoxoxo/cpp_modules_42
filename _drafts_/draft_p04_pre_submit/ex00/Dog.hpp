@@ -10,37 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include "iostream"
 # include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
+# include "Animal.hpp"
 
-class	Brain
+
+class Dog : public Animal // note the `public` keyword
 {
-
-private:
-	std::string	m_idea[B_SIZE];
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+	Dog();
+	~Dog();
+	Dog(const Dog &);
+	Dog & operator = (const Dog &);
 
-	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
+	// method
 	void	makeSound() const;
 
 };
 
 
 #endif
+

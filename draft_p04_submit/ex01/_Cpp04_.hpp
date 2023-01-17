@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.cpp                                             :+:      :+:    :+:   */
+/*   _Cpp04_.hpp                                          :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/09 14:55:26 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef _CPP04__HPP
+# define _CPP04__HPP
 
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
-# include "_Cpp04_.hpp"
+# include "cassert"
 
-class	Brain
-{
 
-private:
-	std::string	m_idea[B_SIZE];
+void	print_canon(std::string, std::string);
+void	print_ending(void);
 
-public:
-	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+//	colors
 
-	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
-	void	makeSound() const;
+# define ITAL	"\033[3m"
+# define LOWKEY	"\033[0;2m"
+# define WHITE	"\033[1;37m"
+# define CYAN	"\033[0;36m"
+# define YELL	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RED	"\033[0;31m"
+# define MAG	"\033[0;35m"
 
-};
+# define REST	"\033[0;0m"
 
+
+//	formatting
+
+# define called " called\n"
+# define inside "\ninside "
+# define nl2 " \n\n"
+# define nl " \n"
 
 #endif

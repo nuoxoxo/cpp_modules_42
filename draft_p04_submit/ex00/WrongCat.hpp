@@ -10,37 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include "iostream"
 # include "string"
 # include "cstdlib" // rand
-# include "_Cpp04_.hpp"
 
-class	Brain
+# include "WrongAnimal.hpp"
+
+
+class WrongCat : public WrongAnimal // note the `public` keyword
 {
-
-private:
-	std::string	m_idea[B_SIZE];
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
+	WrongCat();
+	~WrongCat();
+	WrongCat(const WrongCat &);
+	WrongCat & operator = (const WrongCat &);
 
-	// getter
-	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
+	// method
 	void	makeSound() const;
 
 };
 
 
 #endif
+

@@ -10,22 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#include "Cat.hpp"
 
+// canon
 
-// canon	done
-
-Brain::Brain()
+Cat::Cat() : PureVirtualAnimal("Cat")
 {
-	print_canon(std::string(__FUNCTION__), "Constructor");
+	// print_canon(std::string(__FUNCTION__), "Constructor");
+
+	m_brain = new Brain(); // added Brain
 }
 
-Brain::~Brain()
+Cat::~Cat()
 {
-	print_canon(std::string(__FUNCTION__), "Destructor");
+	// print_canon(std::string(__FUNCTION__), "Destructor");
+
+	delete m_brain; // added Brain
 }
 
-Brain::Brain(const Brain & dummy)
+
+// copy
+
+Cat::Cat(const Cat & dummy)
 {
 	*this = dummy;
 
@@ -33,67 +39,42 @@ Brain::Brain(const Brain & dummy)
 
 }
 
-Brain & Brain::operator = (const Brain & dummy)
-{
-	int	i = -1;
-	
-	while (++i < B_SIZE)
-	{
-		m_idea[i] = dummy.m_idea[i];
-	}
 
+// copy assignement = 
+
+Cat & Cat::operator = (const Cat & dummy)
+{
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
+	
+	m_brain = new Brain(*dummy.m_brain); // added Brain
 
 	return (*this);
 
 }
 
+
 // method
 
-void	Brain::makeSound() const
+Brain	*Cat::brain() const
 {
-	std::string	sound_of_a_brain[3] = \
+	return m_brain;
+}
+
+void	Cat::makeSound() const
+{
+	std::string	sound_of_cats[3] = \
 	{
-		"\"tssstsss... (white noise) \"",
-		"\"pip!~ pip!~... (brainwave) \"", 
-		"\"tick, tock... (dr. manhattan) \""
+		"\"Mew ~~ \"",
+		"\"Meow ~~ \"", 
+		"\"Purr ~~ \""
 	};
 
 	int n = (int) rand() % 3;
 
-	std::cout
-	<< "some brain: " YELL
-	<< sound_of_a_brain[n] << REST nl;
+	// srand() debugger
+	// std::cout << r << ' ' << n << std::endl;
+
+	std::cout << m_type << ": " YELL << sound_of_cats[n] << REST nl;
 }
 
 
-// getter . setter
-
-const std::string	& Brain::getIdea(int i) const
-{
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-	
-	/*
-	if (i < 0 || i >= B_SIZE)
-	{
-		std::cout << "invalid index: " << i
-		<< ". valid range: 0 - " << B_SIZE << ". \n";
-		return (nullptr); // (??)
-	}
-
-	return m_idea[i];
-	*/
-
-	return m_idea[i % B_SIZE];
-}
-
-void	Brain::setIdea(int i, std::string s)
-{
-	if (i < 0 || i >= B_SIZE)
-	{
-		std::cout << "invalid index: " << i
-		<< ". valid range: 0 - " << B_SIZE << ". \n";
-		return ;
-	}
-	m_idea[i] = s;
-}

@@ -10,37 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-# define BRAIN_HPP
-
-# define B_SIZE 100
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include "iostream"
 # include "string"
-# include "cstdlib" // rand
-# include "_Cpp04_.hpp"
+# include "PureVirtualAnimal.hpp"
+# include "Brain.hpp"
 
-class	Brain
+
+class Cat : public PureVirtualAnimal // note the `public` keyword
 {
 
 private:
-	std::string	m_idea[B_SIZE];
+	Brain	*m_brain; // added Brain
 
 public:
 	// canon
-	Brain();
-	Brain(const Brain &);
-	Brain & operator = (const Brain &);
-	~Brain();
-
-	// getter
+	Cat();
+	~Cat();
+	Cat(const Cat &);
+	Cat & operator = (const Cat &);
 	
-	const std::string	& getIdea(int) const;
-	
-	void	setIdea(int, std::string);
+	// method
+	Brain	*brain() const;
 	void	makeSound() const;
 
 };
 
 
 #endif
+

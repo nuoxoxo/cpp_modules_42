@@ -34,13 +34,11 @@ public:
 	~Brain();
 
 	// getter
-	
 	const std::string	& getIdea(int) const;
 	
 	void	setIdea(int, std::string);
 	void	makeSound() const;
 
 };
-
 
 #endif
