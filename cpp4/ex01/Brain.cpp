@@ -69,13 +69,6 @@ void	Brain::makeSound() const
 
 // getter . setter
 
-const std::string	* Brain::getIdea() const
-{
-	// std::cout << LOWKEY << __FUNCTION__ << called REST;
-
-	return m_idea;
-}
-
 const std::string	& Brain::getIdea(int i) const
 {
 	// std::cout << LOWKEY << __FUNCTION__ << called REST;

@@ -27,7 +27,7 @@ public:
 	Animal(const Animal &);
 	Animal & operator = (const Animal &);
 
-	virtual	~Animal(); // Polymorphism	// Why virtual destructor -> vide infra
+	virtual	~Animal(); // Polymorphism	// Why virtual destructor . vide infra
 
 	// param constructor
 	Animal(std::string);
@@ -36,7 +36,7 @@ public:
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const;	// Polymorphism // Why virtual destructor -> vide infra
+	virtual void	makeSound() const;	// Polymorphism // Why virtual destructor . vide infra
 
 };
 

@@ -69,11 +69,6 @@ void	Brain::makeSound() const
 
 // getter . setter
 
-const std::string	* Brain::getIdea() const
-{
-	return m_idea;
-}
-
 const std::string	& Brain::getIdea(int i) const
 {	
 	/*
