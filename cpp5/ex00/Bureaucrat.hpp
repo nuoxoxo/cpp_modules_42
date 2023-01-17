@@ -17,8 +17,8 @@
 # include "string"
 # include "_Cpp05_.hpp"
 
-# define HI 150
-# define LO 1
+# define G_HIGH 150
+# define G_LOW 1
 
 class	Bureaucrat
 {
@@ -35,7 +35,7 @@ public:
 	Bureaucrat();
 	~Bureaucrat();
 	Bureaucrat(std::string, int);
-	Bureaucrat( Bureaucrat const & );
+	Bureaucrat(Bureaucrat const & );
 	Bureaucrat & operator = (Bureaucrat const & );
 
 
@@ -49,10 +49,24 @@ public:
 	void			gradeUp();
 	void			gradeDown();
 
+
+public:
+
+	// exception
+	class	GradeTooHighException : public std::exception
+	{
+		const char * what() const throw();
+	};
+
+	class	GradeTooLowException : public std::exception
+	{
+		const char * what() const throw();
+	};
 };
 
 
 std::ostream & operator << (std::ostream &, Bureaucrat const & );
+std::ostream & operator << (std::ostream &, Bureaucrat const * );
 
 
 #endif

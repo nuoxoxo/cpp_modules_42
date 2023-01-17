@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _Cpp04_.hpp                                          :+:      :+:    :+:   */
+/*   _Cpp05_.hpp                                        :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -15,6 +15,14 @@
 
 # include "iostream"
 # include "string"
+
+
+void	print_canon(std::string &, std::string &);
+void	print_ending(int);
+void	print_ending(void);
+void	print_ending(std::string &);
+void	print_ending(int, std::string &);
+
 
 //	colors
 
@@ -38,3 +46,5 @@
 # define nl " \n"
 
 #endif
+
+
