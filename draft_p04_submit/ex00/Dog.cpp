@@ -29,7 +29,6 @@ Dog & Dog::operator = (const Dog & dummy)
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 	
 	this->m_type = dummy.m_type;
-
 	return (*this);
 
 }

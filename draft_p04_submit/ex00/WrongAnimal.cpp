@@ -29,15 +29,13 @@ WrongAnimal::WrongAnimal(const WrongAnimal & dummy)
 	*this = dummy;
 
 	print_canon(std::string(__FUNCTION__), "Copy constructor");
-
 }
 
 WrongAnimal & WrongAnimal::operator = (const WrongAnimal & dummy)
 {
-	this->m_type = dummy.m_type;
-
 	print_canon(std::string(__FUNCTION__), "Copy assignment constructor");
 
+	this->m_type = dummy.m_type;
 	return (*this);
 
 }
@@ -45,7 +43,6 @@ WrongAnimal & WrongAnimal::operator = (const WrongAnimal & dummy)
 WrongAnimal::WrongAnimal(std::string type) : m_type(type)
 {
 	print_canon(std::string(__FUNCTION__), "Parameter Constructor");
-
 }
 
 // method
