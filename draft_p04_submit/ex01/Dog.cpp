@@ -14,7 +14,7 @@
 
 // canon
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("(a dog)")
 {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 

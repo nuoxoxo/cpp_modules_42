@@ -47,11 +47,11 @@ int	main()
 		num_dogs = num_cats = 0;
 		while (++i < B_SIZE)
 		{
-			if (gang[i]->getType() == "Cat")
+			if (gang[i]->getType() == "(a cat)")
 			{
 				++num_cats;
 			}
-			else if (gang[i]->getType() == "Dog")
+			else if (gang[i]->getType() == "(a dog)")
 			{
 				++num_dogs;
 			}
