@@ -22,6 +22,7 @@ class Dog : public Animal // note the `public` keyword
 {
 
 public:
+
 	// canon
 	Dog();
 	~Dog();
