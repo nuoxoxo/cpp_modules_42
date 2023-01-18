@@ -19,8 +19,8 @@
 // default
 Form::Form() : m_name("(some form)"),
 	m_isSigned(false),
-	m_gradeRequiredSign(150),
-	m_gradeRequiredExec(150) {}
+	m_gradeRequiredSign(G_LOW),
+	m_gradeRequiredExec(G_LOW) {}
 
 Form::~Form() {}
 
@@ -76,7 +76,7 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 	<< RESET nl
 	///*
 	<< "min to sign: " CYAN << form.getGradeRequiredSign() << RESET nl
-	<< "min to exec: " CYAN << form.getGradeRequiredExec() << RESET;
+	<< "min to exec: " CYAN << form.getGradeRequiredExec() << RESET nl2;
 	//*/
 	return (ostream);
 }
@@ -104,6 +104,8 @@ void	Form::beSigned(const Bureaucrat & mec)
 		return ;
 	}
 	m_isSigned = true;
+
+	// (?) no comparison needed w/ gradeRequiredExec 
 }
 
 

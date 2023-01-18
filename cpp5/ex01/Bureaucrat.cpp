@@ -13,9 +13,25 @@
 #include "_Cpp05_.hpp"
 #include "Bureaucrat.hpp"
 
+// new arrival
+
+void	Bureaucrat::signForm(Form & form) const // new
+{
+	try {
+		form.beSigned(*this);
+		std::cout << m_name
+		<< " signed " << form.getName() << GREEN" ✓"RESET nl;
+	} catch (const std::exception & e) {
+		std::cout << m_name 
+		<< " couldn't sign " << form.getName() << RED" ✘"RESET
+		<< " because : " << e.what() << std::endl;
+	}
+}
+
+
 // canon
 
-Bureaucrat::Bureaucrat() : m_name("(some bureaucrat)"), m_grade(150) {}
+Bureaucrat::Bureaucrat() : m_name("(some bureaucrat)"), m_grade(G_LOW) {}
 Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(const Bureaucrat & dummy) : m_name(dummy.m_name)
