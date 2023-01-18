@@ -27,15 +27,16 @@ class	Bureaucrat
 private:
 
 	const std::string	m_name;
-	int			m_grade;
+	unsigned int		m_grade;
 
 
 public:
 	
 	// canon
+
 	Bureaucrat();
 	~Bureaucrat();
-	Bureaucrat(std::string, int);
+	Bureaucrat(std::string, unsigned int);
 	Bureaucrat(Bureaucrat const & );
 	Bureaucrat & operator = (Bureaucrat const & );
 
@@ -43,17 +44,21 @@ public:
 public:
 
 	// getter
-	std::string const &	getName() const;
-	int			getGrade() const;
+
+	const std::string &	getName() const;
+	unsigned int		getGrade() const;
 
 	// methods
+	
 	void			gradeUp();
 	void			gradeDown();
+	void			signForm(Form &) const; // added
 
 
 public:
 
 	// exception
+	
 	class	GradeTooHighException : public std::exception
 	{
 		const char * what() const throw();
@@ -65,6 +70,8 @@ public:
 	};
 };
 
+
+// ostream overload
 
 std::ostream & operator << (std::ostream &, Bureaucrat const & );
 std::ostream & operator << (std::ostream &, Bureaucrat const * );

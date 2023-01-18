@@ -2,9 +2,9 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main.cpp \
+src		:=	Bureaucrat.cpp \
 			_Cpp05_.cpp \
-			Bureaucrat.cpp 
+			main.cpp
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)
