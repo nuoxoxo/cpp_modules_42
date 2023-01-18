@@ -35,7 +35,7 @@ void	print_ending(int, const std::string);
 # define RED	"\033[0;31m"
 # define MAG	"\033[0;35m"
 
-# define REST	"\033[0;0m"
+# define RESET	"\033[0;0m"
 
 
 //	formatting

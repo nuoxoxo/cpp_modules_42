@@ -98,12 +98,12 @@ void	Bureaucrat::gradeDown()
 
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (CYAN "Error: Grade too low. \n" REST);
+	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
 const char * Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (YELL "Error: Grade too high. \n" REST)
+	return (YELL "Error: Grade too high. \n" RESET)
 	;
 }
 

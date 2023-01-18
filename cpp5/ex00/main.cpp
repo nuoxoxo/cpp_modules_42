@@ -5,12 +5,16 @@ int	main()
 {
 	int	count = 0;
 	
+	std::cout
+	<< nl GREEN ":::::: end test 6 (for loop) :::::: \n" RESET nl2;
+	
 	{
 		// % nofunc()
 		// % try (nofunc()) catch(error) {console.log('here')}
 		// % try (nofunc()) catch(e) {console.log(e)}
 		// % try:\ print(iota) except print(':-D')
 	}
+	
 	{
 		Bureaucrat	*anonymous = new Bureaucrat();
 
@@ -27,7 +31,9 @@ int	main()
 
 		delete anonymous;
 	}
+	
 	print_ending(++count);
+	
 	{
 		try {
 			Bureaucrat jeffe("Jeffe", -1);	
@@ -36,7 +42,9 @@ int	main()
 			std::cout << e.what();
 		}
 	}
+	
 	print_ending(++count, "grade < 0");
+	
 	{
 		try {
 			Bureaucrat jeffe("Jeffe", 1);	
@@ -44,6 +52,7 @@ int	main()
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
+		
 		try {
 			Bureaucrat jeffe("Jeffe", 1);	
 			jeffe.gradeUp();
@@ -52,7 +61,9 @@ int	main()
 			std::cout << e.what();
 		}
 	}
+	
 	print_ending(++count, "decrement");
+	
 	{
 		try {
 			Bureaucrat jorge("Jorge", 150);
@@ -60,6 +71,7 @@ int	main()
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
+		
 		try {
 			Bureaucrat jorge("Jorge", 149);
 			std::cout << jorge;
@@ -71,7 +83,9 @@ int	main()
 			std::cout << e.what();
 		}
 	}
+	
 	print_ending(++count, "increment");
+	
 	{
 		try {
 			Bureaucrat rojas_("Rojas", 150);
@@ -80,6 +94,7 @@ int	main()
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
+		
 		try {
 			Bureaucrat rojas_("Rojas", 149);	
 			Bureaucrat rojas(rojas_);
@@ -91,12 +106,16 @@ int	main()
 		} catch (std::exception & e) {
 			std::cout << e.what();
 		}
+		
 		// std::cout << rojas_; // out of scope
 		// std::cout << rojas; // out of scope
 	}
+	
 	print_ending(++count, "idem + copy constr");
+	
 	{
 		int	level = 5;
+
 		try {
 			Bureaucrat mec("mec", level);
 			
@@ -110,5 +129,6 @@ int	main()
 			std::cout << outburst.what();
 		}
 	}
+	
 	print_ending(++count, "for loop");
 }

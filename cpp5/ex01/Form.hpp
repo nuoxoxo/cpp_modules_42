@@ -18,4 +18,6 @@
 
 class	Form; // added
 
+// m_isSigned
+
 #endif
