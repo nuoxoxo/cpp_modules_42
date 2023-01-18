@@ -14,6 +14,8 @@ int	main()
 		std::cout << jim << ron << nl << bail;
 		jim.signForm(bail);
 		ron.signForm(bail);
+
+		std::cout << bail;
 	}
 	
 	print_ending(++count, "one can the other cannot");
@@ -40,6 +42,7 @@ int	main()
 			std::cerr << e.what () << nl;
 		}
 
+		std::cout << paper;
 		delete alex;
 
 	}
@@ -87,7 +90,7 @@ int	main()
 		} catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
-		
+	
 		// std::cout << valid << nl; // (?) out of scope
 	}
 	

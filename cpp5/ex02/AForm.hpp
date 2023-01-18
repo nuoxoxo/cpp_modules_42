@@ -10,59 +10,52 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include "_Cpp05_.hpp"
 # include "Bureaucrat.hpp"
 
-class	Bureaucrat; // added
+class	Bureaucrat;
 
 class	AForm
 {
 
 private:
 
+	AForm(); // Added
 	const std::string	m_name;
 	bool			m_isSigned;
 	const unsigned int	m_gradeRequiredSign;
 	const unsigned int	m_gradeRequiredExec;
 
 public:
-	
-	// AForm
-	
+
+	// canon
 	AForm();
-	~AForm();
 	AForm(AForm const &);
 	AForm & operator = (AForm const & );
 	AForm(std::string, unsigned int _2sign_, unsigned int _2exec_);
 
+	virtual	~AForm(); // added keyword *
 
-	// Exception
-	/*class	GradeTooHighException : public std::exception
+	// exceptions
+	class	FormUnsignedException : public std::exception
 	{
-		const char * what() const throw();
+		const char * what() const throw(); // added exception *
 	};
 
-	class	GradeTooLowException : public std::exception
-	{
-		const char * what() const throw();
-	};*/
 
-	class	GradeTooHighException : public std::exception
-	{
+	class	GradeTooHighException : public std::exception {
 		const char * what() const throw();
 	};
 	
-	class	GradeTooLowException : public std::exception
-	{
+	class	GradeTooLowException : public std::exception {
 		const char * what() const throw();
 	};
 
 
-	// Getters  // added
-
+	// getters
 	const std::string &	getName() const;
 	unsigned int		getGradeRequiredSign() const;
 	unsigned int		getGradeRequiredExec() const;
@@ -71,7 +64,8 @@ public:
 
 	// method
 
-	void			beSigned(const Bureaucrat &);
+	virtual void	execute(const Bureaucrat &); // added virtual func
+	void		beSigned(const Bureaucrat &);
 
 };
 

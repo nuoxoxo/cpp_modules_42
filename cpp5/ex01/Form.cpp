@@ -18,7 +18,6 @@
 
 // default
 Form::Form() : m_name("(some form)"),
-	m_isSigned(false),
 	m_gradeRequiredSign(G_LOW),
 	m_gradeRequiredExec(G_LOW) {}
 
