@@ -6,7 +6,7 @@ int	main()
 	int	count = 0;
 	
 	std::cout
-	<< nl GREEN ":::::: end test 6 (for loop) :::::: \n" RESET nl2;
+	<< nl GREEN ":::::::::::: tests start :::::::::::: \n" RESET nl2;
 	
 	{
 		// % nofunc()
@@ -14,6 +14,20 @@ int	main()
 		// % try (nofunc()) catch(e) {console.log(e)}
 		// % try:\ print(iota) except print(':-D')
 	}
+	{
+		Bureaucrat	alex("Alex", 21);
+		Bureaucrat	eric(alex);
+		Bureaucrat	oscar("Oscar", 42);
+
+		std::cout << alex << eric << oscar << nl;
+		
+		alex = oscar; // only non const member attributes swapped
+
+		std::cout << alex << eric << oscar;
+
+	}	
+
+	print_ending(++count, "& and =, constructors, ostream");
 	
 	{
 		Bureaucrat	*anonymous = new Bureaucrat();

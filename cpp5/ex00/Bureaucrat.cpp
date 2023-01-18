@@ -29,6 +29,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat & dummy) : m_name(dummy.m_name)
 
 Bureaucrat & Bureaucrat::operator = (Bureaucrat const & dummy )
 {
+
 	m_grade = dummy.m_grade;
 	return (*this);
 }
