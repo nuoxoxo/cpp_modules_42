@@ -33,6 +33,7 @@ private:
 public:
 	
 	// canon
+
 	Bureaucrat();
 	~Bureaucrat();
 	Bureaucrat(std::string, int);
@@ -43,17 +44,21 @@ public:
 public:
 
 	// getter
+
 	std::string const &	getName() const;
 	int			getGrade() const;
 
 	// methods
+	
 	void			gradeUp();
 	void			gradeDown();
+	void			signForm(Form &) const; // added
 
 
 public:
 
 	// exception
+	
 	class	GradeTooHighException : public std::exception
 	{
 		const char * what() const throw();
@@ -65,6 +70,8 @@ public:
 	};
 };
 
+
+// ostream overload
 
 std::ostream & operator << (std::ostream &, Bureaucrat const & );
 std::ostream & operator << (std::ostream &, Bureaucrat const * );
