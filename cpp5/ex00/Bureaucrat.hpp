@@ -42,7 +42,7 @@ public:
 
 	// getter
 	
-	std::string const &	getName() const;
+	const std::string &	getName() const;
 	unsigned int		getGrade() const;
 
 	// methods

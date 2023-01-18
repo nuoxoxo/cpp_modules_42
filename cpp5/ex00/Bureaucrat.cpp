@@ -13,7 +13,11 @@
 #include "_Cpp05_.hpp"
 #include "Bureaucrat.hpp"
 
+
 // canon
+
+// const std::string	m_name;
+// unsigned int		m_grade;
 
 Bureaucrat::Bureaucrat() : m_name("(some bureaucrat)"), m_grade(150) {}
 Bureaucrat::~Bureaucrat() {}
@@ -45,6 +49,9 @@ Bureaucrat::Bureaucrat(std::string s, unsigned int G)
 
 // overloading the `<<`
 
+// std::ostream & operator << (std::ostream &, Bureaucrat const & );
+// std::ostream & operator << (std::ostream &, Bureaucrat const * );
+
 std::ostream & operator << (std::ostream & ostream, Bureaucrat const & person)
 {
 	ostream
@@ -65,7 +72,7 @@ std::ostream & operator << (std::ostream & ostream, Bureaucrat const * person)
 
 // getter
 
-std::string const & Bureaucrat::getName() const
+const std::string & Bureaucrat::getName() const
 {
 	return (m_name);
 }
@@ -96,6 +103,19 @@ void	Bureaucrat::gradeDown()
 	}
 }
 
+
+// overloading the ostream
+
+/*
+class	GradeTooHighException : public std::exception {
+	const char * what() const throw();
+};
+
+class	GradeTooLowException : public std::exception {
+	const char * what() const throw();
+};
+*/
+
 const char * Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
@@ -106,6 +126,5 @@ const char * Bureaucrat::GradeTooHighException::what() const throw()
 	return (YELL "Error: Grade too high. \n" RESET)
 	;
 }
-
 
 
