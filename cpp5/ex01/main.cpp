@@ -7,7 +7,9 @@ int	main()
 	int	count = 0;
 	
 	{
-		Form	form("form", 42);
+		Form	bail("bail", 42, 12);
+
+		std::cout << bail;
 	}
 	print_ending(++count, "default");
 }

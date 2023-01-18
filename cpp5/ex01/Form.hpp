@@ -24,9 +24,9 @@ class	Form
 private:
 
 	const std::string	m_name;
-	const int		m_gradeRequiredSign;
-	const int		m_gradeRequiredExec;
 	bool			m_isSigned;
+	const unsigned int	m_gradeRequiredSign;
+	const unsigned int	m_gradeRequiredExec;
 
 public:
 	
@@ -36,19 +36,28 @@ public:
 	~Form();
 	Form(Form const &);
 	Form & operator = (Form const & );
-	Form(std::string, unsigned int, unsigned int);
+	Form(std::string, unsigned int _2sign_, unsigned int _2exec_);
 
 
 	// Exception
+	/*class	GradeTooHighException : public std::exception
+	{
+		const char * what() const throw();
+	};
+
+	class	GradeTooLowException : public std::exception
+	{
+		const char * what() const throw();
+	};*/
 
 	class	GradeTooHighException : public std::exception
 	{
-		const char* what() const throw();
+		const char * what() const throw();
 	};
 	
 	class	GradeTooLowException : public std::exception
 	{
-		const char* what() const throw();
+		const char * what() const throw();
 	};
 
 
