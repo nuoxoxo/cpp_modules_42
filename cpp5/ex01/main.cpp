@@ -38,18 +38,21 @@ int	main()
 		std::cout << alex << nl << paper;
 		try {
 			alex->signForm(paper);
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what () << nl;
 		}
 		try {
 			alex->gradeUp();
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what () << nl;
 		}
 		std::cout << alex << nl << paper;
 		try {
 			alex->signForm(paper);
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what () << nl;
 		}
 
@@ -77,29 +80,33 @@ int	main()
 		
 			std::cout << b << nl;
 		
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
 		
 		try {
 			Form	c("C", 10, 0);
 			std::cout << c << nl;
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
 		
 		try {
 			Form	d("D", 10, 151);
 			std::cout << d << nl;
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what () << nl; 
 		}
 		
 		try {
 			Form	why("whyIsThisSigned", 1, 150);
 			std::cout << why;
-			std::cout << "debugging isSigned:" << why.getIsSigned() << nl2;
-		} catch (std::exception & e) {
+			//std::cout << "debugging isSigned:" << why.getIsSigned() << nl2;
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
 
@@ -107,11 +114,12 @@ int	main()
 			Form	*why = new Form();
 			
 			std::cout << why;
-			std::cout << "debugging isSigned:" << why->getIsSigned() << nl2;
+			//std::cout << "debugging isSigned:" << why->getIsSigned() << nl2;
 			
 			delete why;
 
-		} catch (std::exception & e) {
+		}
+		catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
 

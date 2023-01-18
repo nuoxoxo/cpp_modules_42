@@ -14,12 +14,12 @@
 # define BUREAUCRAT_HPP
 
 # include "_Cpp05_.hpp"
-# include "AForm.hpp" // added
+# include "AForm.hpp"
 
 # define G_HIGH 1
 # define G_LOW 150
 
-class	AForm; // added
+class	AForm; // added last ex as `class From`
 
 class	Bureaucrat
 {
@@ -43,21 +43,22 @@ public:
 
 public:
 
-	// getter
+	// getters
 
 	const std::string &	getName() const;
 	unsigned int		getGrade() const;
 
 	// methods
-	
-	void			gradeUp();
-	void			gradeDown();
-	void			signAForm(AForm &) const; // added
+
+	void	gradeUp();
+	void	gradeDown();
+	void	signForm(AForm &) const;
+	void	executeForm(AForm &) const; // added
 
 
 public:
 
-	// exception
+	// exceptions
 	
 	class	GradeTooHighException : public std::exception
 	{

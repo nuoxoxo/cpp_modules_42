@@ -15,7 +15,23 @@
 
 // new arrival
 
-void	Bureaucrat::signAForm(AForm & form) const // new
+void	Bureaucrat::executeDoc(AForm & form) const // new
+{
+	try {
+		form.execute(*this);
+		std::cout << m_name
+		<< " executed " << document.getName() << GREEN" ✓"RESET nl;
+	}
+	catch(const std::exception & e)
+	{
+		std::cout << m_name
+		<< " couldn't execute " << form.getName() << RED" ✘"RESET
+		<< " because : " << e.what() << std::endl;
+	}
+}
+
+
+void	Bureaucrat::signForm(AForm & form) const
 {
 	try {
 		form.beSigned(*this);
