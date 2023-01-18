@@ -10,23 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "AForm.hpp"
 
-# include "Form.hpp"
-
-
-/* orthodox canon */
 
 // default
-Form::Form() : m_name("(some form)"),
-	m_isSigned(), // if !explicitly-initialized, will be set arbitrarily
+AForm::AForm() :
+	m_name("(some form)"),
 	m_gradeRequiredSign(G_LOW),
 	m_gradeRequiredExec(G_LOW) {}
 
-Form::~Form() {}
+AForm::~AForm() {}
 
 
 /// default copy constr
-Form::Form(Form const & dummy) : m_name(dummy.m_name),
+AForm::AForm(AForm const & dummy) :
+	m_name(dummy.m_name),
+	m_isSigned();
 	m_gradeRequiredSign(dummy.m_gradeRequiredSign),
 	m_gradeRequiredExec(dummy.m_gradeRequiredExec)
 {
@@ -35,23 +34,18 @@ Form::Form(Form const & dummy) : m_name(dummy.m_name),
 
 
 // = operatr
-Form & Form::operator = (Form const & dummy)
+AForm & AForm::operator = (AForm const & dummy)
 {
     (bool &) m_isSigned = dummy.m_isSigned;
-
-    // {!} constant, thus not to copy the following
-    // 
-    // (unsigned int &) m_gradeforSigner = dummy.m_gradeforSigner;
-    // (unsigned int &) m_gradeforExec = dummy.m_gradeforExec;
     
     return (*this);
 }
 
 
 // constructor overloaded
-Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
+AForm::AForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	m_name(name),
-	m_isSigned(), // if !explicitly-init, will be set arbitrarily
+	m_isSigned(),
 	m_gradeRequiredSign(_sign_),
 	m_gradeRequiredExec(_exec_)
 {
@@ -59,6 +53,7 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	{
 		throw (GradeTooLowException());
 	}
+
 	if (_sign_ < G_HIGH || _exec_ < G_HIGH)
 	{
 		throw (GradeTooHighException());
@@ -67,10 +62,10 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 
 
 // ostream overloaded
-std::ostream & operator << (std::ostream & ostream, Form const & form)
+std::ostream & operator << (std::ostream & ostream, AForm const & form)
 {
 	ostream
-	<< "Form: " GREEN << form.getName() << RESET nl
+	<< "AForm: " GREEN << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -81,22 +76,38 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 	return (ostream);
 }
 
-std::ostream & operator << (std::ostream & ostream, Form const * form)
+std::ostream & operator << (std::ostream & ostream, AForm const * form)
 {
 	ostream
-	<< "Form: " GREEN << form->getName() << RESET nl
+	<< "AForm: " GREEN << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
 	///*
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
-	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET nl2;
+	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
 	//*/
 	return (ostream);
 }
 
+
 //	method
-void	Form::beSigned(const Bureaucrat & mec)
+
+//	new arrival
+void	AForm::execute(Bureaucrat const & mec) const // new
+{
+	if (!m_isSigned)
+	{
+		throw FormUnsignedException();
+	}
+	
+	if (m_gradeRequiredExec < mec.getGrade())
+	{
+		throw GradeTooLowException();
+	}
+}
+
+void	AForm::beSigned(const Bureaucrat & mec)
 {
 	if (mec.getGrade() > m_gradeRequiredSign)
 	{
@@ -110,12 +121,13 @@ void	Form::beSigned(const Bureaucrat & mec)
 
 
 // exception
-const char * Form::GradeTooLowException::what() const throw()
+const char * AForm::GradeTooLowException::what() const throw()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+
+const char * AForm::GradeTooHighException::what() const throw()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;
@@ -123,31 +135,21 @@ const char * Form::GradeTooHighException::what() const throw()
 
 
 // getter
-/*
-const std::string &	getName() const;
-unsigned int		getGradeRequiredSign() const;
-unsigned int		getGradeRequiredExec() const;
-bool			getIsSigned() const; */
-
-const std::string & Form::getName() const
-{
-	return (m_name);
-}
 
 
-unsigned int	Form::getGradeRequiredSign() const
-{
+const	std::string & AForm::getName() const {return (m_name);}
+
+
+bool	AForm::getIsSigned() const {return m_isSigned;}
+
+
+unsigned int	AForm::getGradeRequiredSign() const {
 	return (m_gradeRequiredSign);
 }
 
-unsigned int	Form::getGradeRequiredExec() const
-{
-	return (m_gradeRequiredExec);
-}
 
-bool	Form::getIsSigned() const
-{
-	return m_isSigned;
+unsigned int	AForm::getGradeRequiredExec() const {
+	return (m_gradeRequiredExec);
 }
 
 
