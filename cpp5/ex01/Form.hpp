@@ -14,10 +14,25 @@
 # define FORM_HPP
 
 # include "_Cpp05_.hpp"
-# include "Bureaucrat.hpp" // added
+# include "Bureaucrat.hpp"
 
-class	Form; // added
+class	Bureaucrat; // added
 
-// m_isSigned
+class	Form
+{
+
+private:
+
+	const std::string	m_name;
+	const int		m_gradeRequiredSign;
+	const int		m_gradeRequiredExec;
+	bool			m_isSigned;
+
+public:
+
+	Form();
+	Form(str::string, int)
+
+}
 
 #endif
