@@ -18,6 +18,7 @@
 
 // default
 Form::Form() : m_name("(some form)"),
+	m_isSigned(), // if !explicitly-initialized, will be set arbitrarily
 	m_gradeRequiredSign(G_LOW),
 	m_gradeRequiredExec(G_LOW) {}
 
@@ -50,7 +51,7 @@ Form & Form::operator = (Form const & dummy)
 // constructor overloaded
 Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	m_name(name),
-	m_isSigned(false),
+	m_isSigned(), // if !explicitly-init, will be set arbitrarily
 	m_gradeRequiredSign(_sign_),
 	m_gradeRequiredExec(_exec_)
 {
@@ -89,7 +90,7 @@ std::ostream & operator << (std::ostream & ostream, Form const * form)
 	<< RESET nl
 	///*
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
-	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
+	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET nl2;
 	//*/
 	return (ostream);
 }

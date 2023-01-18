@@ -7,6 +7,17 @@ int	main()
 	int	count = 0;
 	
 	{
+		Form	*a = new Form();
+		Form	b("B", 42, 42);
+		Form	c(b);
+		Form	d = c;
+
+		std::cout << a << b << c << d << std::endl;
+	}
+	
+	print_ending(++count, "constructors");
+	
+	{
 		Bureaucrat	jim("Jim", 21);
 		Bureaucrat	ron("Ron", 43);
 		Form		bail("form", 42, 12);
@@ -18,7 +29,7 @@ int	main()
 		std::cout << bail;
 	}
 	
-	print_ending(++count, "one can the other cannot");
+	print_ending(++count, "one signs the other cannot");
 
 	{
 		Bureaucrat	*alex = new Bureaucrat();
@@ -85,15 +96,29 @@ int	main()
 		}
 		
 		try {
-			Form	valid("V", 1, 150);
-			std::cout << valid << nl;
+			Form	why("whyIsThisSigned", 1, 150);
+			std::cout << why;
+			std::cout << "debugging isSigned:" << why.getIsSigned() << nl2;
 		} catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
-	
+
+		try {
+			Form	*why = new Form();
+			
+			std::cout << why;
+			std::cout << "debugging isSigned:" << why->getIsSigned() << nl2;
+			
+			delete why;
+
+		} catch (std::exception & e) {
+			std::cerr << e.what ();
+		}
+
 		// std::cout << valid << nl; // (?) out of scope
 	}
 	
 	print_ending(++count, "cerr . invalid form");
-	
+
+
 }

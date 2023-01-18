@@ -18,7 +18,6 @@
 
 // default
 AForm::AForm() : m_name("(some form)"),
-	m_isSigned(false),
 	m_gradeRequiredSign(G_LOW),
 	m_gradeRequiredExec(G_LOW) {}
 
@@ -51,7 +50,6 @@ AForm & AForm::operator = (AForm const & dummy)
 // constructor overloaded
 AForm::AForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	m_name(name),
-	m_isSigned(false),
 	m_gradeRequiredSign(_sign_),
 	m_gradeRequiredExec(_exec_)
 {
