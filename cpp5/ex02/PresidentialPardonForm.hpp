@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-# define AFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
 # include "_Cpp05_.hpp"
-# include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class	Bureaucrat;
-
-class	AForm
+class	PresidentialPardonForm : public AForm
 {
 
 private:
@@ -63,10 +61,9 @@ public:
 
 
 	// method
-	
+
+	virtual void	execute(const Bureaucrat &); // added virtual func
 	void		beSigned(const Bureaucrat &);
-	// added virtual func
-	virtual void	execute(const Bureaucrat &); const = 0;
 
 };
 
