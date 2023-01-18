@@ -1,4 +1,5 @@
 #include "_Cpp05_.hpp"
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
 int	main()
@@ -6,10 +7,7 @@ int	main()
 	int	count = 0;
 	
 	{
-		// % nofunc()
-		// % try (nofunc()) catch(error) {console.log('here')}
-		// % try (nofunc()) catch(e) {console.log(e)}
-		// % try:\ print(iota) except print(':-D')
+		Form	form("form", 42);
 	}
-	print_ending(++count);
+	print_ending(++count, "default");
 }

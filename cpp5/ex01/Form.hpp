@@ -29,10 +29,46 @@ private:
 	bool			m_isSigned;
 
 public:
-
+	
+	// Form
+	
 	Form();
-	Form(str::string, int)
+	~Form();
+	Form(Form const &);
+	Form & operator = (Form const & );
+	Form(std::string, unsigned int, unsigned int);
 
-}
+
+	// Exception
+
+	class	GradeTooHighException : public std::exception
+	{
+		const char* what() const throw();
+	};
+	
+	class	GradeTooLowException : public std::exception
+	{
+		const char* what() const throw();
+	};
+
+
+	// Getters  // added
+
+	const std::string &	getName() const;
+	unsigned int		getGradeRequiredSign() const;
+	unsigned int		getGradeRequiredExec() const;
+	bool			getIsSigned() const;
+
+
+	// method
+
+	void			beSigned(const Bureaucrat &);
+
+};
+
+
+std::ostream & operator << ( std::ostream &, Form const &);
+std::ostream & operator << ( std::ostream &, Form const *);
+
 
 #endif

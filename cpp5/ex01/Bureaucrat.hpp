@@ -27,7 +27,7 @@ class	Bureaucrat
 private:
 
 	const std::string	m_name;
-	int			m_grade;
+	unsigned int		m_grade;
 
 
 public:
@@ -36,7 +36,7 @@ public:
 
 	Bureaucrat();
 	~Bureaucrat();
-	Bureaucrat(std::string, int);
+	Bureaucrat(std::string, unsigned int);
 	Bureaucrat(Bureaucrat const & );
 	Bureaucrat & operator = (Bureaucrat const & );
 
@@ -45,8 +45,8 @@ public:
 
 	// getter
 
-	std::string const &	getName() const;
-	int			getGrade() const;
+	const std::string &	getName() const;
+	unsigned int		getGrade() const;
 
 	// methods
 	

@@ -29,7 +29,8 @@ Bureaucrat & Bureaucrat::operator = (Bureaucrat const & dummy )
 	return (*this);
 }
 
-Bureaucrat::Bureaucrat(std::string s, int G) : m_name(s), m_grade(G)
+Bureaucrat::Bureaucrat(std::string s, unsigned int G)
+: m_name(s), m_grade(G)
 {
 	if (m_grade < G_HIGH)
 	{
@@ -64,12 +65,12 @@ std::ostream & operator << (std::ostream & ostream, Bureaucrat const * person)
 
 // getter
 
-std::string const & Bureaucrat::getName() const
+const std::string & Bureaucrat::getName() const
 {
 	return (m_name);
 }
 
-int	Bureaucrat::getGrade() const
+unsigned int	Bureaucrat::getGrade() const
 {
 	return (m_grade);
 }
@@ -80,7 +81,6 @@ int	Bureaucrat::getGrade() const
 void	Bureaucrat::gradeUp()
 {
 	print_canon(std::string(__FUNCTION__), "method");
-	// print_canon(std::string(__FUNCTION__), "Parameter Constructor");
 	if (--m_grade < G_HIGH)
 	{
 		throw( GradeTooHighException() );
