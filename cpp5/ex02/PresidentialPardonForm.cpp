@@ -52,7 +52,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	operator << (ostream, (AForm const &) form);
 	/*
 	ostream
-	<< "PresidentialPardonForm: " GREEN << form.getName() << RESET nl
+	<< "PresidentialPardonForm: " YELL << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -68,7 +68,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	operator << (ostream, (AForm const *) form);
 	/*
 	ostream
-	<< "PresidentialPardonForm: " GREEN << form->getName() << RESET nl
+	<< "PresidentialPardonForm: " YELLO << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -86,6 +86,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & undertaker) const
 {
 	AForm::execute(undertaker); // handling exception really
 
-	std::cout << m_target << " has been pardoned by Zaphod Beeblebrox." nl;
+	std::cout << m_target << YELL " has been pardoned by Zaphod Beeblebrox." TICK nl2;
 }
+
 

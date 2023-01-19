@@ -65,7 +65,7 @@ AForm::AForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
 std::ostream & operator << (std::ostream & ostream, AForm const & form)
 {
 	ostream
-	<< "AForm: " GREEN << form.getName() << RESET nl
+	<< "AForm: " YELL << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -79,13 +79,13 @@ std::ostream & operator << (std::ostream & ostream, AForm const & form)
 std::ostream & operator << (std::ostream & ostream, AForm const * form)
 {
 	ostream
-	<< "AForm: " GREEN << form->getName() << RESET nl
+	<< "AForm: " YELLO << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
 	///*
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
-	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
+	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET nl2;
 	//*/
 	return (ostream);
 }
@@ -121,11 +121,17 @@ void	AForm::beSigned(const Bureaucrat & mec)
 
 
 // exception
+
+// new
+const char * AForm::FormUnsignedException::what() const throw()
+{
+	return (CYAN "Error: Unsigned. \n" RESET);
+}
+
 const char * AForm::GradeTooLowException::what() const throw()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
-
 
 const char * AForm::GradeTooHighException::what() const throw()
 {

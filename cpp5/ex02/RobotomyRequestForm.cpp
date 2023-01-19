@@ -53,7 +53,7 @@ std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const & 
 	operator << (ostream, (AForm const &) form);
 	/*
 	ostream
-	<< "RobotomyRequestForm: " GREEN << form.getName() << RESET nl
+	<< "RobotomyRequestForm: " YELL << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -69,7 +69,7 @@ std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const * 
 	operator << (ostream, (AForm const *) form);
 	/*
 	ostream
-	<< "RobotomyRequestForm: " GREEN << form->getName() << RESET nl
+	<< "RobotomyRequestForm: " YELLO << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl

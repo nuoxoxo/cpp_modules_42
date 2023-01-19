@@ -70,7 +70,7 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 std::ostream & operator << (std::ostream & ostream, Form const & form)
 {
 	ostream
-	<< "Form: " GREEN << form.getName() << RESET nl
+	<< "Form: " YELL << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -84,7 +84,7 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 std::ostream & operator << (std::ostream & ostream, Form const * form)
 {
 	ostream
-	<< "Form: " GREEN << form->getName() << RESET nl
+	<< "Form: " YELLO << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl

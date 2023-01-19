@@ -20,14 +20,53 @@ int	main()
 	int	count = 0;
 	
 	{
-		// AForm		*r1 = new RobotomyRequestForm("robo.1");
-		AForm		*p1 = new PresidentialPardonForm("pard.1");
-		Bureaucrat	*bh = new Bureaucrat("Brigitte Fontaine", G_PPEXEC);
+		AForm		*pardon = new PresidentialPardonForm("Brigitte Fontaine");
+		Bureaucrat	*b = new Bureaucrat("Brigitte Fontaine", G_PPSIGN);
 
-		bh->signForm(*p1);
-		bh->executeForm(*p1);
+		std::cout << pardon << b;
+		
+		b->signForm(*pardon);
+		b->executeForm(*pardon);
+		
+		delete pardon;
+		delete b;
 	}
 	
-	print_ending(++count, "1st test");
+	print_ending(++count, "signing pardon, can sign, cannot execute");
 	
+	{
+		AForm		*pardon = new PresidentialPardonForm("Alain Bashung");
+		Bureaucrat	*b = new Bureaucrat("Alain Bashung", G_PPEXEC);
+
+		std::cout << pardon << b;
+		
+		b->signForm(*pardon);
+		b->executeForm(*pardon);
+		
+		delete pardon;
+		delete b;
+	}
+	
+	print_ending(++count, "signing pardon, signed & executed");	
+	
+	{
+		AForm		*pardon = new PresidentialPardonForm("AS Byatt");
+		Bureaucrat	*A = new Bureaucrat("Pamuk", G_PPSIGN);
+		Bureaucrat	*B = new Bureaucrat("Camus", G_PPEXEC);
+
+		std::cout << pardon << A << B << nl;
+		
+		A->signForm(*pardon);
+		A->executeForm(*pardon);
+		
+		std::cout << pardon;
+
+		B->executeForm(*pardon);
+		
+		delete pardon;
+		delete A;
+		delete B;
+	}
+	
+	print_ending(++count, "I sign but cannot exec. Someone executes for me");
 }
