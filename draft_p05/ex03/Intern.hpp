@@ -10,43 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include "_Cpp05_.hpp" // incl. fstream
-# include "AForm.hpp"
+# include "_Cpp05_.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-# define G_SCSIGN 145
-# define G_SCEXEC 137
-# define TREE_UP	" ^  ^  ^   ^   ^  ^   ^  ^  ^   ^  ^   ^  ^  ^   ^   ^   ^  ^ \n"
-# define TREE_DOWN "/|\\/|\\/|\\ /|\\ /|\\/|\\ /|\\/|\\/|\\ /|\\/|\\ /\|\/|\\/|\\ /|\\ /|\\ /|\\/|\\ \n"
-
-class	ShrubberyCreationForm : public AForm
+class	Intern
 {
 
-private:
-
-	ShrubberyCreationForm();
-	const std::string	m_target;	
-
+// nothing private.
 
 public:
-
+	
 	// canon
-	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string &);
-	ShrubberyCreationForm(const ShrubberyCreationForm &);
-	ShrubberyCreationForm & operator = (ShrubberyCreationForm const & );
 
-	// method
-	void	execute(Bureaucrat const &) const;
+	Intern(); // confirmed
+	~Intern(); // confirmed
+	Intern(const Intern & ); // confirmed
+	Intern & operator = (const Intern & ); // confirmed
+
+	AForm * makeForm(const std::string & form_name, const std::string & target_name); // no const
+
 
 };
 
-std::ostream & operator << ( std::ostream &, AForm const &);
-std::ostream & operator << ( std::ostream &, AForm const *);
 
-void	print_tree(void);
-void	print_forest(void);
+// No ostream overload.
+
+/*std::ostream & operator << (std::ostream &, Intern const & );
+std::ostream & operator << (std::ostream &, Intern const * );
+*/
+
 
 #endif

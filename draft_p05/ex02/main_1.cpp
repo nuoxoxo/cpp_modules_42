@@ -13,15 +13,14 @@
 #include "_Cpp05_.hpp"
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
 	int	count = 0;
 	
 	{
-		AForm		*pardon = new PresidentialPardonForm("Brigitte Fontaine");
-		Bureaucrat	*b = new Bureaucrat("Brigitte Fontaine", G_PPSIGN);
+		AForm		*pardon = new RobotomyRequestForm("Brigitte Fontaine");
+		Bureaucrat	*b = new Bureaucrat("Brigitte Fontaine", G_RRSIGN);
 
 		std::cout << pardon << b;
 		
@@ -32,11 +31,11 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, can sign, cannot execute");
+	print_ending(++count, " - { Robotomy } - signing pardon, can sign, cannot execute");
 	
 	{
-		AForm		*pardon = new PresidentialPardonForm("Alain Bashung");
-		Bureaucrat	*b = new Bureaucrat("Alain Bashung", G_PPEXEC);
+		AForm		*pardon = new RobotomyRequestForm("Alain Bashung");
+		Bureaucrat	*b = new Bureaucrat("Alain Bashung", G_RREXEC);
 
 		std::cout << pardon << b;
 		
@@ -47,12 +46,12 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, signed & executed");	
+	print_ending(++count, " - { Robotomy } - signing pardon, signed & executed");	
 	
 	{
-		AForm		*pardon = new PresidentialPardonForm("AS Byatt");
-		Bureaucrat	*A = new Bureaucrat("Pamuk", G_PPSIGN);
-		Bureaucrat	*B = new Bureaucrat("Camus", G_PPEXEC);
+		AForm		*pardon = new RobotomyRequestForm("AS Byatt");
+		Bureaucrat	*A = new Bureaucrat("Pamuk", G_RRSIGN);
+		Bureaucrat	*B = new Bureaucrat("Camus", G_RREXEC);
 
 		std::cout << pardon << A << B << nl;
 		
@@ -68,5 +67,5 @@ int	main()
 		delete B;
 	}
 	
-	print_ending(++count, "I sign but cannot exec. Someone executes for me");
+	print_ending(++count, " - { Robotomy } - I sign but cannot exec. Someone executes for me");
 }
