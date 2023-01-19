@@ -12,7 +12,6 @@
 
 # include "ShrubberyCreationForm.hpp"
 
-
 // default
 ShrubberyCreationForm::ShrubberyCreationForm() :
 	AForm("(a piece of robotomy request)", G_SCSIGN, G_SCEXEC),
@@ -87,6 +86,16 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & undertaker) const
 {
 	AForm::execute(undertaker); // exception handler
 
+	// execute_way_1();
+	execute_way_2();
+
+	return ;
+}
+
+//	ofstream - 2 ways
+
+void	ShrubberyCreationForm::execute_way_1(void) const
+{
 	std::string	trees = TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
 	std::string	filename = m_target + "_shrubbery";
 	std::ofstream	ofs(filename.c_str());
@@ -99,13 +108,31 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & undertaker) const
 	ofs << TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
 	ofs << std::endl;
 
-	return ;
+}
+
+void	ShrubberyCreationForm::execute_way_2(void) const
+{
+	std::fstream	fs;
+	std::string	trees = TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
+	std::string	filename = m_target + "_2" + "_shrubbery";
+
+	fs.open(filename.c_str(), std::fstream::out); // out :: outfile :: out is open for write
+	
+	for (int i = 3; i; --i)
+	{
+		fs << TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
+		fs << FOREST;
+	}
+	fs << TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
+	fs << std::endl;
 }
 
 
-//	Helpers --- Deprecated
+/* **************** Below: Deprecated **************** */
 
-/*
+
+/*// helper
+
 static void	print_trees(void)
 {
 	std::cout << TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;

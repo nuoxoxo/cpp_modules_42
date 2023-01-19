@@ -50,6 +50,8 @@ public:
 
 	// method
 	void	execute(Bureaucrat const &) const;
+	void	execute_way_1(void) const;
+	void	execute_way_2(void) const;
 
 };
 
