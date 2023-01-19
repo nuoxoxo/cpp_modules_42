@@ -1,0 +1,102 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                              try                                           */
+/*                              catch                                         */
+/*                              exceptions                                    */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+let’s make a Form class. It has:
+
+	• A constant name.
+	• A boolean indicating whether it is signed (at construction, it’s not).
+	• A constant grade required to sign it.
+	• And a constant grade required to execute it.
+
+	** All these attributes are private, not protected.
+
+
+The grades of the Form follow the same rules that apply to the Bureaucrat
+
+	the following exceptions will be thrown if a form grade is out of bounds:
+
+	* Form::GradeTooHighException 
+	* Form::GradeTooLowException
+
+Same as before
+	
+	- write getters for all attributes
+	- overload of the insertion («) operator with form’s informations.
+
+
+-----------------------8<------ [ Plus ] -------------------------------
+
+
+Add a beSigned() member function to the Form 
+
+	- takes a Bureaucrat as parameter
+	- It changes the form status to signed 
+		- if the bureaucrat’s grade is high enough
+			(higher or egal to the required one)
+			- Remember, grade 1 is higher than grade 2.
+		- If the grade is too low
+			- throw a Form::GradeTooLowException.
+
+Add a signForm() member function to the Bureaucrat
+
+	- If the form got signed, it will print something like:
+		- <bureaucrat> signed <form>
+	
+	- Otherwise, it will print something like:
+		- <bureaucrat> couldn’t sign <form> because <reason>.
+
+
+
+----------------------8<------- [ above :: ex01 ] ------------------------------
+---------------8<---------------------------------------------------------------
+--------------------------8<--- [ below :: ex00 ] ------------------------------
+
+
+
+A Bureaucrat must have:
+	• A constant name.
+	• And a grade that 
+		- ranges from 1 (highest grade) 
+		- to 150 (lowest possible grade)
+
+Any attempt to instantiate a Bureaucrat using an invalid grade 
+	- must throw an exception:
+		- either a Bureaucrat::GradeTooHighException 
+		- or a Bureaucrat::GradeTooLowException.
+
+
+-----------------------8<------ [ Goal ] -------------------------------
+
+
+You will provide getters for both these attributes: 
+	- getName() 
+	- getGrade(). 
+
+Implement also two member functions 
+	- to increment 
+	- or decrement the bureaucrat grade.
+	- If the grade is out of range
+		> both of them throw the same exceptions as the constructor.
+Implement an overload of the insertion («) operator to print:
+	- (without the angle brackets):
+		- <name>, bureaucrat grade <grade>.
+
+turn in a set of tests!

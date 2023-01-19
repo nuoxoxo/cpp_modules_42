@@ -1,0 +1,237 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                              try                                           */
+/*                              catch                                         */
+/*                              exceptions                                    */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
+
+-----------------------8<------ [ Requirements ] ------------------------------
+
+- AForm
+	
+	- the base class Form must be an abstract class
+		- therefore should be renamed AForm. 
+	
+	- AForm’s attributes 
+		- remain private
+		- make sure they are in the base class.
+
+- Add the following concrete classes:
+
+	• ShrubberyCreationForm: 
+		
+		- Required grades: 
+		
+			- sign 145, exec 137
+		
+		- Action : Create a file <target>_shrubbery in the working directory
+			
+			- writes ASCII trees inside it.
+
+<< "	 ^  ^  ^   ^   ^  ^   ^  ^  ^   ^  ^   ^  ^  ^   ^   ^   ^  ^
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+
+<< "	ad88                                                     
+<< "	d8"                                                ,d     
+<< "	88                                                 88     
+<< "	MM88MMM ,adPPYba,  8b,dPPYba,  ,adPPYba, ,adPPYba, MM88MMM  
+<< "	88   a8"     "8a 88P'   "Y8 a8P_____88 I8[    ""   88     
+<< "	88   8b       d8 88         8PP"""""""  `"Yxba,    88     
+<< "	88   "8a,   ,a8" 88         "8b,   ,aa aa    ]8I   88,    
+<< "	88    `"YbbdP"'  88          `"Ybbd8"' `"YbbdP"'   "Y888  
+
+<< "	 ^  ^  ^   ^   ^  ^   ^  ^  ^   ^  ^   ^  ^  ^   ^   ^   ^  ^
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+
+<< "	ad88                                                     
+<< "	d8"                                                ,d     
+<< "	88                                                 88     
+<< "	MM88MMM ,adPPYba,  8b,dPPYba,  ,adPPYba, ,adPPYba, MM88MMM  
+<< "	88   a8"     "8a 88P'   "Y8 a8P_____88 I8[    ""   88     
+<< "	88   8b       d8 88         8PP"""""""  `"Y8ba,    88     
+<< "	88   "8a,   ,a8" 88         "8b,   ,aa aa    ]8I   88,    
+<< "	88    `"YbbdP"'  88          `"Ybbd8"' `"YbbdP"'   "Y888  
+
+<< "	 ^  ^  ^   ^   ^  ^   ^  ^  ^   ^  ^   ^  ^  ^   ^   ^   ^  ^
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+<< "	/|\/|\/|\ /|\ /|\/|\ /|\/|\/|\ /|\/|\ /|\/|\/|\ /|\ /|\ /|\/|\
+
+<< "	ad88                                                     
+<< "	d8"                                                ,d     
+<< "	88                                                 88     
+<< "	MM88MMM ,adPPYba,  8b,dPPYba,  ,adPPYba, ,adPPYba, MM88MMM  
+<< "	88   a8"     "8a 88P'   "Y8 a8P_____88 I8[    ""   88     
+<< "	88   8b       d8 88         8PP"""""""  `"Y8ba,    88     
+<< "	88   "8a,   ,a8" 88         "8b,   ,aa aa    ]8I   88,    
+<< "	88    `"YbbdP"'  88          `"Ybbd8"' `"YbbdP"'   "Y888  
+
+
+
+	• RobotomyRequestForm:
+		
+		- Required grades: 
+			
+			- sign 72, exec 45
+
+		- Action:
+			
+			- Makes some drilling noises. 
+			
+			- Informs that <target> has been robotomized
+				successfully 50% of the time. 
+			- otherwise, informs that the robotomy failed.
+
+
+	• PresidentialPardonForm: 
+
+		- Required grades: 
+
+			- sign 25, exec 5
+
+		- Action:
+
+			- Informs that <target> has been pardoned by Zaphod Beeblebrox.
+
+- All of them (above classes ) 
+	
+	- take only one parameter in their constructor: 
+		
+		- the target of the form. 
+		- eg. 
+			"home" if you want to plant shrubbery at home.
+
+
+- Add the execute (Bureaucrat const & executor) const mem func in Base Form 
+
+	- implement a function to execute the form’s action of the concrete classes
+
+	- You have to check that 
+		
+		- the form is signed 
+		- that the grade of the bureaucrat trying to execute it is high enough
+		- throw an appropriate exception otherwise
+
+
+	- Whether you want to check the requirements in every concrete class or in the base
+class (then call another function to execute the form) is up to you. 
+	- However, one way is prettier than the other one.
+
+
+- Lastly, add the executeForm(Form const & form) member function to the Bureaucrat. 
+
+	- It must attempt to execute the form. 
+
+		- on success, print something like:
+			
+			<bureaucrat> executed <form>
+
+		- on failure, print :
+			
+			an explicit error message.
+
+{{ Implement and turn in some tests to ensure everything works as expected. }}
+
+
+
+----------------------8<------- [ above :: ex02 ] ------------------------------
+---------------8<---------------------------------------------------------------
+--------------------------8<--- [ below :: ex01 ] ------------------------------
+
+
+let’s make a AForm class. It has:
+
+	• A constant name.
+	• A boolean indicating whether it is signed (at construction, it’s not).
+	• A constant grade required to sign it.
+	• And a constant grade required to execute it.
+
+	** All these attributes are private, not protected.
+
+
+The grades of the AForm follow the same rules that apply to the Bureaucrat
+
+	the following exceptions will be thrown if a form grade is out of bounds:
+
+	* AForm::GradeTooHighException 
+	* AForm::GradeTooLowException
+
+Same as before
+	
+	- write getters for all attributes
+	- overload of the insertion («) operator with form’s informations.
+
+
+-----------------------8<------ [ Plus ] -------------------------------
+
+
+Add a beSigned() member function to the AForm 
+
+	- takes a Bureaucrat as parameter
+	- It changes the form status to signed 
+		- if the bureaucrat’s grade is high enough
+			(higher or egal to the required one)
+			- Remember, grade 1 is higher than grade 2.
+		- If the grade is too low
+			- throw a AForm::GradeTooLowException.
+
+Add a signAForm() member function to the Bureaucrat
+
+	- If the form got signed, it will print something like:
+		- <bureaucrat> signed <form>
+	
+	- Otherwise, it will print something like:
+		- <bureaucrat> couldn’t sign <form> because <reason>.
+
+
+
+----------------------8<------- [ above :: ex01 ] ------------------------------
+---------------8<---------------------------------------------------------------
+--------------------------8<--- [ below :: ex00 ] ------------------------------
+
+
+
+A Bureaucrat must have:
+	• A constant name.
+	• And a grade that 
+		- ranges from 1 (highest grade) 
+		- to 150 (lowest possible grade)
+
+Any attempt to instantiate a Bureaucrat using an invalid grade 
+	- must throw an exception:
+		- either a Bureaucrat::GradeTooHighException 
+		- or a Bureaucrat::GradeTooLowException.
+
+
+-----------------------8<------ [ Goal ] -------------------------------
+
+
+You will provide getters for both these attributes: 
+	- getName() 
+	- getGrade(). 
+
+Implement also two member functions 
+	- to increment 
+	- or decrement the bureaucrat grade.
+	- If the grade is out of range
+		> both of them throw the same exceptions as the constructor.
+Implement an overload of the insertion («) operator to print:
+	- (without the angle brackets):
+		- <name>, bureaucrat grade <grade>.
+
+turn in a set of tests!
