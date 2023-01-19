@@ -104,7 +104,6 @@ int	main()
 		try {
 			Form	why("whyIsThisSigned", 1, 150);
 			std::cout << why;
-			//std::cout << "debugging isSigned:" << why.getIsSigned() << nl2;
 		}
 		catch (std::exception & e) {
 			std::cerr << e.what ();
@@ -114,7 +113,6 @@ int	main()
 			Form	*why = new Form();
 			
 			std::cout << why;
-			//std::cout << "debugging isSigned:" << why->getIsSigned() << nl2;
 			
 			delete why;
 
@@ -122,8 +120,6 @@ int	main()
 		catch (std::exception & e) {
 			std::cerr << e.what ();
 		}
-
-		// std::cout << valid << nl; // (?) out of scope
 	}
 	
 	print_ending(++count, "cerr . invalid form");

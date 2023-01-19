@@ -38,18 +38,6 @@ public:
 	Form & operator = (Form const & );
 	Form(std::string, unsigned int _2sign_, unsigned int _2exec_);
 
-
-	// Exception
-	/*class	GradeTooHighException : public std::exception
-	{
-		const char * what() const throw ();
-	};
-
-	class	GradeTooLowException : public std::exception
-	{
-		const char * what() const throw ();
-	};*/
-
 	class	GradeTooHighException : public std::exception
 	{
 		const char * what() const throw ();

@@ -39,11 +39,6 @@ Form & Form::operator = (Form const & dummy)
 {
 	(bool &) m_isSigned = dummy.m_isSigned;
 
-	// {!} constant, thus not to copy the following
-	// 
-	// (unsigned int &) m_gradeforSigner = dummy.m_gradeforSigner;
-	// (unsigned int &) m_gradeforExec = dummy.m_gradeforExec;
-
 	return (*this);
 }
 
@@ -123,7 +118,8 @@ const char * Form::GradeTooHighException::what() const throw ()
 
 
 // getter
-/*
+/* // ============ implement the following ============ //
+
 const std::string &	getName() const;
 unsigned int		getGradeRequiredSign() const;
 unsigned int		getGradeRequiredExec() const;
