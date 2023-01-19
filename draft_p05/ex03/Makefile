@@ -2,12 +2,13 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main_2.cpp \
+src		:=	main.cpp \
 			AForm.cpp \
 			Bureaucrat.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
 			PresidentialPardonForm.cpp \
+			Intern.cpp \
 			_Cpp05_.cpp
 
 budfolder	:=	./bud/

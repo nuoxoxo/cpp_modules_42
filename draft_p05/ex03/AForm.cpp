@@ -93,9 +93,12 @@ std::ostream & operator << (std::ostream & ostream, AForm const * form)
 
 //	method
 
-//	new arrival
-void	AForm::execute(Bureaucrat const & mec) const // new
+void	AForm::execute(Bureaucrat const & mec) const
 {
+	/*if (this == NULL)
+	{
+		throw FormNonExistent(); // new
+	}*/
 	if (!m_isSigned)
 	{
 		throw FormUnsignedException();
@@ -122,7 +125,10 @@ void	AForm::beSigned(const Bureaucrat & mec)
 
 // exception
 
-// new
+/*const char * AForm::FormNonExistentException::what() const throw() {
+	return (CYAN "Error: Form does not exist. \n" RESET);
+}*/
+
 const char * AForm::FormUnsignedException::what() const throw()
 {
 	return (CYAN "Error: Unsigned. \n" RESET);

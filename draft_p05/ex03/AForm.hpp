@@ -55,7 +55,10 @@ public:
 	class	GradeTooLowException : public std::exception {
 		const char * what() const throw();
 	};
-
+	
+	/*class	FormNonExistentException : public std::exception {
+		const char * what() const throw();
+	};*/
 
 	// getters
 	const std::string &	getName() const;

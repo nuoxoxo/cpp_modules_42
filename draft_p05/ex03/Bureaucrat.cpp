@@ -34,6 +34,11 @@ void	Bureaucrat::executeForm(AForm & form) const // new
 
 void	Bureaucrat::signForm(AForm & form) const
 {
+	/*if ( (*form) == NULL)
+	{
+		std::cout << "there is no form" << std::endl;
+		return ;
+	}*/
 	try
 	{
 		form.beSigned(*this);
