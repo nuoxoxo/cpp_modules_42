@@ -15,19 +15,19 @@
 
 // new arrival
 
-void	Bureaucrat::executeDoc(AForm & form) const // new
+void	Bureaucrat::executeForm(AForm & form) const // new
 {
 	try
 	{
 		form.execute(*this);
 		std::cout << m_name
-		<< " executed " << document.getName() << GREEN" ✓"RESET nl;
+		<< CYAN " executed " << form.getName() << TICK nl2;
 	}
 	catch(const std::exception & e)
 	{
 		std::cout << m_name
-		<< " couldn't execute " << form.getName() << RED" ✘"RESET
-		<< " because : " << e.what() << std::endl;
+		<< CYAN " couldn't execute " << form.getName() << CROSS
+		<< " because : " << e.what() << nl2;
 	}
 }
 
@@ -38,13 +38,13 @@ void	Bureaucrat::signForm(AForm & form) const
 	{
 		form.beSigned(*this);
 		std::cout << m_name
-		<< " signed " << form.getName() << GREEN" ✓"RESET nl;
+		<< CYAN " signed " << form.getName() << TICK nl2;
 	}
 	catch (const std::exception & e)
 	{
 		std::cout << m_name 
-		<< " couldn't sign " << form.getName() << RED" ✘"RESET
-		<< " because : " << e.what() << std::endl;
+		<< CYAN " couldn't sign " << form.getName() << CROSS
+		<< " because : " << e.what() << nl2;
 	}
 }
 

@@ -20,11 +20,13 @@ void	Bureaucrat::signForm(Form & form) const // new
 	try {
 		form.beSigned(*this);
 		std::cout << m_name
-		<< " signed " << form.getName() << GREEN" ✓"RESET nl;
+		<< " signed " << form.getName() << TICK nl;
+		// << " signed " << form.getName() << GREEN" ✓"RESET nl;
 	}
 	catch (const std::exception & e) {
 		std::cout << m_name 
-		<< " couldn't sign " << form.getName() << RED" ✘"RESET
+		<< " couldn't sign " << form.getName() << CROSS
+		// << " couldn't sign " << form.getName() << RED" ✘"RESET
 		<< " because : " << e.what() << std::endl;
 	}
 }

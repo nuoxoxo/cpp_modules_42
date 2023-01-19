@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   _Cpp05_.hpp                                        :+:      :+:    :+:   */
+/*   {}.hpp                                             :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,42 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _CPP05__HPP
-# define _CPP05__HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-# include "iostream"
-# include "string"
+# include "_Cpp05_.hpp"
+# include "AForm.hpp"
+
+# define G_RRSIGN 72
+# define G_RREXEC 45
+
+class	RobotomyRequestForm : public AForm
+{
+
+private:
+
+	RobotomyRequestForm();
+	const std::string	m_target; // subject not clear: "target of form"
+	
+public:
+
+	// canon
+	~RobotomyRequestForm();
+	RobotomyRequestForm(const std::string &);
+	RobotomyRequestForm(const RobotomyRequestForm &);
+	RobotomyRequestForm & operator = (RobotomyRequestForm const & );
+
+	// method
+	void	execute(Bureaucrat const &) const;
+
+};
 
 
-void	print_canon(const std::string, const std::string);
-void	print_ending(int);
-void	print_ending(void);
-void	print_ending(std::string &);
-void	print_ending(int, const std::string);
+std::ostream & operator << ( std::ostream &, AForm const &);
+std::ostream & operator << ( std::ostream &, AForm const *);
 
-
-//	colors
-
-# define ITAL	"\033[3m"
-# define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
-# define GREEN	"\033[0;32m"
-# define RED	"\033[0;31m"
-# define MAG	"\033[0;35m"
-
-# define RESET	"\033[0;0m"
-
-# define TICK	GREEN" ✓"RESET
-# define CROSS	RED" ✘"RESET
-//	formatting
-
-# define called " called\n"
-# define inside "\ninside "
-# define nl2 " \n\n"
-# define nl " \n"
 
 #endif
-
-

@@ -37,14 +37,14 @@ Form::Form(Form const & dummy) : m_name(dummy.m_name),
 // = operatr
 Form & Form::operator = (Form const & dummy)
 {
-    (bool &) m_isSigned = dummy.m_isSigned;
+	(bool &) m_isSigned = dummy.m_isSigned;
 
-    // {!} constant, thus not to copy the following
-    // 
-    // (unsigned int &) m_gradeforSigner = dummy.m_gradeforSigner;
-    // (unsigned int &) m_gradeforExec = dummy.m_gradeforExec;
-    
-    return (*this);
+	// {!} constant, thus not to copy the following
+	// 
+	// (unsigned int &) m_gradeforSigner = dummy.m_gradeforSigner;
+	// (unsigned int &) m_gradeforExec = dummy.m_gradeforExec;
+
+	return (*this);
 }
 
 
@@ -70,7 +70,7 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 std::ostream & operator << (std::ostream & ostream, Form const & form)
 {
 	ostream
-	<< "Form: " GREEN << form.getName() << RESET nl
+	<< "Form: " YELL << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -84,7 +84,7 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 std::ostream & operator << (std::ostream & ostream, Form const * form)
 {
 	ostream
-	<< "Form: " GREEN << form->getName() << RESET nl
+	<< "Form: " YELL << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl

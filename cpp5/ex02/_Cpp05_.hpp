@@ -15,7 +15,8 @@
 
 # include "iostream"
 # include "string"
-
+# include "fstream" // 
+# include "cstdlib" // rand - x2 
 
 void	print_canon(const std::string, const std::string);
 void	print_ending(int);
@@ -37,7 +38,8 @@ void	print_ending(int, const std::string);
 
 # define RESET	"\033[0;0m"
 
-
+# define TICK	GREEN" ✓"RESET
+# define CROSS	RED" ✘"RESET
 //	formatting
 
 # define called " called\n"
