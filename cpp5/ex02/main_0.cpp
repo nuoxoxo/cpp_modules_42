@@ -32,7 +32,7 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, can sign, cannot execute");
+	print_ending(++count, " - { President } - signing pardon, can sign, cannot execute");
 	
 	{
 		AForm		*pardon = new PresidentialPardonForm("Alain Bashung");
@@ -47,7 +47,7 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, signed & executed");	
+	print_ending(++count, " - { President } - signing pardon, signed & executed");	
 	
 	{
 		AForm		*pardon = new PresidentialPardonForm("AS Byatt");
@@ -68,5 +68,7 @@ int	main()
 		delete B;
 	}
 	
-	print_ending(++count, "I sign but cannot exec. Someone executes for me");
+	print_ending(++count, " - { President } - I sign but cannot exec. Someone executes for me");
+
+	
 }

@@ -52,7 +52,7 @@ fclean	:	clean
 test	:	run
 f	:	fclean
 ff	:	fclean
-		@ $(rmv) *_shrubbery
+		$(rmv) *_shrubbery
 re	:	f all
 
 .PHONY	:	fclean clean all re f

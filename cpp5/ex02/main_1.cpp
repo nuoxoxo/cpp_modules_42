@@ -31,7 +31,7 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, can sign, cannot execute");
+	print_ending(++count, " - { Robotomy } - signing pardon, can sign, cannot execute");
 	
 	{
 		AForm		*pardon = new RobotomyRequestForm("Alain Bashung");
@@ -46,7 +46,7 @@ int	main()
 		delete b;
 	}
 	
-	print_ending(++count, "signing pardon, signed & executed");	
+	print_ending(++count, " - { Robotomy } - signing pardon, signed & executed");	
 	
 	{
 		AForm		*pardon = new RobotomyRequestForm("AS Byatt");
@@ -67,5 +67,5 @@ int	main()
 		delete B;
 	}
 	
-	print_ending(++count, "I sign but cannot exec. Someone executes for me");
+	print_ending(++count, " - { Robotomy } - I sign but cannot exec. Someone executes for me");
 }
