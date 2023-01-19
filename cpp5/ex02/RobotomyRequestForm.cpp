@@ -8,14 +8,14 @@
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
 /*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/*   ************************************************************************** */
 
 # include "RobotomyRequestForm.hpp"
 
 
 // default
 RobotomyRequestForm::RobotomyRequestForm() :
-	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
+	AForm("(a piece of robotomy request)", G_RRSIGN, G_RREXEC),
 	m_target("(a target)") {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
@@ -23,131 +23,77 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 /// default copy constr
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & dummy) :
-	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
+	AForm("(a piece of robotomy request)", G_RRSIGN, G_RREXEC),
 	m_target(dummy.m_target)
 {
 	*this = dummy;
 }
 
 
-// = operatr
+// operatr =
 RobotomyRequestForm & RobotomyRequestForm::operator = (RobotomyRequestForm const & dummy)
 {
-	AForm::
+	AForm::operator = dummy;
+
 	return (*this);
 }
 
 
-// constructor overloaded
-RobotomyRequestForm::RobotomyRequestForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
-	m_name(name),
-	m_isSigned(),
-	m_gradeRequiredSign(_sign_),
-	m_gradeRequiredExec(_exec_)
-{
-	if (_sign_ > G_LOW || _exec_ > G_LOW)
-	{
-		throw (GradeTooLowException());
-	}
-
-	if (_sign_ < G_HIGH || _exec_ < G_HIGH)
-	{
-		throw (GradeTooHighException());
-	}
-}
+// param constr
+RobotomyRequestForm::RobotomyRequestForm(std::string const & tar) :
+	AForm("(a piece of robotomy request)", G_RRSIGN, G_RREXEC),
+	m_target(tar) {}
 
 
-// ostream overloaded
+// ostream overloaded (2)
+
 std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const & form)
 {
+	operator << (ostream, (AForm const *) form);
+	/*
 	ostream
 	<< "RobotomyRequestForm: " GREEN << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
-	///*
+
 	<< "min to sign: " CYAN << form.getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form.getGradeRequiredExec() << RESET nl2;
-	//*/
+	*/
 	return (ostream);
 }
 
 std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const * form)
 {
+	operator << (ostream, (AForm const &) form);
+	/*
 	ostream
 	<< "RobotomyRequestForm: " GREEN << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
-	///*
+	
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
-	//*/
+	*/
 	return (ostream);
 }
 
 
 //	method
 
-//	new arrival
-void	RobotomyRequestForm::execute(Bureaucrat const & mec) const // new
+void	RobotomyRequestForm::execute(Bureaucrat const & undertaker) const
 {
-	if (!m_isSigned)
-	{
-		throw FormUnsignedException();
-	}
+	AForm::execute(undertaker); // exception handler
+
+	srand(time(0));
+	std::cout << YELL "BzzzZzzzZzzzzzzzzzzzz (Some drilling noises)" nl;
 	
-	if (m_gradeRequiredExec < mec.getGrade())
+	if ((int) rand() % 2)
 	{
-		throw GradeTooLowException();
+		std::cout << "target " YELL << m_target << RESET " robotmized"
 	}
+	std::cout << 
+
 }
-
-void	RobotomyRequestForm::beSigned(const Bureaucrat & mec)
-{
-	if (mec.getGrade() > m_gradeRequiredSign)
-	{
-		throw (GradeTooLowException());
-		return ;
-	}
-	m_isSigned = true;
-
-	// (?) no comparison needed w/ gradeRequiredExec 
-}
-
-
-// exception
-const char * RobotomyRequestForm::GradeTooLowException::what() const throw()
-{
-	return (CYAN "Error: Grade too low. \n" RESET);
-}
-
-
-const char * RobotomyRequestForm::GradeTooHighException::what() const throw()
-{
-	return (YELL "Error: Grade too high. \n" RESET)
-	;
-}
-
-
-// getter
-
-
-const	std::string & RobotomyRequestForm::getName() const {return (m_name);}
-
-
-bool	RobotomyRequestForm::getIsSigned() const {return m_isSigned;}
-
-
-unsigned int	RobotomyRequestForm::getGradeRequiredSign() const {
-	return (m_gradeRequiredSign);
-}
-
-
-unsigned int	RobotomyRequestForm::getGradeRequiredExec() const {
-	return (m_gradeRequiredExec);
-}
-
-
-
 

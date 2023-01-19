@@ -84,7 +84,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 
 void	PresidentialPardonForm::execute(Bureaucrat const & undertaker) const
 {
-	AForm::execute(undertaker)
+	AForm::execute(undertaker); // handling exception really
 
 	std::cout << m_target << " has been pardoned by Zaphod Beeblebrox." nl;
 }
