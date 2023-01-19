@@ -68,7 +68,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	operator << (ostream, (AForm const *) form);
 	/*
 	ostream
-	<< "PresidentialPardonForm: " YELLO << form->getName() << RESET nl
+	<< "PresidentialPardonForm: " YELL << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl

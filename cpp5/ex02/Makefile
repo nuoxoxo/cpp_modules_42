@@ -38,6 +38,7 @@ run	:	re
 		@ ./out
 		@ make clean
 
+
 r	:	run
 
 clean	:

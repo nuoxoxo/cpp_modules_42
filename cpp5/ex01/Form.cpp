@@ -84,7 +84,7 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 std::ostream & operator << (std::ostream & ostream, Form const * form)
 {
 	ostream
-	<< "Form: " YELLO << form->getName() << RESET nl
+	<< "Form: " YELL << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
