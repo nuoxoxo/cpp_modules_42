@@ -91,9 +91,11 @@ void	RobotomyRequestForm::execute(Bureaucrat const & undertaker) const
 	
 	if ((int) rand() % 2)
 	{
-		std::cout << "target " YELL << m_target << RESET " robotmized"
+		std::cout << "target " YELL << m_target << RESET " robotomized" TICK nl;
+		return ;
 	}
-	std::cout << 
-
+	std::cout
+	<< "target " YELL << m_target << RESET " robotomy failed" CROSS nl
+	<< RED"(... look at all this blood, jeez )"RESET nl;
 }
 

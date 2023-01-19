@@ -68,7 +68,7 @@ public:
 	
 	void		beSigned(const Bureaucrat &);
 	// added virtual func
-	virtual void	execute(const Bureaucrat &); const = 0;
+	virtual void	execute(const Bureaucrat &) const = 0;
 
 };
 

@@ -15,13 +15,13 @@
 
 // new arrival
 
-void	Bureaucrat::executeDoc(AForm & form) const // new
+void	Bureaucrat::executeForm(AForm & form) const // new
 {
 	try
 	{
 		form.execute(*this);
 		std::cout << m_name
-		<< " executed " << document.getName() << GREEN" ✓"RESET nl;
+		<< " executed " << form.getName() << GREEN" ✓"RESET nl;
 	}
 	catch(const std::exception & e)
 	{

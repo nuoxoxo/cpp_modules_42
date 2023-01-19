@@ -5,6 +5,8 @@ rmv		:=	rm -rf
 src		:=	main.cpp \
 			AForm.cpp \
 			Bureaucrat.cpp \
+			RobotomyRequestForm.cpp \
+			PresidentialPardonForm.cpp \
 			_Cpp05_.cpp
 
 budfolder	:=	./bud/

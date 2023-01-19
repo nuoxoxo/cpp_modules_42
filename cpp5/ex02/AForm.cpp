@@ -25,7 +25,7 @@ AForm::~AForm() {}
 /// default copy constr
 AForm::AForm(AForm const & dummy) :
 	m_name(dummy.m_name),
-	m_isSigned();
+	m_isSigned(),
 	m_gradeRequiredSign(dummy.m_gradeRequiredSign),
 	m_gradeRequiredExec(dummy.m_gradeRequiredExec)
 {
