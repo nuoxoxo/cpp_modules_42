@@ -23,7 +23,10 @@ class	AForm
 
 private:
 
-	AForm(); // Added
+	AForm();
+	// put default constr here 
+	// to prevent creating object w/o instance fields or methods
+	
 	const std::string	m_name;
 	bool			m_isSigned;
 	const unsigned int	m_gradeRequiredSign;
@@ -32,7 +35,6 @@ private:
 public:
 
 	// canon
-	AForm();
 	AForm(AForm const &);
 	AForm & operator = (AForm const & );
 	AForm(std::string, unsigned int _2sign_, unsigned int _2exec_);

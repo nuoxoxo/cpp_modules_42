@@ -36,9 +36,9 @@ AForm::AForm(AForm const & dummy) :
 // = operatr
 AForm & AForm::operator = (AForm const & dummy)
 {
-    (bool &) m_isSigned = dummy.m_isSigned;
-    
-    return (*this);
+	(bool &) m_isSigned = dummy.m_isSigned;
+
+	return (*this);
 }
 
 

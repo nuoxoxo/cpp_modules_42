@@ -10,48 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "PresidentialPardonForm.hpp"
 
-# include "Form.hpp"
-
-
-/* orthodox canon */
 
 // default
-Form::Form() : m_name("(some form)"),
-	m_isSigned(), // if !explicitly-initialized, will be set arbitrarily
-	m_gradeRequiredSign(G_LOW),
-	m_gradeRequiredExec(G_LOW) {}
+PresidentialPardonForm::PresidentialPardonForm() :
+	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
+	m_target("(a target)") {}
 
-Form::~Form() {}
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
 
 /// default copy constr
-Form::Form(Form const & dummy) : m_name(dummy.m_name),
-	m_gradeRequiredSign(dummy.m_gradeRequiredSign),
-	m_gradeRequiredExec(dummy.m_gradeRequiredExec)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & dummy) :
+	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
+	m_target(dummy.m_target)
 {
 	*this = dummy;
 }
 
 
 // = operatr
-Form & Form::operator = (Form const & dummy)
+PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonForm const & dummy)
 {
-	(bool &) m_isSigned = dummy.m_isSigned;
-
-	// {!} constant, thus not to copy the following
-	// 
-	// (unsigned int &) m_gradeforSigner = dummy.m_gradeforSigner;
-	// (unsigned int &) m_gradeforExec = dummy.m_gradeforExec;
-
+	AForm::
 	return (*this);
 }
 
 
 // constructor overloaded
-Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
+PresidentialPardonForm::PresidentialPardonForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	m_name(name),
-	m_isSigned(), // if !explicitly-init, will be set arbitrarily
+	m_isSigned(),
 	m_gradeRequiredSign(_sign_),
 	m_gradeRequiredExec(_exec_)
 {
@@ -59,6 +49,7 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	{
 		throw (GradeTooLowException());
 	}
+
 	if (_sign_ < G_HIGH || _exec_ < G_HIGH)
 	{
 		throw (GradeTooHighException());
@@ -67,10 +58,10 @@ Form::Form(std::string name, unsigned int _sign_, unsigned int _exec_) :
 
 
 // ostream overloaded
-std::ostream & operator << (std::ostream & ostream, Form const & form)
+std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const & form)
 {
 	ostream
-	<< "Form: " GREEN << form.getName() << RESET nl
+	<< "PresidentialPardonForm: " GREEN << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -81,22 +72,38 @@ std::ostream & operator << (std::ostream & ostream, Form const & form)
 	return (ostream);
 }
 
-std::ostream & operator << (std::ostream & ostream, Form const * form)
+std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const * form)
 {
 	ostream
-	<< "Form: " GREEN << form->getName() << RESET nl
+	<< "PresidentialPardonForm: " GREEN << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
 	///*
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
-	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET nl2;
+	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
 	//*/
 	return (ostream);
 }
 
+
 //	method
-void	Form::beSigned(const Bureaucrat & mec)
+
+//	new arrival
+void	PresidentialPardonForm::execute(Bureaucrat const & mec) const // new
+{
+	if (!m_isSigned)
+	{
+		throw FormUnsignedException();
+	}
+	
+	if (m_gradeRequiredExec < mec.getGrade())
+	{
+		throw GradeTooLowException();
+	}
+}
+
+void	PresidentialPardonForm::beSigned(const Bureaucrat & mec)
 {
 	if (mec.getGrade() > m_gradeRequiredSign)
 	{
@@ -110,12 +117,13 @@ void	Form::beSigned(const Bureaucrat & mec)
 
 
 // exception
-const char * Form::GradeTooLowException::what() const throw()
+const char * PresidentialPardonForm::GradeTooLowException::what() const throw()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+
+const char * PresidentialPardonForm::GradeTooHighException::what() const throw()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;
@@ -123,31 +131,21 @@ const char * Form::GradeTooHighException::what() const throw()
 
 
 // getter
-/*
-const std::string &	getName() const;
-unsigned int		getGradeRequiredSign() const;
-unsigned int		getGradeRequiredExec() const;
-bool			getIsSigned() const; */
-
-const std::string & Form::getName() const
-{
-	return (m_name);
-}
 
 
-unsigned int	Form::getGradeRequiredSign() const
-{
+const	std::string & PresidentialPardonForm::getName() const {return (m_name);}
+
+
+bool	PresidentialPardonForm::getIsSigned() const {return m_isSigned;}
+
+
+unsigned int	PresidentialPardonForm::getGradeRequiredSign() const {
 	return (m_gradeRequiredSign);
 }
 
-unsigned int	Form::getGradeRequiredExec() const
-{
-	return (m_gradeRequiredExec);
-}
 
-bool	Form::getIsSigned() const
-{
-	return m_isSigned;
+unsigned int	PresidentialPardonForm::getGradeRequiredExec() const {
+	return (m_gradeRequiredExec);
 }
 
 
