@@ -16,6 +16,8 @@
 # include "iostream"
 # include "string"
 
+# include "ctime" // rand - x2 
+# include "cstdlib" // rand - x2 
 
 void	print_canon(const std::string, const std::string);
 void	print_ending(int);

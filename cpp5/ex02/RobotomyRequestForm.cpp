@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
 
 
 // default
-PresidentialPardonForm::PresidentialPardonForm() :
+RobotomyRequestForm::RobotomyRequestForm() :
 	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
 	m_target("(a target)") {}
 
-PresidentialPardonForm::~PresidentialPardonForm() {}
+RobotomyRequestForm::~RobotomyRequestForm() {}
 
 
 /// default copy constr
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & dummy) :
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & dummy) :
 	AForm("(a piece of presidential pardon)", G_PPSIGN, G_PPEXEC),
 	m_target(dummy.m_target)
 {
@@ -31,7 +31,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & du
 
 
 // = operatr
-PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonForm const & dummy)
+RobotomyRequestForm & RobotomyRequestForm::operator = (RobotomyRequestForm const & dummy)
 {
 	AForm::
 	return (*this);
@@ -39,7 +39,7 @@ PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonF
 
 
 // constructor overloaded
-PresidentialPardonForm::PresidentialPardonForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
+RobotomyRequestForm::RobotomyRequestForm(std::string name, unsigned int _sign_, unsigned int _exec_) :
 	m_name(name),
 	m_isSigned(),
 	m_gradeRequiredSign(_sign_),
@@ -58,10 +58,10 @@ PresidentialPardonForm::PresidentialPardonForm(std::string name, unsigned int _s
 
 
 // ostream overloaded
-std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const & form)
+std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const & form)
 {
 	ostream
-	<< "PresidentialPardonForm: " GREEN << form.getName() << RESET nl
+	<< "RobotomyRequestForm: " GREEN << form.getName() << RESET nl
 	<< "Stat: "
 	<< (form.getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -72,10 +72,10 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	return (ostream);
 }
 
-std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const * form)
+std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const * form)
 {
 	ostream
-	<< "PresidentialPardonForm: " GREEN << form->getName() << RESET nl
+	<< "RobotomyRequestForm: " GREEN << form->getName() << RESET nl
 	<< "Stat: "
 	<< (form->getIsSigned() ? GREEN "signed" : RED "not signed")
 	<< RESET nl
@@ -90,7 +90,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 //	method
 
 //	new arrival
-void	PresidentialPardonForm::execute(Bureaucrat const & mec) const // new
+void	RobotomyRequestForm::execute(Bureaucrat const & mec) const // new
 {
 	if (!m_isSigned)
 	{
@@ -103,7 +103,7 @@ void	PresidentialPardonForm::execute(Bureaucrat const & mec) const // new
 	}
 }
 
-void	PresidentialPardonForm::beSigned(const Bureaucrat & mec)
+void	RobotomyRequestForm::beSigned(const Bureaucrat & mec)
 {
 	if (mec.getGrade() > m_gradeRequiredSign)
 	{
@@ -117,13 +117,13 @@ void	PresidentialPardonForm::beSigned(const Bureaucrat & mec)
 
 
 // exception
-const char * PresidentialPardonForm::GradeTooLowException::what() const throw()
+const char * RobotomyRequestForm::GradeTooLowException::what() const throw()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
 
-const char * PresidentialPardonForm::GradeTooHighException::what() const throw()
+const char * RobotomyRequestForm::GradeTooHighException::what() const throw()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;
@@ -133,18 +133,18 @@ const char * PresidentialPardonForm::GradeTooHighException::what() const throw()
 // getter
 
 
-const	std::string & PresidentialPardonForm::getName() const {return (m_name);}
+const	std::string & RobotomyRequestForm::getName() const {return (m_name);}
 
 
-bool	PresidentialPardonForm::getIsSigned() const {return m_isSigned;}
+bool	RobotomyRequestForm::getIsSigned() const {return m_isSigned;}
 
 
-unsigned int	PresidentialPardonForm::getGradeRequiredSign() const {
+unsigned int	RobotomyRequestForm::getGradeRequiredSign() const {
 	return (m_gradeRequiredSign);
 }
 
 
-unsigned int	PresidentialPardonForm::getGradeRequiredExec() const {
+unsigned int	RobotomyRequestForm::getGradeRequiredExec() const {
 	return (m_gradeRequiredExec);
 }
 

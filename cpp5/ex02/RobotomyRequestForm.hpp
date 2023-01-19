@@ -16,45 +16,27 @@
 # include "_Cpp05_.hpp"
 # include "AForm.hpp"
 
-# define G_PPSIGN 25
-# define G_PPEXEC 5
+# define G_RRSIGN 72
+# define G_RREXEC 45
 
-class	PresidentialPardonForm : public AForm
+class	RobotomyRequestForm : public AForm
 {
 
 private:
 
-	PresidentialPardonForm();
+	RobotomyRequestForm();
 	const std::string	m_target; // subject not clear: "target of form"
 	
 public:
 
 	// canon
-	~PresidentialPardonForm();
-	PresidentialPardonForm(const std::string &);
-	PresidentialPardonForm(const PresidentialPardonForm &);
-	PresidentialPardonForm & operator = (PresidentialPardonForm const & );
+	~RobotomyRequestForm();
+	RobotomyRequestForm(const std::string &);
+	RobotomyRequestForm(const RobotomyRequestForm &);
+	RobotomyRequestForm & operator = (RobotomyRequestForm const & );
 
 	// method
 	void	execute(Bureaucrat const &) const;
-
-public:
-
-	// exceptions
-	class	FormUnsignedException : public std::exception
-	{
-		const char * what() const throw(); // added exception *
-	};
-
-
-	class	GradeTooHighException : public std::exception {
-		const char * what() const throw();
-	};
-	
-	class	GradeTooLowException : public std::exception {
-		const char * what() const throw();
-	};
-
 
 };
 
