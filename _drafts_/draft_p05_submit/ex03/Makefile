@@ -2,14 +2,14 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main.cpp \
-			AForm.cpp \
+src		:=	AForm.cpp \
+			Intern.cpp \
+			_Cpp05_.cpp \
 			Bureaucrat.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
 			PresidentialPardonForm.cpp \
-			Intern.cpp \
-			_Cpp05_.cpp
+			main.cpp
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)

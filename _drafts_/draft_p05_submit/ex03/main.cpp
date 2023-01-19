@@ -73,6 +73,9 @@ int	main()
 		std::cout << form;
 
 		jaco.signForm(*form);
+
+		std::cout << form;
+
 		jaco.executeForm(*form);
 
 		delete	form;

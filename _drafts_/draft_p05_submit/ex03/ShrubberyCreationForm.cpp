@@ -50,6 +50,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const & tar) :
 std::ostream & operator << (std::ostream & ostream, ShrubberyCreationForm const & form)
 {
 	operator << (ostream, (AForm const &) form);
+	
 	/*
 	ostream
 	<< "ShrubberyCreationForm: " YELL << form.getName() << RESET nl
@@ -60,12 +61,14 @@ std::ostream & operator << (std::ostream & ostream, ShrubberyCreationForm const 
 	<< "min to sign: " CYAN << form.getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form.getGradeRequiredExec() << RESET nl2;
 	*/
+
 	return (ostream);
 }
 
 std::ostream & operator << (std::ostream & ostream, ShrubberyCreationForm const * form)
 {
 	operator << (ostream, (AForm const *) form);
+	
 	/*
 	ostream
 	<< "ShrubberyCreationForm: " YELL << form->getName() << RESET nl
@@ -76,6 +79,7 @@ std::ostream & operator << (std::ostream & ostream, ShrubberyCreationForm const 
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
 	*/
+
 	return (ostream);
 }
 

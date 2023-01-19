@@ -50,6 +50,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const & tar) :
 std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const & form)
 {
 	operator << (ostream, (AForm const &) form);
+	
 	/*
 	ostream
 	<< "PresidentialPardonForm: " YELL << form.getName() << RESET nl
@@ -60,12 +61,14 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	<< "min to sign: " CYAN << form.getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form.getGradeRequiredExec() << RESET nl2;
 	*/
+	
 	return (ostream);
 }
 
 std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const * form)
 {
 	operator << (ostream, (AForm const *) form);
+	
 	/*
 	ostream
 	<< "PresidentialPardonForm: " YELL << form->getName() << RESET nl
@@ -76,6 +79,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 	<< "min to sign: " CYAN << form->getGradeRequiredSign() << RESET nl
 	<< "min to exec: " CYAN << form->getGradeRequiredExec() << RESET;
 	*/
+	
 	return (ostream);
 }
 

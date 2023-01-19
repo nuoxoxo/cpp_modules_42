@@ -55,10 +55,6 @@ public:
 	class	GradeTooLowException : public std::exception {
 		const char * what() const throw ();
 	};
-	
-	/*class	FormNonExistentException : public std::exception {
-		const char * what() const throw ();
-	};*/
 
 	// getters
 	const std::string &	getName() const;
@@ -70,7 +66,8 @@ public:
 	// method
 	
 	void		beSigned(const Bureaucrat &);
-	// added virtual func
+
+	// added abstract virtual func
 	virtual void	execute(const Bureaucrat &) const = 0;
 
 };
