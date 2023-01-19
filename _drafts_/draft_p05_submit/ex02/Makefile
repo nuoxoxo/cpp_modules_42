@@ -2,13 +2,14 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main_2.cpp \
+src		:=	main.cpp \
 			AForm.cpp \
+			_Cpp05_.cpp \
 			Bureaucrat.cpp \
 			RobotomyRequestForm.cpp \
 			ShrubberyCreationForm.cpp \
-			PresidentialPardonForm.cpp \
-			_Cpp05_.cpp
+			PresidentialPardonForm.cpp
+			
 
 budfolder	:=	./bud/
 budpath		:=	$(budfolder)
@@ -32,7 +33,7 @@ $(name)	:	$(budpath) $(bud)
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 		@ echo ""
-		@ echo "--------------------- "
+		@ echo "----------- de valgrind ---------- "
 		@ echo ""
 
 run	:	re
