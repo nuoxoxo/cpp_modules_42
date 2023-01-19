@@ -44,20 +44,20 @@ public:
 	// exceptions
 	class	FormUnsignedException : public std::exception
 	{
-		const char * what() const throw(); // added exception *
+		const char * what() const throw (); // added exception *
 	};
 
 
 	class	GradeTooHighException : public std::exception {
-		const char * what() const throw();
+		const char * what() const throw ();
 	};
 	
 	class	GradeTooLowException : public std::exception {
-		const char * what() const throw();
+		const char * what() const throw ();
 	};
 	
 	/*class	FormNonExistentException : public std::exception {
-		const char * what() const throw();
+		const char * what() const throw ();
 	};*/
 
 	// getters

@@ -110,12 +110,12 @@ void	Form::beSigned(const Bureaucrat & mec)
 
 
 // exception
-const char * Form::GradeTooLowException::what() const throw()
+const char * Form::GradeTooLowException::what() const throw ()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * Form::GradeTooHighException::what() const throw()
+const char * Form::GradeTooHighException::what() const throw ()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;

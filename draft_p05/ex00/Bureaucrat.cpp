@@ -91,7 +91,7 @@ void	Bureaucrat::gradeUp()
 	print_canon(std::string(__FUNCTION__), "method");
 	if (--m_grade < G_HIGH)
 	{
-		throw( GradeTooHighException() );
+		throw ( GradeTooHighException() );
 	}
 }
 
@@ -100,7 +100,7 @@ void	Bureaucrat::gradeDown()
 	print_canon(std::string(__FUNCTION__), "method");
 	if (++m_grade > G_LOW)
 	{
-		throw( GradeTooLowException() );
+		throw ( GradeTooLowException() );
 	}
 }
 
@@ -109,20 +109,20 @@ void	Bureaucrat::gradeDown()
 
 /*
 class	GradeTooHighException : public std::exception {
-	const char * what() const throw();
+	const char * what() const throw ();
 };
 
 class	GradeTooLowException : public std::exception {
-	const char * what() const throw();
+	const char * what() const throw ();
 };
 */
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
+const char * Bureaucrat::GradeTooLowException::what() const throw ()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * Bureaucrat::GradeTooHighException::what() const throw()
+const char * Bureaucrat::GradeTooHighException::what() const throw ()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;

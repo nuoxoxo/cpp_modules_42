@@ -121,7 +121,7 @@ void	Bureaucrat::gradeUp()
 	
 	if (--m_grade < G_HIGH)
 	{
-		throw( GradeTooHighException() );
+		throw ( GradeTooHighException() );
 	}
 }
 
@@ -131,16 +131,16 @@ void	Bureaucrat::gradeDown()
 	
 	if (++m_grade > G_LOW)
 	{
-		throw( GradeTooLowException() );
+		throw ( GradeTooLowException() );
 	}
 }
 
-const char * Bureaucrat::GradeTooLowException::what() const throw()
+const char * Bureaucrat::GradeTooLowException::what() const throw ()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * Bureaucrat::GradeTooHighException::what() const throw()
+const char * Bureaucrat::GradeTooHighException::what() const throw ()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;

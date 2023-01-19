@@ -123,17 +123,17 @@ void	AForm::beSigned(const Bureaucrat & mec)
 // exception
 
 // new
-const char * AForm::FormUnsignedException::what() const throw()
+const char * AForm::FormUnsignedException::what() const throw ()
 {
 	return (CYAN "Error: Unsigned. \n" RESET);
 }
 
-const char * AForm::GradeTooLowException::what() const throw()
+const char * AForm::GradeTooLowException::what() const throw ()
 {
 	return (CYAN "Error: Grade too low. \n" RESET);
 }
 
-const char * AForm::GradeTooHighException::what() const throw()
+const char * AForm::GradeTooHighException::what() const throw ()
 {
 	return (YELL "Error: Grade too high. \n" RESET)
 	;

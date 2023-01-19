@@ -42,22 +42,22 @@ public:
 	// Exception
 	/*class	GradeTooHighException : public std::exception
 	{
-		const char * what() const throw();
+		const char * what() const throw ();
 	};
 
 	class	GradeTooLowException : public std::exception
 	{
-		const char * what() const throw();
+		const char * what() const throw ();
 	};*/
 
 	class	GradeTooHighException : public std::exception
 	{
-		const char * what() const throw();
+		const char * what() const throw ();
 	};
 	
 	class	GradeTooLowException : public std::exception
 	{
-		const char * what() const throw();
+		const char * what() const throw ();
 	};
 
 
