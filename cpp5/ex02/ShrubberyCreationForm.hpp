@@ -13,11 +13,13 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-# include "_Cpp05_.hpp"
+# include "_Cpp05_.hpp" // incl. fstream
 # include "AForm.hpp"
 
-# define G_SCSIGN 72
-# define G_SCEXEC 45
+# define G_SCSIGN 145
+# define G_SCEXEC 137
+# define TREE_UP	" ^  ^  ^   ^   ^  ^   ^  ^  ^   ^  ^   ^  ^  ^   ^   ^   ^  ^ \n"
+# define TREE_DOWN "/|\\/|\\/|\\ /|\\ /|\\/|\\ /|\\/|\\/|\\ /|\\/|\\ /\|\/|\\/|\\ /|\\ /|\\ /|\\/|\\ \n"
 
 class	ShrubberyCreationForm : public AForm
 {
@@ -25,8 +27,9 @@ class	ShrubberyCreationForm : public AForm
 private:
 
 	ShrubberyCreationForm();
-	const std::string	m_target; // subject not clear: "target of form"
-	
+	const std::string	m_target;	
+
+
 public:
 
 	// canon
@@ -40,9 +43,10 @@ public:
 
 };
 
-
 std::ostream & operator << ( std::ostream &, AForm const &);
 std::ostream & operator << ( std::ostream &, AForm const *);
 
+void	print_tree(void);
+void	print_forest(void);
 
 #endif

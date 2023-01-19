@@ -15,6 +15,7 @@
 
 # include "iostream"
 # include "string"
+# include "fstream" // 
 # include "cstdlib" // rand - x2 
 
 void	print_canon(const std::string, const std::string);

@@ -2,7 +2,7 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main.cpp \
+src		:=	main_1.cpp \
 			AForm.cpp \
 			Bureaucrat.cpp \
 			RobotomyRequestForm.cpp \
