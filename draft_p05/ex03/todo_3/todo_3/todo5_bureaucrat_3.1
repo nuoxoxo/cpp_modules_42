@@ -18,6 +18,56 @@
 
 -----------------------8<------ [ Requirements ] ------------------------------
 
+
+
+/************************** Interns **************************/
+
+Make the Intern class
+
+	-	intern has no name, no grade, no unique characteristics.
+	-	intern has one important capacity: 
+			
+			- the makeForm() function takes 2 strings. 
+			-	1st --- name of a form 
+			-	2nd --- target of the form
+			-	return --- a pointer to a Form object 
+				(whose name is the passed-in parameter)
+			- 	(whose target will be initialized to the second parameter)
+
+	-  will print something like:
+		
+		- Intern creates <form>
+			- If the form name passed as parameter doesn’t exist
+				
+				-	print an explicit error message.
+
+* You must avoid using a if/elseif/else forest
+	- which won’t be accepted during the evaluation process. 
+
+You’re not in Piscine
+
+For example, the code below creates a RobotomyRequestForm targeted on "Bender":
+
+{
+	Intern someRandomIntern;
+	
+	Form* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+}
+
+.
+.
+.
+
+------------------------------- [ above :: ex02 ] ------------------------------
+--------------8<--------------- [ below :: ex01 ] ------------------------------
+
+.
+.
+.
+
+
 - AForm
 	
 	- the base class Form must be an abstract class
@@ -150,7 +200,6 @@ class (then call another function to execute the form) is up to you.
 
 
 ----------------------8<------- [ above :: ex02 ] ------------------------------
----------------8<---------------------------------------------------------------
 --------------------------8<--- [ below :: ex01 ] ------------------------------
 
 
@@ -201,7 +250,6 @@ Add a signAForm() member function to the Bureaucrat
 
 
 ----------------------8<------- [ above :: ex01 ] ------------------------------
----------------8<---------------------------------------------------------------
 --------------------------8<--- [ below :: ex00 ] ------------------------------
 
 
