@@ -33,7 +33,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & du
 // operatr =
 PresidentialPardonForm & PresidentialPardonForm::operator = (PresidentialPardonForm const & dummy)
 {
-	AForm::operator = dummy;
+	AForm::operator = (dummy);
 
 	return (*this);
 }
@@ -49,7 +49,7 @@ PresidentialPardonForm::PresidentialPardonForm(std::string const & tar) :
 
 std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const & form)
 {
-	operator << (ostream, (AForm const *) form);
+	operator << (ostream, (AForm const &) form);
 	/*
 	ostream
 	<< "PresidentialPardonForm: " GREEN << form.getName() << RESET nl
@@ -65,7 +65,7 @@ std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const
 
 std::ostream & operator << (std::ostream & ostream, PresidentialPardonForm const * form)
 {
-	operator << (ostream, (AForm const &) form);
+	operator << (ostream, (AForm const *) form);
 	/*
 	ostream
 	<< "PresidentialPardonForm: " GREEN << form->getName() << RESET nl

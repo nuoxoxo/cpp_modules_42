@@ -33,7 +33,8 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & dummy) :
 // operatr =
 RobotomyRequestForm & RobotomyRequestForm::operator = (RobotomyRequestForm const & dummy)
 {
-	AForm::operator = dummy;
+	// AForm::operator = dummy;
+	AForm::operator = (dummy);
 
 	return (*this);
 }
@@ -49,7 +50,7 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const & tar) :
 
 std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const & form)
 {
-	operator << (ostream, (AForm const *) form);
+	operator << (ostream, (AForm const &) form);
 	/*
 	ostream
 	<< "RobotomyRequestForm: " GREEN << form.getName() << RESET nl
@@ -65,7 +66,7 @@ std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const & 
 
 std::ostream & operator << (std::ostream & ostream, RobotomyRequestForm const * form)
 {
-	operator << (ostream, (AForm const &) form);
+	operator << (ostream, (AForm const *) form);
 	/*
 	ostream
 	<< "RobotomyRequestForm: " GREEN << form->getName() << RESET nl
