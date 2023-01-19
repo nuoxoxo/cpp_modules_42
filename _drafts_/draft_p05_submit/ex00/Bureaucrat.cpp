@@ -48,7 +48,7 @@ Bureaucrat::Bureaucrat(std::string s, unsigned int G)
 }
 
 
-// overloading the `<<`
+// overloading the `<<` . 2 of them
 
 // std::ostream & operator << (std::ostream &, Bureaucrat const & );
 // std::ostream & operator << (std::ostream &, Bureaucrat const * );

@@ -7,13 +7,7 @@ int	main()
 	
 	std::cout
 	<< nl GREEN ":::::::::::: tests start :::::::::::: \n" RESET nl2;
-	
-	{
-		// % nofunc()
-		// % try (nofunc()) catch(error) {console.log('here')}
-		// % try (nofunc()) catch(e) {console.log(e)}
-		// % try:\ print(iota) except print(':-D')
-	}
+
 	{
 		Bureaucrat	alex("Alex", 21);
 		Bureaucrat	eric(alex);

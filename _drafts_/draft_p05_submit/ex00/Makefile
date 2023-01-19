@@ -28,7 +28,7 @@ $(name)	:	$(budpath) $(bud)
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 		@ echo ""
-		@ echo "--------------------- "
+		@ echo "---------- do valgrind ----------- "
 		@ echo ""
 
 run	:	re
