@@ -2,10 +2,11 @@ comp		:=	c++ -Wall -Werror -Wextra -std=c++98
 name		:=	out
 rmv		:=	rm -rf
 
-src		:=	main_1.cpp \
+src		:=	main_2.cpp \
 			AForm.cpp \
 			Bureaucrat.cpp \
 			RobotomyRequestForm.cpp \
+			ShrubberyCreationForm.cpp \
 			PresidentialPardonForm.cpp \
 			_Cpp05_.cpp
 
