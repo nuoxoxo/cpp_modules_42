@@ -19,16 +19,80 @@ int	main()
 	int	count = 0;
 	
 	{
-		AForm		*form = new ShrubberyCreationForm("tree form");
-		Bureaucrat	*glen = new Bureaucrat("Glen", G_SCEXEC);
+		AForm		*F = new ShrubberyCreationForm("Maketree");
+		Bureaucrat	*G = new Bureaucrat("Glen", G_SCSIGN + 1);
 
-		std::cout << form << glen;
+		std::cout << F << G;
 		
-		glen->signForm( *form );
-		glen->executeForm( *form );
+		G->signForm( *F );
 		
-		delete form;
+		std::cout << F;
+		
+		G->executeForm( *F );
+
+		delete F;
+		delete G;
+	}
+	
+	print_ending(++count, " - { Shrubbery } - incapable for both ");
+	
+	{
+		AForm		*F = new ShrubberyCreationForm("Maketree");
+		Bureaucrat	*G = new Bureaucrat("Glen", G_SCSIGN);
+
+		std::cout << F << G;
+		
+		G->signForm( *F );
+		
+		std::cout << F;
+		
+		G->executeForm( *F );
+
+		delete F;
+		delete G;
+	}
+
+	print_ending(++count, " - { Shrubbery } - can only sign it ");
+	
+	{
+		AForm		*F = new ShrubberyCreationForm("plantTrees");
+		Bureaucrat	*G = new Bureaucrat("Gould", G_SCEXEC);
+
+		std::cout << F << G;
+		
+		G->signForm( *F );
+		
+		std::cout << F;
+		
+		G->executeForm( *F );
+			
+		delete F;
+		delete G;
+	}
+
+	print_ending(++count, " - { Shrubbery } - can do both ");
+	
+	{
+		AForm		*F = new ShrubberyCreationForm("saveThePlanet");
+		Bureaucrat	*glen = new Bureaucrat("Glen", G_SCSIGN);
+		Bureaucrat	*gould = new Bureaucrat("Gould", G_SCEXEC);
+
+		std::cout << F << glen << gould;
+		
+		glen->signForm( *F );
+		
+		std::cout << F;
+		
+		glen->executeForm( *F );
+		
+		gould->executeForm( *F );
+		
+		
+		delete F;
 		delete glen;
-	}	
-	print_ending(++count, "just print the ascii tree!");
+		delete gould;
+	}
+
+	print_ending(++count, " - { Shrubbery } - signed by one, exec by another ");
+
 }

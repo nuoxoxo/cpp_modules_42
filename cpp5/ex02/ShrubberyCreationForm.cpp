@@ -103,8 +103,9 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & undertaker) const
 }
 
 
-//	helpers
+//	Helpers --- Deprecated
 
+/*
 static void	print_trees(void)
 {
 	std::cout << TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
@@ -131,4 +132,4 @@ MM88MMM ,adPPYba,  8b,dPPYba,  ,adPPYba, ,adPPYba, MM88MMM  \n \
 		std::cout << s;
 	}
 	print_trees();
-}
+}*/
