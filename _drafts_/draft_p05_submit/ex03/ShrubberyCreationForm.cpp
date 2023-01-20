@@ -118,7 +118,7 @@ void	ShrubberyCreationForm::execute_way_2(void) const
 {
 	std::fstream	fs;
 	std::string	trees = TREE_UP TREE_DOWN TREE_DOWN TREE_DOWN;
-	std::string	filename = m_target + "_2" + "_shrubbery";
+	std::string	filename = m_target + "_shrubbery";
 
 	fs.open(filename.c_str(), std::fstream::out); // out :: outfile :: out is open for write
 	

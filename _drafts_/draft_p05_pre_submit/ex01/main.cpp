@@ -13,6 +13,8 @@ int	main()
 		Form	d = c;
 
 		std::cout << a << b << c << d << std::endl;
+
+		delete	a;
 	}
 	
 	print_ending(++count, "constructors");
