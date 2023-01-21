@@ -1,40 +1,37 @@
-comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
-rmv	:=	rm -rf
+#include "iostream"
+#include "string"
+#include "cstdint"
 
-src	:=	main.cpp
+class	Entity
+{
 
-bud	:=	$(src:%.cpp=%.o)
+public:
+	char		chr;
+	double		d;
+	float		f;
+	int		i;
+	std::string	s;
+};
 
-%.o	:	%.cpp
-		@ echo "compiling [$^] "
-		@ $(comp) -c $^ -o $@
+static uintptr_t	deserialize(uintptr_t);
+static uintptr_t	serialize(Entity *);
 
-$(name)	:	$(bud)
-		@ echo "compiling [$@] "
-		@ $(comp) $^ -o $@
-		@ printf "\n\t"
-		@ printf "\"are you using the right compiler? \"\n\n"
-		@ echo "you can do [make f] "
-		@ echo "you can do [make run] "
-		@ echo ""
 
-run	:	re
-		@ ./out
-		@ make clean
+int	main()
+{
+	Entity	E;
 
-r	:	run
+	return (0);
+}
 
-all	:	$(name)
+//
 
-clean	:
-		@ $(rmv) $(bud)
+static uintptr_t	serialize(Entity* e)
+{
+	retrun ( reinterpre_cast<uintptr_t>(e) );
+}
 
-fclean	:	clean
-		@ $(rmv) $(name) a.out
-
-test	:	run
-f	:	fclean
-re	:	f all
-
-.PHONY	:	fclean clean all re f
+static uintptr_t	deserialize(uintptr_t p)
+{
+	return ( reinterpret_cast<Entity*>(p) );
+}
