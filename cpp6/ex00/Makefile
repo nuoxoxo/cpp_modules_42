@@ -3,10 +3,13 @@ name	:=	out
 rmv	:=	rm -rf
 
 src	:=	main.cpp
+src	:=	main.cc
 
-bud	:=	$(src:%.cpp=%.o)
+bud	:=	$(src:%.cc=%.o)
+# bud	:=	$(src:%.cpp=%.o)
 
-%.o	:	%.cpp
+# %.o	:	%.cpp
+%.o	:	%.cc
 		@ echo "compiling [$^] "
 		@ $(comp) -c $^ -o $@
 
