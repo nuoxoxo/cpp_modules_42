@@ -1,10 +1,11 @@
-#include "_Cpp04.hpp"
-#include "icr.hh"
+#include "_Cpp04_.hpp"
+#include "amt.hh"
 
-class	icr;
+class	amt;
 
-class	amt
+class	icr
 {
+
 
 std::string	m_type;
 public:
@@ -17,5 +18,5 @@ public:
 	std::string const & getType() const;
 
 	virtual amt * clone() const = 0;
-	virtual void use(icr &);
+	virtual void use(irc &);
 };
