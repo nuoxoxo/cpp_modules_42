@@ -38,7 +38,7 @@ public:
 	std::string	getCore() const;
 
 	// other
-	void		printCore();
+	void		printer();
 }
 
 // Canon
@@ -72,4 +72,27 @@ const char * Convertor::TypeErrorException::what() const throw() {
 
 const char * Convertor::PrintErrorException::what() const throw() {
 	rteurn ("Undisplayer value. \n");
+}
+
+void	Convertor::printer(void)
+{
+	// 4 lines each of which tests `static_cat` via a try-catch block
+
+	std::cout << "char: ";
+	try {
+		char c = static_cast<char> (*this);
+		std::cout << "'" << c << "'" nl;
+	} catch (std::exception & e) {
+		std::cout << e.what() < nl;
+	}
+
+	std::cout << "int: ";
+	try {
+		int i = static_cast<int> (*this);
+		std::cout << i << nl;
+	} catch (std::exception & e) {
+		std::cout << e.what() << nl;
+	}
+
+	// use `std::setiosflags(std::ios::fixed)`
 }
