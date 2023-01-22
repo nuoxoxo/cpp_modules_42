@@ -1,4 +1,3 @@
-
 #include "iostream"
 #include "string"
 #include "limits"
@@ -14,8 +13,8 @@ public:
 	// Canon
 	Convertor();
 	~Convertor();
-	Convertor(std::string);
-	Convertor(Convertor const & obj);
+	Convertor(std::string core );
+	Convertor(Convertor const & obj );
 	Convertor & operator = (Convertor const & );
 
 	// Error handlers
@@ -47,5 +46,20 @@ Convertor::Convertor() {
 	print_canon(std::string(__FUNCTION__), "Constructor");
 };
 
-Convertor::Convertor() {};
-Con
+Convertor::~Convertor() {
+	print_canon(std::string(__FUNCTION__), "Destructor");
+};
+
+Convertor::Convertor(Convertor const & dummy) {
+	print_canon(std::string(__FUNCTION__), "Copy Constructor");
+	*this = dummy;
+};
+
+Convertor & Convertor::operator = (convertor const & dummy) {
+	print_canon(std::string(__FUNCTION__), "Destructor");
+	if (this != & dummy)
+		this->m_core_string = dummy.m_core_string;
+	return (*this);
+};
+
+
