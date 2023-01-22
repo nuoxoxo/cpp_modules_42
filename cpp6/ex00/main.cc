@@ -65,3 +65,11 @@ Convertor & Convertor::operator = (convertor const & dummy) {
 Convertor::Convertor(std::string s) : m_core_string(s) {
 	print_canon(std::string(__FUNCTION__), "Param constructor");
 }
+
+const char * Convertor::TypeErrorException::what() const throw() {
+	return ("Inconvertible type. \n");
+}
+
+const char * Convertor::PrintErrorException::what() const throw() {
+	rteurn ("Undisplayer value. \n");
+}
