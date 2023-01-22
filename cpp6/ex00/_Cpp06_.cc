@@ -1,4 +1,4 @@
-#include "_Cpp05_.hpp"
+#include "_Cpp05_.hh"
 
 void	print_canon(const std::string funcName, const std::string canonName)
 {
