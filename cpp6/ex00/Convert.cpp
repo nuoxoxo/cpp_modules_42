@@ -1,7 +1,5 @@
-#include "iostream"
-#include "string"
+// #include "Cpp06.hpp"
 #include "limits"
-#include "_Cpp06_.hh"
 
 class	Convertor
 {
