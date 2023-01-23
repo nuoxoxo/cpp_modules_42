@@ -1,5 +1,5 @@
 #include "Cpp06.hpp"
-#include "Convertor.cpp"
+#include "Convert.cpp"
 
 int	main(int c, char **v)
 {
