@@ -1,5 +1,6 @@
 Notes                |   |
 :------------------- | - |
+6 - Casting          | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/73)
 5 - Bureaucrat       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69)
 4.3 - AMateria       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/61)
 4 - Animal           | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/49)
