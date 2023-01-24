@@ -1,5 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+name	:=	convert
 rmv	:=	rm -rf
 
 src	:=	main.cpp
@@ -21,7 +21,7 @@ $(name)	:	$(bud)
 
 run	:	re
 		@#@ ./out
-		@ make clean
+		@#@ make clean
 
 r	:	run
 

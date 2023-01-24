@@ -1,4 +1,7 @@
-// #include "Cpp06.hpp"
+#include "iostream"
+#include "sstream"
+#include "string"
+#include "iomanip"
 #include "limits"
 
 class	Convertor
@@ -15,12 +18,13 @@ public:
 	Convertor(Convertor const & obj );
 	Convertor & operator = (Convertor const & );
 
-	// Error handlers
+	// cout << "impossible"
 	class	TypeErrorException : public std::exception
 	{
 		const char * what() const throw();
 	};
 
+	// cout << "Non displayable"
 	class	PrintErrorException : public std::exception
 	{
 		const char * what() const throw();
