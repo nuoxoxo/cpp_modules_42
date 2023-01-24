@@ -1,0 +1,138 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                  Casting                                   */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+```
+
+---------------------------------8<------ [ Conversion of scalar types ] ----------------------------------------
+
+# Allowed functions 
+
+	- Any function to convert 
+
+		- a string to an int, a float or a double. 
+
+# What to do?
+
+	- Write a program 
+	- Program takes as parameter a string representation of a cpp ``literal``
+	- This literal must belong to one of the following a ``scalar`` types:
+		
+		- char, int, float or double.
+		- Except for char parameters, only the decimal notation will be used.
+
+# char
+	## Examples of char literals: ’c’, ’a’, ...
+
+	* To make things simple, non displayable characters shouldn’t be used as inputs. 
+
+	- If a conversion to char is not displayable
+
+		- prints an informative message.
+
+# int / float
+
+	## Examples
+		
+		- int literals: 0, -42, 42...
+		- float literals: 0.0f, -4.2f, 4.2f...
+
+		- You have to handle these pseudo literals as well
+
+			-> 	-inff
+			-> 	+inff
+			-> 	nanf
+
+# double
+
+	## Examples of double literals: 
+		
+		- double literals: 0.0, -4.2, 4.2...
+
+
+		- You have to handle these pseudo literals as well
+
+			->	-inf
+			->	+inf 
+			->	nan
+
+	- You have to first detect the type of the parameter
+	- then, convert it from string to its actual type, 
+
+# convert
+
+	- then, convert it explicitly to the three other data types. 
+	- Lastly, display the results as shown below.
+
+	- If a conversion does not make any sense or overflows
+		
+		- display a message to inform
+			the user that the type conversion is impossible. 
+
+	- ``#include`` any header you need in order to
+		handle numeric limits and special values.
+
+
+# model output
+
+
+./convert 0
+char: Non displayable
+int: 0
+float: 0.0f
+double: 0.0
+./convert nan
+char: impossible
+int: impossible
+float: nanf
+double: nan
+./convert 42.0f
+char: '*'
+int: 42
+float: 42.0f
+double: 42.0
+
+
+================================ note ==================>
+
+/* C does not specify whether char is signed / unsigned, which is
+	left to implementations to decide.
+
+On implementations where char is unsigned, 250 is within its range.
+
+And because it’s 1 byte which is 8 bits and that means :
+
+	the signed range is
+
+	from	−2^(8−1)
+		ie. -2^7
+		ie. -128
+
+	to	2^(8−1) − 1
+		ie. 127
+
+* note : 0 takes one spot.
+
+If it were unsigned then it would be
+
+	from 	0
+	to 	2^(8−1)
+
+	ie. 	0 - 255
+
+it isn’t range per se, but it is the Max Absolute Entry for signed ones. */
