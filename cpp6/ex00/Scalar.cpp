@@ -51,7 +51,7 @@ void	Brain(const char * str)
 			return (mode_convertor[i](s, & SC), Printer(& SC));
 		}
 	}
-	std::cout << RED "Conversion failed. " RESET nl2;
+	std::cout << RED "Conversion failed. " RESET nl;
 }
 
 //	Type checking:
@@ -244,15 +244,15 @@ void	castDouble(const std::string & s, _Scalar_ *sc)
 
 //	Printer
 
-static void	Printer(_Scalar_ *sc)
+void	Printer(_Scalar_ *sc)
 {
 	// char
 	if (sc->i < -1 * (1 << 7) || sc->i > (1 << 7) - 1)
-		std::cout << YELL C IM nl RESET;
+		std::cout << RED C IM nl RESET;
 	else if (std::isprint(sc->c))
 		std::cout << C "'" << sc->c << "'" nl;
 	else
-		std::cout << CYAN ND nl RESET;
+		std::cout << RED ND nl RESET;
 
 	// int
 	/*std::cout << GREEN "int route (i): " << sc->i << nl;
@@ -276,7 +276,7 @@ static void	Printer(_Scalar_ *sc)
 	//// above: mini
 
 	if (  isnan(sc->f) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
-		std::cout << YELL I IM nl RESET;
+		std::cout << RED I IM nl RESET;
 	else
 		std::cout << I << sc->i << nl;
 
@@ -290,13 +290,15 @@ static void	Printer(_Scalar_ *sc)
 
 	// double
 	std::cout
-	<< D 
+	<< D
 	<< std::setiosflags(std::ios::fixed)
 	<< std::setprecision(1)
 	<< sc->d << nl
 	<< std::resetiosflags(std::ios::fixed);
 }
 
+
+//	Global
 
 void	print_canon(const std::string funcName, const std::string canonName)
 {
