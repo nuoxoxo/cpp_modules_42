@@ -20,11 +20,18 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef C_HPP
-# define C_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
-# include "Base.hpp"
+# include "iostream"
+# include "cstdlib"
 
-class	C : public Base {};
+class	Base
+{
+
+public:
+	virtual	~Base();
+
+};
 
 #endif
