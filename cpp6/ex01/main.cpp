@@ -2,6 +2,7 @@
 #include "string"
 #include "cstdlib"
 #include "cstdint"
+#include "cassert"
 
 #define YELL "\033[0;33m"
 #define GREEN "\033[0;32m"
@@ -15,11 +16,11 @@ struct	Data
 	int		r, c;
 	void		existence() {
 			std::cout
-			<< "data name:\t" << core
+			<< "content:\t" << core
 			<< "\naddress:\t" << this
 			<< "\nx coordinate:\t" << c
 			<< "\ny coordinate:\t" << r
-			<< "\n\n";
+			<< "\n";
 	};
 };
 
@@ -46,18 +47,21 @@ int	main(int c, char **v)
 		dat.r = (int) rand() % 42;
 		dat.c = (int) rand() % 42;
 		dat.existence();		
+		
 		std::cout 
-		<< YELL << & dat
-		<< RESET " & dat printed from main \n\n";
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
 
 		Data	*D = deserialize(serialize(& dat));
 
-		std::cout << "{ deserialize(serialize(& data)) } \n\n";
+		std::cout
+		<< "{ Data	*D = deserialize(serialize(& data)) } \n\n";
 
 		D->existence();
+
 		std::cout 
-		<< YELL << & dat
-		<< RESET " & dat printed from main \n\n";
+		<< "address D \t"
+		<< YELL << D << RESET "\n\n";
 
 	}
 	std::cout << GREEN "Test 1 :: \n\n" RESET;
@@ -71,8 +75,8 @@ int	main(int c, char **v)
 		dat.existence();
 
 		std::cout 
-		<< YELL << & dat
-		<< RESET " (printed from main) \n\n";
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
 
 		uintptr_t	U = serialize(& dat);
 		Data		*D = deserialize(U);
@@ -84,12 +88,12 @@ int	main(int c, char **v)
 		D->existence();
 
 		std::cout 
-		<< YELL << & dat
-		<< RESET " &dat printed from main \n";
+		<< "address D \t"
+		<< YELL << D << RESET "\n";
 		
 		std::cout
-		<< YELL << U << RESET
-		<< " value of the unsigned int ptr \n\n";
+		<< "uint pointer \t"
+		<< YELL << U << "\n\n" RESET;
 	}
 	std::cout << GREEN "Test 2 :: \n\n" RESET;
 	{
@@ -102,25 +106,31 @@ int	main(int c, char **v)
 		dat->existence();		
 		
 		std::cout 
-		<< YELL << dat << RESET " dat \n"
-		<< YELL << &dat << RESET " &dat \n\n";
+		<< "address dat \t"
+		<< YELL << dat << RESET "\n"
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
 
 		uintptr_t	U = serialize(dat);
 		Data		*D = deserialize(U);
 
 		std::cout
-		<< "{ Data *dat = new Data; } \n"
-		<< "{ delete dat; } \n\n";
+		<< "{ Data      *dat = new Data; } \n"
+		<< "{ uintptr_t U = serialize(& dat); } \n"
+		<< "{ Data*     D = deserialize(U); } \n"
+		<< "{ delete    dat; } \n\n";
 
 		D->existence();
-		
+
 		std::cout 
-		<< YELL << dat << RESET " dat \n"
-		<< YELL << &dat << RESET " &dat \n";
-		
+		<< "address D \t"
+		<< YELL << D << RESET "\n"
+		<< "address & D \t"
+		<< YELL << & D << RESET "\n";
+
 		std::cout
-		<< YELL << U << RESET
-		<< " value of the unsigned int ptr \n\n";
+		<< "uint pointer\t"
+		<< YELL << U << "\n\n" RESET;
 
 		delete dat;
 	}
