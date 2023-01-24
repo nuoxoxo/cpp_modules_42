@@ -49,6 +49,198 @@ void	Brain(const char * str)
 			// // to delete
 			
 			return (mode_convertor[i](s, & SC), Printer(& SC));
+		}
+	}
+	std::cout << RED "Conversion failed. " RESET nl2;
+}
+
+//	Type checking:
+//		char 
+//		digit (int) 
+//		float 
+//		double
+
+bool	strIsChar(const std::string & s)
+{
+	return (s.length() == 3 && s[0] == '\'' && s[2] == '\'');
+}
+
+bool	strIsDigit(const std::string & s)
+{
+	// checking string contains only digit
+
+	if (s.empty())
+		return false;
+
+	std::string::const_iterator	it = s.begin();
+
+	while (it != s.end() && std::isdigit(*it))
+		++it;;
+	if (it != s.end())
+		return false;
+
+	// checking conversion w/ ss
+
+	std::stringstream	ss(s);
+	int			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+}
+
+bool	strIsFloat(const std::string & str)
+{
+	if (isMacroFloat(str)) // (marco: see below)
+		return true;
+
+	int		len = (int) str.length();
+
+	if (str[len - 1] != 'f')
+		return false;
+
+	std::string::const_iterator	it;
+	std::string			s;
+
+	s = str.substr(0, len - 1);
+	it = s.begin();
+	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+		++it;;
+	if (it != s.end())
+		return false;
+
+	std::stringstream	ss(s);
+	float			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+}
+
+bool	strIsDouble(const std::string & str)
+{
+	if (isMacroDouble(str))
+		return true;
+
+	std::string::const_iterator	it;
+	std::string			s;
+	int				len;
+
+	len = (int) str.length();
+	s = str;
+	it = s.begin();
+	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+		++it;;
+	if (it != s.end())
+		return false;
+
+	std::stringstream	ss(s);
+	float			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+
+	/*
+	std::stringstream	ss(s);
+	double			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+	*/
+}
+
+
+//	is macro group
+
+bool	isMacroFloat(const std::string & s)
+{
+	return (s == "inff" || s == "-inff" || s == "+inff" || s == "nanf");
+}
+
+bool	isMacroDouble(const std::string & s)
+{
+	return (s == "inf" || s == "-inf" || s == "+inf" || s == "nan");
+}
+
+
+//	Type casting:
+//		char 
+//		digit (int) 
+//		float 
+//		double
+
+void	castChar(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+	
+	// step 1. convert principle type
+	sc->c = s[1];
+	
+	// step 2. convert the rest based on principle type
+	sc->i = static_cast<int> (sc->c);
+	sc->f = static_cast<float> (sc->c);
+	sc->d = static_cast<double> (sc->c);
+}
+
+void	castInt(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	/*std::cout << "route int: " << __FUNCTION__ << std::endl;
+	*/
+
+	// step 1. convert principle type
+	sc->i = std::stoi(s);
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char> (sc->i);
+	sc->f = static_cast<float> (sc->i);
+	sc->d = static_cast<double> (sc->i);
+
+	/*
+	std::cout << std::fixed << std::setprecision(10);
+	std::cout << RED << "i: " << sc->i << nl RESET;
+	std::cout << RED << "f: " << sc->f << nl RESET;
+	std::cout << RED << "d: " << sc->d << nl RESET;
+	*/
+}
+
+void	castFloat(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	// step 1. convert principle type
+	sc->f = static_cast<float>(std::stof(s));
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char>(sc->f);
+	sc->i = static_cast<int>(sc->f);
+	sc->d = static_cast<double>(sc->f);
+}
+
+void	castDouble(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	// step 1. convert principle type
+	sc->d = std::stod(s);
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char>(sc->d);
+	sc->i = static_cast<int>(sc->d);
+	sc->f = static_cast<float>(sc->d);
+
+}
 
 void	print_canon(const std::string funcName, const std::string canonName)
 {

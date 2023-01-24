@@ -51,7 +51,6 @@ void	castFloat(const std::string &, _Scalar_ *);
 void	castDouble(const std::string &, _Scalar_ *);
 
 
-
 void	print_canon(const std::string, const std::string);
 void	print_ending(int);
 void	print_ending(void);
