@@ -23,19 +23,25 @@ struct	Data
 	};
 };
 
-static Data		*deserialize(uintptr_t);
-static uintptr_t	serialize(Data *);
+static	Data *deserialize(uintptr_t _) {
+	return (reinterpret_cast<Data*>(_));
+}
 
+static	uintptr_t serialize(Data * _) {
+	return (reinterpret_cast<uintptr_t>(_));
+}
 
 // drive
 
-int	main()
+int	main(int c, char **v)
 {
-	std::cout << GREEN "Test 1 :: \n\n" RESET;
+	std::string	core = c > 1 ? std::string(v[1]) : "Dasein";
+
+	std::cout << GREEN "Test 0 :: \n\n" RESET;
 	{
 		Data	dat;
 
-		dat.core = "Dasein";
+		dat.core = core;
 		srand(time(0));
 		dat.r = (int) rand() % 42;
 		dat.c = (int) rand() % 42;
@@ -54,11 +60,11 @@ int	main()
 		<< RESET " & dat printed from main \n\n";
 
 	}
-	std::cout << GREEN "Test 2 :: \n\n" RESET;
+	std::cout << GREEN "Test 1 :: \n\n" RESET;
 	{
 		Data	dat;
 
-		dat.core = "Dasein";
+		dat.core = core;
 		srand(time(0));
 		dat.r = (int) rand() % 42;
 		dat.c = (int) rand() % 42;
@@ -85,11 +91,11 @@ int	main()
 		<< YELL << U << RESET
 		<< " value of the unsigned int ptr \n\n";
 	}
-	std::cout << GREEN "Test 3 :: \n\n" RESET;
+	std::cout << GREEN "Test 2 :: \n\n" RESET;
 	{
 		Data	*dat = new Data;
 
-		dat->core = "Dasein";
+		dat->core = core;
 		srand(time(0));
 		dat->r = (int) rand() % 42;
 		dat->c = (int) rand() % 42;
@@ -115,22 +121,8 @@ int	main()
 		std::cout
 		<< YELL << U << RESET
 		<< " value of the unsigned int ptr \n\n";
+
+		delete dat;
 	}
-
-	return (0);
 }
-
-
-// static
-
-static uintptr_t	serialize(Data* pt)
-{
-	return ( reinterpret_cast<uintptr_t> (pt) );
-}
-
-static Data	*deserialize(uintptr_t ptr)
-{
-	return ( reinterpret_cast<Data *> (ptr) );
-}
-
 
