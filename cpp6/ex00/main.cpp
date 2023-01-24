@@ -3,12 +3,12 @@
 #include "sstream"
 #include "iomanip"
 
-/*struct	_Scalar_
+struct	_Scalar_
 {
 	char	c;
 	int	i;
 	float	f;
-};*/
+};
 
 static void	_usage_();
 static bool	strIsChar(const std::string &);
@@ -92,7 +92,6 @@ static bool	strIsDouble(const std::string & s)
 }
 
 
-
 //	is macro group
 
 bool	isMacroFloat(const std::string & s)
@@ -105,6 +104,90 @@ bool	isMacroDouble(const std::string & s)
 	return (s == "inf" || s == "-inf" || s == "+inf" || s == "nan");
 }
 
+
+//	convertor . brain
+
+void	Brain(const std::string & s)
+{
+	_Scalar_	sc;
+
+	/* void	(Harl::*modes[4]) (void) = {
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
+	}; */
+}
+
+
+//	Type casting:
+//		char 
+//		digit (int) 
+//		float 
+//		double
+
+void	strCastChar(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+	
+	// step 1. convert principle type
+	sc->c = s[1];
+	
+	// step 2. convert the rest based on principle type
+	sc->i = static_cast<int> (sc->c);
+	sc->f = static_cast<float> (sc->c);
+	sc->d = static_cast<double> (sc->c);
+}
+
+void	strCastInt(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	// step 1. convert principle type
+	sc->i = std::stoi(s);
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char>(sc->i);
+	sc->f = static_cast<float>(sc->i);
+	sc->d = static_cast<double>(sc->i);
+}
+
+void	strCastFloat(const std::string & s, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	// step 1. convert principle type
+	sc->f = static_cast<float>(std::stof(s));
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char>(sc->f);
+	sc->i = static_cast<int>(sc->f);
+	sc->d = static_cast<double>(sc->f);
+}
+
+void	strCastDouble(const std::string &, _Scalar_ *sc)
+{
+	if (s.empty() || !sc)
+		return ;
+
+	// step 1. convert principle type
+	sc->d = std::stod(s);
+
+	// step 2. convert the rest based on principle type
+	sc->c = static_cast<char>(sc->d);
+	sc->i = static_cast<int>(sc->d);
+	sc->f = static_cast<float>(sc->d);
+
+}
+
+
+/* -----------------------------------8<---------------------------------- */
+
+
+//	
 
 /* C does not specify whether char is signed / unsigned, which is 
 	left to implementations to decide.
