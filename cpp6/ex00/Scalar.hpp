@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        ...      :::::::    */
-/*   Cpp06.hpp                                          :+:      :+:    :+:   */
-/*                                                    ... ...         :::     */
-/*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
-/*                                                ...........   :::           */
-/*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/23 09:51:20 by nuxu             ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef SCALAR_HPP
 # define SCALAR_HPP
 
@@ -22,7 +10,6 @@
 // 	Quote:
 //	"Integers are inherently finite. " - someone on stackoverflow
 
-
 //	proto
 
 struct	_Scalar_
@@ -34,6 +21,7 @@ struct	_Scalar_
 };
 
 void	_usage_();
+
 void	Printer(_Scalar_ *sc);
 void	Brain(const char *);
 
