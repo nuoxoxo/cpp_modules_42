@@ -22,7 +22,7 @@ struct	_Scalar_
 	char	c;
 	int	i;
 	float	f;
-	float	d;
+	double	d;
 };
 
 static void	_usage_();
@@ -103,7 +103,10 @@ static void	Brain(const char * str)
 	while (++i < 4)
 	{
 		if (mode_isLiteral[i](s))
+		{
+			std::cout << "current level: " << i << std::endl; // to delete
 			return (mode_convertor[i](s, & SC), Printer(& SC));
+		}
 	}
 	std::cout << YELL "convertion failed. " nl2 RESET ;
 }
@@ -202,13 +205,19 @@ static void	castInt(const std::string & s, _Scalar_ *sc)
 	if (s.empty() || !sc)
 		return ;
 
+	std::cout << "route int: " << __FUNCTION__ << std::endl;
 	// step 1. convert principle type
 	sc->i = std::stoi(s);
 
 	// step 2. convert the rest based on principle type
-	sc->c = static_cast<char>(sc->i);
-	sc->f = static_cast<float>(sc->i);
-	sc->d = static_cast<double>(sc->i);
+	sc->c = static_cast<char> (sc->i);
+	sc->f = static_cast<float> (sc->i);
+	sc->d = static_cast<double> (sc->i);
+
+	std::cout << std::fixed << std::setprecision(10);
+	std::cout << RED << "i: " << sc->i << nl RESET;
+	std::cout << RED << "f: " << sc->f << nl RESET;
+	std::cout << RED << "d: " << sc->d << nl RESET;
 }
 
 static void	castFloat(const std::string & s, _Scalar_ *sc)
@@ -249,12 +258,27 @@ static void	Printer(_Scalar_ *sc)
 	if (sc->i < -1 * (1 << 7) || sc->i > (1 << 7) - 1)
 		std::cout << YELL C IM nl RESET;
 	else if (std::isprint(sc->c))
-		std::cout << "'" << sc->c << "'" nl;
+		std::cout << C "'" << sc->c << "'" nl;
 	else
 		std::cout << CYAN ND nl RESET;
 
 	// int
-	if (isnan(sc->f) || sc->d > 2147483647.0 || sc->d < 2147483648.0)
+	std::cout << GREEN "int route (i): " << sc->i << nl;
+	std::cout << GREEN "int route (d): " << sc->d << nl;
+	std::cout << GREEN "int route (f): " << sc->f << nl RESET;
+	if (isnan(sc->f))
+		std::cout << "1" nl;
+	
+	if (sc->d >= 2147483648.0)
+		std::cout << "2" nl;
+
+	// if (sc->d <= -2147483648.0) // here
+	if (sc->d <= -2147483648.0)
+		std::cout << "3" nl;
+	
+	//if (isnan(sc->d) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
+	//// above: mini
+	if (std::isnan(sc->f) || sc->d >= 2147483648.0 || sc->d <= -2147483648.0)
 		std::cout << YELL I IM nl RESET;
 	else
 		std::cout << I << sc->i << nl;
@@ -263,7 +287,7 @@ static void	Printer(_Scalar_ *sc)
 	std::cout
 	<< F
 	<< std::setiosflags(std::ios::fixed)
-	<< std::setprecision(1)
+	<< std::setprecision(10)
 	<< sc->f << "f" nl
 	<< std::resetiosflags(std::ios::fixed);
 
@@ -271,7 +295,7 @@ static void	Printer(_Scalar_ *sc)
 	std::cout
 	<< D 
 	<< std::setiosflags(std::ios::fixed)
-	<< std::setprecision(1)
+	<< std::setprecision(10)
 	<< sc->d << nl
 	<< std::resetiosflags(std::ios::fixed);
 }
