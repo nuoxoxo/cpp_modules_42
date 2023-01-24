@@ -1,7 +1,7 @@
 Notes         |                      |   |
 :------------ | -------------------- | - |
 6.2           | dynamic_cast         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/81) &nbsp;detailed
-&nbsp;        | &nbsp;               | test `$ seq n \| xargs -Ix ./a.out`
+&nbsp;        | test                 |  `$ seq n \| xargs -Ix ./a.out`
 6.1           | reinterpret_cast     | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/82) &nbsp;code
 6             | static_cast          | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/73)
 5             | Bureaucrat           | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69) &nbsp;detailed
