@@ -1,37 +1,138 @@
 #include "iostream"
 #include "string"
+#include "cstdlib"
 #include "cstdint"
+#include "cassert"
 
-class	Entity
+#define YELL "\033[0;33m"
+#define GREEN "\033[0;32m"
+#define RESET "\033[0;0m"
+
+// define
+
+struct	Data
 {
-
-public:
-	char		chr;
-	double		d;
-	float		f;
-	int		i;
-	std::string	s;
+	std::string	core;
+	int		r, c;
+	void		existence() {
+			std::cout
+			<< "content:\t" << core
+			<< "\naddress:\t" << this
+			<< "\nx coordinate:\t" << c
+			<< "\ny coordinate:\t" << r
+			<< "\n";
+	};
 };
 
-static uintptr_t	deserialize(uintptr_t);
-static uintptr_t	serialize(Entity *);
-
-
-int	main()
-{
-	Entity	E;
-
-	return (0);
+static	Data *deserialize(uintptr_t _) {
+	return (reinterpret_cast<Data*>(_));
 }
 
-//
-
-static uintptr_t	serialize(Entity* e)
-{
-	retrun ( reinterpre_cast<uintptr_t>(e) );
+static	uintptr_t serialize(Data * _) {
+	return (reinterpret_cast<uintptr_t>(_));
 }
 
-static uintptr_t	deserialize(uintptr_t p)
+// drive
+
+int	main(int c, char **v)
 {
-	return ( reinterpret_cast<Entity*>(p) );
+	std::string	core = c > 1 ? std::string(v[1]) : "Dasein";
+
+	std::cout << GREEN "Test 0 :: \n\n" RESET;
+	{
+		Data	dat;
+
+		dat.core = core;
+		srand(time(0));
+		dat.r = (int) rand() % 42;
+		dat.c = (int) rand() % 42;
+		dat.existence();		
+		
+		std::cout 
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
+
+		Data	*D = deserialize(serialize(& dat));
+
+		std::cout
+		<< "{ Data	*D = deserialize(serialize(& data)) } \n\n";
+
+		D->existence();
+
+		std::cout 
+		<< "address D \t"
+		<< YELL << D << RESET "\n\n";
+
+	}
+	std::cout << GREEN "Test 1 :: \n\n" RESET;
+	{
+		Data	dat;
+
+		dat.core = core;
+		srand(time(0));
+		dat.r = (int) rand() % 42;
+		dat.c = (int) rand() % 42;
+		dat.existence();
+
+		std::cout 
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
+
+		uintptr_t	U = serialize(& dat);
+		Data		*D = deserialize(U);
+
+		std::cout
+		<< "{ uintptr_t  U = serialize(& dat); } \n"
+		<< "{ Data       *D = deserialize(U); } \n\n";
+
+		D->existence();
+
+		std::cout 
+		<< "address D \t"
+		<< YELL << D << RESET "\n";
+		
+		std::cout
+		<< "uint pointer \t"
+		<< YELL << U << "\n\n" RESET;
+	}
+	std::cout << GREEN "Test 2 :: \n\n" RESET;
+	{
+		Data	*dat = new Data;
+
+		dat->core = core;
+		srand(time(0));
+		dat->r = (int) rand() % 42;
+		dat->c = (int) rand() % 42;
+		dat->existence();		
+		
+		std::cout 
+		<< "address dat \t"
+		<< YELL << dat << RESET "\n"
+		<< "address & dat \t"
+		<< YELL << & dat << RESET "\n\n";
+
+		uintptr_t	U = serialize(dat);
+		Data		*D = deserialize(U);
+
+		std::cout
+		<< "{ Data      *dat = new Data; } \n"
+		<< "{ uintptr_t U = serialize(& dat); } \n"
+		<< "{ Data*     D = deserialize(U); } \n"
+		<< "{ delete    dat; } \n\n";
+
+		D->existence();
+
+		std::cout 
+		<< "address D \t"
+		<< YELL << D << RESET "\n"
+		<< "address & D \t"
+		<< YELL << & D << RESET "\n";
+
+		std::cout
+		<< "uint pointer\t"
+		<< YELL << U << "\n\n" RESET;
+
+		delete dat;
+	}
 }
+
