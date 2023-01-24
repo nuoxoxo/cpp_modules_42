@@ -1,3 +1,4 @@
+```sc
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
@@ -12,42 +13,34 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+```
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+`/* ***************************  [ 0. (Intro) ]  *************************** */`
 
-#include "iostream"
+- Implement the following function templates:
+	
+	• swap
+	Swaps the values of two given arguments. Does not return anything.
+	
+	• min:
+		- Compares the two values passed in
+		- returns the smaller one
+		- returns the 2nd one if the two of them are equal
 
-# define nl "\n"
-# define nl2 "\n\n"
+	• max: 
+		- Compares the two values passed in
+		- returns the greater one
+		- returns the 2nd one if the two them are equal
 
-template<T>
-void	swap(T & a, T & b)
-{
-	std::cout << "(" << __FUNCTION__ << " called) " nl;
-	T temp = a;
-	a = b;
-	b = temp;
-}
-
-template<typename T>
-const	T & min(const T & a, const T & b)
-{
-	// std::cout << __FUNCTION__ << " called" nl2;
-	return (a < b ? a : b);
-}
-
-template<typename T>
-const	T & max(const T & a, const T & b)
-{
-	// std::cout << __FUNCTION__ << " called" nl2;
-	return (a > b ? a : b);
-}
-
-#endif
-
+	** These functions can be called with any type of argument. 
+	
+	*** The only requirement is
+		- the two arguments must have the same type
+		- must support all the comparison operators.
