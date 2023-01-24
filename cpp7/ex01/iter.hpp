@@ -18,36 +18,46 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
 #include "iostream"
+#include "string"
 
-# define nl "\n"
-# define nl2 "\n\n"
-
-template<T>
-void	swap(T & a, T & b)
-{
-	std::cout << "(" << __FUNCTION__ << " called) " nl;
-	T temp = a;
-	a = b;
-	b = temp;
-}
+# define LOWKEY	"\033[0;2m"
+# define WHITE	"\033[1;37m"
+# define CYAN	"\033[0;36m"
+# define YELL	"\033[0;33m"
+# define GREEN	"\033[0;32m"
+# define RESET	"\033[0;0m"
 
 template<typename T>
-const	T & min(const T & a, const T & b)
+void	iter(T * arr, size_t len, void (*f)(T &))
 {
-	// std::cout << __FUNCTION__ << " called" nl2;
-	return (a < b ? a : b);
+	size_t	i = -1;
+
+	while (++i < len)
+		f(arr[i]);
 }
 
-template<typename T>
-const	T & max(const T & a, const T & b)
+template <typename T>
+void	print(T & elem)
 {
-	// std::cout << __FUNCTION__ << " called" nl2;
-	return (a > b ? a : b);
+	std::cout << elem << LOWKEY " (" << __FUNCTION__ << ") \n" RESET;
+}
+
+template <typename T>
+void	left_shift_1(T & elem)
+{
+	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
+	elem <<= 1;
+}
+
+template <typename T>
+void	right_shift_2(T & elem)
+{
+	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
+	elem >>= 2;
 }
 
 #endif
-
