@@ -2,7 +2,7 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-src	:=	main.cpp
+src	:=	main.cpp Base.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
@@ -17,6 +17,7 @@ $(name)	:	$(bud)
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
+		@ echo "you can do [valgrind] "
 		@ echo ""
 
 run	:	re

@@ -12,24 +12,19 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Cpp06x2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef B_HPP
+# define B_HPP
 
-int	main()
-{
-	Base	*obj = generate();
+# include "Base.hpp"
 
-	identify(obj);
-	identify(*obj);
+class	B : public Base	{};
 
-	delete obj;
-}
+#endif

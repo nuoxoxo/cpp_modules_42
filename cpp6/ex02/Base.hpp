@@ -12,24 +12,26 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Cpp06x2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int	main()
+# include "iostream"
+# include "cstdlib"
+
+class	Base
 {
-	Base	*obj = generate();
 
-	identify(obj);
-	identify(*obj);
+public:
+	virtual	~Base();
 
-	delete obj;
-}
+};
+
+#endif
