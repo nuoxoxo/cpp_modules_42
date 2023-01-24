@@ -22,8 +22,14 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+#include "Cpp06x2.hpp"
 
-int main()
+int	main()
 {
-	std::cout << __FUNCTION__ << std::endl;
+	Base	*obj = generate();
+
+	identify(obj);
+	identify(*obj);
+
+	delete obj;
 }
