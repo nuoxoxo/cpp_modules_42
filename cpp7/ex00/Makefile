@@ -1,5 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	convert
+name	:=	out
 rmv	:=	rm -rf
 
 src	:=	main.cpp

@@ -18,28 +18,17 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#include "whatever.hpp"
 
-template<typename T>
-void	swap(T & a, T & b)
+//int	main(int c, char **v)
+int	main()
 {
-	T temp = a;
-	a = b;
-	b = temp;
+	int	l = 42;
+	int	r = 1968833;
+
+	std::cout << l << " - " << r << std::endl;
+	swap(l, r);
+	std::cout << l << " - " << r << std::endl;
+
+	std::cout << ""
 }
-
-template<typename T>
-const T & min(const T a, const T & b)
-{
-	return (a < b ? a : b);
-}
-
-template<typename T>
-const T & max(const T a, const T & b)
-{
-	return (a > b ? a : b);
-}
-
-#endif
-

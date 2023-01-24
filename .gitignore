@@ -69,8 +69,6 @@ reload/**/includes/
 reload/**/srcs/
 
 game*/*.md
-*template*
-!*template*.c
 sandbox
 *venv*
 *trip*
