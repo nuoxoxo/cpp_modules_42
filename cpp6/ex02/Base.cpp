@@ -12,6 +12,8 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
@@ -19,11 +21,5 @@
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
 #include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 
-int main()
-{
-	std::cout << __FUNCTION__ << std::endl;
-}
+Base::~Base() {}

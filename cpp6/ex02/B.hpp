@@ -12,12 +12,13 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
-
 
 #ifndef B_HPP
 # define B_HPP

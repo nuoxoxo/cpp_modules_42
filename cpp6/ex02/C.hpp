@@ -12,18 +12,19 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int main()
-{
-	std::cout << __FUNCTION__ << std::endl;
-}
+# include "Base.hpp"
+
+class	C : public Base	{};
+
+#endif

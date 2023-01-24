@@ -12,18 +12,26 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main()
+# include "iostream"
+# include "cstdlib"
+
+class	Base
 {
-	std::cout << __FUNCTION__ << std::endl;
-}
+
+public:
+	virtual	~Base();
+
+};
+
+#endif
