@@ -2,7 +2,7 @@
 
 //	define
 
-static void	_usage_()
+void	_usage_()
 {
 	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
 }
@@ -10,7 +10,7 @@ static void	_usage_()
 
 //	convertor . brain
 
-static void	Brain(const char * str)
+void	Brain(const char * str)
 {
 	std::string	s;
 	_Scalar_	SC;

@@ -15,18 +15,9 @@
 
 # include "iostream"
 # include "string"
-
-#include "iostream"
-#include "sstream"
-#include "iomanip"
-#include "cmath" // isnan
-
-#define C "char: "
-#define I "int: "
-#define F "float: "
-#define D "double: "
-#define IM "impossible "
-#define ND "Non displayable "
+# include "sstream"
+# include "iomanip"
+# include "cmath" // isnan
 
 // 	Quote:
 //	"Integers are inherently finite. " - someone on stackoverflow
@@ -42,22 +33,22 @@ struct	_Scalar_
 	double	d;
 };
 
-static void	_usage_();
-static void	Printer(_Scalar_ *sc);
-static void	Brain(const char *);
+void	_usage_();
+void	Printer(_Scalar_ *sc);
+void	Brain(const char *);
 
-static bool	strIsChar(const std::string &);
-static bool	strIsDigit(const std::string &);
-static bool	strIsFloat(const std::string &);
-static bool	strIsDouble(const std::string &);
+bool	strIsChar(const std::string &);
+bool	strIsDigit(const std::string &);
+bool	strIsFloat(const std::string &);
+bool	strIsDouble(const std::string &);
 
-static bool	isMacroFloat(const std::string & s);
-static bool	isMacroDouble(const std::string & s);
+bool	isMacroFloat(const std::string & s);
+bool	isMacroDouble(const std::string & s);
 
-static void	castInt(const std::string &, _Scalar_ *);
-static void	castChar(const std::string &, _Scalar_ *);
-static void	castFloat(const std::string &, _Scalar_ *);
-static void	castDouble(const std::string &, _Scalar_ *);
+void	castInt(const std::string &, _Scalar_ *);
+void	castChar(const std::string &, _Scalar_ *);
+void	castFloat(const std::string &, _Scalar_ *);
+void	castDouble(const std::string &, _Scalar_ *);
 
 
 
@@ -83,11 +74,21 @@ void	print_ending(int, const std::string);
 
 # define TICK	GREEN" ✓"RESET
 # define CROSS	RED" ✘"RESET
+
+
 //	formatting
 
 # define called " called\n"
 # define inside "\ninside "
 # define nl2 " \n\n"
 # define nl " \n"
+
+# define C "char: "
+# define I "int: "
+# define F "float: "
+# define D "double: "
+# define IM "impossible "
+# define ND "Non displayable "
+
 
 #endif
