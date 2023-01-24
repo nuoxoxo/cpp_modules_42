@@ -2,6 +2,7 @@
 #include "iostream"
 #include "sstream"
 #include "iomanip"
+#include "cmath" // isnan
 
 #define C "char: "
 #define I "int: "
@@ -9,6 +10,10 @@
 #define D "double: "
 #define IM "impossible "
 #define ND "Non displayable "
+
+// 	Quote:
+//	"Integers are inherently finite. " - someone on stackoverflow
+
 
 //	proto
 
@@ -249,20 +254,22 @@ static void	Printer(_Scalar_ *sc)
 		std::cout << CYAN ND nl RESET;
 
 	// int
-	if (sc->d > 2147483647.0 || sc->d < 2147483648.0)
+	if (isnan(sc->f) || sc->d > 2147483647.0 || sc->d < 2147483648.0)
 		std::cout << YELL I IM nl RESET;
 	else
 		std::cout << I << sc->i << nl;
 
 	// float
-	std::cout << F
+	std::cout
+	<< F
 	<< std::setiosflags(std::ios::fixed)
 	<< std::setprecision(1)
 	<< sc->f << "f" nl
 	<< std::resetiosflags(std::ios::fixed);
 
 	// double
-	std::cout << D
+	std::cout
+	<< D 
 	<< std::setiosflags(std::ios::fixed)
 	<< std::setprecision(1)
 	<< sc->d << nl
