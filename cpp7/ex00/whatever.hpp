@@ -23,27 +23,31 @@
 
 #include "iostream"
 
+# define nl "\n"
+# define nl2 "\n\n"
+
 template<typename T>
 void	swap(T & a, T & b)
 {
+	std::cout << "(" << __FUNCTION__ << " called) " nl;
 	T temp = a;
 	a = b;
 	b = temp;
 }
 
 template<typename T>
-const 	T & min(const T a, const T & b)
+const	T & min(const T & a, const T & b)
 {
+	// std::cout << __FUNCTION__ << " called" nl2;
 	return (a < b ? a : b);
 }
 
 template<typename T>
-const	T & max(const T a, const T & b)
+const	T & max(const T & a, const T & b)
 {
+	// std::cout << __FUNCTION__ << " called" nl2;
 	return (a > b ? a : b);
 }
-
-template<typename>
 
 #endif
 
