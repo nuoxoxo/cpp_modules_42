@@ -104,7 +104,9 @@ static void	Brain(const char * str)
 	{
 		if (mode_isLiteral[i](s))
 		{
-			std::cout << "current level: " << i << std::endl; // to delete
+			// std::cout << "current level: " << i << std::endl;
+			// // to delete
+			
 			return (mode_convertor[i](s, & SC), Printer(& SC));
 		}
 	}
@@ -125,6 +127,8 @@ static bool	strIsChar(const std::string & s)
 
 static bool	strIsDigit(const std::string & s)
 {
+	// checking string contains only digit
+
 	if (s.empty())
 		return false;
 
@@ -132,31 +136,75 @@ static bool	strIsDigit(const std::string & s)
 
 	while (it != s.end() && std::isdigit(*it))
 		++it;;
-	return (it == s.end());
-}
-
-static bool	strIsFloat(const std::string & s)
-{
-	if (isMacroFloat(s)) // (marco: see below)
-		return true;
-
-	float		tmp;
-	int		len = (int) s.length();
-
-	if (s[len - 1] != 'f')
+	if (it != s.end())
 		return false;
-	std::stringstream ss(s.substr(0, len - 1));
+
+	// checking conversion w/ ss
+
+	std::stringstream	ss(s);
+	int			tmp;
+
 	ss >> tmp;
 	if (!ss.eof() || ss.fail())
 		return false;
 	return true;
 }
 
-static bool	strIsDouble(const std::string & s)
+static bool	strIsFloat(const std::string & str)
 {
-	if (isMacroDouble(s))
+	if (isMacroFloat(str)) // (marco: see below)
 		return true;
 
+	int		len = (int) str.length();
+
+	if (str[len - 1] != 'f')
+		return false;
+
+	std::string::const_iterator	it;
+	std::string			s;
+
+	s = str.substr(0, len - 1);
+	it = s.begin();
+	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+		++it;;
+	if (it != s.end())
+		return false;
+
+	std::stringstream	ss(s);
+	float			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+}
+
+static bool	strIsDouble(const std::string & str)
+{
+	if (isMacroDouble(str))
+		return true;
+
+	std::string::const_iterator	it;
+	std::string			s;
+	int				len;
+
+	len = (int) str.length();
+	s = str;
+	it = s.begin();
+	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+		++it;;
+	if (it != s.end())
+		return false;
+
+	std::stringstream	ss(s);
+	float			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
+
+	/*
 	std::stringstream	ss(s);
 	double			tmp;
 
@@ -164,6 +212,7 @@ static bool	strIsDouble(const std::string & s)
 	if (!ss.eof() || ss.fail())
 		return false;
 	return true;
+	*/
 }
 
 
@@ -205,7 +254,9 @@ static void	castInt(const std::string & s, _Scalar_ *sc)
 	if (s.empty() || !sc)
 		return ;
 
-	std::cout << "route int: " << __FUNCTION__ << std::endl;
+	/*std::cout << "route int: " << __FUNCTION__ << std::endl;
+	*/
+
 	// step 1. convert principle type
 	sc->i = std::stoi(s);
 
@@ -214,10 +265,12 @@ static void	castInt(const std::string & s, _Scalar_ *sc)
 	sc->f = static_cast<float> (sc->i);
 	sc->d = static_cast<double> (sc->i);
 
+	/*
 	std::cout << std::fixed << std::setprecision(10);
 	std::cout << RED << "i: " << sc->i << nl RESET;
 	std::cout << RED << "f: " << sc->f << nl RESET;
 	std::cout << RED << "d: " << sc->d << nl RESET;
+	*/
 }
 
 static void	castFloat(const std::string & s, _Scalar_ *sc)
@@ -263,9 +316,12 @@ static void	Printer(_Scalar_ *sc)
 		std::cout << CYAN ND nl RESET;
 
 	// int
-	std::cout << GREEN "int route (i): " << sc->i << nl;
+	/*std::cout << GREEN "int route (i): " << sc->i << nl;
 	std::cout << GREEN "int route (d): " << sc->d << nl;
 	std::cout << GREEN "int route (f): " << sc->f << nl RESET;
+	*/
+
+	/*
 	if (isnan(sc->f))
 		std::cout << "1" nl;
 	
@@ -275,10 +331,12 @@ static void	Printer(_Scalar_ *sc)
 	// if (sc->d <= -2147483648.0) // here
 	if (sc->d <= -2147483648.0)
 		std::cout << "3" nl;
+	*/
 	
 	//if (isnan(sc->d) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
 	//// above: mini
-	if (std::isnan(sc->f) || sc->d >= 2147483648.0 || sc->d <= -2147483648.0)
+
+	if (  isnan(sc->f) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
 		std::cout << YELL I IM nl RESET;
 	else
 		std::cout << I << sc->i << nl;
@@ -287,7 +345,7 @@ static void	Printer(_Scalar_ *sc)
 	std::cout
 	<< F
 	<< std::setiosflags(std::ios::fixed)
-	<< std::setprecision(10)
+	<< std::setprecision(1)
 	<< sc->f << "f" nl
 	<< std::resetiosflags(std::ios::fixed);
 
@@ -295,7 +353,7 @@ static void	Printer(_Scalar_ *sc)
 	std::cout
 	<< D 
 	<< std::setiosflags(std::ios::fixed)
-	<< std::setprecision(10)
+	<< std::setprecision(1)
 	<< sc->d << nl
 	<< std::resetiosflags(std::ios::fixed);
 }
