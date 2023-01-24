@@ -3,6 +3,8 @@
 #include "sstream"
 #include "iomanip"
 
+//	proto
+
 struct	_Scalar_
 {
 	char	c;
@@ -10,18 +12,24 @@ struct	_Scalar_
 	float	f;
 };
 
-static void	Brain();
 static void	_usage_();
+static void	Brain(const std::string &);
 
 static bool	strIsChar(const std::string &);
 static bool	strIsDigit(const std::string &);
 static bool	strIsFloat(const std::string &);
 static bool	strIsDouble(const std::string &);
 
+static bool	isMacroFloat(const std::string & s);
+static bool	isMacroDouble(const std::string & s);
+
 static void	castInt(const std::string &, _Scalar_ *);
 static void	castChar(const std::string &, _Scalar_ *);
 static void	castFloat(const std::string &, _Scalar_ *);
 static void	castDouble(const std::string &, _Scalar_ *);
+
+
+//	drive
 
 int	main(int c, char **v)
 {
@@ -36,7 +44,7 @@ int	main(int c, char **v)
 }
 
 
-//
+//	define
 
 static void	_usage_()
 {
@@ -46,9 +54,10 @@ static void	_usage_()
 
 //	convertor . brain
 
-void	Brain(const std::string & s)
+static void	Brain(const std::string & s)
 {
 	_Scalar_	sc;
+	int		i;
 
 	/* void	(Harl::*modes[4]) (void) = {
 		& Harl::debug,
@@ -56,6 +65,30 @@ void	Brain(const std::string & s)
 		& Harl::warning,
 		& Harl::error
 	}; */
+
+	bool	(*mode_isLiteral[4]) (const std::string &) =
+	{
+		& strIsChar,
+		& strIsDigit,
+		& strIsFloat,
+		& strIsDouble
+	};
+
+	bool	(*mode_convertor[4]) (const std::string &, _Scalar_ *) =
+	{
+		& castChar,
+		& castInt,
+		& castFloat,
+		& castDouble
+	}
+
+	i = -1;
+	while (++i < 4)
+	{
+		if (mode_isLiteral[i](s))
+			return (mode_covertor[i](s, & SC), printer(& SC));
+	}
+	std::cout << YELL "convertion failed. " nl2 RESET ;
 }
 
 
@@ -116,12 +149,12 @@ static bool	strIsDouble(const std::string & s)
 
 //	is macro group
 
-bool	isMacroFloat(const std::string & s)
+static bool	isMacroFloat(const std::string & s)
 {
 	return (s == "inff" || s == "-inff" || s == "+inff" || s == "nanf");
 }
 
-bool	isMacroDouble(const std::string & s)
+static bool	isMacroDouble(const std::string & s)
 {
 	return (s == "inf" || s == "-inf" || s == "+inf" || s == "nan");
 }
@@ -133,7 +166,7 @@ bool	isMacroDouble(const std::string & s)
 //		float 
 //		double
 
-void	castChar(const std::string & s, _Scalar_ *sc)
+static void	castChar(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -147,7 +180,7 @@ void	castChar(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double> (sc->c);
 }
 
-void	castInt(const std::string & s, _Scalar_ *sc)
+static void	castInt(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -161,7 +194,7 @@ void	castInt(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double>(sc->i);
 }
 
-void	castFloat(const std::string & s, _Scalar_ *sc)
+static void	castFloat(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -175,7 +208,7 @@ void	castFloat(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double>(sc->f);
 }
 
-void	castDouble(const std::string &, _Scalar_ *sc)
+static void	castDouble(const std::string &, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -190,3 +223,10 @@ void	castDouble(const std::string &, _Scalar_ *sc)
 
 }
 
+
+//	printer
+
+static void	printer(_Scalar_ *sc)
+{
+	std::cout << "char: ";
+}
