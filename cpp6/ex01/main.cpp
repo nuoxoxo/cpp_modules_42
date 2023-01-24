@@ -3,36 +3,119 @@
 #include "cstdlib"
 #include "cstdint"
 
+#define YELL "\033[0;33m"
+#define GREEN "\033[0;32m"
+#define RESET "\033[0;0m"
+
 // define
 
-struct	_point_
+struct	Data
 {
 	std::string	core;
 	int		r, c;
 	void		existence() {
 			std::cout
-			<< core;
-			<< "\nx: " << c;
-			<< "\ny: " << r << "\n";
+			<< "data name:\t" << core
+			<< "\naddress:\t" << this
+			<< "\nx coordinate:\t" << c
+			<< "\ny coordinate:\t" << r
+			<< "\n\n";
 	};
 };
 
-static uintptr_t	deserialize(uintptr_t);
-static uintptr_t	serialize(Entity *);
+static Data		*deserialize(uintptr_t);
+static uintptr_t	serialize(Data *);
+
 
 // drive
 
 int	main()
 {
-	_point_	pt;
+	std::cout << GREEN "Test 1 :: \n\n" RESET;
+	{
+		Data	dat;
 
-	pt.core = "you got a point. \n";
-	srand(time(0));
-	pt.r = (int) rand() % 3;
-	pt.c = (int) rand() % 3;
-	pt.exsitence();
+		dat.core = "Dasein";
+		srand(time(0));
+		dat.r = (int) rand() % 42;
+		dat.c = (int) rand() % 42;
+		dat.existence();		
+		std::cout 
+		<< YELL << & dat
+		<< RESET " & dat printed from main \n\n";
 
-	
+		Data	*D = deserialize(serialize(& dat));
+
+		std::cout << "{ deserialize(serialize(& data)) } \n\n";
+
+		D->existence();
+		std::cout 
+		<< YELL << & dat
+		<< RESET " & dat printed from main \n\n";
+
+	}
+	std::cout << GREEN "Test 2 :: \n\n" RESET;
+	{
+		Data	dat;
+
+		dat.core = "Dasein";
+		srand(time(0));
+		dat.r = (int) rand() % 42;
+		dat.c = (int) rand() % 42;
+		dat.existence();
+
+		std::cout 
+		<< YELL << & dat
+		<< RESET " (printed from main) \n\n";
+
+		uintptr_t	U = serialize(& dat);
+		Data		*D = deserialize(U);
+
+		std::cout
+		<< "{ uintptr_t  U = serialize(& dat); } \n"
+		<< "{ Data       *D = deserialize(U); } \n\n";
+
+		D->existence();
+
+		std::cout 
+		<< YELL << & dat
+		<< RESET " &dat printed from main \n";
+		
+		std::cout
+		<< YELL << U << RESET
+		<< " value of the unsigned int ptr \n\n";
+	}
+	std::cout << GREEN "Test 3 :: \n\n" RESET;
+	{
+		Data	*dat = new Data;
+
+		dat->core = "Dasein";
+		srand(time(0));
+		dat->r = (int) rand() % 42;
+		dat->c = (int) rand() % 42;
+		dat->existence();		
+		
+		std::cout 
+		<< YELL << dat << RESET " dat \n"
+		<< YELL << &dat << RESET " &dat \n\n";
+
+		uintptr_t	U = serialize(dat);
+		Data		*D = deserialize(U);
+
+		std::cout
+		<< "{ Data *dat = new Data; } \n"
+		<< "{ delete dat; } \n\n";
+
+		D->existence();
+		
+		std::cout 
+		<< YELL << dat << RESET " dat \n"
+		<< YELL << &dat << RESET " &dat \n";
+		
+		std::cout
+		<< YELL << U << RESET
+		<< " value of the unsigned int ptr \n\n";
+	}
 
 	return (0);
 }
@@ -40,13 +123,14 @@ int	main()
 
 // static
 
-static uintptr_t	serialize(Entity* entity)
+static uintptr_t	serialize(Data* pt)
 {
-	retrun ( reinterpre_cast<uintptr_t> (entity) );
+	return ( reinterpret_cast<uintptr_t> (pt) );
 }
 
-static uintptr_t	deserialize(uintptr_t ptr)
+static Data	*deserialize(uintptr_t ptr)
 {
-	return ( reinterpret_cast<Entity*> (ptr) );
+	return ( reinterpret_cast<Data *> (ptr) );
 }
+
 
