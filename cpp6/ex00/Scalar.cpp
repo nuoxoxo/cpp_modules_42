@@ -242,6 +242,62 @@ void	castDouble(const std::string & s, _Scalar_ *sc)
 
 }
 
+//	Printer
+
+static void	Printer(_Scalar_ *sc)
+{
+	// char
+	if (sc->i < -1 * (1 << 7) || sc->i > (1 << 7) - 1)
+		std::cout << YELL C IM nl RESET;
+	else if (std::isprint(sc->c))
+		std::cout << C "'" << sc->c << "'" nl;
+	else
+		std::cout << CYAN ND nl RESET;
+
+	// int
+	/*std::cout << GREEN "int route (i): " << sc->i << nl;
+	std::cout << GREEN "int route (d): " << sc->d << nl;
+	std::cout << GREEN "int route (f): " << sc->f << nl RESET;
+	*/
+
+	/*
+	if (isnan(sc->f))
+		std::cout << "1" nl;
+	
+	if (sc->d >= 2147483648.0)
+		std::cout << "2" nl;
+
+	// if (sc->d <= -2147483648.0) // here
+	if (sc->d <= -2147483648.0)
+		std::cout << "3" nl;
+	*/
+	
+	//if (isnan(sc->d) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
+	//// above: mini
+
+	if (  isnan(sc->f) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
+		std::cout << YELL I IM nl RESET;
+	else
+		std::cout << I << sc->i << nl;
+
+	// float
+	std::cout
+	<< F
+	<< std::setiosflags(std::ios::fixed)
+	<< std::setprecision(1)
+	<< sc->f << "f" nl
+	<< std::resetiosflags(std::ios::fixed);
+
+	// double
+	std::cout
+	<< D 
+	<< std::setiosflags(std::ios::fixed)
+	<< std::setprecision(1)
+	<< sc->d << nl
+	<< std::resetiosflags(std::ios::fixed);
+}
+
+
 void	print_canon(const std::string funcName, const std::string canonName)
 {
 	std::cout << LOWKEY << funcName << ' ' << canonName << called RESET;
