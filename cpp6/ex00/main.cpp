@@ -105,3 +105,30 @@ bool	isMacroDouble(const std::string & s)
 	return (s == "inf" || s == "-inf" || s == "+inf" || s == "nan");
 }
 
+
+/* C does not specify whether char is signed / unsigned, which is 
+	left to implementations to decide.
+
+On implementations where char is unsigned, 250 is within its range.
+
+And because it’s 1 byte which is 8 bits and that means :
+
+	the signed range is
+		
+	from	−2^(8−1)
+		ie. -2^7 
+		ie. -128
+
+	to	2^(8−1) − 1
+		ie. 127
+
+* note : 0 takes one spot.
+
+If it were unsigned then it would be
+	
+	from 	0 
+	to 	2^(8−1)
+		
+	ie. 	0 - 255
+
+it isn’t range per se, but it is the Max Absolute Entry for signed ones. */
