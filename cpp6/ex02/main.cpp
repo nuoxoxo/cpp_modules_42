@@ -18,11 +18,11 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
+#include "Cpp06x2.hpp"
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include "Cpp06x2.hpp"
 
 int	main()
 {
