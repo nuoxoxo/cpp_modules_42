@@ -2,8 +2,7 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	convert
 rmv	:=	rm -rf
 
-src	:=	main.cpp \
-		Scalar.cpp
+src	:=	main.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 

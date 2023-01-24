@@ -39,6 +39,7 @@ atomic
 sample
 *.dSYM
 replace
+convert
 outfile
 fractol
 indexed
