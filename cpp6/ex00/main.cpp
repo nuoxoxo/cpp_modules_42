@@ -10,11 +10,18 @@ struct	_Scalar_
 	float	f;
 };
 
+static void	Brain();
 static void	_usage_();
+
 static bool	strIsChar(const std::string &);
 static bool	strIsDigit(const std::string &);
 static bool	strIsFloat(const std::string &);
 static bool	strIsDouble(const std::string &);
+
+static void	castInt(const std::string &, _Scalar_ *);
+static void	castChar(const std::string &, _Scalar_ *);
+static void	castFloat(const std::string &, _Scalar_ *);
+static void	castDouble(const std::string &, _Scalar_ *);
 
 int	main(int c, char **v)
 {
@@ -34,6 +41,21 @@ int	main(int c, char **v)
 static void	_usage_()
 {
 	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
+}
+
+
+//	convertor . brain
+
+void	Brain(const std::string & s)
+{
+	_Scalar_	sc;
+
+	/* void	(Harl::*modes[4]) (void) = {
+		& Harl::debug,
+		& Harl::info,
+		& Harl::warning,
+		& Harl::error
+	}; */
 }
 
 
@@ -105,28 +127,13 @@ bool	isMacroDouble(const std::string & s)
 }
 
 
-//	convertor . brain
-
-void	Brain(const std::string & s)
-{
-	_Scalar_	sc;
-
-	/* void	(Harl::*modes[4]) (void) = {
-		& Harl::debug,
-		& Harl::info,
-		& Harl::warning,
-		& Harl::error
-	}; */
-}
-
-
 //	Type casting:
 //		char 
 //		digit (int) 
 //		float 
 //		double
 
-void	strCastChar(const std::string & s, _Scalar_ *sc)
+void	castChar(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -140,7 +147,7 @@ void	strCastChar(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double> (sc->c);
 }
 
-void	strCastInt(const std::string & s, _Scalar_ *sc)
+void	castInt(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -154,7 +161,7 @@ void	strCastInt(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double>(sc->i);
 }
 
-void	strCastFloat(const std::string & s, _Scalar_ *sc)
+void	castFloat(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -168,7 +175,7 @@ void	strCastFloat(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double>(sc->f);
 }
 
-void	strCastDouble(const std::string &, _Scalar_ *sc)
+void	castDouble(const std::string &, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -183,35 +190,3 @@ void	strCastDouble(const std::string &, _Scalar_ *sc)
 
 }
 
-
-/* -----------------------------------8<---------------------------------- */
-
-
-//	
-
-/* C does not specify whether char is signed / unsigned, which is 
-	left to implementations to decide.
-
-On implementations where char is unsigned, 250 is within its range.
-
-And because it’s 1 byte which is 8 bits and that means :
-
-	the signed range is
-		
-	from	−2^(8−1)
-		ie. -2^7 
-		ie. -128
-
-	to	2^(8−1) − 1
-		ie. 127
-
-* note : 0 takes one spot.
-
-If it were unsigned then it would be
-	
-	from 	0 
-	to 	2^(8−1)
-		
-	ie. 	0 - 255
-
-it isn’t range per se, but it is the Max Absolute Entry for signed ones. */
