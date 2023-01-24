@@ -3,6 +3,13 @@
 #include "sstream"
 #include "iomanip"
 
+#define C "char: "
+#define I "int: "
+#define F "float: "
+#define D "double: "
+#define IM "impossible "
+#define ND "Non displayable "
+
 //	proto
 
 struct	_Scalar_
@@ -10,10 +17,12 @@ struct	_Scalar_
 	char	c;
 	int	i;
 	float	f;
+	float	d;
 };
 
 static void	_usage_();
-static void	Brain(const std::string &);
+static void	Printer(_Scalar_ *sc);
+static void	Brain(const char *);
 
 static bool	strIsChar(const std::string &);
 static bool	strIsDigit(const std::string &);
@@ -36,11 +45,12 @@ int	main(int c, char **v)
 	if (c ^ 2)
 		return (_usage_(), 1);
 
-	std::cout << strIsInt(std::string(v[1])) << std::endl;
-	std::cout << strIsChar(std::string(v[1])) << std::endl;
+	// std::cout << strIsDigit(std::string(v[1])) << std::endl;
+	// std::cout << strIsChar(std::string(v[1])) << std::endl;
+
+	Brain(v[1]);
 
 	(void) c, (void) v;
-	return 0;
 }
 
 
@@ -54,9 +64,10 @@ static void	_usage_()
 
 //	convertor . brain
 
-static void	Brain(const std::string & s)
+static void	Brain(const char * str)
 {
-	_Scalar_	sc;
+	std::string	s;
+	_Scalar_	SC;
 	int		i;
 
 	/* void	(Harl::*modes[4]) (void) = {
@@ -74,19 +85,20 @@ static void	Brain(const std::string & s)
 		& strIsDouble
 	};
 
-	bool	(*mode_convertor[4]) (const std::string &, _Scalar_ *) =
+	void	(*mode_convertor[4]) (const std::string &, _Scalar_ *) =
 	{
 		& castChar,
 		& castInt,
 		& castFloat,
 		& castDouble
-	}
+	};
 
+	s = std::string(str);
 	i = -1;
 	while (++i < 4)
 	{
 		if (mode_isLiteral[i](s))
-			return (mode_covertor[i](s, & SC), printer(& SC));
+			return (mode_convertor[i](s, & SC), Printer(& SC));
 	}
 	std::cout << YELL "convertion failed. " nl2 RESET ;
 }
@@ -208,7 +220,7 @@ static void	castFloat(const std::string & s, _Scalar_ *sc)
 	sc->d = static_cast<double>(sc->f);
 }
 
-static void	castDouble(const std::string &, _Scalar_ *sc)
+static void	castDouble(const std::string & s, _Scalar_ *sc)
 {
 	if (s.empty() || !sc)
 		return ;
@@ -224,9 +236,35 @@ static void	castDouble(const std::string &, _Scalar_ *sc)
 }
 
 
-//	printer
+//	Printer
 
-static void	printer(_Scalar_ *sc)
+static void	Printer(_Scalar_ *sc)
 {
-	std::cout << "char: ";
+	// char
+	if (sc->i < -1 * (1 << 7) || sc->i > (1 << 7) - 1)
+		std::cout << YELL C IM nl RESET;
+	else if (std::isprint(sc->c))
+		std::cout << "'" << sc->c << "'" nl;
+	else
+		std::cout << CYAN ND nl RESET;
+
+	// int
+	if (sc->d > 2147483647.0 || sc->d < 2147483648.0)
+		std::cout << YELL I IM nl RESET;
+	else
+		std::cout << I << sc->i << nl;
+
+	// float
+	std::cout << F
+	<< std::setiosflags(std::ios::fixed)
+	<< std::setprecision(1)
+	<< sc->f << "f" nl
+	<< std::resetiosflags(std::ios::fixed);
+
+	// double
+	std::cout << D
+	<< std::setiosflags(std::ios::fixed)
+	<< std::setprecision(1)
+	<< sc->d << nl
+	<< std::resetiosflags(std::ios::fixed);
 }
