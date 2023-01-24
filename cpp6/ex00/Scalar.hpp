@@ -16,6 +16,51 @@
 # include "iostream"
 # include "string"
 
+#include "iostream"
+#include "sstream"
+#include "iomanip"
+#include "cmath" // isnan
+
+#define C "char: "
+#define I "int: "
+#define F "float: "
+#define D "double: "
+#define IM "impossible "
+#define ND "Non displayable "
+
+// 	Quote:
+//	"Integers are inherently finite. " - someone on stackoverflow
+
+
+//	proto
+
+struct	_Scalar_
+{
+	char	c;
+	int	i;
+	float	f;
+	double	d;
+};
+
+static void	_usage_();
+static void	Printer(_Scalar_ *sc);
+static void	Brain(const char *);
+
+static bool	strIsChar(const std::string &);
+static bool	strIsDigit(const std::string &);
+static bool	strIsFloat(const std::string &);
+static bool	strIsDouble(const std::string &);
+
+static bool	isMacroFloat(const std::string & s);
+static bool	isMacroDouble(const std::string & s);
+
+static void	castInt(const std::string &, _Scalar_ *);
+static void	castChar(const std::string &, _Scalar_ *);
+static void	castFloat(const std::string &, _Scalar_ *);
+static void	castDouble(const std::string &, _Scalar_ *);
+
+
+
 void	print_canon(const std::string, const std::string);
 void	print_ending(int);
 void	print_ending(void);
