@@ -1,8 +1,8 @@
 Notes         |                      |   |
 :------------ | -------------------- | - |
-6.2           | `dynamic_cast`       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/81) &nbsp;detailed
-6.1           | `reinterpret_cast`   | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/82) &nbsp;code
-6             | `static_cast`        | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/73)
+6.2           | dynamic_cast         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/81) &nbsp;detailed
+6.1           | reinterpret_cast     | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/82) &nbsp;code
+6             | static_cast          | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/73)
 5             | Bureaucrat           | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69) &nbsp;detailed
 4.3           | AMateria             | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/61)
 4             | Animal               | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/49)
