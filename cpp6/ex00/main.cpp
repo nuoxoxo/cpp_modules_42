@@ -2,7 +2,6 @@
 #include "iostream"
 #include "sstream"
 #include "iomanip"
-#include "limits"
 
 /*struct	_Scalar_
 {
@@ -75,7 +74,7 @@ static bool	strIsFloat(const std::string & s)
 	ss >> tmp;
 	if (!ss.eof() || ss.fail())
 		return false;
-	return true;		
+	return true;
 }
 
 static bool	strIsDouble(const std::string & s)
@@ -91,6 +90,7 @@ static bool	strIsDouble(const std::string & s)
 		return false;
 	return true;
 }
+
 
 
 //	is macro group
