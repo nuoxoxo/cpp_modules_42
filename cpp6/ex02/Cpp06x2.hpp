@@ -9,11 +9,11 @@ Base	*generate(void)
 	switch (rand() % 3)
 	{
 		case 0:
-			return new A;
+			return (new A);
 		case 1:
-			return new B;
+			return (new B);
 		case 2:
-			return new C;
+			return (new C);
 		default:
 			return (0);
 	}
@@ -24,21 +24,21 @@ void	identify(Base* na)
 	std::cout << __FUNCTION__ << " (Base *): ";
 	if (dynamic_cast<A *>(na)) {
 
-		std::cout << "A \n";
+		std::cout << "A";
 	
 	} else if (dynamic_cast<B *>(na)) {
 
-		std::cout << "B \n";
+		std::cout << "B";
 	
 	} else if (dynamic_cast<C *>(na)) {
 
-		std::cout << "C \n";
+		std::cout << "C";
 	}
 	else {
-
-		std::cout << "(something's apparently wrong) \n";
-	
+		std::cout << "(something's apparently wrong)";
 	}
+
+	std::cout << " \n";
 }
 
 void	identify(Base& p)
@@ -51,7 +51,7 @@ void	identify(Base& p)
 
 		A	& a = dynamic_cast<A &>(p); // 1st way
 
-		std::cout << "A" << std::endl;
+		std::cout << "A \n";
 		(void) a;
 		return ;
 
@@ -62,7 +62,7 @@ void	identify(Base& p)
 	try {
 
 		dummy = dynamic_cast<B &>(p); // 2nd way
-		std::cout << "B" << std::endl;
+		std::cout << "B \n";
 		return ;
 
 	} catch (const std::exception & e) {
@@ -72,7 +72,7 @@ void	identify(Base& p)
 	try {
 
 		dummy = dynamic_cast<C &>(p);
-		std::cout << "C" << std::endl;
+		std::cout << "C \n";
 		return ;
 
 	} catch (const std::exception & e) {
