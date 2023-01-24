@@ -1,5 +1,6 @@
 Notes                |   |
 :------------------- | - |
+6.2 - dynamic_cast   | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/81)
 6 - Casting          | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/73)
 5 - Bureaucrat       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69)
 4.3 - AMateria       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/61)
