@@ -63,11 +63,14 @@ static bool	strIsFloat(const std::string & s)
 		return true;
 
 	std::string	t;
+	float		f;
 	int		len = (int) s.length();
 
 	if (s[len - 1] != 'f')
-		return false;
+		return false
 	t = s.substr(0, len - 1);
+	std::stringstream ss(t);
+	
 }
 
 
