@@ -12,10 +12,10 @@
 };*/
 
 static void	_usage_();
-static bool	strIsInt(const std::string &);
 static bool	strIsChar(const std::string &);
-//static bool	strIsFloat(const std::string &);
-//static bool	strIsDouble(const std::string &);
+static bool	strIsDigit(const std::string &);
+static bool	strIsFloat(const std::string &);
+static bool	strIsDouble(const std::string &);
 
 int	main(int c, char **v)
 {
@@ -38,14 +38,18 @@ static void	_usage_()
 }
 
 
-//	char . num (int) . float . double
+//	Type checking:
+//		char 
+//		digit (int) 
+//		float 
+//		double
 
 static bool	strIsChar(const std::string & s)
 {
 	return (s.length() == 3 && s[0] == '\'' && s[2] == '\'');
 }
 
-static bool	strIsInt(const std::string & s)
+static bool	strIsDigit(const std::string & s)
 {
 	if (s.empty())
 		return false;
@@ -59,18 +63,33 @@ static bool	strIsInt(const std::string & s)
 
 static bool	strIsFloat(const std::string & s)
 {
-	if (isMacroFloat(s))
+	if (isMacroFloat(s)) // (marco: see below)
 		return true;
 
-	std::string	t;
-	float		f;
+	float		tmp;
 	int		len = (int) s.length();
 
 	if (s[len - 1] != 'f')
-		return false
-	t = s.substr(0, len - 1);
-	std::stringstream ss(t);
-	
+		return false;
+	std::stringstream ss(s.substr(0, len - 1));
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;		
+}
+
+static bool	strIsDouble(const std::string & s)
+{
+	if (isMacroDouble(s))
+		return true;
+
+	std::stringstream	ss(s);
+	double			tmp;
+
+	ss >> tmp;
+	if (!ss.eof() || ss.fail())
+		return false;
+	return true;
 }
 
 
@@ -85,3 +104,4 @@ bool	isMacroDouble(const std::string & s)
 {
 	return (s == "inf" || s == "-inf" || s == "+inf" || s == "nan");
 }
+
