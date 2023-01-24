@@ -1,37 +1,52 @@
 #include "iostream"
 #include "string"
+#include "cstdlib"
 #include "cstdint"
 
-class	Entity
-{
+// define
 
-public:
-	char		chr;
-	double		d;
-	float		f;
-	int		i;
-	std::string	s;
+struct	_point_
+{
+	std::string	core;
+	int		r, c;
+	void		existence() {
+			std::cout
+			<< core;
+			<< "\nx: " << c;
+			<< "\ny: " << r << "\n";
+	};
 };
 
 static uintptr_t	deserialize(uintptr_t);
 static uintptr_t	serialize(Entity *);
 
+// drive
 
 int	main()
 {
-	Entity	E;
+	_point_	pt;
+
+	pt.core = "you got a point. \n";
+	srand(time(0));
+	pt.r = (int) rand() % 3;
+	pt.c = (int) rand() % 3;
+	pt.exsitence();
+
+	
 
 	return (0);
 }
 
-//
 
-static uintptr_t	serialize(Entity* e)
+// static
+
+static uintptr_t	serialize(Entity* entity)
 {
-	retrun ( reinterpre_cast<uintptr_t>(e) );
+	retrun ( reinterpre_cast<uintptr_t> (entity) );
 }
 
-static uintptr_t	deserialize(uintptr_t p)
+static uintptr_t	deserialize(uintptr_t ptr)
 {
-	return ( reinterpret_cast<Entity*>(p) );
+	return ( reinterpret_cast<Entity*> (ptr) );
 }
+

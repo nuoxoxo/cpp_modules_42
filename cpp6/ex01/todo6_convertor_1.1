@@ -21,7 +21,34 @@
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 ```
 
-/* ********************  [ conversion of scalar types ]  ******************** */
+/* ********************  [ 1. Serialize / Deserialize ]  ******************** */
+
+# Implement the following functions:
+
+	- uintptr_t serialize(Data* ptr);
+
+		- takes a pointer
+		- converts the pointer to the unsigned integer type uintptr_t
+
+	- Data* deserialize(uintptr_t raw);
+
+		- takes an unsigned integer 
+		- converts it to a pointer to Data
+
+# Write a program to test that your functions works as expected.
+
+
+	- You must create a non-empty (it means it has data members) Data structure.
+
+	- Use serialize() on the address of the Data object 
+	- pass its return value to deserialize(). 
+	- ensure the return value of deserialize() 
+		compares equal to the original pointer.
+
+
+- 
+
+/* ******************  [ 0. conversion of scalar types ]  ****************** */
 
 
 # Allowed functions 
