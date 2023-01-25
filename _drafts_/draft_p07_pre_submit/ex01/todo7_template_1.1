@@ -1,3 +1,4 @@
+```sc
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
@@ -11,42 +12,52 @@
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
-/*                                   Array                                    */
+/*                                 Template                                   */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+```
 
-#include "Array.hpp"
-#define MAX 4294967295
+`/* ***************************  [ 1. Iter ]  *************************** */`
 
-#define LOWKEY	"\033[0;2m"
-#define GREEN	"\033[0;32m"
-#define RESET	"\033[0;0m"
 
-int	main()
-{
-	int	i = -1;
+- Implement a function template iter (for_each)
+	
+	- takes 3 parameters and returns nothing.
 
-	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
-	{
-		Array<int>	arr(2);
+		• 1st parameter is the address of an array.
+		• 2nd one is the length of the array.
+		• 3rd one is a function to be called on every elem
 
-		arr.printer();
-		std::cout << arr << std::endl;
-	}
-	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
-	{
-	}
-	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
-	{
-	}
-	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
-	{
-	}
-	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
-	{
-	}
-}
+	- Your iter function template must work with any type of array.
+	
+	***	The third parameter
+	***	can be an instantiated function template.
 
+
+
+
+`/* ***************************  [ 0. (Intro) ]  *************************** */`
+
+- Implement the following function templates:
+	
+	• swap
+	Swaps the values of two given arguments. Does not return anything.
+	
+	• min:
+		- Compares the two values passed in
+		- returns the smaller one
+		- returns the 2nd one if the two of them are equal
+
+	• max: 
+		- Compares the two values passed in
+		- returns the greater one
+		- returns the 2nd one if the two them are equal
+
+	** These functions can be called with any type of argument. 
+	
+	*** The only requirement is
+		- the two arguments must have the same type
+		- must support all the comparison operators.

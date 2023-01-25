@@ -18,59 +18,73 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#include "whatever.hpp"
 
-# include "iostream"
-# include "string"
+#define GREEN "\033[0;32m"
+#define RESET "\033[0;0m"
 
-# define LOWKEY	"\033[0;2m"
-# define GREEN	"\033[0;32m"
-# define RESET	"\033[0;0m"
-
-template<typename T>
-void	iter(T * arr, size_t len, void (*f)(T &))
+int	main()
 {
-	size_t	i = -1;
+	int	i = -1;
 
-	while (++i < len)
-		f(arr[i]);
-}
-
-template <typename T>
-void	print(T & elem)
-{
-	std::cout << elem << LOWKEY " (" << __FUNCTION__ << ") \n" RESET;
-}
-
-template <typename T>
-void	left_shift_1(T & elem)
-{
-	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-
-	try
+	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
 	{
-		elem <<= 1;
+		char	l = 'a';
+		char	r = 'o';
+
+		std::cout << l << " - " << r << nl;
+		swap(l, r);
+		std::cout << l << " - " << r << nl2;
+
+		std::cout << "max: " << max(l, r) << nl;
+		std::cout << "min: " << min(l, r) << nl2;
 	}
-	catch (std::exception(& e))
+	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
 	{
-		;;
+		std::string	l = "good morning";
+		std::string	r = "vietnam";
+
+		std::cout << l << " - " << r << nl;
+		swap(l, r);
+		std::cout << l << " - " << r << nl2;
+
+		std::cout << "max: " << ::max(l, r) << nl; // TODO explain
+		std::cout << "min: " << ::min(l, r) << nl2;
+	}
+	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	{
+		int	l = 42;
+		int	r = 1968833;
+
+		std::cout << l << " - " << r << nl;
+		swap(l, r);
+		std::cout << l << " - " << r << nl2;
+
+		std::cout << "max: " << max(l, r) << nl;
+		std::cout << "min: " << min(l, r) << nl2;
+	}
+	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	{
+		double	l = 42.42;
+		double	r = 3.1415926;
+
+		std::cout << l << " - " << r << nl;
+		swap(l, r);
+		std::cout << l << " - " << r << nl2;
+
+		std::cout << "max: " << max(l, r) << nl;
+		std::cout << "min: " << min(l, r) << nl2;
+	}
+	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	{
+		float	l = 42.42f;
+		float	r = 3.1415f;
+
+		std::cout << l << " - " << r << nl;
+		swap(l, r);
+		std::cout << l << " - " << r << nl2;
+
+		std::cout << "max: " << max(l, r) << nl;
+		std::cout << "min: " << min(l, r) << nl2;
 	}
 }
-
-template <typename T>
-void	right_shift_2(T & elem)
-{
-	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-
-	try
-	{
-		elem >>= 2;
-	}
-	catch (std::exception(& e))
-	{
-		;;
-	}
-}
-
-#endif
