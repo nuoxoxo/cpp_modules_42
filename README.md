@@ -9,6 +9,6 @@ Notes         |                      |   |
 4             | Animal               | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/49)
 2.3           | BSP                  | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/33)
 2             | Fixed                | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/26) &nbsp;OCCF
-&nbsp;        |                      | p5js [demo](https://editor.p5js.org/nuoxoxo/sketches/WT-94Rgmm)
+&nbsp;        |                      | [p5js](https://editor.p5js.org/nuoxoxo/sketches/WT-94Rgmm) (demo)
 1             | Garden Variety       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/25) &nbsp;detailed
 0             | Accounts             | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/56) &nbsp;detailed
