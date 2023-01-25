@@ -59,7 +59,8 @@ public:
 
 template<typename T>
 
-Array<T>::Array() : m_size(), m_array(new T[0]) {}
+Array<T>::Array() : m_size(), m_array() {}
+// Array<T>::Array() : m_size(), m_array(new T[0]) {}
 
 // Array<T>::Array(void) : m_size(), m_length(), m_array(new T[0]) {}
 
@@ -174,14 +175,16 @@ void	Array<T>::printer() const
 }
 
 template<typename T>
-std::ostream & operator << (std::ostream & ostream, const Array<T> & arr)
+// std::ostream & operator << (std::ostream & ostream, const Array<T> & arr)
+std::ostream & operator << (std::ostream & ostream, Array<T> const & arr)
 {
-	unsigned int	i;
+	unsigned int	len = arr.size();
+	unsigned int	i = -1;
 
 	ostream << '[';
 	i = -1;
-	while (++i < arr.size())
-		ostream << arr[i] << (i == arr.size() - 1 ? "]" : ", ");
+	while (++i < len)
+		ostream << arr[i] << (i == len - 1 ? "]" : ", ");
 	return ostream;
 }
 
