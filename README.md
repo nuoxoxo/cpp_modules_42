@@ -1,5 +1,5 @@
 Notes         |                      |   |
-:------------ | -------------------- | - |
+:-----------: | :------------------: | - |
 6.2           | dynamic_cast         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/81) &nbsp;detailed
 &nbsp;        | _test_      | <kbd>$ seq n \| xargs -Ix ./a.out</kbd>
 6.1           | reinterpret_cast     | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/82) &nbsp;code
