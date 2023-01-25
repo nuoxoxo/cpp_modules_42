@@ -27,6 +27,7 @@
 # define LOWKEY	"\033[0;2m"
 # define GREEN	"\033[0;32m"
 # define RESET	"\033[0;0m"
+# define nl "\n"
 
 template<typename T>
 void	iter(T * arr, size_t len, void (*f)(T &))
@@ -54,7 +55,7 @@ void	left_shift_1(T & elem)
 	}
 	catch (std::exception(& e))
 	{
-		;;
+		std::cerr << e.what() << nl;
 	}
 }
 
@@ -69,6 +70,7 @@ void	right_shift_2(T & elem)
 	}
 	catch (std::exception(& e))
 	{
+		std::cerr << e.what() << nl;
 		;;
 	}
 }

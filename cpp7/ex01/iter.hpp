@@ -54,6 +54,7 @@ void	left_shift_1(T & elem)
 	}
 	catch (std::exception(& e))
 	{
+		std::cerr << e.what() << nl;
 		;;
 	}
 }
@@ -69,6 +70,7 @@ void	right_shift_2(T & elem)
 	}
 	catch (std::exception(& e))
 	{
+		std::cerr << e.what() << nl;
 		;;
 	}
 }
