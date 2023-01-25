@@ -25,9 +25,6 @@
 #include "string"
 
 # define LOWKEY	"\033[0;2m"
-# define WHITE	"\033[1;37m"
-# define CYAN	"\033[0;36m"
-# define YELL	"\033[0;33m"
 # define GREEN	"\033[0;32m"
 # define RESET	"\033[0;0m"
 
