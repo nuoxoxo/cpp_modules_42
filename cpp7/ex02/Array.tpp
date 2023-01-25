@@ -48,7 +48,5 @@ public:
 	
 	// length / size
 	unsigned int size() const;
-	unsigned int length() const; // naive impl
+	unsigned int length() const;
 };
-
-#endif
