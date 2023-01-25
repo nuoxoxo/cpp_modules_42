@@ -29,14 +29,14 @@ int	main()
 {
 	int	i = -1;
 
-	std::cout << GREEN "\nTest :: " << ++i << "\n\n" RESET;
+	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
 	{
 		Array<int>	arr(2);
 
 		arr.printer();
 		std::cout << arr << std::endl;
 	}
-	std::cout << GREEN "\nTest :: " << ++i << "\n\n" RESET;
+	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
 	{
 	}
 	std::cout << GREEN "Test :: " << ++i << "\n\n" RESET;
