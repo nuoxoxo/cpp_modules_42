@@ -37,6 +37,7 @@ void	swap(T & a, T & b)
 		b = temp;
 	}
 	catch (std::exception(& e)) {
+		std::cerr << e.what() << nl;
 		;;
 	}
 }

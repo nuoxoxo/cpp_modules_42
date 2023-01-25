@@ -56,6 +56,7 @@ void	left_shift_1(T & elem)
 	catch (std::exception(& e))
 	{
 		std::cerr << e.what() << nl;
+		;;
 	}
 }
 
@@ -74,5 +75,23 @@ void	right_shift_2(T & elem)
 		;;
 	}
 }
+
+// failed test
+/*template <typename T>
+void	toupper(T & elem)
+{
+	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
+
+	try
+	{
+		if (elem < 123 && elem > 86 )
+			elem -= 32;
+	}
+	catch (std::exception(& e))
+	{
+		std::cerr << e.what() << nl;
+		;;
+	}
+}*/
 
 #endif
