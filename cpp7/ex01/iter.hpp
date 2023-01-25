@@ -47,14 +47,30 @@ template <typename T>
 void	left_shift_1(T & elem)
 {
 	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-	elem <<= 1;
+
+	try
+	{
+		elem <<= 1;
+	}
+	catch (std::exception(& e))
+	{
+		;;
+	}
 }
 
 template <typename T>
 void	right_shift_2(T & elem)
 {
 	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-	elem >>= 2;
+
+	try
+	{
+		elem >>= 2;
+	}
+	catch (std::exception(& e))
+	{
+		;;
+	}
 }
 
 #endif
