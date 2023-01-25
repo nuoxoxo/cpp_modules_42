@@ -162,11 +162,28 @@ void	Array<T>::printer() const
 	std::cout << '[';
 	while (++i < m_size)
 	{
+
+		std::cout << m_array[i] << (i == m_size - 1 ? "]" : ", ");
+		/*
 		std::cout << m_array[i];
 		if (i != m_size - 1)
 			std::cout << ", ";
+		*/
 	}
-	std::cout << ']' << std::endl;
+	// std::cout << ']' << std::endl;
 }
+
+template<typename T>
+std::ostream & operator << (std::ostream & ostream, const Array<T> & arr)
+{
+	unsigned int	i;
+
+	ostream << '[';
+	i = -1;
+	while (++i < arr.size())
+		ostream << arr[i] << (i == arr.size() - 1 ? "]" : ", ");
+	return ostream;
+}
+
 
 #endif

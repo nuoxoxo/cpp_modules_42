@@ -34,6 +34,7 @@ int	main()
 		Array<int>	arr(2);
 
 		arr.printer();
+		std::cout << arr << std::endl;
 	}
 	std::cout << GREEN "\nTest :: " << ++i << "\n\n" RESET;
 	{
