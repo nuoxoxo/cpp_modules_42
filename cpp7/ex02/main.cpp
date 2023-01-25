@@ -11,15 +11,14 @@
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
-/*                                 Template                                   */
+/*                                   Array                                    */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "iter.hpp" // TODO
-#include "iomanip"
+#include "Array.hpp"
 
 int	main()
 {
