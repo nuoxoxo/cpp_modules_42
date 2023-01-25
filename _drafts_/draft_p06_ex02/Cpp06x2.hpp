@@ -56,7 +56,7 @@ void	identify(Base& p)
 		return ;
 
 	} catch (const std::exception & e) {
-		;;
+		std::cerr << e.what() << std::endl;
 	}
 	
 	try {
@@ -66,7 +66,7 @@ void	identify(Base& p)
 		return ;
 
 	} catch (const std::exception & e) {
-		;;
+		std::cerr << e.what() << std::endl;
 	}
 	
 	try {
@@ -76,6 +76,6 @@ void	identify(Base& p)
 		return ;
 
 	} catch (const std::exception & e) {
-		;;
+		std::cerr << e.what() << std::endl;
 	}
 }

@@ -34,6 +34,15 @@ int	main()
 		
 		std::cout << "\n";
 	}
+	/*std::cout << GREEN "\nTest :: " << ++i << "\n\n" RESET;
+	{
+		const size_t	n = 3;
+		std::string	arr[n] = {"good", "morning", "vietnam"};
+		
+		iter(arr, n, toupper);
+		
+		std::cout << "\n";
+	}*/
 	std::cout << GREEN "\nTest :: " << ++i << "\n\n" RESET;
 	{
 		const size_t	n = 4;
