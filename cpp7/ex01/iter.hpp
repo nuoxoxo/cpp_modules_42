@@ -21,8 +21,8 @@
 #ifndef ITER_HPP
 # define ITER_HPP
 
-#include "iostream"
-#include "string"
+# include "iostream"
+# include "string"
 
 # define LOWKEY	"\033[0;2m"
 # define GREEN	"\033[0;32m"
