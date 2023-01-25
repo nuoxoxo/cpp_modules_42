@@ -74,7 +74,9 @@ Array<T>::Array(const unsigned int & s) : m_size(s), m_array(new T[s])
 	unsigned int	i = -1;
 
 	while (++i < s)
+	{
 		m_array[i] = 0;
+	}
 }
 
 // Array<T>::Array(const unsigned int & s)

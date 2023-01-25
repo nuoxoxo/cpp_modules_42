@@ -127,6 +127,43 @@ int	main()
 			std::cout << "length:\t" << arr.length() << nl2;
 		}
 	}
-	std::cout << GREEN "- Use valgrind -\n\n" RESET;
+	std::cout << GREEN "Test :: " << ++i << " :: float array \n\n" RESET;
+	{
+		{
+			Array<float>	arr(3);
+
+			arr[0] = 1.0f;
+			arr[1] = 3.1415926f;
+			arr[2] = 42.42f;
+			std::cout << arr;
+			arr.printer();
+			std::cout << nl;
+		}
+	}
+	// Just not working
+	/*
+	std::cout << GREEN "Test :: " << ++i << " :: string array \n\n" RESET;
+	{
+		try
+		{
+			Array<std::string>	arr(3);
+
+			arr[0] = "to";
+			arr[1] = "the";
+			arr[2] = "lighthouse";
+			std::cout << arr;
+			arr.printer();
+		}
+		catch (const std::exception & e)
+		{
+			std::cerr << e.what() << nl;
+		}
+		std::cout << nl;
+	}
+	*/
+	std::cout << GREEN "Test :: " << ++i << " :: Just a Reminder \n\n" RESET;
+	{
+		std::cout << GREEN "- Use valgrind -\n\n" RESET;
+	}
 }
 
