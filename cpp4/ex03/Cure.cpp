@@ -48,7 +48,7 @@ Cure & Cure::operator = (const Cure & dummy)
 
 void	Cure::use(ICharacter & dummy) const
 {
-	std::cout << "* heals" << dummy.getName() << "'s wounds * \n";
+	std::cout << "* heals " << dummy.getName() << "'s wounds * \n";
 }
 
 AMateria	*Cure::clone() const

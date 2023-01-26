@@ -10,34 +10,37 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                           Abstrac Class (AClass)                           */
 /*                             Interface (IClass)                             */
+/*                           Abstrac Class (AClass)                           */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "MateriaSource.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
-#include "Ice.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-int main()
+# include "IMateriaSource.hpp"
+# define MAXMAT 4
+
+class	MateriaSource : public IMateriaSource
 {
-	{
-		IMateriaSource* src = new MateriaSource();
-		src->learnMateria(new Ice());
-		src->learnMateria(new Cure());
-		ICharacter* me = new Character("me");
-		AMateria* tmp;
-		tmp = src->createMateria("ice");
-		me->equip(tmp);
-		tmp = src->createMateria("cure");
-		me->equip(tmp);
-		ICharacter* bob = new Character("bob");
-		me->use(0, *bob);
-		me->use(1, *bob);
-		delete bob;
-		delete me;
-		delete src;
-	}
-}
+
+private:
+
+	AMateria	* m_source[ MAXMAT ];
+
+public:
+
+	// Canon
+	MateriaSource();
+	~MateriaSource();
+	MateriaSource(const MateriaSource &);
+	MateriaSource & operator = (const MateriaSource &);
+
+	// Methods
+	AMateria	*createMateria(const std::string &);
+	void		learnMateria(AMateria *);
+
+};
+
+#endif

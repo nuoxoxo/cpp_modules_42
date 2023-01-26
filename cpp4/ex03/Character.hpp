@@ -45,7 +45,7 @@ public:
 	Character & operator = (const Character &);
 	
 	// param constr
-	Character(std::string);
+	Character(const std::string &);
 
 	// getter
 	AMateria		* getMateria(int) const;

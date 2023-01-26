@@ -86,7 +86,7 @@ Character & Character::operator = (const Character & dummy)
 
 // param constr
 
-Character::Character(std::string name) : m_name(name)
+Character::Character(const std::string & name) : m_name(name)
 {
 	size_t	i = -1;
 
@@ -151,7 +151,7 @@ void	Character::unequip(int i)
 	}
 	if (m_inventory[i])
 	{
-		delete	m_inventory[i]; // {? del or not}
+		//delete	m_inventory[i]; // {? del or not}
 
 		m_inventory[i] = NULL;
 	}
