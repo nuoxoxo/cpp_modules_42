@@ -16,28 +16,31 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include "iostream"
+# include "AMateria.hpp"
 
-class	Cure : public AMateria // TODO
+
+class	Ice : public AMateria // TODO
 {
 
 public:
 
 	// canon
-	Cure();
-	~Cure(); // TODO no virtual
-	Cure(const Cure &);
-	Cure & operator = (const Cure &);
+	Ice();
+	~Ice(); // TODO no virtual
+	Ice(const Ice &);
+	Ice & operator = (const Ice &);
 	
-	// Cure(const std::string &); // XXX no field constructor
+	// Ice(const std::string &); // XXX no field constructor
 	// std::string const & getType() const; // XXX no getter
 
-	Cure	*clone() const = 0; // XXX no
+	Ice	*clone() const = 0; // XXX no
 	void	use(ICharacter &); // XXX virtual
 
 };
+
 
 #endif

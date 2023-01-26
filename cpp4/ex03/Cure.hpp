@@ -20,6 +20,8 @@
 # define CURE_HPP
 
 # include "iostream"
+# include "AMateria.hpp"
+
 
 class	Cure : public AMateria // TODO
 {
@@ -39,5 +41,6 @@ public:
 	void	use(ICharacter &); // XXX virtual
 
 };
+
 
 #endif
