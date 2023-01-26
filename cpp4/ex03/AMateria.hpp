@@ -20,6 +20,7 @@
 # define AMATERIA_HPP
 
 # include "iostream"
+# include "ICharacter.hpp"
 
 class	AMateria
 {
@@ -44,8 +45,7 @@ public:
 
 
 	virtual	AMateria	*clone() const = 0;
-
-	// virtual	void		use(ICharacter &);
+	virtual	void		use(ICharacter &);
 };
 
 #endif

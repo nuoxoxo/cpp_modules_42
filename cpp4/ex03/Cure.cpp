@@ -46,9 +46,9 @@ Cure & Cure::operator = (const Cure & dummy)
 // method
 
 
-void	Cure::use(ICharacter & them)
+void	Cure::use(ICharacter & dummy)
 {
-	std::cout << "* heals" << target.getName() << "'s wounds * \n";
+	std::cout << "* heals" << dummy.getName() << "'s wounds * \n";
 }
 
 

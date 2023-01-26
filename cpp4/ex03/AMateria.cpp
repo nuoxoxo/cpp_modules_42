@@ -42,7 +42,7 @@ AMateria & AMateria::operator = (const AMateria & dummy)
 // param constr
 
 
-AMateria::AMateria(std::string t) : m_type(t) {}
+AMateria::AMateria(const std::string & t) : m_type(t) {}
 
 
 // Getter
@@ -54,6 +54,6 @@ std::string const & AMateria::getType() const
 }
 
 
-/void	AMateria::use(ICharacter & target) { /* something ... */ } // Leave blank . XXX
+void	AMateria::use(ICharacter & target) { (void) target; } // Leave blank . XXX
 
 

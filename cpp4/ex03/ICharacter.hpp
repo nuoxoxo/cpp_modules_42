@@ -10,50 +10,33 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                           Abstrac Class (AClass)                           */
 /*                             Interface (IClass)                             */
+/*                           Abstrac Class (AClass)                           */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Ice.hpp"
+#ifndef ICHARACTER_HPP
+# define ICHARACTER_HPP
 
+# include "iostream"
+# include "AMateria.hpp"
 
-// Canon
+class	AMateria;
 
-
-Ice::Ice() : AMateria("ice") {} // XXX inherits A.M.T.
-Ice::~Ice() {}
-
-
-Ice::Ice(const Ice & copy)
+class	ICharacter
 {
-	* this = copy;
-}
 
+public:
 
-Ice & Ice::operator = (const Ice & dummy)
-{
-	m_type = dummy.m_type;
-	return *this;
-}
+	virtual	~ICharacter() {}
 
+	virtual	void	use(int, ICharacter & )	= 0;
+	virtual void	equip(AMateria * ) = 0;
+	virtual void	unequip(int) = 0;
 
-// Ice::Ice(std::string t) : m_type(t) {} // XXX no field constructor
-// std::string const & Ice::getType() const { return m_type; } // XXX no getter
+	// getter
+	virtual std::string const & getName() const = 0;
+};
 
-
-// methods
-
-void	Ice::use(ICharacter & dummy)
-{
-	std::cout << "* shoots an ice bolt at " << dummy.getName() << " * \n";
-}
-
-
-AMateria	*Ice::clone() const
-{
-	return (new Ice(*this));
-}
-
-
+#endif
