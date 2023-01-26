@@ -37,8 +37,8 @@ public:
 	// Ice(const std::string &); // XXX no field constructor
 	// std::string const & getType() const; // XXX no getter
 
-	Ice	*clone() const; // XXX no virtual no `const = 0`
-	void	use(ICharacter &); // XXX virtual
+	AMateria	*clone() const; // XXX no virtual no `const = 0`
+	void		use(ICharacter &); // XXX virtual
 
 };
 
