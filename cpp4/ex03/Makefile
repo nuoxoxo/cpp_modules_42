@@ -7,6 +7,7 @@ src	:=	CPP04X03.cpp \
 		AMateria.cpp \
 		Cure.cpp \
 		Ice.cpp \
+		Character.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 

@@ -20,10 +20,11 @@
 # define CHARACTER_HPP
 
 # include "iostream"
+# include "CPP04X03.hpp"
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-# define MAXINV
+# define MAXINV 4
 
 class	Character : public ICharacter
 {
