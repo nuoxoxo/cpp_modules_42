@@ -16,36 +16,44 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Cure.hpp"
+#include "Ice.hpp"
 
 
 // Canon
 
 
-Cure::Cure() : AMateria("cure") {} // XXX inherits A.M.T.
-Cure::~Cure() {}
+Ice::Ice() : AMateria("ice") {} // XXX inherits A.M.T.
+Ice::~Ice() {}
 
 
-Cure::Cure(const Cure & copy)
+Ice::Ice(const Ice & copy)
 {
 	* this = copy;
 }
 
 
-Cure & Cure::operator = (const Cure & dummy)
+Ice & Ice::operator = (const Ice & dummy)
 {
 	m_type = dummy.m_type;
 	return *this;
 }
 
 
-Cure::Cure(std::string t) : m_type(t) {} // XXX no field constructor
-std::string const & Cure::getType() const { return m_type; } // XXX no getter
+// Ice::Ice(std::string t) : m_type(t) {} // XXX no field constructor
+// std::string const & Ice::getType() const { return m_type; } // XXX no getter
 
 
-void	Cure::use(ICharacter & them)
+// methods
+
+void	Ice::use(ICharacter & them)
 {
-	std::cout << "* heals" << target.getName() << "'s wounds * \n";
+	std::cout << "* shoots an ice bolt at " << target.getName() << " * \n";
+}
+
+
+AMateria	*Ice::clone() const
+{
+	return (new Ice(*this));
 }
 
 

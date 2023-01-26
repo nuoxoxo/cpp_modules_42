@@ -39,8 +39,11 @@ Cure & Cure::operator = (const Cure & dummy)
 }
 
 
-Cure::Cure(std::string t) : m_type(t) {} // XXX no field constructor
-std::string const & Cure::getType() const { return m_type; } // XXX no getter
+// Cure::Cure(std::string t) : m_type(t) {} // XXX no field constructor
+// std::string const & Cure::getType() const { return m_type; } // XXX no getter
+
+
+// method
 
 
 void	Cure::use(ICharacter & them)
