@@ -16,36 +16,41 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include "iostream"
+# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class	AMateria
+class	Character : public ICharacter
 {
 
-protected:
+private:
 	
-	std::string	m_type;
+	Character(); // XXX _ Important _
+
+	std::string	m_name;
+	AMateria	* m_inventory[4];
 
 public:
 
 	// canon
-	AMateria();
-	virtual	~AMateria();
-	AMateria(const AMateria &);
-	AMateria & operator = (const AMateria &);
+	// Character(); // no default constr
+	~Character();
+	Character(const Character &);
+	Character & operator = (const Character &);
 	
 	// param constr
-	AMateria(std::string);
+	Character(std::string &);
 
 	// getter
 	std::string const & getType() const;
 
 	// methods
-	virtual AMateria	*clone() const = 0;
+	virtual Character	*clone() const = 0;
 	virtual void		use(ICharacter &) const = 0;
 };
 
 #endif
+
