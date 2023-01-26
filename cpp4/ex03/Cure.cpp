@@ -16,44 +16,36 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "AMateria.hpp"
+#include "Cure.hpp"
 
 
 // Canon
 
 
-AMateria::AMateria() {}
-AMateria::~AMateria() {}
+Cure::Cure() : AMateria("cure") {} // XXX inherits A.M.T.
+Cure::~Cure() {}
 
 
-AMateria::AMateria(const AMateria & copy)
+Cure::Cure(const Cure & copy)
 {
 	* this = copy;
 }
 
 
-AMateria & AMateria::operator = (const AMateria & dummy)
+Cure & Cure::operator = (const Cure & dummy)
 {
 	m_type = dummy.m_type;
 	return *this;
 }
 
 
-// param constr
+Cure::Cure(std::string t) : m_type(t) {} // XXX no field constructor
+std::string const & Cure::getType() const { return m_type; } // XXX no getter
 
 
-AMateria::AMateria(std::string t) : m_type(t) {}
-
-
-// Getter
-
-
-std::string const & AMateria::getType() const
+void	Cure::use(ICharacter & them)
 {
-	return m_type;
+	std::cout << "* heals" << target.getName() << "'s wounds * \n";
 }
-
-
-/void	AMateria::use(ICharacter & target) { /* something ... */ } // Leave blank . XXX
 
 
