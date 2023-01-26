@@ -43,7 +43,7 @@ Cure & Cure::operator = (const Cure & dummy)
 // std::string const & Cure::getType() const { return m_type; } // XXX no getter
 
 
-// method
+// methods
 
 
 void	Cure::use(ICharacter & dummy) const

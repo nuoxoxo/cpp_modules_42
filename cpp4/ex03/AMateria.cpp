@@ -19,19 +19,20 @@
 #include "AMateria.hpp"
 
 
-// Canon
-
+// default
 
 AMateria::AMateria() {}
 AMateria::~AMateria() {}
 
 
+// copy
 AMateria::AMateria(const AMateria & copy)
 {
 	* this = copy;
 }
 
 
+// copy by =
 AMateria & AMateria::operator = (const AMateria & dummy)
 {
 	m_type = dummy.m_type;
@@ -40,20 +41,14 @@ AMateria & AMateria::operator = (const AMateria & dummy)
 
 
 // param constr
-
-
 AMateria::AMateria(const std::string & t) : m_type(t) {}
 
 
 // Getter
-
-
 std::string const & AMateria::getType() const
 {
 	return m_type;
 }
 
-
-// void	AMateria::use(ICharacter & target) { (void) target; } // Leave blank . XXX
 
 
