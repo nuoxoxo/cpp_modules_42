@@ -27,7 +27,7 @@ int	main()
 {
 	int	i = -1;
 
-	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	std::cout << GREEN "Test :: " << ++i << " char" << nl2 RESET;
 	{
 		char	l = 'a';
 		char	r = 'o';
@@ -39,7 +39,7 @@ int	main()
 		std::cout << "max: " << max(l, r) << nl;
 		std::cout << "min: " << min(l, r) << nl2;
 	}
-	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	std::cout << GREEN "Test :: " << ++i << " string" << nl2 RESET;
 	{
 		std::string	l = "good morning";
 		std::string	r = "vietnam";
@@ -51,7 +51,7 @@ int	main()
 		std::cout << "max: " << ::max(l, r) << nl; // TODO explain
 		std::cout << "min: " << ::min(l, r) << nl2;
 	}
-	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	std::cout << GREEN "Test :: " << ++i << " int" << nl2 RESET;
 	{
 		int	l = 42;
 		int	r = 1968833;
@@ -63,7 +63,7 @@ int	main()
 		std::cout << "max: " << max(l, r) << nl;
 		std::cout << "min: " << min(l, r) << nl2;
 	}
-	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	std::cout << GREEN "Test :: " << ++i << " double" << nl2 RESET;
 	{
 		double	l = 42.42;
 		double	r = 3.1415926;
@@ -75,7 +75,7 @@ int	main()
 		std::cout << "max: " << max(l, r) << nl;
 		std::cout << "min: " << min(l, r) << nl2;
 	}
-	std::cout << GREEN "Test :: " << ++i << nl2 RESET;
+	std::cout << GREEN "Test :: " << ++i << " float" << nl2 RESET;
 	{
 		float	l = 42.42f;
 		float	r = 3.1415f;
