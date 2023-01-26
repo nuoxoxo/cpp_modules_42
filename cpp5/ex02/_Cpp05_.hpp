@@ -40,6 +40,8 @@ void	print_ending(int, const std::string);
 
 # define TICK	GREEN" ✓"RESET
 # define CROSS	RED" ✘"RESET
+
+
 //	formatting
 
 # define called " called\n"
