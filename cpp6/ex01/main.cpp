@@ -41,7 +41,7 @@ int	main(int c, char **v)
 {
 	std::string	core = c > 1 ? std::string(v[1]) : "Dasein";
 
-	std::cout << GREEN "Test 0 :: \n\n" RESET;
+	std::cout << GREEN "Test 0 :: casted to uint and back \n\n" RESET;
 	{
 		Data	dat;
 
@@ -69,7 +69,7 @@ int	main(int c, char **v)
 		assert(D == & dat); /// XXX
 		std::cout << TICK;
 	}
-	std::cout << GREEN "Test 1 :: \n\n" RESET;
+	std::cout << GREEN "Test 1 :: idem but written as 2 lines \n\n" RESET;
 	{
 		Data	dat;
 
@@ -104,7 +104,7 @@ int	main(int c, char **v)
 		std::cout << TICK;
 
 	}
-	std::cout << GREEN "Test 2 :: \n\n" RESET;
+	std::cout << GREEN "Test 2 :: using pointer, see 3 addresses \n\n" RESET;
 	{
 		Data	*dat = new Data;
 

@@ -130,7 +130,7 @@ bool	strIsDouble(const std::string & str)
 		return false;
 
 	std::stringstream	ss(s);
-	float			tmp;
+	double			tmp;
 
 	ss >> tmp;
 	if (!ss.eof() || ss.fail())
