@@ -59,6 +59,7 @@ void	identify(Base & p)
 	{
 		A & a = dynamic_cast<A &>(p); (void) a; // 1st way
 		// dummy = dynamic_cast<B &>(p); // 2nd way
+
 		std::cout << "A \n";
 		return ;
 	}
@@ -73,6 +74,7 @@ void	identify(Base & p)
 	{
 		// B & b = dynamic_cast<B &>(p); (void) b; // 1st way
 		dummy = dynamic_cast<B &>(p); // 2nd way
+		
 		std::cout << "B \n";
 		return ;
 	}
@@ -87,6 +89,7 @@ void	identify(Base & p)
 	{
 		// C & c = dynamic_cast<C &>(p); (void) c; // 1st way
 		dummy = dynamic_cast<C &>(p); // 2nd way
+		
 		std::cout << "C \n";
 		return ;
 	}
