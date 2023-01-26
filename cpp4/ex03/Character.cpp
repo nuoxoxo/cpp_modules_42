@@ -16,39 +16,113 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "AMateria.hpp"
+#include "Character.hpp"
 
 
 // default
 
-AMateria::AMateria() {}
-AMateria::~AMateria() {}
+Character::Character() // private
+{
+	size_t	i = -1;
+
+	while (++i < MAXINV)
+	{
+		m_inventory[i] = NULL;
+	}
+}
+
+Character::~Character()
+{
+	size_t	i = -1;
+
+	while (++i < MAXINV)
+	{
+		if (!dummy.m_inventory[i])
+			continue ;
+		
+		delete	m_inventory[i] ;
+		
+		m_inventory[i] = 0;
+	}
+}
 
 
 // copy
-AMateria::AMateria(const AMateria & copy)
+Character::Character(const Character & dummy)
 {
-	* this = copy;
+	size_t	i = -1;
+
+	while (++i < MAXINV)
+	{
+		if (!dummy.m_inventory[i])
+			continue ;
+		m_inventory[i] = dummy.m_inventory[i];
+	}
 }
 
 
 // copy by =
-AMateria & AMateria::operator = (const AMateria & dummy)
+Character & Character::operator = (const Character & dummy)
 {
-	m_type = dummy.m_type;
-	return *this;
+	size_t	i;
+
+	if (this == & dummy)
+		return (*this);
+	m_name = dummy.m_name;
+	i = -1;
+	while (++i < MAXINV)
+	{
+		if (m_inventory[i])
+		{
+			delete	m_inventory[i];
+		}
+		if (!dummy.m_inventory[i])
+			continue ;
+		m_inventory[i] = dummy.m_inventory[i];
+	}
+	return (*this);
 }
 
 
 // param constr
-AMateria::AMateria(std::string t) : m_type(t) {}
 
-
-// Getter
-std::string const & AMateria::getType() const
+Character::Character(std::string name) : m_name(name)
 {
-	return m_type;
+	size_t	i = -1;
+
+	while (++i < MAXINV)
+	{
+		m_inventory[i] = NULL;
+	}
 }
 
 
+// Getter
 
+std::string const & Character::getName() const
+{
+	return m_name;
+}
+
+
+// Methods
+
+void	Character::equip(AMateria *ma)
+{
+	size_t	i;
+
+	if (!ma)
+	{
+		std::cout << "nothing is equiped. " LOWKEY "(tried to equip " << ma << ") \n" RESET;
+		return ;
+	}
+	i = -1;
+	while (++i < MAXINV)
+	{
+		if (m_inventory[o])
+			continue ;
+		m_inventory[i] = ma;
+		return ;
+	}
+	std::cout << "Inventory full! \n";
+}

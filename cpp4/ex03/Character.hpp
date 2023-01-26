@@ -23,6 +23,8 @@
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
+# define MAXINV
+
 class	Character : public ICharacter
 {
 
@@ -37,7 +39,6 @@ public:
 
 	// canon
 
-	/// Character(); // no default constr
 	~Character();
 	Character(const Character &);
 	Character & operator = (const Character &);
