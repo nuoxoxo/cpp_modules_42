@@ -67,6 +67,7 @@ int	main(int c, char **v)
 		<< YELL << D << RESET "\n";
 
 		assert(D == & dat); /// XXX
+
 		std::cout << TICK;
 	}
 	std::cout << GREEN "Test 1 :: idem but written as 2 lines \n\n" RESET;
@@ -101,6 +102,7 @@ int	main(int c, char **v)
 		<< YELL << U << "\n" RESET;
 
 		assert(D == & dat); /// XXX
+
 		std::cout << TICK;
 
 	}
@@ -142,6 +144,7 @@ int	main(int c, char **v)
 		<< YELL << U << "\n" RESET;
 
 		assert(D == dat); /// XXX
+
 		std::cout << TICK;
 
 		delete dat;
