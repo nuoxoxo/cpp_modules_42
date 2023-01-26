@@ -16,39 +16,47 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Cure.hpp"
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
+# include "iostream"
+# include "CPP04X03.hpp"
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
 
-// Canon
+# define MAXINV 4
 
-
-Cure::Cure() : AMateria("cure") {} // XXX inherits A.M.T.
-Cure::~Cure() {}
-
-
-Cure::Cure(const Cure & copy)
+class	Character : public ICharacter
 {
-	* this = copy;
-}
+
+private:
+	
+	Character(); // XXX _ Important _
+
+	std::string	m_name;
+	AMateria	*m_inventory[4];
+
+public:
+
+	// canon
+
+	~Character();
+	Character(const Character &);
+	Character & operator = (const Character &);
+	
+	// param constr
+	Character(const std::string &);
+
+	// getter
+	AMateria		* getMateria(int) const;
+	std::string const	& getName() const;
 
 
-Cure & Cure::operator = (const Cure & dummy)
-{
-	m_type = dummy.m_type;
-	return *this;
-}
+	// methods
+	void	use(int, ICharacter & );
+	void	equip(AMateria *);
+	void	unequip(int);
+};
 
-
-// Cure::Cure(std::string t) : m_type(t) {} // XXX no field constructor
-// std::string const & Cure::getType() const { return m_type; } // XXX no getter
-
-
-// method
-
-
-void	Cure::use(ICharacter & dummy)
-{
-	std::cout << "* heals" << dummy.getName() << "'s wounds * \n";
-}
-
+#endif
 

@@ -16,31 +16,40 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef ICE_HPP
-# define ICE_HPP
-
-# include "iostream"
-# include "AMateria.hpp"
+#include "Ice.hpp"
 
 
-class	Ice : public AMateria // TODO
+// Canon
+
+
+Ice::Ice() : AMateria("ice") {} // XXX inherits AMT
+Ice::~Ice() {}
+
+
+Ice::Ice(const Ice & copy)
 {
-
-public:
-
-	// canon
-	Ice();
-	~Ice(); // TODO no virtual
-	Ice(const Ice &);
-	Ice & operator = (const Ice &);
-	
-	// Ice(const std::string &); // XXX no field constructor
-	// std::string const & getType() const; // XXX no getter
-
-	AMateria	*clone() const; // XXX no virtual no `const = 0`
-	void		use(ICharacter &); // XXX virtual
-
-};
+	* this = copy;
+}
 
 
-#endif
+Ice & Ice::operator = (const Ice & dummy)
+{
+	m_type = dummy.m_type;
+	return *this;
+}
+
+
+// methods
+
+void	Ice::use(ICharacter & dummy) const
+{
+	std::cout << "* shoots an ice bolt at " << dummy.getName() << " * \n";
+}
+
+
+AMateria	*Ice::clone() const
+{
+	return (new Ice(*this));
+}
+
+

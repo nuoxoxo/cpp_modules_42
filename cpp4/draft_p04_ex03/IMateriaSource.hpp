@@ -10,42 +10,26 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                           Abstrac Class (AClass)                           */
 /*                             Interface (IClass)                             */
+/*                           Abstrac Class (AClass)                           */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-# include "iostream"
-# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class	AMateria
+class	IMateriaSource
 {
-
-protected:
-	
-	std::string	m_type;
 
 public:
 
-	// canon
-	AMateria();
-	virtual	~AMateria();
-	AMateria(const AMateria &);
-	AMateria & operator = (const AMateria &);
-	
-	// param constr
-	AMateria(const std::string &);
+	virtual	~IMateriaSource() {}
 
-	// getter
-	std::string const & getType() const;
-
-
-	virtual	AMateria	*clone() const = 0;
-	virtual	void		use(ICharacter &);
+	virtual void		learnMateria( AMateria * ) = 0;
+	virtual AMateria*	createMateria(std::string const &) = 0;
 };
 
 #endif

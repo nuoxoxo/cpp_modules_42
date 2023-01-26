@@ -16,7 +16,37 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-int	main()
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
+
+# include "iostream"
+# include "ICharacter.hpp"
+
+class	AMateria
 {
-	return 0;
-}
+
+protected:
+	
+	std::string	m_type;
+
+public:
+
+	// canon
+	AMateria();
+	virtual	~AMateria();
+	AMateria(const AMateria &);
+	AMateria & operator = (const AMateria &);
+	
+	// param constr
+	AMateria(const std::string &);
+	// AMateria(std::string);
+
+	// getter
+	std::string const & getType() const;
+
+	// methods
+	virtual AMateria	*clone() const = 0;
+	virtual void		use(ICharacter &) const = 0;
+};
+
+#endif

@@ -16,44 +16,28 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "AMateria.hpp"
+#ifndef CURE_HPP
+# define CURE_HPP
+
+# include "iostream"
+# include "AMateria.hpp"
 
 
-// Canon
-
-
-AMateria::AMateria() {}
-AMateria::~AMateria() {}
-
-
-AMateria::AMateria(const AMateria & copy)
+class	Cure : public AMateria
 {
-	* this = copy;
-}
+
+public:
+
+	// canon
+	Cure();
+	~Cure(); // TODO no virtual
+	Cure(const Cure &);
+	Cure & operator = (const Cure &);
+
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
+
+};
 
 
-AMateria & AMateria::operator = (const AMateria & dummy)
-{
-	m_type = dummy.m_type;
-	return *this;
-}
-
-
-// param constr
-
-
-AMateria::AMateria(const std::string & t) : m_type(t) {}
-
-
-// Getter
-
-
-std::string const & AMateria::getType() const
-{
-	return m_type;
-}
-
-
-void	AMateria::use(ICharacter & target) { (void) target; } // Leave blank . XXX
-
-
+#endif

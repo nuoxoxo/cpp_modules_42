@@ -10,33 +10,34 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                             Interface (IClass)                             */
 /*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef ICHARACTER_HPP
-# define ICHARACTER_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
 # include "iostream"
 # include "AMateria.hpp"
 
-class	AMateria;
 
-class	ICharacter
+class	Ice : public AMateria // TODO
 {
 
 public:
 
-	virtual	~ICharacter() {}
+	// canon
+	Ice();
+	~Ice(); // TODO no virtual
+	Ice(const Ice &);
+	Ice & operator = (const Ice &);
 
-	virtual	void	use(int, ICharacter & )	= 0;
-	virtual void	equip(AMateria * ) = 0;
-	virtual void	unequip(int) = 0;
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
 
-	// getter
-	virtual std::string const & getName() const = 0;
 };
+
 
 #endif

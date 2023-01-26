@@ -2,10 +2,13 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-src	:=	main.cpp \
+src	:=	CPP04X03.cpp \
+		main.cpp \
 		AMateria.cpp \
 		Cure.cpp \
-		Ice.cpp
+		Ice.cpp \
+		Character.cpp \
+		MateriaSource.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
