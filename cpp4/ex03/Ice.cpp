@@ -45,7 +45,7 @@ Ice & Ice::operator = (const Ice & dummy)
 
 // methods
 
-void	Ice::use(ICharacter & dummy)
+void	Ice::use(ICharacter & dummy) const
 {
 	std::cout << "* shoots an ice bolt at " << dummy.getName() << " * \n";
 }

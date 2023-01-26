@@ -38,7 +38,7 @@ public:
 	// std::string const & getType() const; // XXX no getter
 
 	AMateria	*clone() const; // XXX no virtual no `const = 0`
-	void		use(ICharacter &); // XXX virtual
+	void		use(ICharacter &) const; // XXX virtual
 
 };
 

@@ -43,9 +43,9 @@ public:
 	// getter
 	std::string const & getType() const;
 
-
-	virtual	AMateria	*clone() const = 0;
-	virtual	void		use(ICharacter &);
+	// methods
+	virtual AMateria	*clone() const = 0;
+	virtual void		use(ICharacter &) const = 0;
 };
 
 #endif

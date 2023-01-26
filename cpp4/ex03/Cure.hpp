@@ -37,8 +37,8 @@ public:
 	// Cure(const std::string &); // XXX no field constructor
 	// std::string const & getType() const; // XXX no getter
 
-	Cure	*clone() const = 0; // XXX no
-	void	use(ICharacter &); // XXX virtual
+	AMateria	*clone() const; // XXX no `= 0` no virtual
+	void		use(ICharacter &) const; // XXX virtual
 
 };
 

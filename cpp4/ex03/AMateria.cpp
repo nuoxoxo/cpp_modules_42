@@ -54,6 +54,6 @@ std::string const & AMateria::getType() const
 }
 
 
-void	AMateria::use(ICharacter & target) { (void) target; } // Leave blank . XXX
+// void	AMateria::use(ICharacter & target) { (void) target; } // Leave blank . XXX
 
 
