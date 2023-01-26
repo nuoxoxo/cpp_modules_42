@@ -151,7 +151,7 @@ void	Character::unequip(int i)
 	}
 	if (m_inventory[i])
 	{
-		delete	m_inventory[i]; // {?}
+		delete	m_inventory[i]; // {? del or not}
 
 		m_inventory[i] = NULL;
 	}
