@@ -1,22 +1,33 @@
-#include "_Cpp04_.hpp"
-#include "amt.hh"
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-class	amt;
+# include "iostream"
 
-class	icr
+class	AMateria
 {
 
+protected:
+	
+	std::string	m_type;
 
-std::string	m_type;
 public:
-	amt();
-	virtual ~amt();
-	amt(amt const &);
-	amt(std::string const &);
-	amt & operator = (amt const &);
 
+	// canon
+	AMateria();
+	virtual	~AMateria();
+	AMateria(const AMateria &);
+	AMateria & operator = (const AMateria &);
+	
+	// param constr
+	AMateria(const std::string &);
+
+	// getter
 	std::string const & getType() const;
 
-	virtual amt * clone() const = 0;
-	virtual void use(irc &);
+
+	virtual	AMateria	*clone() const = 0;
+
+	// virtual	void		use(ICharacter &);
 };
+
+#endif
