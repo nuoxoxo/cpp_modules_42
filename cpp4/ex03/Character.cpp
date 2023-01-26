@@ -16,45 +16,39 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#include "AMateria.hpp"
 
-# include "iostream"
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
 
-class	Character : public ICharacter
+// default
+
+AMateria::AMateria() {}
+AMateria::~AMateria() {}
+
+
+// copy
+AMateria::AMateria(const AMateria & copy)
 {
-
-private:
-	
-	Character(); // XXX _ Important _
-
-	std::string	m_name;
-	AMateria	*m_inventory[4];
-
-public:
-
-	// canon
-
-	/// Character(); // no default constr
-	~Character();
-	Character(const Character &);
-	Character & operator = (const Character &);
-	
-	// param constr
-	Character(std::string);
-
-	// getter
-	AMateria		* getMateria(int) const;
-	std::string const	& getName() const;
+	* this = copy;
+}
 
 
-	// methods
-	void	use(int, ICharacter & );
-	void	equip(AMateria *);
-	void	unequip(int);
-};
+// copy by =
+AMateria & AMateria::operator = (const AMateria & dummy)
+{
+	m_type = dummy.m_type;
+	return *this;
+}
 
-#endif
+
+// param constr
+AMateria::AMateria(std::string t) : m_type(t) {}
+
+
+// Getter
+std::string const & AMateria::getType() const
+{
+	return m_type;
+}
+
+
 
