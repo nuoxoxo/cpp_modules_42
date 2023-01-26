@@ -12,18 +12,25 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Scalar.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int	main(int c, char **v)
+# include "iostream"
+
+class	Base
 {
-	if (c ^ 2)
-		return (_usage_(), 1);
-	Brain(v[1]);
-	(void) c, (void) v;
-}
+
+public:
+	virtual	~Base();
+
+};
+
+#endif

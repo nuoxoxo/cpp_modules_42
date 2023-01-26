@@ -87,8 +87,8 @@ void	identify(Base & p)
 
 	try
 	{
-		C & c = dynamic_cast<C &>(p); (void) c; // 1st way
-		// dummy = dynamic_cast<C &>(p); // 2nd way
+		// C & c = dynamic_cast<C &>(p); (void) c; // 1st way
+		dummy = dynamic_cast<C &>(p); // 2nd way
 		
 		std::cout << "C \n";
 		return ;

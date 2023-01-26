@@ -31,7 +31,6 @@ class	Array
 private:
 	unsigned int	m_size;
 	T		* m_array;
-	// unsigned int	m_length();
 
 public:
 	// canon
@@ -57,18 +56,12 @@ public:
 /* ************ TPP implementation ************ */
 
 // constr
-
 template<typename T>
-
-//Array<T>::Array() : m_size(), m_array() {}
 Array<T>::Array() : m_size(), m_array(new T[0]) {}
 
-// Array<T>::Array(void) : m_size(), m_length(), m_array(new T[0]) {}
 
 // param constr
-
 template<typename T>
-// Array<T>::Array(unsigned int & s) : m_size(s), m_array(new T[s]) {}
 Array<T>::Array(const unsigned int & s) : m_size(s), m_array(new T[s])
 {
 	unsigned int	i = -1;
@@ -79,13 +72,8 @@ Array<T>::Array(const unsigned int & s) : m_size(s), m_array(new T[s])
 	}
 }
 
-// Array<T>::Array(const unsigned int & s)
-// : m_size(s), m_length(s), m_array(new T[s]) {}
-
 // destr
-
 template<typename T>
-
 Array<T>::~Array(void)
 {
 	if (m_array)
@@ -93,22 +81,18 @@ Array<T>::~Array(void)
 }
 
 // copy constr
-
 template<typename T>
-
 Array<T>::Array(const Array & dummy)
 {
 	unsigned int	temp = dummy.size(), i = -1;
 
 	m_array = new T[temp];
 	m_size = temp;
-	// this->m_length = temp;
 	while (++i < temp)
 		m_array[i] = dummy.m_array[i];
 }
 
 // copy assignment
-
 template<typename T>
 
 Array<T> & Array<T>::operator = (const Array & dummy)
@@ -129,7 +113,6 @@ Array<T> & Array<T>::operator = (const Array & dummy)
 }
 
 // []
-
 template<typename T>
 T & Array<T>::operator [] (unsigned int i)
 {
@@ -147,25 +130,20 @@ const T & Array<T>::operator [] (unsigned int i) const
 }
 
 // size
-
 template<typename T>
-
 unsigned int Array<T>::size() const
 {
 	return (m_size);
 }
 
 template<typename T>
-
 unsigned int Array<T>::length() const
 {
 	return (m_size);
 }
 
 // printer
-
 template<typename T>
-
 void	Array<T>::printer() const
 {
 	unsigned int	i;
@@ -179,10 +157,10 @@ void	Array<T>::printer() const
 	std::cout << '[';
 	while (++i < m_size)
 	{
-
 		std::cout << m_array[i] << (i == m_size - 1 ? "] \n" : ", ");
-		/*
-		std::cout << m_array[i];
+		
+		// idem but no ternary
+		/*std::cout << m_array[i];
 		if (i != m_size - 1)
 			std::cout << ", ";
 		*/

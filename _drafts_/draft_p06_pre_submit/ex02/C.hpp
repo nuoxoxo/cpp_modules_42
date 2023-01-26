@@ -12,18 +12,19 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Scalar.hpp"
+#ifndef C_HPP
+# define C_HPP
 
-int	main(int c, char **v)
-{
-	if (c ^ 2)
-		return (_usage_(), 1);
-	Brain(v[1]);
-	(void) c, (void) v;
-}
+# include "Base.hpp"
+
+class	C : public Base {};
+
+#endif

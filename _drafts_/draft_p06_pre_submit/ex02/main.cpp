@@ -18,12 +18,18 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Scalar.hpp"
+#include "Cpp06x2.hpp"
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-int	main(int c, char **v)
+int	main()
 {
-	if (c ^ 2)
-		return (_usage_(), 1);
-	Brain(v[1]);
-	(void) c, (void) v;
+	Base	*obj = generate();
+
+	identify(obj);
+	identify(*obj);
+
+	delete obj;
 }

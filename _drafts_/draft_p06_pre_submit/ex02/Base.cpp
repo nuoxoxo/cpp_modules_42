@@ -12,18 +12,15 @@
 /*                                                                            */
 /*                                                                            */
 /*                                  Casting                                   */
+/*                                 Serialize                                  */
+/*                                Deserilaize                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "Scalar.hpp"
+#include "Base.hpp"
 
-int	main(int c, char **v)
-{
-	if (c ^ 2)
-		return (_usage_(), 1);
-	Brain(v[1]);
-	(void) c, (void) v;
-}
+Base::~Base() {}
+
