@@ -33,12 +33,9 @@ public:
 	~Ice(); // TODO no virtual
 	Ice(const Ice &);
 	Ice & operator = (const Ice &);
-	
-	// Ice(const std::string &); // XXX no field constructor
-	// std::string const & getType() const; // XXX no getter
 
-	AMateria	*clone() const; // XXX no virtual no `const = 0`
-	void		use(ICharacter &) const; // XXX virtual
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
 
 };
 

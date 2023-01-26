@@ -23,7 +23,7 @@
 # include "AMateria.hpp"
 
 
-class	Cure : public AMateria // TODO
+class	Cure : public AMateria
 {
 
 public:
@@ -33,12 +33,9 @@ public:
 	~Cure(); // TODO no virtual
 	Cure(const Cure &);
 	Cure & operator = (const Cure &);
-	
-	// Cure(const std::string &); // XXX no field constructor
-	// std::string const & getType() const; // XXX no getter
 
-	AMateria	*clone() const; // XXX no `= 0` no virtual
-	void		use(ICharacter &) const; // XXX virtual
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
 
 };
 

@@ -31,7 +31,7 @@ public:
 
 	virtual	~ICharacter() {}
 
-	virtual		std::string const & getName() const = 0;
+	virtual	std::string const & getName() const = 0;
 
 	virtual	void	use(int, ICharacter & )	= 0;
 	virtual void	equip(AMateria * ) = 0;

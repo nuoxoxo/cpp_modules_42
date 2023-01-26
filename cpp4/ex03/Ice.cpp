@@ -22,7 +22,7 @@
 // Canon
 
 
-Ice::Ice() : AMateria("ice") {} // XXX inherits A.M.T.
+Ice::Ice() : AMateria("ice") {} // XXX inherits AMT
 Ice::~Ice() {}
 
 
@@ -37,10 +37,6 @@ Ice & Ice::operator = (const Ice & dummy)
 	m_type = dummy.m_type;
 	return *this;
 }
-
-
-// Ice::Ice(std::string t) : m_type(t) {} // XXX no field constructor
-// std::string const & Ice::getType() const { return m_type; } // XXX no getter
 
 
 // methods
