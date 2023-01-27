@@ -1,7 +1,7 @@
 Notes         |                             |   |
 :-----------: | :-------------------------: | - |
-6             | Casts                       | [ex0](https://github.com/nuoxoxo/cpp_modules_42/issues/89) • [ex1](https://github.com/nuoxoxo/cpp_modules_42/issues/82) • [ex2](https://github.com/nuoxoxo/cpp_modules_42/issues/81) 
-&nbsp;        |                             | `$ seq n \| xargs -Ix ./a.out`
+              | Casts                       | [ex0](https://github.com/nuoxoxo/cpp_modules_42/issues/89) • [ex1](https://github.com/nuoxoxo/cpp_modules_42/issues/82) • [ex2](https://github.com/nuoxoxo/cpp_modules_42/issues/81) 
+6             | Casts.tests                 | `$ seq n \| xargs -Ix ./a.out`
 5             | Bureaucrat                  | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69)
 4.3           | AMateria                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/61)
 4             | Animal                      | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/49)
