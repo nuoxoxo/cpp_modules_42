@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuxu <nuxu@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/21 14:37:56 by nuxu              #+#    #+#             */
+/*   Updated: 2023/01/25 10:27:54 by nuxu             ###   ########.fr       */
 /*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/*                             ~  ~  ~  ~  ~    ~                             */
-/*                              ~    _ ~ _   o>                               */
-/*                             ~  \ / \ / \ /  ~                              */
-/*                              ~  ~      ~    ~                              */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/*                                 Template                                   */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/*                                                                            */
-/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+/* ************************************************************************** */
 
 #include "Span.hpp"
 
+// default
 Span::Span() : m_maxsize() {}
 Span::Span(unsigned int N) : m_maxsize(N) {}
 Span::Span(const Span & cp) : m_maxsize(cp.size()), m_core(cp.getCore()) {}
 Span::~Span() {}
 
-std::vector<int>	Span::getCore() const { return m_core; }
-unsigned int		Span::getMaxsize() const { return m_maxsize; }
+// getter
+std::vector<int> Span::getCore() const { return m_core; }
+unsigned int	Span::getMaxsize() const { return m_maxsize; }
 
 /*class	Span
 {
