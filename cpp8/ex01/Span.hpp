@@ -21,6 +21,10 @@
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
+#include "iostream"
+#include "vector"
+#include "algorithm"
+
 class	Span
 {
 private:
@@ -41,5 +45,7 @@ public:
 
 	// getter
 	const std::vector<int>	& getCore() const;
-	const unsigned int	getMaxsize() const;
+	unsigned int		getMaxsize() const;
 };
+
+#endif

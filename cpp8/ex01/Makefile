@@ -3,7 +3,7 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	ex01
 rmv	:=	rm -rf
 
-src	:=	main.cpp
+src	:=	main.cpp Span.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
@@ -21,7 +21,7 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@ ./out
+		@ ./ex01
 		@ make clean
 
 r	:	run
