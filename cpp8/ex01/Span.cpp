@@ -20,19 +20,19 @@
 
 #include "Span.hpp"
 
-Span::Span() : m_size() {}
-Span::Span(unsigned int N) : m_size(N) {}
-Span::Span(const Span & cp) : m_size(cp.size()), m_core(cp.getCore()) {}
+Span::Span() : m_maxsize() {}
+Span::Span(unsigned int N) : m_maxsize(N) {}
+Span::Span(const Span & cp) : m_maxsize(cp.size()), m_core(cp.getCore()) {}
 Span::~Span() {}
 
 std::vector<int>	Span::getCore() const { return m_core; }
-unsigned int		Span::size() const { return m_size; }
+unsigned int		Span::getMaxsize() const { return m_maxsize; }
 
 /*class	Span
 {
 private:
 	std::vector<int>	m_core;
-	int			m_size;
+	int			m_maxsize;
 public:
 	// canon + param constr
 	Span();
@@ -45,7 +45,7 @@ public:
 	int	longestSpan(void) const;
 	void	addNumber(int);
 
-	const unsigned int	size() const;
+	const unsigned int	getMaxsize() const;
 	const std::vector<int>	& getCore() const;
 };*/
 
@@ -53,15 +53,20 @@ Span & Span::operator = (Span const & dummy)
 {
 	if (this == & dummy)
 		return (*this);
-	m_size = dummy.size();
+	m_size = dummy.getMaxsize();
 	m_core = dummy.getCore();
 	return (*this);
 }
 
-void	Span::addNumber(int n)
+int	Span::shortestSpan() const
 {
-	if (!m_size || )
+	/* todo */
 }
 
-
+void	Span::addNumber(int num)
+{
+	if (!m_maxsize || m_maxsize == m_core.size())
+		throw std::exception();
+	m_core.push_back(num);
+}
 

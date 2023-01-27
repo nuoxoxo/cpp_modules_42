@@ -25,7 +25,7 @@ class	Span
 {
 private:
 	std::vector<int>	m_core;
-	int			m_size;
+	int			m_maxsize;
 public:
 	// canon + param constr
 	Span();
@@ -38,6 +38,6 @@ public:
 	int	longestSpan(void) const;
 	void	addNumber(int);
 
-	const unsigned int	size() const;
 	const std::vector<int>	& getCore() const;
+	const unsigned int	getMaxsize() const;
 };
