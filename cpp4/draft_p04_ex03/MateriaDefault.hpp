@@ -16,42 +16,28 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "AMateria.hpp"
+#ifndef MATERIADEFAULT_HPP
+# define MATERIADEFAULT_HPP
+
+# include "iostream"
+# include "AMateria.hpp"
 
 
-// default
-
-AMateria::AMateria() {}
-AMateria::~AMateria() {}
-
-
-// copy
-AMateria::AMateria(const AMateria & copy)
+class	MateriaDefault : public AMateria
 {
-	* this = copy;
-}
+
+public:
+
+	// canon
+	MateriaDefault();
+	~MateriaDefault(); // TODO no virtual
+	MateriaDefault(const MateriaDefault &);
+	MateriaDefault & operator = (const MateriaDefault &);
+
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
+
+};
 
 
-// copy by =
-AMateria & AMateria::operator = (const AMateria & dummy)
-{
-	m_type = dummy.m_type;
-	return *this;
-}
-
-
-// param constr
-AMateria::AMateria(std::string const & type) : m_type(type) {}
-
-
-// Getter
-std::string const & AMateria::getType() const
-{
-	return m_type;
-}
-
-// void	AMateria::use(ICharacter & dummy) const
-// {
-// 	std::cout << "* uses " << m_type << " (unknown) on " << dummy.getName() << " \n";
-// }
-
+#endif

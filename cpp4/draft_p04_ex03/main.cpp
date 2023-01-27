@@ -57,7 +57,7 @@ int	main()
 		delete src;
 
 	}
-	std::cout << GREEN "Test :: " << ++i << " copy constructor";
+	std::cout << GREEN "\nTest :: " << ++i << " copy constructor";
 	std::cout << nl2 RESET;
 	{
 		IMateriaSource* src = new MateriaSource();
@@ -67,7 +67,8 @@ int	main()
 		AMateria* tmp;
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
-		tmp = src->createMateria("cure");
+		// tmp = src->createMateria("cure");
+		tmp = src->createMateria("cure (alt.)");
 		me->equip(tmp);
 		ICharacter* bob = new Character("bob");
 		me->use(0, *bob);

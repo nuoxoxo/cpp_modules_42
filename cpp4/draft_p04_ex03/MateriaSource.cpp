@@ -20,6 +20,7 @@
 #include "CPP04X03.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaDefault.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -90,7 +91,8 @@ AMateria * MateriaSource::createMateria(std::string const & type)
 		return (new Ice());
 	if (type == "cure")
 		return (new Cure());
-	return (0);
+	// return (0);
+	return (new MateriaDefault());
 }
 
 void	MateriaSource::learnMateria(AMateria * ma)

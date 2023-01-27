@@ -16,42 +16,38 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "AMateria.hpp"
+#include "MateriaDefault.hpp"
 
 
-// default
-
-AMateria::AMateria() {}
-AMateria::~AMateria() {}
+// Canon
 
 
-// copy
-AMateria::AMateria(const AMateria & copy)
+MateriaDefault::MateriaDefault() : AMateria("(unknown materia)") {} // XXX inherits AMT
+MateriaDefault::~MateriaDefault() {}
+
+
+MateriaDefault::MateriaDefault(const MateriaDefault & copy)
 {
 	* this = copy;
 }
 
 
-// copy by =
-AMateria & AMateria::operator = (const AMateria & dummy)
+MateriaDefault & MateriaDefault::operator = (const MateriaDefault & dummy)
 {
 	m_type = dummy.m_type;
 	return *this;
 }
 
 
-// param constr
-AMateria::AMateria(std::string const & type) : m_type(type) {}
+// methods
 
-
-// Getter
-std::string const & AMateria::getType() const
+void	MateriaDefault::use(ICharacter & dummy) const
 {
-	return m_type;
+	std::cout << "* uses " << m_type << " on " << dummy.getName() << " \n";
 }
 
-// void	AMateria::use(ICharacter & dummy) const
-// {
-// 	std::cout << "* uses " << m_type << " (unknown) on " << dummy.getName() << " \n";
-// }
+AMateria	*MateriaDefault::clone() const
+{
+	return (new MateriaDefault(*this));
+}
 

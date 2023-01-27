@@ -47,6 +47,7 @@ public:
 	// methods
 	virtual AMateria	*clone() const = 0;
 	virtual void		use(ICharacter &) const = 0;
+	// virtual void		use(ICharacter &) const;
 };
 
 #endif
