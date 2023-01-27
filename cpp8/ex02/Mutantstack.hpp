@@ -35,4 +35,22 @@ public:
 
 # include "MutantStack.tpp"
 
+// ************* what do we need *************
+// 
+// push
+// pop
+// top
+// size
+// begin
+// endi
+// 
+/*
+mstack.push(5);
+std::cout << mstack.top() << std::endl;
+mstack.pop();
+std::cout << mstack.size() << std::endl;
+MutantStack<int>::iterator it = mstack.begin();
+MutantStack<int>::iterator ite = mstack.end();
+*/
+
 #endif
