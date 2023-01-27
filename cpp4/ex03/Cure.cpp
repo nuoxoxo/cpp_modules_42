@@ -10,26 +10,44 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                                                                            */
-/*                                  Casting                                   */
-/*                                                                            */
-/*                                                                            */
+/*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "CPP06X2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#include "Cure.hpp"
 
-int	main()
+
+// Canon
+
+
+Cure::Cure() : AMateria("cure") {} // XXX inherits AMT
+Cure::~Cure() {}
+
+
+Cure::Cure(const Cure & copy)
 {
-	Base	*obj = generate();
-
-	identify(obj);
-	identify(*obj);
-
-	delete obj;
+	* this = copy;
 }
+
+
+Cure & Cure::operator = (const Cure & dummy)
+{
+	m_type = dummy.m_type;
+	return *this;
+}
+
+
+// methods
+
+void	Cure::use(ICharacter & dummy) const
+{
+	std::cout << YELL "* heals " << dummy.getName() << "'s wounds * \n" RESET;
+}
+
+AMateria	*Cure::clone() const
+{
+	return (new Cure(*this));
+}
+

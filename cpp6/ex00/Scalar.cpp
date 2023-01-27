@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                  Casting                                   */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
 #include "Scalar.hpp"
-
-//	define
-
-void	_usage_()
-{
-	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
-}
-
-
-//	convertor . brain
 
 void	Brain(const char * str)
 {
@@ -26,7 +36,7 @@ void	Brain(const char * str)
 	bool	(*mode_isLiteral[4]) (const std::string &) =
 	{
 		& strIsChar,
-		& strIsDigit,
+		& strIsInt,
 		& strIsFloat,
 		& strIsDouble
 	};
@@ -43,24 +53,23 @@ void	Brain(const char * str)
 	i = -1;
 	while (++i < 4)
 	{
-		if (mode_isLiteral[i](s))
-			return (mode_convertor[i](s, & SC), Printer(& SC));
+		if ( !mode_isLiteral[i](s))
+			continue ;
+		return (mode_convertor[i](s, & SC), Printer(& SC));
 	}
 	std::cout << RED "Conversion failed. " RESET nl;
 }
 
-//	Type checking:
-//		char 
-//		digit (int) 
-//		float 
-//		double
+//	
+//	Type checking
+//	
 
 bool	strIsChar(const std::string & s)
 {
 	return (s.length() == 3 && s[0] == '\'' && s[2] == '\'');
 }
 
-bool	strIsDigit(const std::string & s)
+bool	strIsInt(const std::string & s)
 {
 	// checking string contains only digit
 	if (s.empty())
@@ -87,29 +96,27 @@ bool	strIsFloat(const std::string & str)
 {
 	if (isMacroFloat(str)) // (marco: see below)
 		return true;
-
-	int		len = (int) str.length();
-
-	if (str[len - 1] != 'f')
+	if (str[(int) str.length() - 1] != 'f')
 		return false;
 
-	std::string::const_iterator	it;
+	// std::string::const_iterator	it;
 	std::string			s;
+	int				len;
 
+	len = (int) str.length();
 	s = str.substr(0, len - 1);
-	it = s.begin();
-	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
-		++it;;
-	if (it != s.end())
-		return false;
+	// it = s.begin();
+	// while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+	// 	++it;;
+	// if (it != s.end())
+	// 	return false;
 
 	std::stringstream	ss(s);
 	float			tmp;
 
-	ss >> tmp;
-	if (!ss.eof() || ss.fail())
-		return false;
-	return true;
+	ss >> std::noskipws >> tmp;
+
+	return (ss.eof() && !ss.fail());
 }
 
 bool	strIsDouble(const std::string & str)
@@ -123,19 +130,18 @@ bool	strIsDouble(const std::string & str)
 
 	len = (int) str.length();
 	s = str;
-	it = s.begin();
-	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
-		++it;;
-	if (it != s.end())
-		return false;
+	// it = s.begin();
+	// while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+	// 	++it;;
+	// if (it != s.end())
+	// 	return false;
 
 	std::stringstream	ss(s);
 	double			tmp;
 
-	ss >> tmp;
-	if (!ss.eof() || ss.fail())
-		return false;
-	return true;
+	ss >> std::noskipws >> tmp;
+
+	return (ss.eof() && !ss.fail());
 }
 
 
@@ -152,11 +158,9 @@ bool	isMacroDouble(const std::string & s)
 }
 
 
-//	Type casting:
-//		char 
-//		digit (int) 
-//		float 
-//		double
+//	
+//	Type casting
+//
 
 void	castChar(const std::string & s, _Scalar_ *sc)
 {
@@ -251,7 +255,12 @@ void	Printer(_Scalar_ *sc)
 }
 
 
-//	Global
+//	misc.
+
+void	_usage_()
+{
+	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
+}
 
 void	print_canon(const std::string funcName, const std::string canonName)
 {

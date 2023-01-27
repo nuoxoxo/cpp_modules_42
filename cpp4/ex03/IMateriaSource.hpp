@@ -10,26 +10,26 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                                                                            */
-/*                                  Casting                                   */
-/*                                                                            */
-/*                                                                            */
+/*                             Interface (IClass)                             */
+/*                           Abstrac Class (AClass)                           */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "CPP06X2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-int	main()
+# include "AMateria.hpp"
+
+class	IMateriaSource
 {
-	Base	*obj = generate();
 
-	identify(obj);
-	identify(*obj);
+public:
 
-	delete obj;
-}
+	virtual	~IMateriaSource() {}
+
+	virtual void		learnMateria( AMateria * ) = 0;
+	virtual AMateria*	createMateria(std::string const &) = 0;
+};
+
+#endif

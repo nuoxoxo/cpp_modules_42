@@ -10,26 +10,37 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                                                                            */
-/*                                  Casting                                   */
-/*                                                                            */
-/*                                                                            */
+/*                             Interface (IClass)                             */
+/*                           Abstrac Class (AClass)                           */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "CPP06X2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-int	main()
+# include "IMateriaSource.hpp"
+# define MAXMAT 4
+
+class	MateriaSource : public IMateriaSource
 {
-	Base	*obj = generate();
 
-	identify(obj);
-	identify(*obj);
+private:
 
-	delete obj;
-}
+	AMateria	* m_source[ MAXMAT ];
+
+public:
+
+	// Canon
+	MateriaSource();
+	~MateriaSource();
+	MateriaSource(const MateriaSource &);
+	MateriaSource & operator = (const MateriaSource &);
+
+	// Methods
+	AMateria	*createMateria(std::string const &);
+	void		learnMateria(AMateria *);
+
+};
+
+#endif

@@ -10,26 +10,45 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                                                                            */
-/*                                  Casting                                   */
-/*                                                                            */
-/*                                                                            */
+/*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "CPP06X2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
-int	main()
+# include "iostream"
+# include "CPP04X03.hpp"
+# include "ICharacter.hpp"
+
+class	AMateria
 {
-	Base	*obj = generate();
 
-	identify(obj);
-	identify(*obj);
+protected:
+	
+	std::string	m_type;
 
-	delete obj;
-}
+public:
+
+	// canon
+	AMateria();
+	virtual	~AMateria();
+	AMateria(const AMateria &);
+	AMateria & operator = (const AMateria &);
+	
+	// param constr
+	AMateria(std::string const &);
+	// AMateria(std::string);
+
+	// getter
+	std::string const & getType() const;
+
+	// methods
+	virtual AMateria	*clone() const = 0;
+	virtual void		use(ICharacter &) const = 0;
+	// virtual void		use(ICharacter &) const;
+};
+
+#endif

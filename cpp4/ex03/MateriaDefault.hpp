@@ -10,26 +10,34 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                                                                            */
-/*                                  Casting                                   */
-/*                                                                            */
-/*                                                                            */
+/*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "CPP06X2.hpp"
-#include "Base.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
+#ifndef MATERIADEFAULT_HPP
+# define MATERIADEFAULT_HPP
 
-int	main()
+# include "iostream"
+# include "AMateria.hpp"
+
+
+class	MateriaDefault : public AMateria
 {
-	Base	*obj = generate();
 
-	identify(obj);
-	identify(*obj);
+public:
 
-	delete obj;
-}
+	// canon
+	MateriaDefault();
+	~MateriaDefault();
+	MateriaDefault(const MateriaDefault &);
+	MateriaDefault & operator = (const MateriaDefault &);
+
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
+
+};
+
+
+#endif

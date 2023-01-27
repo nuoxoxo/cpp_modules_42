@@ -18,83 +18,54 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
-# include "iostream"
-# include "string"
-
-# define LOWKEY	"\033[0;2m"
-# define GREEN	"\033[0;32m"
-# define RESET	"\033[0;0m"
-# define nl "\n"
+# include "CPP08X0.hpp"
+# include "algorithm"
 
 template<typename T>
-void	iter(T * arr, size_t len, void (*f)(T &))
+typename T::iterator	easyfind(T arr, int val)
 {
-	if (!arr || !f)
-		return ;
 
-	size_t	i = -1;
+	typename T::iterator	it;
 
-	while (++i < len)
-		f(arr[i]);
+	it = std::find(arr.begin(), arr.end(), val);
+
+	if (it == arr.end())
+		std::cout << LOWKEY << "element not found: " << val << nl RESET;
+	return (it);
 }
 
-template <typename T>
-void	print(T & elem)
+template<typename T>
+typename T::iterator	easyfind(T arr, std::string val)
 {
-	std::cout << elem << LOWKEY " (" << __FUNCTION__ << ") \n" RESET;
+
+	typename T::iterator	it;
+
+	it = std::find(arr.begin(), arr.end(), val);
+
+	if (it == arr.end())
+		std::cout << LOWKEY << "element not found: " << val << nl RESET;
+	//	throw std::exception();
+	return (it);
 }
 
-template <typename T>
-void	left_shift_1(T & elem)
-{
-	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
+// should not return `*it`
+/*
+template<typename T>
 
-	try
-	{
-		elem <<= 1;
-	}
-	catch (std::exception(& e))
-	{
-		std::cerr << e.what() << nl;
-		;;
-	}
+int	easyfind(T arr, int val)
+{
+	typename T::iterator	it;
+
+	it = std::find(a.begin(), a.end(), val);
+	
+	if (it == a.end())
+        	throw std::exception();
+	return (*it);
 }
+*/
 
-template <typename T>
-void	right_shift_2(T & elem)
-{
-	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-
-	try
-	{
-		elem >>= 2;
-	}
-	catch (std::exception(& e))
-	{
-		std::cerr << e.what() << nl;
-		;;
-	}
-}
-
-// failed test
-/*template <typename T>
-void	toupper(T & elem)
-{
-	std::cout << LOWKEY "(" << __FUNCTION__ << ") \n" RESET;
-
-	try
-	{
-		if (elem < 123 && elem > 86 )
-			elem -= 32;
-	}
-	catch (std::exception(& e))
-	{
-		std::cerr << e.what() << nl;
-		;;
-	}
-}*/
 
 #endif

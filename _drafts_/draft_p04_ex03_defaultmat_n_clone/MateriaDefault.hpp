@@ -30,7 +30,7 @@ public:
 
 	// canon
 	MateriaDefault();
-	~MateriaDefault(); // TODO no virtual
+	~MateriaDefault();
 	MateriaDefault(const MateriaDefault &);
 	MateriaDefault & operator = (const MateriaDefault &);
 
