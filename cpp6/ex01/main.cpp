@@ -4,6 +4,7 @@
 #include "cstdint"
 #include "cassert"
 
+#define LOWKEY "\033[0;2m"
 #define YELL "\033[0;33m"
 #define GREEN "\033[0;32m"
 #define RESET "\033[0;0m"
@@ -57,8 +58,9 @@ int	main(int c, char **v)
 
 		Data	*D = deserialize(serialize(& dat));
 
-		std::cout
-		<< "{ Data	*D = deserialize(serialize(& data)) } \n\n";
+		std::cout << LOWKEY
+		<< "{ Data	*D = deserialize(serialize(& data)) } \n\n"
+		<< RESET;
 
 		D->existence();
 
@@ -87,9 +89,10 @@ int	main(int c, char **v)
 		uintptr_t	U = serialize(& dat);
 		Data		*D = deserialize(U);
 
-		std::cout
+		std::cout << LOWKEY
 		<< "{ uintptr_t  U = serialize(& dat); } \n"
-		<< "{ Data       *D = deserialize(U); } \n\n";
+		<< "{ Data       *D = deserialize(U); } \n\n"
+		<< RESET;
 
 		D->existence();
 
@@ -126,10 +129,10 @@ int	main(int c, char **v)
 		Data		*D = deserialize(U);
 
 		std::cout
-		<< "{ Data      *dat = new Data; } \n"
+		<< LOWKEY "{ Data      *dat = new Data; } \n"
 		<< "{ uintptr_t U = serialize(& dat); } \n"
 		<< "{ Data*     D = deserialize(U); } \n"
-		<< "{ delete    dat; } \n\n";
+		<< "{ delete    dat; } \n\n" RESET;
 
 		D->existence();
 
