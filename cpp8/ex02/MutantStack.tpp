@@ -38,7 +38,12 @@ void	MutantStack<T>::push(T item)	{ this->c.push_back(item); }
 template<typename T>
 void	MutantStack<T>::pop()	{ this->c.pop_back(); } // undefined if empty
 
+
+// ----------------------------- // ----------------------------- //
+
+
 // begin & end
+
 template<typename T>
 typename MutantStack<T>::iterator 
 MutantStack<T>::begin()	{ return (iterator(this->c.begin())); }
@@ -47,14 +52,41 @@ template<typename T>
 typename MutantStack<T>::iterator
 MutantStack<T>::end()	{ return (iterator(this->c.end())); }
 
+
 // rbegin & rend
 
 template<typename T>
-typename MutantStack<T>::riterator 
-MutantStack<T>::rbegin(){ return (riterator(this->c.rbegin())); }
+typename MutantStack<T>::r_iterator 
+MutantStack<T>::rbegin(){ return (r_iterator(this->c.rbegin())); }
 
 template<typename T>
-typename MutantStack<T>::riterator
-MutantStack<T>::rend()	{ return (riterator(this->c.rend())); }
+typename MutantStack<T>::r_iterator
+MutantStack<T>::rend()	{ return (r_iterator(this->c.rend())); }
+
+
+// ----------------------------- // ----------------------------- //
+
+
+// const begin & end
+
+template<typename T>
+typename MutantStack<T>::c_iterator 
+MutantStack<T>::begin()	const { return (c_iterator(this->c.begin())); }
+
+template<typename T>
+typename MutantStack<T>::c_iterator
+MutantStack<T>::end() const { return (c_iterator(this->c.end())); }
+
+
+// const rbegin & rend
+
+template<typename T>
+typename MutantStack<T>::cr_iterator 
+MutantStack<T>::rbegin() const { return (cr_iterator(this->c.rbegin())); }
+
+template<typename T>
+typename MutantStack<T>::cr_iterator
+MutantStack<T>::rend() const { return (cr_iterator(this->c.rend())); }
+
 
 #endif
