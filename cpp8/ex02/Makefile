@@ -2,7 +2,7 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
-src	:=	MutantStack.cpp main.cpp
+src	:=	main.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
