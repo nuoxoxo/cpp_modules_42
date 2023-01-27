@@ -32,6 +32,9 @@
 template<typename T>
 void	iter(T * arr, size_t len, void (*f)(T &))
 {
+	if (!arr || !f)
+		return ;
+
 	size_t	i = -1;
 
 	while (++i < len)
