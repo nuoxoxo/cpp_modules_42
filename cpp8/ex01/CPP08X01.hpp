@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.hpp                                            :+:      :+:    :+:   */
+/*   {}.hpp                                             :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
@@ -10,11 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CPP08X00_HPP
-# define CPP08X00_HPP
+#ifndef CPP08X01_HPP
+# define CPP08X01_HPP
 
 # include "iostream"
-# include "set"
+# include "utility"
+# include "vector"
+# include "Span.hpp"
 
 # define LOWKEY "\033[0;2m"
 # define GREEN "\033[0;32m"
@@ -48,67 +50,41 @@
 # define nl2 " \n\n"
 # define nl " \n"
 
-template<typename T>
-void	print_vector(T & arr)
+void	print_pair(std::pair<int, int> p, const std::string s)
 {
-	int	len = (int) arr.size();
-	int	i = -1;
-
-	std::cout << "vector:\t[";
-	while (++i < len)
-		std::cout << arr[i] << (i == len - 1 ? "]\n" : ", ");
-	std::cout << "\n";
+	std::cout
+	<< CYAN << s << ": \n" RESET << p.first << " ~ " << p.second << nl
+	<< YELL "distance: \n" RESET << p.second - p.first << nl2reset;
 }
 
-void	print_set(std::set<std::string> S)
+std::pair<int, int>	max_diff_pair(std::vector<int> v)
 {
-	std::set<std::string>::iterator	it = S.begin();
+	if ((int) v.size() < 2)
+		throw std::exception();
+	std::sort(v.begin(), v.end());
+	return (std::make_pair(v[0], v[v.size() - 1]));
+}
 
-	std::cout << "set:\t[";
-	while (it != S.end())
+std::pair<int, int>	min_diff_pair(std::vector<int> v)
+{
+	int	d, df, l, r, i;
+
+	if ((int) v.size() < 2)
+		throw std::exception();
+	i = 0;
+	d = 2147483647;
+	std::sort(v.begin(), v.end());
+	while (++i < (int) v.size())
 	{
-		std::cout << *it << (next(it) == S.end() ? "]\n" : ", ");
-		++it;
+		df = v[i] - v[i - 1];
+		if (d > df)
+		{
+			d = df;
+			r = v[i];
+			l = v[i - 1];
+		}
 	}
-	std::cout << "\n";
+	return (std::make_pair(l, r));
 }
-
-void	print_set(std::set<int> S)
-{
-	std::set<int>::iterator	it = S.begin();
-
-	std::cout << "set:\t[";
-	while (it != S.end())
-	{
-		std::cout << *it << (next(it) == S.end() ? "]\n" : ", ");
-		++it;
-	}
-	std::cout << "\n";
-}
-
-/*
-template<typename T>
-void	print_set(T S)
-{
-	typename std::set<T>::iterator	it = S.begin();
-
-	std::cout << "set:\t[";
-	while (it != S.end())
-	{
-		std::cout << *it << (next(it) == S.end() ? "]\n" : ", ");
-		++it;
-	}
-	std::cout << "\n";
-}
-*/
-
-template<typename T>
-void	print_target(T target)
-{
-	std::cout << "target:\t" YELL << target << nl RESET;
-}
-
-template <typename Iter>
-Iter	next(Iter it) { return ++it; }
 
 #endif

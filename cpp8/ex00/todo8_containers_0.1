@@ -1,3 +1,4 @@
+```sc
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                                            */
@@ -11,61 +12,38 @@
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
-/*                                 Template                                   */
+/*                                 Containers                                 */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+```
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
-
-# include "CPP08X00.hpp"
-# include "algorithm"
-
-template<typename T>
-typename T::iterator	easyfind(T arr, int val)
-{
-
-	typename T::iterator	it;
-
-	it = std::find(arr.begin(), arr.end(), val);
-
-	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
-	return (it);
-}
-
-template<typename T>
-typename T::iterator	easyfind(T arr, std::string val)
-{
-
-	typename T::iterator	it;
-
-	it = std::find(arr.begin(), arr.end(), val);
-
-	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
-	//	throw std::exception();
-	return (it);
-}
-
-// should not return `*it`
-/*
-template<typename T>
-
-int	easyfind(T arr, int val)
-{
-	typename T::iterator	it;
-
-	it = std::find(a.begin(), a.end(), val);
-	
-	if (it == a.end())
-        	throw std::exception();
-	return (*it);
-}
-*/
+`/* **************************  [ --- ToDo--- ]  ************************** */`
 
 
-#endif
+
+`/* **************************  [ --- ToDo--- ]  ************************** */`
+
+
+`/* *************************  [ 0. easy find ]  ************************* */`
+
+- Write a function template easyfind 
+
+	- accepts a type T
+	- takes two parameters.
+
+		- param 1: type T
+		- param 2: an integer
+- what
+
+	- assume T is a container of integers
+	- the function has to find the 
+		1st occurrence of the 2nd parameter in the 1st parameter.
+
+	- If no occurrence is found
+		- either throw an exception or return an error value
+		of your choice. 
+
+- test

@@ -18,54 +18,34 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef EASYFIND_HPP
-# define EASYFIND_HPP
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
-# include "CPP08X00.hpp"
-# include "algorithm"
+#include "iostream"
+#include "vector"
+#include "algorithm"
 
-template<typename T>
-typename T::iterator	easyfind(T arr, int val)
+class	Span
 {
+private:
+	std::vector<int>	m_core;
+	int			m_maxsize;
+public:
+	// canon + param constr
+	Span();
+	Span(const Span &);
+	Span(unsigned int N);
+	Span & operator = (const Span & );
+	~Span();
 
-	typename T::iterator	it;
+	// methods
+	int	shortestSpan(void) const;
+	int	longestSpan(void) const;
+	void	addNumber(int);
 
-	it = std::find(arr.begin(), arr.end(), val);
-
-	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
-	return (it);
-}
-
-template<typename T>
-typename T::iterator	easyfind(T arr, std::string val)
-{
-
-	typename T::iterator	it;
-
-	it = std::find(arr.begin(), arr.end(), val);
-
-	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
-	//	throw std::exception();
-	return (it);
-}
-
-// should not return `*it`
-/*
-template<typename T>
-
-int	easyfind(T arr, int val)
-{
-	typename T::iterator	it;
-
-	it = std::find(a.begin(), a.end(), val);
-	
-	if (it == a.end())
-        	throw std::exception();
-	return (*it);
-}
-*/
-
+	// getter
+	const std::vector<int>	& getCore() const;
+	unsigned int		getMaxsize() const;
+};
 
 #endif
