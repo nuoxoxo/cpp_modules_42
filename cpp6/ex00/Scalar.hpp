@@ -26,7 +26,7 @@ void	Printer(_Scalar_ *sc);
 void	Brain(const char *);
 
 bool	strIsChar(const std::string &);
-bool	strIsDigit(const std::string &);
+bool	strIsInt(const std::string &);
 bool	strIsFloat(const std::string &);
 bool	strIsDouble(const std::string &);
 

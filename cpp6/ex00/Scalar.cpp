@@ -26,7 +26,7 @@ void	Brain(const char * str)
 	bool	(*mode_isLiteral[4]) (const std::string &) =
 	{
 		& strIsChar,
-		& strIsDigit,
+		& strIsInt,
 		& strIsFloat,
 		& strIsDouble
 	};
@@ -60,7 +60,7 @@ bool	strIsChar(const std::string & s)
 	return (s.length() == 3 && s[0] == '\'' && s[2] == '\'');
 }
 
-bool	strIsDigit(const std::string & s)
+bool	strIsInt(const std::string & s)
 {
 	// checking string contains only digit
 	if (s.empty())
@@ -87,29 +87,27 @@ bool	strIsFloat(const std::string & str)
 {
 	if (isMacroFloat(str)) // (marco: see below)
 		return true;
-
-	int		len = (int) str.length();
-
-	if (str[len - 1] != 'f')
+	if (str[(int) str.length() - 1] != 'f')
 		return false;
 
-	std::string::const_iterator	it;
+	// std::string::const_iterator	it;
 	std::string			s;
+	int				len;
 
+	len = (int) str.length();
 	s = str.substr(0, len - 1);
-	it = s.begin();
-	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
-		++it;;
-	if (it != s.end())
-		return false;
+	// it = s.begin();
+	// while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+	// 	++it;;
+	// if (it != s.end())
+	// 	return false;
 
 	std::stringstream	ss(s);
 	float			tmp;
 
-	ss >> tmp;
-	if (!ss.eof() || ss.fail())
-		return false;
-	return true;
+	ss >> std::noskipws >> tmp;
+
+	return (ss.eof() && !ss.fail());
 }
 
 bool	strIsDouble(const std::string & str)
@@ -123,19 +121,18 @@ bool	strIsDouble(const std::string & str)
 
 	len = (int) str.length();
 	s = str;
-	it = s.begin();
-	while (it != s.end() && (*it == '.' || std::isdigit(*it)))
-		++it;;
-	if (it != s.end())
-		return false;
+	// it = s.begin();
+	// while (it != s.end() && (*it == '.' || std::isdigit(*it)))
+	// 	++it;;
+	// if (it != s.end())
+	// 	return false;
 
 	std::stringstream	ss(s);
 	double			tmp;
 
-	ss >> tmp;
-	if (!ss.eof() || ss.fail())
-		return false;
-	return true;
+	ss >> std::noskipws >> tmp;
+
+	return (ss.eof() && !ss.fail());
 }
 
 
