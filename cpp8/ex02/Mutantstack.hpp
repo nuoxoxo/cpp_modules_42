@@ -8,12 +8,13 @@
 // definition in cppreference
 // template<class T, class Container = std::deque<T>> class stack;
 
-template < typename T, typename Container = std::deque<T> >
-class	MutantStack : public std::stack<T, Container>
+template < typename T, typename Container = std::deque<T> > class MutantStack
+: public std::stack<T, Container>
 {
 public:
 	// canon
 	MutantStack();
+	// MutantStack();
 	MutantStack(const MutantStack &);
 	MutantStack & operator = (const MutantStack &);
 	~MutantStack();
@@ -23,4 +24,6 @@ public:
 	typename std::stack<T, Container>::container_type::iterator end();
 	typename std::stack<T, Container>::container_type::reverse_iterator rbegin();
 	typename std::stack<T, Container>::container_type::reverse_iterator rend();
-}
+};
+
+#endif
