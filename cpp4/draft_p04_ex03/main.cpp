@@ -21,8 +21,12 @@
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-int main()
+int	main()
 {
+	int	i = 0;
+
+	std::cout << GREEN "Test :: " << ++i << " provided by subject";
+	std::cout << nl2 RESET;
 	{
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
@@ -52,8 +56,42 @@ int main()
 		delete me;
 		delete src;
 
+	}
+	std::cout << GREEN "Test :: " << ++i << " copy constructor";
+	std::cout << nl2 RESET;
+	{
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		ICharacter* me = new Character("me");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		ICharacter* bob = new Character("bob");
+		me->use(0, *bob);
+		me->use(1, *bob);
+		
+		Character q("q");
+		//Character qq(q); // bug in copy
+		try
+		{
+			// std::cout << "@@@\n";
+			Character qq(q); // bug in copy
+		} catch (const std::exception & e)
+		{
+			std::cout << e.what() << "\n";
+		}
+
+		delete bob;
+		delete me;
+		delete src;
 
 	}
+
+	std::cout << GREEN "\nTest :: " << ++i << " source.learn|create";
+	std::cout << nl2 RESET;
 	{
 		MateriaSource source;
 		source.learnMateria(new Ice());

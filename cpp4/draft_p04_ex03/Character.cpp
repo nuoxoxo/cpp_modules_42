@@ -98,7 +98,7 @@ Character & Character::operator = (const Character & dummy)
 // param constr
 
 Character::Character(std::string name) : m_name(name)
-// Character::Character(const std::string & name) : m_name(name)
+// Character::Character(std::string const & name) : m_name(name)
 {
 	size_t	i = -1;
 

@@ -41,7 +41,7 @@ AMateria & AMateria::operator = (const AMateria & dummy)
 
 
 // param constr
-AMateria::AMateria(const std::string & type) : m_type(type) {}
+AMateria::AMateria(std::string const & type) : m_type(type) {}
 
 
 // Getter

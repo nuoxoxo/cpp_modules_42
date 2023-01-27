@@ -38,7 +38,7 @@ public:
 	AMateria & operator = (const AMateria &);
 	
 	// param constr
-	AMateria(const std::string &);
+	AMateria(std::string const &);
 	// AMateria(std::string);
 
 	// getter

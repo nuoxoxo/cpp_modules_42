@@ -76,7 +76,7 @@ MateriaSource & MateriaSource::operator = (const MateriaSource & src)
 	return (*this);
 }
 
-AMateria * MateriaSource::createMateria(const std::string & type)
+AMateria * MateriaSource::createMateria(std::string const & type)
 {
 	size_t	i;
 

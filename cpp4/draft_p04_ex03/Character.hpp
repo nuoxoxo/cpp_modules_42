@@ -46,7 +46,7 @@ public:
 	
 	// param constr
 	Character(std::string);
-	// Character(const std::string &);
+	// Character(std::string const &);
 
 	// getter
 	AMateria		* getMateria(int) const;
