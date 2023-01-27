@@ -34,10 +34,12 @@ public:
 	Span & operator = (const Span & );
 	~Span();
 
+	// methods
 	int	shortestSpan(void) const;
 	int	longestSpan(void) const;
 	void	addNumber(int);
 
+	// getter
 	const std::vector<int>	& getCore() const;
 	const unsigned int	getMaxsize() const;
 };
