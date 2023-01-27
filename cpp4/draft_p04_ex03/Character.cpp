@@ -23,41 +23,49 @@
 
 Character::Character() // private
 {
-	size_t	i = -1;
+	/*size_t	i = -1;
 
 	while (++i < MAXINV)
 	{
-		m_inventory[i] = NULL;
-	}
+		m_inventory[i] = 0;
+	}*/
 }
 
 Character::~Character()
 {
-	size_t	i = -1;
+	/*size_t	i = -1;
 
 	while (++i < MAXINV)
 	{
 		if (!m_inventory[i])
 			continue ;
-		
-		delete	m_inventory[i] ;
-		
+		delete	m_inventory[i];
 		m_inventory[i] = 0;
-	}
+	}*/
+	for (int i = 0; i < 4; i++)
+		delete m_inventory[i];
 }
 
 
 // copy
 Character::Character(const Character & dummy)
 {
-	size_t	i = -1;
+/*	size_t	i = -1;
 
 	while (++i < MAXINV)
 	{
-		if (!dummy.m_inventory[i])
-			continue ;
-		m_inventory[i] = dummy.m_inventory[i];
+		if (m_inventory[i])
+			delete	m_inventory[i];
+		if (dummy.m_inventory[i])
+			m_inventory[i] = dummy.m_inventory[i];
 	}
+	m_name = dummy.m_name;
+	*/
+	for (int i = 0; i < 4; i++)
+		m_inventory[i] = 0;
+	*this = dummy;
+
+	// seems both ways work
 }
 
 
@@ -78,7 +86,10 @@ Character & Character::operator = (const Character & dummy)
 		}
 		if (!dummy.m_inventory[i])
 			continue ;
-		m_inventory[i] = dummy.m_inventory[i];
+
+		// 1st bug XXX . segf . fixed w/ clone()
+		m_inventory[i] = dummy.m_inventory[i]->clone();
+		//m_inventory[i] = dummy.m_inventory[i];
 	}
 	return (*this);
 }
@@ -86,13 +97,14 @@ Character & Character::operator = (const Character & dummy)
 
 // param constr
 
-Character::Character(const std::string & name) : m_name(name)
+Character::Character(std::string name) : m_name(name)
+// Character::Character(const std::string & name) : m_name(name)
 {
 	size_t	i = -1;
 
 	while (++i < MAXINV)
 	{
-		m_inventory[i] = NULL;
+		m_inventory[i] = 0;
 	}
 }
 
@@ -109,7 +121,7 @@ std::string const & Character::getName() const
 
 void	Character::use(int i, ICharacter & target)
 {
-	if (i < 0 || i > MAXINV)
+	if (i < 0 || i > MAXINV - 1)
 	{
 		std::cout << "Invalid slot \n";
 		return ;
@@ -124,11 +136,13 @@ void	Character::use(int i, ICharacter & target)
 
 void	Character::equip(AMateria *ma)
 {
-	size_t	i;
+	/*size_t	i;
 
 	if (!ma)
 	{
-		std::cout << "nothing is equiped " LOWKEY "(tried to equip " << ma << ") \n" RESET;
+		std::cout
+		<< "nothing is equiped " LOWKEY "(tried to equip "
+		<< ma << ") \n" RESET;
 		return ;
 	}
 	i = -1;
@@ -140,20 +154,37 @@ void	Character::equip(AMateria *ma)
 		return ;
 	}
 	std::cout << "Inventory is full! \n";
+	*/
+	for (int i = 0; i < MAXINV; i++)
+	{
+		if (m_inventory[i] == NULL)
+		{
+			m_inventory[i] = ma;
+			break ;
+		}
+	}
 }
 
 void	Character::unequip(int i)
 {
-	if (i < 0 || i > MAXINV)
+	if (i < 0 || i > MAXINV - 1)
 	{
 		std::cout << "Invalid slot \n";
 		return ;
 	}
 	if (m_inventory[i])
 	{
-		//delete	m_inventory[i]; // {? del or not}
+		delete	m_inventory[i]; // {? del or not}
 
-		m_inventory[i] = NULL;
+		m_inventory[i] = 0;
 	}
 }
 
+AMateria * Character::getMateria(int i) const
+{
+	if (i > -1 && i < MAXINV)
+		return m_inventory[i]->clone();
+		//return m_inventory[i]; 
+		// 2nd bug XXX fixed . illegal instruction
+	return 0;
+}
