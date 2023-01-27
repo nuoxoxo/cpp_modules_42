@@ -23,7 +23,7 @@
 
 int	main()
 {
-	int	i = 0;
+	int	i = -1;
 
 	std::cout << GREEN "Test :: " << ++i << " provided by subject";
 	std::cout << nl2 RESET;
@@ -57,7 +57,7 @@ int	main()
 		delete src;
 
 	}
-	std::cout << GREEN "\nTest :: " << ++i << " copy constructor";
+	std::cout << GREEN "\nTest :: " << ++i << " copy constructor + default Materia";
 	std::cout << nl2 RESET;
 	{
 		IMateriaSource* src = new MateriaSource();
@@ -100,10 +100,28 @@ int	main()
 
 		Character cuckoo("Cuckoo");
 		Character brutus("Brutus");
+		brutus.equip(source.createMateria("fire"));
 		brutus.equip(source.createMateria("ice"));
 		brutus.equip(source.createMateria("cure"));
 		brutus.use(0, cuckoo);
 		brutus.use(1, cuckoo);
+		brutus.use(2, cuckoo);
+	}
+	std::cout << GREEN "\nTest :: " << ++i << " a copied person equips AMT from someone else";
+	std::cout << nl2 RESET;
+	{
+		MateriaSource source;
+		source.learnMateria(new Ice());
+		source.learnMateria(new Cure());
+
+		Character cuckoo("Cuckoo");
+		Character brutus("Brutus");
+		brutus.equip(source.createMateria("fire"));
+		brutus.equip(source.createMateria("ice"));
+		brutus.equip(source.createMateria("cure"));
+		// brutus.use(0, cuckoo);
+		// brutus.use(1, cuckoo);
+		// brutus.use(2, cuckoo);
 		
 		Character brutus2(brutus);
 		
@@ -114,7 +132,9 @@ int	main()
 		{
 			std::cout << e.what() << "\n";
 		}
-		brutus.unequip(0);
+		brutus.unequip(1);
+		brutus2.use(0, cuckoo);
+		brutus2.use(1, cuckoo);
 		brutus2.use(2, cuckoo);
 		brutus = brutus2;
 	}

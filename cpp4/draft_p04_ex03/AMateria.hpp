@@ -20,6 +20,7 @@
 # define AMATERIA_HPP
 
 # include "iostream"
+# include "CPP04X03.hpp"
 # include "ICharacter.hpp"
 
 class	AMateria

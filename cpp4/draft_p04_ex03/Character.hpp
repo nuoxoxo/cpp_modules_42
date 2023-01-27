@@ -20,7 +20,6 @@
 # define CHARACTER_HPP
 
 # include "iostream"
-# include "CPP04X03.hpp"
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 

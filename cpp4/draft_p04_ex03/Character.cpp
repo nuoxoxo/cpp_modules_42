@@ -160,6 +160,7 @@ void	Character::equip(AMateria *ma)
 		if (m_inventory[i] == NULL)
 		{
 			m_inventory[i] = ma;
+			std::cout << LOWKEY "* equips " << ma->getType() << " \n" RESET;
 			break ;
 		}
 	}
@@ -174,6 +175,7 @@ void	Character::unequip(int i)
 	}
 	if (m_inventory[i])
 	{
+		std::cout << LOWKEY "* equips " << m_inventory[i]->getType() << " \n" RESET;
 		delete	m_inventory[i]; // {? del or not}
 
 		m_inventory[i] = 0;

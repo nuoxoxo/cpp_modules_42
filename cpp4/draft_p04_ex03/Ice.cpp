@@ -43,7 +43,7 @@ Ice & Ice::operator = (const Ice & dummy)
 
 void	Ice::use(ICharacter & dummy) const
 {
-	std::cout << "* shoots an ice bolt at " << dummy.getName() << " * \n";
+	std::cout << CYAN "* shoots an ice bolt at " << dummy.getName() << " * \n" RESET;
 }
 
 

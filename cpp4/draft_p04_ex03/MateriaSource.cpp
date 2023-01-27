@@ -54,8 +54,8 @@ MateriaSource::MateriaSource(const MateriaSource & src)
 	{
 		if (!src.m_source[i])
 			continue ;
-		m_source[i] = src.m_source[i];
-		// m_source[i] = src.m_source[i]->clone();
+		// m_source[i] = src.m_source[i];
+		m_source[i] = src.m_source[i]->clone();
 	}
 }
 
