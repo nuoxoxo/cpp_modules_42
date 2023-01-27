@@ -48,9 +48,13 @@ int	main()
 		srand(time(0));
 		while (++i < (int) N)
 		{
-			do {
+			do
+			{
 				a = left_bound + ((int) rand() % bound);
-			} while (
+			}
+			while
+			// if _ in sp.getCore() for _ in [a - 1, a, a + 1]
+			(
 				(std::find(
 				sp.getCore().begin(), sp.getCore().end(), a)
 				!= sp.getCore().end()) ||
