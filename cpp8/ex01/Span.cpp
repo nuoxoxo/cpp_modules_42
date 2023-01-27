@@ -1,5 +1,4 @@
 /* ************************************************************************** */
-/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -7,7 +6,6 @@
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:37:56 by nuxu              #+#    #+#             */
 /*   Updated: 2023/01/25 10:27:54 by nuxu             ###   ########.fr       */
-/*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
@@ -21,27 +19,6 @@ Span::~Span() {}
 // getter
 const std::vector<int>	& Span::getCore() const { return m_core; }
 unsigned int		Span::getMaxsize() const { return m_maxsize; }
-
-/*class	Span
-{
-private:
-	std::vector<int>	m_core;
-	int			m_maxsize;
-public:
-	// canon + param constr
-	Span();
-	Span(const Span &);
-	Span(unsigned int N);
-	Span & operator = (const Span & );
-	~Span();
-
-	int	shortestSpan(void) const;
-	int	longestSpan(void) const;
-	void	addNumber(int);
-
-	const unsigned int	getMaxsize() const;
-	const std::vector<int>	& getCore() const;
-};*/
 
 Span & Span::operator = (Span const & dummy)
 {
@@ -88,3 +65,24 @@ void	Span::addNumber(int num)
 		throw std::exception();
 	m_core.push_back(num);
 }
+
+/*class	Span
+{
+private:
+	std::vector<int>	m_core;
+	int			m_maxsize;
+public:
+	// canon + param constr
+	Span();
+	Span(const Span &);
+	Span(unsigned int N);
+	Span & operator = (const Span & );
+	~Span();
+
+	int	shortestSpan(void) const;
+	int	longestSpan(void) const;
+	void	addNumber(int);
+
+	const unsigned int	getMaxsize() const;
+	const std::vector<int>	& getCore() const;
+};*/
