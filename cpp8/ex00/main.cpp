@@ -30,6 +30,8 @@
 int	main(int c, char **v)
 {
 	int	n = c ^ 2 ? 4 : std::stoi(v[1]);
+	
 
-	std::cout << n << nl;
+	{
+	std
 }
