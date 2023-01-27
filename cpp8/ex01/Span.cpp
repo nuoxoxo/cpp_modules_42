@@ -18,10 +18,13 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#include "Span.hpp"
 
-class	Span
+Span::Span() : m_size() {}
+Span::Span(unsigned int N) : m_size(N) {}
+Span::Span(const Span & cp) : m_size(cp.size()), m_core()
+
+/*class	Span
 {
 private:
 	std::vector<int>	m_core;
@@ -39,4 +42,4 @@ public:
 	void	addNumber(int);
 
 	unsigned int	size(void) const;
-};
+}*/
