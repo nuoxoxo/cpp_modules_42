@@ -41,7 +41,7 @@ AMateria & AMateria::operator = (const AMateria & dummy)
 
 
 // param constr
-AMateria::AMateria(const std::string & type) : m_type(type) {}
+AMateria::AMateria(std::string const & type) : m_type(type) {}
 
 
 // Getter
@@ -50,5 +50,8 @@ std::string const & AMateria::getType() const
 	return m_type;
 }
 
-
+// void	AMateria::use(ICharacter & dummy) const
+// {
+// 	std::cout << "* uses " << m_type << " (unknown) on " << dummy.getName() << " \n";
+// }
 

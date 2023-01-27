@@ -20,6 +20,7 @@
 # define AMATERIA_HPP
 
 # include "iostream"
+# include "CPP04X03.hpp"
 # include "ICharacter.hpp"
 
 class	AMateria
@@ -38,7 +39,7 @@ public:
 	AMateria & operator = (const AMateria &);
 	
 	// param constr
-	AMateria(const std::string &);
+	AMateria(std::string const &);
 	// AMateria(std::string);
 
 	// getter
@@ -47,6 +48,7 @@ public:
 	// methods
 	virtual AMateria	*clone() const = 0;
 	virtual void		use(ICharacter &) const = 0;
+	// virtual void		use(ICharacter &) const;
 };
 
 #endif

@@ -20,6 +20,7 @@
 #include "CPP04X03.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
+#include "MateriaDefault.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -53,8 +54,8 @@ MateriaSource::MateriaSource(const MateriaSource & src)
 	{
 		if (!src.m_source[i])
 			continue ;
-		m_source[i] = src.m_source[i];
-		// m_source[i] = src.m_source[i]->clone();
+		// m_source[i] = src.m_source[i];
+		m_source[i] = src.m_source[i]->clone();
 	}
 }
 
@@ -76,7 +77,7 @@ MateriaSource & MateriaSource::operator = (const MateriaSource & src)
 	return (*this);
 }
 
-AMateria * MateriaSource::createMateria(const std::string & type)
+AMateria * MateriaSource::createMateria(std::string const & type)
 {
 	size_t	i;
 
@@ -90,7 +91,8 @@ AMateria * MateriaSource::createMateria(const std::string & type)
 		return (new Ice());
 	if (type == "cure")
 		return (new Cure());
-	return (0);
+	// return (0);
+	return (new MateriaDefault());
 }
 
 void	MateriaSource::learnMateria(AMateria * ma)

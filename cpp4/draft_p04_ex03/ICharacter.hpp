@@ -20,6 +20,7 @@
 # define ICHARACTER_HPP
 
 # include "iostream"
+# include "CPP04X03.hpp"
 # include "AMateria.hpp"
 
 class	AMateria;

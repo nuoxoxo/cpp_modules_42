@@ -10,37 +10,34 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                             Interface (IClass)                             */
 /*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef MATERIASOURCE_HPP
-# define MATERIASOURCE_HPP
+#ifndef MATERIADEFAULT_HPP
+# define MATERIADEFAULT_HPP
 
-# include "IMateriaSource.hpp"
-# define MAXMAT 4
+# include "iostream"
+# include "AMateria.hpp"
 
-class	MateriaSource : public IMateriaSource
+
+class	MateriaDefault : public AMateria
 {
-
-private:
-
-	AMateria	* m_source[ MAXMAT ];
 
 public:
 
-	// Canon
-	MateriaSource();
-	~MateriaSource();
-	MateriaSource(const MateriaSource &);
-	MateriaSource & operator = (const MateriaSource &);
+	// canon
+	MateriaDefault();
+	~MateriaDefault(); // TODO no virtual
+	MateriaDefault(const MateriaDefault &);
+	MateriaDefault & operator = (const MateriaDefault &);
 
-	// Methods
-	AMateria	*createMateria(std::string const &);
-	void		learnMateria(AMateria *);
+	AMateria	*clone() const;
+	void		use(ICharacter &) const;
 
 };
+
 
 #endif

@@ -10,37 +10,44 @@
 /*                              ~  ~      ~    ~                              */
 /*                                                                            */
 /*                                                                            */
-/*                             Interface (IClass)                             */
 /*                           Abstrac Class (AClass)                           */
+/*                             Interface (IClass)                             */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef MATERIASOURCE_HPP
-# define MATERIASOURCE_HPP
+#include "MateriaDefault.hpp"
 
-# include "IMateriaSource.hpp"
-# define MAXMAT 4
 
-class	MateriaSource : public IMateriaSource
+// Canon
+
+
+MateriaDefault::MateriaDefault() : AMateria("(unknown materia)") {} // XXX inherits AMT
+MateriaDefault::~MateriaDefault() {}
+
+
+MateriaDefault::MateriaDefault(const MateriaDefault & copy)
 {
+	* this = copy;
+}
 
-private:
 
-	AMateria	* m_source[ MAXMAT ];
+MateriaDefault & MateriaDefault::operator = (const MateriaDefault & dummy)
+{
+	m_type = dummy.m_type;
+	return *this;
+}
 
-public:
 
-	// Canon
-	MateriaSource();
-	~MateriaSource();
-	MateriaSource(const MateriaSource &);
-	MateriaSource & operator = (const MateriaSource &);
+// methods
 
-	// Methods
-	AMateria	*createMateria(std::string const &);
-	void		learnMateria(AMateria *);
+void	MateriaDefault::use(ICharacter & dummy) const
+{
+	std::cout << "* uses " << m_type << " on " << dummy.getName() << " \n";
+}
 
-};
+AMateria	*MateriaDefault::clone() const
+{
+	return (new MateriaDefault(*this));
+}
 
-#endif

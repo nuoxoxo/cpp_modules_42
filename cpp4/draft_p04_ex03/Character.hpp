@@ -20,7 +20,6 @@
 # define CHARACTER_HPP
 
 # include "iostream"
-# include "CPP04X03.hpp"
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
 
@@ -46,7 +45,7 @@ public:
 	
 	// param constr
 	Character(std::string);
-	// Character(const std::string &);
+	// Character(std::string const &);
 
 	// getter
 	AMateria		* getMateria(int) const;
