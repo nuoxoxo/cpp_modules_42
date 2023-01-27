@@ -13,14 +13,14 @@
 #ifndef CPP08X00_HPP
 # define CPP08X00_HPP
 
-#include "iostream"
-#include "set"
+# include "iostream"
+# include "set"
 
-#define LOWKEY "\033[0;2m"
-#define GREEN "\033[0;32m"
-#define RESET "\033[0;0m"
-#define MAX 10
-#define SIZE 4
+# define LOWKEY "\033[0;2m"
+# define GREEN "\033[0;32m"
+# define RESET "\033[0;0m"
+# define MAX 10
+# define SIZE 4
 
 //	colors
 
