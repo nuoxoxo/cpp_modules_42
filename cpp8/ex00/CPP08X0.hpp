@@ -86,6 +86,7 @@ void	print_set(std::set<int> S)
 	std::cout << "\n";
 }
 
+/*
 template<typename T>
 void	print_set(T S)
 {
@@ -99,6 +100,7 @@ void	print_set(T S)
 	}
 	std::cout << "\n";
 }
+*/
 
 template<typename T>
 void	print_target(T target)
