@@ -21,6 +21,7 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+# include "CPP08X0.hpp"
 # include "algorithm"
 
 template<typename T>
@@ -32,7 +33,7 @@ typename T::iterator	easyfind(T arr, int val)
 	it = std::find(arr.begin(), arr.end(), val);
 
 	if (it == arr.end())
-		throw std::exception();
+		std::cout << LOWKEY << "element not found: " << val << nl RESET;
 	return (it);
 }
 
@@ -45,10 +46,10 @@ typename T::iterator	easyfind(T arr, std::string val)
 	it = std::find(arr.begin(), arr.end(), val);
 
 	if (it == arr.end())
-		throw std::exception();
+		std::cout << LOWKEY << "element not found: " << val << nl RESET;
+	//	throw std::exception();
 	return (it);
 }
-
 
 // should not return `*it`
 /*
