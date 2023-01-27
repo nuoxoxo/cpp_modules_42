@@ -38,5 +38,6 @@ public:
 	int	longestSpan(void) const;
 	void	addNumber(int);
 
-	unsigned int	size(void) const;
+	const unsigned int	size() const;
+	const std::vector<int>	& getCore() const;
 };
