@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                  Casting                                   */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+
 #include "Scalar.hpp"
-
-//	define
-
-void	_usage_()
-{
-	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
-}
-
-
-//	convertor . brain
 
 void	Brain(const char * str)
 {
@@ -43,17 +53,16 @@ void	Brain(const char * str)
 	i = -1;
 	while (++i < 4)
 	{
-		if (mode_isLiteral[i](s))
-			return (mode_convertor[i](s, & SC), Printer(& SC));
+		if ( !mode_isLiteral[i](s))
+			continue ;
+		return (mode_convertor[i](s, & SC), Printer(& SC));
 	}
 	std::cout << RED "Conversion failed. " RESET nl;
 }
 
-//	Type checking:
-//		char 
-//		digit (int) 
-//		float 
-//		double
+//	
+//	Type checking
+//	
 
 bool	strIsChar(const std::string & s)
 {
@@ -149,11 +158,9 @@ bool	isMacroDouble(const std::string & s)
 }
 
 
-//	Type casting:
-//		char 
-//		digit (int) 
-//		float 
-//		double
+//	
+//	Type casting
+//
 
 void	castChar(const std::string & s, _Scalar_ *sc)
 {
@@ -248,7 +255,12 @@ void	Printer(_Scalar_ *sc)
 }
 
 
-//	Global
+//	misc.
+
+void	_usage_()
+{
+	std::cout << nl YELL "Usage: ./convert _literal_ " RESET nl2;
+}
 
 void	print_canon(const std::string funcName, const std::string canonName)
 {
