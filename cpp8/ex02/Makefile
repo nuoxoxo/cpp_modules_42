@@ -20,7 +20,7 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@ ./ex01
+		@ ./$(name)
 		@ make clean
 
 r	:	run

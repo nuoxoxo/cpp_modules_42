@@ -27,10 +27,20 @@ public:
 	const T &	top( void ) const;
 
 	// iterators
-	typedef typename std::deque<T>::iterator iterator;
+	typedef typename std::deque<T>::iterator		iterator;
+	typedef typename std::deque<T>::reverse_iterator	r_iterator;
+	typedef typename std::deque<T>::const_iterator		c_iterator;
+	typedef typename std::deque<T>::const_reverse_iterator	cr_iterator;
 
-	typename std::deque<T>::iterator	begin();
-	typename std::deque<T>::iterator	end();
+	typename std::deque<T>::iterator		begin();
+	typename std::deque<T>::iterator		end();
+	typename std::deque<T>::reverse_iterator	rbegin();
+	typename std::deque<T>::reverse_iterator	rend();
+
+	typename std::deque<T>::const_iterator		begin() const;
+	typename std::deque<T>::const_iterator		end() const;
+	typename std::deque<T>::const_reverse_iterator	rbegin() const;
+	typename std::deque<T>::const_reverse_iterator	rend() const;
 };
 
 # include "MutantStack.tpp"
