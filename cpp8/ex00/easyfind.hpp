@@ -21,7 +21,7 @@
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
-# include "CPP08X0.hpp"
+# include "CPP08X00.hpp"
 # include "algorithm"
 
 template<typename T>
