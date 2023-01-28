@@ -18,9 +18,11 @@ $(name)	:	$(bud)
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 		@ echo ""
+		@ echo "--- do valgrind ---"
+		@ echo ""
 
 run	:	re
-		@ ./$(name)
+		@ ./out
 		@ make clean
 
 r	:	run

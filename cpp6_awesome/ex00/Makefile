@@ -1,8 +1,9 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+name	:=	convert
 rmv	:=	rm -rf
 
-src	:=	main.cpp
+src	:=	main.cpp \
+		Scalar.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
@@ -20,8 +21,8 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@ ./$(name)
-		@ make clean
+		@#@ ./out
+		@#@ make clean
 
 r	:	run
 
