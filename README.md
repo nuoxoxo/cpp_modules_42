@@ -1,5 +1,6 @@
 Notes         |                             |   |
 :-----------: | :-------------------------: | - |
+7             | Template                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/103)
 6             | Casts                       | [ex0](https://github.com/nuoxoxo/cpp_modules_42/issues/89) • [ex1](https://github.com/nuoxoxo/cpp_modules_42/issues/82) • [ex2](https://github.com/nuoxoxo/cpp_modules_42/issues/81) 
 &nbsp;        | Casts.tests                 | `$ seq n \| xargs -Ix ./a.out`
 5             | Bureaucrat                  | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69)
