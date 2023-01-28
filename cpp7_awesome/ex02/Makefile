@@ -2,6 +2,7 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 name	:=	out
 rmv	:=	rm -rf
 
+src	:=	subject.cpp
 src	:=	main.cpp
 
 bud	:=	$(src:%.cpp=%.o)
@@ -20,7 +21,7 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@ ./$(name)
+		@ ./out
 		@ make clean
 
 r	:	run

@@ -20,7 +20,7 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@ ./$(name)
+		@ ./out
 		@ make clean
 
 r	:	run
@@ -38,3 +38,4 @@ f	:	fclean
 re	:	f all
 
 .PHONY	:	fclean clean all re f
+
