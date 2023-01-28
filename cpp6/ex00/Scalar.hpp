@@ -39,13 +39,6 @@ void	castFloat(const std::string &, _Scalar_ *);
 void	castDouble(const std::string &, _Scalar_ *);
 
 
-void	print_canon(const std::string, const std::string);
-void	print_ending(int);
-void	print_ending(void);
-void	print_ending(std::string &);
-void	print_ending(int, const std::string);
-
-
 //	colors
 
 # define ITAL	"\033[3m"
@@ -76,6 +69,13 @@ void	print_ending(int, const std::string);
 # define D "double: "
 # define IM "impossible "
 # define ND "Non displayable "
+
+
+void	print_canon(const std::string, const std::string);
+void	print_ending(int, const std::string);
+void	print_ending(std::string &);
+void	print_ending(int);
+void	print_ending();
 
 
 #endif
