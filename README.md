@@ -10,7 +10,7 @@ Notes         |                             |   |
 1             | Garden Variety              | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/25)
 0             | Accounts                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/56)
 Utils         | &nbsp;                      |
-&nbsp;        | Makefile      | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)           
-&nbsp;        | Color         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)           
+&nbsp;        | Color         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)
+&nbsp;        | Makefile      | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)
 
 ![](https://i.imgur.com/9sktWrS.png)
