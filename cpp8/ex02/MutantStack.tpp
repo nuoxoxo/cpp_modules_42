@@ -19,6 +19,7 @@ MutantStack<T> & MutantStack<T>::operator = (const MutantStack<T> & dummy)
 	return (*this);
 }
 
+/*
 // size
 template<typename T>
 unsigned int	MutantStack<T>::size() const { return (this->c.size()); }
@@ -37,7 +38,7 @@ void	MutantStack<T>::push(T item)	{ this->c.push_back(item); }
 
 template<typename T>
 void	MutantStack<T>::pop()	{ this->c.pop_back(); } // undefined if empty
-
+*/
 
 // ----------------------------- // ----------------------------- //
 
@@ -56,12 +57,12 @@ MutantStack<T>::end()	{ return (iterator(this->c.end())); }
 // rbegin & rend
 
 template<typename T>
-typename MutantStack<T>::r_iterator 
-MutantStack<T>::rbegin(){ return (r_iterator(this->c.rbegin())); }
+typename MutantStack<T>::reverse_iterator 
+MutantStack<T>::rbegin(){ return (reverse_iterator(this->c.rbegin())); }
 
 template<typename T>
-typename MutantStack<T>::r_iterator
-MutantStack<T>::rend()	{ return (r_iterator(this->c.rend())); }
+typename MutantStack<T>::reverse_iterator
+MutantStack<T>::rend()	{ return (reverse_iterator(this->c.rend())); }
 
 
 // ----------------------------- // ----------------------------- //
@@ -70,23 +71,23 @@ MutantStack<T>::rend()	{ return (r_iterator(this->c.rend())); }
 // const begin & end
 
 template<typename T>
-typename MutantStack<T>::c_iterator 
-MutantStack<T>::begin()	const { return (c_iterator(this->c.begin())); }
+typename MutantStack<T>::const_iterator 
+MutantStack<T>::begin()	const { return (const_iterator(this->c.begin())); }
 
 template<typename T>
-typename MutantStack<T>::c_iterator
-MutantStack<T>::end() const { return (c_iterator(this->c.end())); }
+typename MutantStack<T>::const_iterator
+MutantStack<T>::end() const { return (const_iterator(this->c.end())); }
 
 
 // const rbegin & rend
 
 template<typename T>
-typename MutantStack<T>::cr_iterator 
-MutantStack<T>::rbegin() const { return (cr_iterator(this->c.rbegin())); }
+typename MutantStack<T>::const_reverse_iterator 
+MutantStack<T>::rbegin() const { return (const_reverse_iterator(this->c.rbegin())); }
 
 template<typename T>
-typename MutantStack<T>::cr_iterator
-MutantStack<T>::rend() const { return (cr_iterator(this->c.rend())); }
+typename MutantStack<T>::const_reverse_iterator
+MutantStack<T>::rend() const { return (const_reverse_iterator(this->c.rend())); }
 
 
 #endif

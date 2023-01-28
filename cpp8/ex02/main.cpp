@@ -55,8 +55,8 @@ int	main()
 
 		mstack.push(0);
 
-		MutantStack<int>::r_iterator it = mstack.rbegin();
-		MutantStack<int>::r_iterator ite = mstack.rend();
+		MutantStack<int>::reverse_iterator it = mstack.rbegin();
+		MutantStack<int>::reverse_iterator ite = mstack.rend();
 
 		++it;
 		--it;
