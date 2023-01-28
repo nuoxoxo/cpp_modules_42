@@ -9,10 +9,8 @@ Notes         |                             |   |
 2             | Fixed                       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/26) • [_p5demo_](https://editor.p5js.org/nuoxoxo/sketches/WT-94Rgmm)
 1             | Garden Variety              | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/25)
 0             | Accounts                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/56)
-
-Utils         |             |
-:------------ | :---------- |
-Makefile      | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)           
-Color         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)           
+Utils         | &nbsp;                      |
+&nbsp;        | Makefile      | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)           
+&nbsp;        | Color         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)           
 
 ![](https://i.imgur.com/9sktWrS.png)
