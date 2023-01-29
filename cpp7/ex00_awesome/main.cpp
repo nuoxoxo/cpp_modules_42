@@ -11,20 +11,26 @@
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
-/*                                  Casting                                   */
-/*                                 Serialize                                  */
-/*                                Deserilaize                                 */
+/*                                 Template                                   */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef C_HPP
-# define C_HPP
+#include "whatever.hpp"
+#include "awesome.hpp"
 
-# include "Base.hpp"
+#define GREEN "\033[0;32m"
+#define RESET "\033[0;0m"
 
-class	C : public Base {};
+int		main(void)
+{
+Awesome	a(2), b(4);
 
-#endif
+swap(a, b);
+std::cout << a << " " << b << std::endl;
+std::cout << max(a, b) << std::endl;
+std::cout << min(a, b) << std::endl;
+return(0);
+}
