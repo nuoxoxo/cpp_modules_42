@@ -18,19 +18,19 @@
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#include "whatever.hpp"
+#include "iter.hpp"
+#include "iomanip"
 #include "Awesome.hpp"
 
-#define GREEN "\033[0;32m"
-#define RESET "\033[0;0m"
+int	main()
+{		
+		int	tab[] = {0, 1, 2, 3, 4}; // <--- ....
 
-int		main(void)
-{
-Awesome	a(2), b(4);
+		Awesome	tab2[5];
 
-swap(a, b);
-std::cout << a << " " << b << std::endl;
-std::cout << max(a, b) << std::endl;
-std::cout << min(a, b) << std::endl;
-return(0);
+		iter(tab, 5, print<int>);
+		iter(tab2, 5, print<Awesome>);
+
+		std::cout << std::endl;
 }
+
