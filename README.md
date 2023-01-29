@@ -13,6 +13,8 @@ __Utils__     | &nbsp;                      |
 &nbsp;        | Color                       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)
 &nbsp;        | Makefile                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)
 &nbsp;        | EVAL                        | [21checklists](https://github.com/mharriso/school21-checklists)
-
+__Evals__     | &nbsp;                      |
+6.2           | identity                    | `seq n \| xargs -Ix ./a.out`
+6.0           | reinterpret_cast            | `grep _cast -R .`
 
 ![](https://i.imgur.com/9sktWrS.png)
