@@ -11,20 +11,26 @@
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
-/*                                  Casting                                   */
-/*                                 Serialize                                  */
-/*                                Deserilaize                                 */
+/*                                 Template                                   */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /*                                                                            */
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
-#ifndef B_HPP
-# define B_HPP
+#include "iter.hpp"
+#include "iomanip"
+#include "Awesome.hpp"
 
-# include "Base.hpp"
+int	main()
+{		
+		int	tab[] = {0, 1, 2, 3, 4}; // <--- ....
 
-class	B : public Base {};
+		Awesome	tab2[5];
 
-#endif
+		iter(tab, 5, print<int>);
+		iter(tab2, 5, print<Awesome>);
+
+		std::cout << std::endl;
+}
+

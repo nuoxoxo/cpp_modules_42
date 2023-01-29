@@ -24,6 +24,7 @@
 #include "iostream"
 #include "cstdlib"
 #include "Array.tpp" // obsolete
+#include "iomanip" // boolalpha
 
 template<typename T>
 class	Array
@@ -116,8 +117,23 @@ Array<T> & Array<T>::operator = (const Array & dummy)
 template<typename T>
 T & Array<T>::operator [] (unsigned int i)
 {
+	// if (m_size == 0 || i > m_size - 1)
 	if (i > m_size - 1)
 		throw (std::exception());
+	
+	if ((int)m_size == 0)
+		//std::cout << std::boolalpha << (m_size == 0) << std::noboolalpha << " (&) \n";
+		throw (std::exception());
+	
+	
+	// I tried something like this
+	/*
+	try {return m_array[i];}
+	catch (std::exception & e)
+	{ std::cout << e.what() << std::endl; }
+	return m_array[i];
+	*/
+	
 	return (m_array[i]);
 }
 
@@ -126,6 +142,12 @@ const T & Array<T>::operator [] (unsigned int i) const
 {
 	if (i > m_size - 1)
 		throw (std::exception());
+	
+	if ((int)m_size == 0)
+		//std::cout << std::boolalpha << (m_size == 0) << std::noboolalpha << " (const &) \n";
+		throw (std::exception());
+	
+
 	return (m_array[i]);
 }
 
@@ -174,6 +196,11 @@ std::ostream & operator << (std::ostream & ostream, const Array<T> & arr)
 	unsigned int	len = arr.size();
 	unsigned int	i = -1;
 
+	if (!len)
+	{
+		ostream << "[]\n";
+		return ostream;
+	}
 	ostream << '[';
 	i = -1;
 	while (++i < len)
@@ -187,6 +214,11 @@ std::ostream & operator << (std::ostream & ostream, Array<T> & arr)
 	unsigned int	len = arr.size();
 	unsigned int	i = -1;
 
+	if (!len)
+	{
+		ostream << "[]\n";
+		return ostream;
+	}
 	ostream << '[';
 	i = -1;
 	while (++i < len)
