@@ -140,6 +140,28 @@ int	main()
 			std::cout << nl;
 		}
 	}
+	std::cout << GREEN "Test :: " << ++i << " :: empty array \n\n" RESET;
+	{
+		{
+			Array<int>	arr(0);
+
+			try
+			{
+				arr[0] = 42;
+				arr[1] = 43;
+				std::cout << arr;
+				std::cout << arr.size() << nl;
+				arr.printer();
+				std::cout << arr[0] << nl;
+				std::cout << arr[1] << nl2;
+			}
+			catch (std::exception & e)
+			{
+				std::cout << e.what() << nl;
+				std::cout << LOWKEY"an exception that must be caught"RESET nl2;
+			}
+		}
+	}
 	// Just not working
 	/*
 	std::cout << GREEN "Test :: " << ++i << " :: string array \n\n" RESET;
