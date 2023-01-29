@@ -154,7 +154,7 @@ int	main()
 			}
 			catch (std::exception & e)
 			{
-				std::cout << LOWKEY "(try writing) " nl2 RESET
+				std::cout << LOWKEY "(try writing) " nl RESET
 					  << e.what() << nl
 					  << LOWKEY"an exception that must be caught"RESET nl2;
 			}
@@ -168,7 +168,7 @@ int	main()
 			}
 			catch (std::exception & e)
 			{
-				std::cout << LOWKEY "(try reading) " nl2 RESET
+				std::cout << LOWKEY"(try reading) " nl RESET
 					  << e.what() << nl
 					  << LOWKEY"an exception that must be caught"RESET nl2;
 			}
