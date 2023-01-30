@@ -10,8 +10,9 @@ Notes         |                             |   |
 1             | Garden Variety              | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/25)
 0             | Accounts                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/56)
 __Utils__     | &nbsp;                      |
-&nbsp;        | Color                       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/102)
-&nbsp;        | Makefile                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/42)
+&nbsp;        | Color                       | [colors](https://github.com/nuoxoxo/cpp_modules_42/issues/102)
+&nbsp;        | .ignore                     | [ignore](https://github.com/nuoxoxo/cpp_modules_42/issues/41)
+&nbsp;        | Makefile                    | [makefi](https://github.com/nuoxoxo/cpp_modules_42/issues/42)
 &nbsp;        | EVAL                        | [21checklists](https://github.com/mharriso/school21-checklists)
 __Evals__     | &nbsp;                      |
 6.2           | _identity_                  | `seq n \| xargs -Ix ./a.out`
