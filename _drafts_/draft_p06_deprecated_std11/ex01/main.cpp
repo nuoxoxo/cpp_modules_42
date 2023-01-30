@@ -1,8 +1,7 @@
 #include "iostream"
 #include "string"
 #include "cstdlib"
-//#include "cstdint" // not in c++98
-#include "stdint.h"
+#include "cstdint"
 #include "cassert"
 
 #define LOWKEY "\033[0;2m"

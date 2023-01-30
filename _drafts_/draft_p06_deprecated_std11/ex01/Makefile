@@ -1,10 +1,8 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-# comp	:=	c++ -Wall -Werror -Wextra -std=c++11
-name	:=	convert
+name	:=	out
 rmv	:=	rm -rf
 
-src	:=	main.cpp \
-		Scalar.cpp
+src	:=	main.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
@@ -20,10 +18,12 @@ $(name)	:	$(bud)
 		@ echo "you can do [make f] "
 		@ echo "you can do [make run] "
 		@ echo ""
+		@ echo "--- do valgrind ---"
+		@ echo ""
 
 run	:	re
-		@#@ ./$(name)
-		@#@ make clean
+		@ ./out
+		@ make clean
 
 r	:	run
 
