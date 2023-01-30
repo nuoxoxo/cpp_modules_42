@@ -1,6 +1,7 @@
 #ifndef CPP06X2_HPP
 # define CPP06X2_HPP
 
+# include "cstdlib"
 # include "Base.hpp"
 # include "A.hpp"
 # include "B.hpp"

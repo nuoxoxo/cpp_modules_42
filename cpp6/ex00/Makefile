@@ -1,4 +1,5 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
+# comp	:=	c++ -Wall -Werror -Wextra -std=c++11
 name	:=	convert
 rmv	:=	rm -rf
 
@@ -21,7 +22,7 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
-		@#@ ./out
+		@#@ ./$(name)
 		@#@ make clean
 
 r	:	run

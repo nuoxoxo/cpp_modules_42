@@ -33,6 +33,12 @@ void	Brain(const char * str)
 		& Harl::error
 	}; */
 
+	if (isMacroFloat(str) || isMacroDouble(str))
+	{
+		impossiblePrinter(str);
+		return ;
+	}
+
 	bool	(*mode_isLiteral[4]) (const std::string &) =
 	{
 		& strIsChar,
@@ -57,7 +63,7 @@ void	Brain(const char * str)
 			continue ;
 		return (mode_convertor[i](s, & SC), Printer(& SC));
 	}
-	std::cout << RED "Conversion failed. " RESET nl;
+	std::cout << YELL "Conversion failed. " RESET nl;
 }
 
 //	
@@ -124,7 +130,7 @@ bool	strIsDouble(const std::string & str)
 	if (isMacroDouble(str))
 		return true;
 
-	std::string::const_iterator	it;
+	// std::string::const_iterator	it;
 	std::string			s;
 	int				len;
 
@@ -169,7 +175,7 @@ void	castChar(const std::string & s, _Scalar_ *sc)
 	
 	// step 1. convert principle type
 	sc->c = s[1];
-	
+
 	// step 2. convert the rest based on principle type
 	sc->i = static_cast<int> (sc->c);
 	sc->f = static_cast<float> (sc->c);
@@ -182,7 +188,8 @@ void	castInt(const std::string & s, _Scalar_ *sc)
 		return ;
 
 	// step 1. convert principle type
-	sc->i = std::stoi(s);
+	// sc->i = std::stoi(s); // c++11
+	std::stringstream(s) >> sc->i;
 
 	// step 2. convert the rest based on principle type
 	sc->c = static_cast<char> (sc->i);
@@ -196,8 +203,11 @@ void	castFloat(const std::string & s, _Scalar_ *sc)
 		return ;
 
 	// step 1. convert principle type
-	sc->f = static_cast<float>(std::stof(s));
-
+	// c->f = static_cast<float>(std::stof(s)); // c++11
+	float	res;
+	std::stringstream(s) >> res;
+	sc->f = static_cast<float>(res);
+	
 	// step 2. convert the rest based on principle type
 	sc->c = static_cast<char>(sc->f);
 	sc->i = static_cast<int>(sc->f);
@@ -210,7 +220,9 @@ void	castDouble(const std::string & s, _Scalar_ *sc)
 		return ;
 
 	// step 1. convert principle type
-	sc->d = std::stod(s);
+	// sc->d = std::stod(s); // c++11
+	std::stringstream(s) >> sc->d;
+
 
 	// step 2. convert the rest based on principle type
 	sc->c = static_cast<char>(sc->d);
@@ -225,15 +237,15 @@ void	Printer(_Scalar_ *sc)
 {
 	// char
 	if (sc->i < -1 * (1 << 7) || sc->i > (1 << 7) - 1)
-		std::cout << RED C IM nl RESET;
+		std::cout << C YELL IM nl RESET;
 	else if (std::isprint(sc->c))
 		std::cout << C "'" << sc->c << "'" nl;
 	else
-		std::cout << RED ND nl RESET;
+		std::cout << C YELL ND nl RESET;
 
 	// int
-	if (  isnan(sc->f) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
-		std::cout << RED I IM nl RESET;
+	if (std::isnan(sc->f) || sc->d > 2147483647.0 || sc->d < -2147483648.0)
+		std::cout << I YELL IM nl RESET;
 	else
 		std::cout << I << sc->i << nl;
 
@@ -252,6 +264,35 @@ void	Printer(_Scalar_ *sc)
 	<< std::setprecision(1)
 	<< sc->d << nl
 	<< std::resetiosflags(std::ios::fixed);
+}
+
+void	impossiblePrinter(const std::string & _)
+{
+	std::string	ds, fs;
+
+	std::cout << C YELL IM nl RESET;
+	std::cout << I YELL IM nl RESET;
+
+	ds = _;
+	fs = _;
+	if (_[0] == '+')
+	{
+		ds = _.substr(1, _.length() - 1);
+		fs = ds;
+	}
+	if (isMacroDouble(_))
+	{
+		fs += 'f';
+	}
+	if (isMacroFloat(_))
+		ds = ds.substr(0, ds.length() - 1);
+
+	std::cout << F << fs << nl;
+	std::cout << D << ds << nl;
+
+	
+	// std::cout << D
+	// << ((isMacroFloat(_)) ? ((_[0] == '+') ? _.substr(1, _.length() - 1) : _.substr(0, _.length() - 1) + nl) : _ + nl);
 }
 
 

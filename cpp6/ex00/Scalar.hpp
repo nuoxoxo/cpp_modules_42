@@ -5,6 +5,7 @@
 # include "string"
 # include "sstream"
 # include "iomanip"
+# include "cstdlib" // {?}
 # include "cmath" // isnan
 
 // 	Quote:
@@ -22,6 +23,7 @@ struct	_Scalar_
 
 void	_usage_();
 
+void	impossiblePrinter(const std::string &);
 void	Printer(_Scalar_ *sc);
 void	Brain(const char *);
 
@@ -52,8 +54,8 @@ void	castDouble(const std::string &, _Scalar_ *);
 
 # define RESET	"\033[0;0m"
 
-# define TICK	GREEN" ✓"RESET
-# define CROSS	RED" ✘"RESET
+# define TICK	GREEN " ✓" RESET
+# define CROSS	RED " ✘" RESET
 
 
 //	formatting
