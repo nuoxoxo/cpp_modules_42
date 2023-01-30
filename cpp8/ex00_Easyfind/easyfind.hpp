@@ -47,7 +47,6 @@ typename T::iterator	easyfind(T arr, std::string val)
 
 	if (it == arr.end())
 		std::cout << LOWKEY << "element not found: " << val << nl RESET;
-	//	throw std::exception();
 	return (it);
 }
 

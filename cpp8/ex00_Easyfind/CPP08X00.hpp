@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.hpp                                            :+:      :+:    :+:   */
+/*   CPP08X00.hpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/01/30 12:24:49 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@
 # define nl2reset " \n\n" RESET
 # define nl2 " \n\n"
 # define nl " \n"
+
+template <typename Iter>
+Iter	next(Iter it) { return ++it; }
 
 template<typename T>
 void	print_vector(T & arr)
@@ -108,7 +111,6 @@ void	print_target(T target)
 	std::cout << "target:\t" YELL << target << nl RESET;
 }
 
-template <typename Iter>
-Iter	next(Iter it) { return ++it; }
+
 
 #endif
