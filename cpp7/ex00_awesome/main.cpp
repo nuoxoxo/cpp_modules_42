@@ -19,7 +19,7 @@
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
 #include "whatever.hpp"
-#include "Awesome.hpp"
+#include "awesome.hpp"
 
 #define GREEN "\033[0;32m"
 #define RESET "\033[0;0m"

@@ -19,20 +19,31 @@
 /* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
 
 #include "iostream"
+#include "sstream"
 #include "vector"
 #include "set"
 #include "cstdlib" // rand
 #include "easyfind.hpp"
+#include "CPP08X00.hpp"
 
 int	main(int c, char **v)
 {
 	int	target, size, i;
 
 	i = -1;
+	size = 1;
 	srand(time(0));
-	if (!(size = c ^ 2 ? SIZE : std::stoi(v[1]) % (MAX + 1)))
-		size = 1;
+	// if (!(size = c ^ 2 ? SIZE : std::stoi(v[1]) % (MAX + 1)))
+	// 	size = 1;
 	
+	if (c == 2)
+	{
+		int	n;
+
+		std::stringstream(v[1]) >> n;
+		size = n % (MAX + 1);
+	}
+
 	std::cout << GREEN nl "Test :: " << ++i << " :: find 42" nl2reset;
 	{
 		std::vector<int>::iterator	it;
@@ -68,7 +79,6 @@ int	main(int c, char **v)
 		
 		std::cout << "it:\t" << &it << nl;
 		std::cout << "*it:\t" << *it << nl2;
-
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: string vector " nl2reset;
 	{
@@ -104,8 +114,7 @@ int	main(int c, char **v)
 		it = easyfind(v, target);
 		
 		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
-		
+		// std::cout << "*it:\t" << *it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: integer set " nl2reset;
 	{
@@ -162,7 +171,5 @@ int	main(int c, char **v)
 		it = easyfind(s, target);
 		
 		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
-
 	}
 }
