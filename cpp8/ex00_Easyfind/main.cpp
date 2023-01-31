@@ -56,8 +56,8 @@ int	main(int c, char **v)
 		print_target(target);
 		print_vector(v);
 
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
+		// std::cout << "*it:\t" << *it << nl2;
 		
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: find randint " nl2reset;
@@ -114,7 +114,7 @@ int	main(int c, char **v)
 		it = easyfind(v, target);
 		
 		std::cout << "it:\t" << &it << nl;
-		// std::cout << "*it:\t" << *it << nl2;
+		std::cout << "*it:\t" << *it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: integer set " nl2reset;
 	{
@@ -171,5 +171,6 @@ int	main(int c, char **v)
 		it = easyfind(s, target);
 		
 		std::cout << "it:\t" << &it << nl;
+		std::cout << "*it:\t" << *it << nl2;
 	}
 }
