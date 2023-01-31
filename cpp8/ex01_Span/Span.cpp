@@ -61,9 +61,25 @@ int	Span::shortestSpan() const
 
 void	Span::addNumber(int num)
 {
-	if (!m_maxsize || m_maxsize == (int) m_core.size())
+	if (!m_maxsize || m_maxsize == m_core.size())
 		throw std::exception();
 	m_core.push_back(num);
+}
+
+void	Span::addRandomNumbers(unsigned int n)
+{
+	if (!m_maxsize || m_maxsize < n)
+	{
+		throw std::exception();
+	}
+
+	srand(time(0));
+
+	while (n)
+	{
+		addNumber(std::rand() % RAND_MAX);
+		n--;
+	}
 }
 
 /*class	Span
