@@ -18,8 +18,6 @@ public:
 	MutantStack & operator = (const MutantStack &);
 	~MutantStack();
 
-
-	// 
 	/*
 	// methods
 	unsigned int	size() const;
@@ -31,7 +29,7 @@ public:
 	*/
 
 	// iterators
-	typedef typename 	
+	typedef typename
 		std::deque<T>::iterator	iterator;
 	typedef typename
 		std::deque<T>::reverse_iterator	reverse_iterator;
@@ -50,6 +48,7 @@ public:
 	const_reverse_iterator	rend() const;
 
 	// use `typedef` to avoid all the words
+
 	/*
 	typename std::deque<T>::iterator		begin();
 	typename std::deque<T>::iterator		end();
