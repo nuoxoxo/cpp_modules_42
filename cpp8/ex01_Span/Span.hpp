@@ -24,12 +24,14 @@
 #include "iostream"
 #include "vector"
 #include "algorithm"
+#include "cstdlib" // srand . RAND_MAX
+
 
 class	Span
 {
 private:
 	std::vector<int>	m_core;
-	int			m_maxsize;
+	unsigned int		m_maxsize;
 public:
 	// canon + param constr
 	Span();
@@ -42,6 +44,8 @@ public:
 	int	shortestSpan(void) const;
 	int	longestSpan(void) const;
 	void	addNumber(int);
+
+	void	addRandomNumbers(unsigned int);
 
 	// getter
 	const std::vector<int>	& getCore() const;

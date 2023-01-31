@@ -49,7 +49,7 @@
 # define nl " \n"
 
 template <typename Iter>
-Iter	next(Iter it) { return ++it; }
+Iter	nextIter(Iter it) { return ++it; }
 
 template<typename T>
 void	print_vector(T & arr)
@@ -70,7 +70,7 @@ void	print_set(std::set<std::string> S)
 	std::cout << "set:\t[";
 	while (it != S.end())
 	{
-		std::cout << *it << (next(it) == S.end() ? "]\n" : ", ");
+		std::cout << *it << (nextIter(it) == S.end() ? "]\n" : ", ");
 		++it;
 	}
 	std::cout << "\n";
@@ -83,7 +83,7 @@ void	print_set(std::set<int> S)
 	std::cout << "set:\t[";
 	while (it != S.end())
 	{
-		std::cout << *it << (next(it) == S.end() ? "]\n" : ", ");
+		std::cout << *it << (nextIter(it) == S.end() ? "]\n" : ", ");
 		++it;
 	}
 	std::cout << "\n";
