@@ -6,7 +6,7 @@
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/30 12:24:49 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/02/01 13:19:05 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 
 # define called " called\n"
 # define inside "\ninside "
+# define notfound "element not found: "
 
 # define nl2reset " \n\n" RESET
 # define nl2 " \n\n"

@@ -27,13 +27,12 @@
 template<typename T>
 typename T::iterator	easyfind(T arr, int val)
 {
-
 	typename T::iterator	it;
 
 	it = std::find(arr.begin(), arr.end(), val);
 
 	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
+		std::cout << LOWKEY notfound << val << nl RESET;
 	return (it);
 }
 
@@ -46,7 +45,7 @@ typename T::iterator	easyfind(T arr, std::string val)
 	it = std::find(arr.begin(), arr.end(), val);
 
 	if (it == arr.end())
-		std::cout << LOWKEY << "element not found: " << val << nl RESET;
+		std::cout << LOWKEY notfound << val << nl RESET;
 	return (it);
 }
 
