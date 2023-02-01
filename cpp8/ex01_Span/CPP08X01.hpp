@@ -50,6 +50,9 @@
 # define nl2 " \n\n"
 # define nl " \n"
 
+# define sspan "shortestSpan() : "
+# define lspan "longestSpan() : "
+
 void	print_pair(std::pair<int, int> p, const std::string s)
 {
 	std::cout
