@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ...      :::::::    */
-/*   {}.hpp                                             :+:      :+:    :+:   */
+/*   CPP08X01.hpp                                       :+:      :+:    :+:   */
 /*                                                    ... ...         :::     */
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/01/16 14:31:58 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/02/01 13:39:20 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,14 @@
 # define nl2 " \n\n"
 # define nl " \n"
 
+# define sspan "shortestSpan() : "
+# define lspan "longestSpan() : "
+
 void	print_pair(std::pair<int, int> p, const std::string s)
 {
 	std::cout
-	<< CYAN << s << ": \n" RESET << p.first << " ~ " << p.second << nl
-	<< YELL "distance: \n" RESET << p.second - p.first << nl2reset;
+	<< CYAN << s << ": " RESET << p.first << " ~ " << p.second << nl
+	<< YELL "distance: " RESET << p.second - p.first << nl2reset;
 }
 
 std::pair<int, int>	max_diff_pair(std::vector<int> v)

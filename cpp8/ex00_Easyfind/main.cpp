@@ -56,9 +56,13 @@ int	main(int c, char **v)
 		print_target(target);
 		print_vector(v);
 
-		std::cout << "it:\t" << &it << nl2;
-		// std::cout << "*it:\t" << *it << nl2;
-		
+		std::cout << "it:\t" << &it << nl;
+		std::cout << "*it:\t" << *it << nl2;
+		/*if (it == v.end())
+			std::cout << LOWKEY "iterator now points to _.end()" << nl2 RESET;
+		else
+			std::cout << "it:\t" << *it << nl2;
+		*/
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: find randint " nl2reset;
 	{
@@ -94,11 +98,11 @@ int	main(int c, char **v)
 		v.push_back("vietnam!");
 
 		print_vector(v);	
-		
+
 		target = "good";
 		print_target(target);
 		it = easyfind(v, target);
-		
+
 		std::cout << "it:\t" << &it << nl;
 		std::cout << "*it:\t" << *it << nl2;
 
@@ -114,12 +118,17 @@ int	main(int c, char **v)
 		it = easyfind(v, target);
 		
 		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		// std::cout << "*it:\t" << *it << nl2; // segf fix
+
+		if (it != v.end())
+			std::cout << LOWKEY endpoint nl2 RESET;
+		else
+			std::cout << "it:\t" << *it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: integer set " nl2reset;
 	{
 		target = (int) rand() % (MAX + MAX);
-		
+
 		std::set<int>::iterator	it;
 		std::set<int>		s;
 
@@ -130,9 +139,9 @@ int	main(int c, char **v)
 
 		print_target(target);
 		print_set(s);
-		
+
 		it = easyfind(s, target);
-		
+
 		std::cout << "it:\t" << &it << nl;
 		std::cout << "*it:\t" << *it << nl2;
 
@@ -170,7 +179,18 @@ int	main(int c, char **v)
 		print_target(target);
 		it = easyfind(s, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
+		// std::cout << "*it:\t" << *it << nl2; // segf fix
+
+		if (it != s.end())
+			std::cout << LOWKEY endpoint nl2 RESET;
+		else
+			std::cout << "it:\t" << *it << nl2;
+		/*{
+			try {std::cout << "it:\t" << *it << nl2;}
+			catch (const std::exception & e)
+			{std::cout << e.what() << nl2;}
+		}*/
+
 	}
 }

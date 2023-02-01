@@ -12,44 +12,26 @@ template <typename T>
 class 	MutantStack : public std::stack<T>
 {
 public:
-	// canon
+	// --- Canon --- //
+
 	MutantStack();
 	MutantStack(const MutantStack &);
 	MutantStack & operator = (const MutantStack &);
 	~MutantStack();
 
+	// --- Methods --- //
+
+	// we inherited std::stack we don't need prototyping
 	/*
-	// methods
 	unsigned int	size() const;
-	
 	void		push(T);
 	void		pop();
 	bool		empty() const;
 	const T &	top( void ) const;
 	*/
 
-	// iterators
-	typedef typename
-		std::deque<T>::iterator	iterator;
-	typedef typename
-		std::deque<T>::reverse_iterator	reverse_iterator;
-	typedef typename 
-		std::deque<T>::const_iterator	const_iterator;
-	typedef typename
-		std::deque<T>::const_reverse_iterator	const_reverse_iterator;
+	// --- Iterators --- //
 
-	iterator		begin();
-	iterator		end();
-	reverse_iterator	rbegin();
-	reverse_iterator	rend();
-	const_iterator		begin() const;
-	const_iterator		end() const;
-	const_reverse_iterator	rbegin() const;
-	const_reverse_iterator	rend() const;
-
-	// use `typedef` to avoid all the words
-
-	/*
 	typename std::deque<T>::iterator		begin();
 	typename std::deque<T>::iterator		end();
 	typename std::deque<T>::reverse_iterator	rbegin();
@@ -59,6 +41,27 @@ public:
 	typename std::deque<T>::const_iterator		end() const;
 	typename std::deque<T>::const_reverse_iterator	rbegin() const;
 	typename std::deque<T>::const_reverse_iterator	rend() const;
+
+	// use `typedef` to save us from verbosity
+	typedef typename std::deque<T>::iterator
+		iterator;
+	typedef typename std::deque<T>::reverse_iterator
+		reverse_iterator;
+
+	typedef typename std::deque<T>::const_iterator
+		const_iterator;
+	typedef typename std::deque<T>::const_reverse_iterator
+		const_reverse_iterator;
+
+	/*
+	iterator		begin();
+	iterator		end();
+	reverse_iterator	rbegin();
+	reverse_iterator	rend();
+	const_iterator		begin() const;
+	const_iterator		end() const;
+	const_reverse_iterator	rbegin() const;
+	const_reverse_iterator	rend() const;
 	*/
 };
 

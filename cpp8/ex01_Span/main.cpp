@@ -11,7 +11,7 @@ int	main()
 
 	srand(time(0));
 
-	std::cout << GREEN "Test :: " << ++i << " :: subject " nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: subject " nl2reset;
 	{
 		Span sp = Span(5);
 		sp.addNumber(6);
@@ -19,10 +19,10 @@ int	main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 	}
-	std::cout << GREEN "Test :: " << ++i << " :: restatement " nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: restatement " nl2reset;
 	{
 		Span sp = Span(5);
 		sp.addNumber(6);
@@ -30,15 +30,15 @@ int	main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
 		std::pair<int, int> pmin = min_diff_pair(sp.getCore());
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
 	}
-	std::cout << GREEN "Test :: " << ++i << " :: 10000 using addNumber" nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: 10000 numbers using addNumber" nl2reset;
 	{
 		unsigned int	N = 10000;
 		Span		sp = Span(N);
@@ -69,15 +69,15 @@ int	main()
 			sp.addNumber(a);
 		}
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
 		std::pair<int, int> pmin = min_diff_pair(sp.getCore());
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
 	}
-	std::cout << GREEN "Test :: " << ++i << " :: 20000 using addNumber" nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: 20000 numbers using addNumber" nl2reset;
 	{
 		unsigned int	N = 20000;
 		Span		sp = Span(N);
@@ -104,38 +104,38 @@ int	main()
 			sp.addNumber(a);
 		}
 
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
 		std::pair<int, int> pmin = min_diff_pair(sp.getCore());
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
 	}
-	std::cout << GREEN "Test :: " << ++i << " :: 10000 - addRandomNumbers" nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: 10000 numbers - addRandomNumbers" nl2reset;
 	{
 		int		N = 10000;
 		Span		sp = Span(N);
 
 		sp.addRandomNumbers(N);
 	
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
 		std::pair<int, int> pmin = min_diff_pair(sp.getCore());
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
 	}
-	std::cout << GREEN "Test :: " << ++i << " :: 20000 - addRandomNumbers" nl2reset;
+	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: 20000 numbers - addRandomNumbers" nl2reset;
 	{
 		int		N = 20000;
 		Span		sp = Span(N);
 
 		sp.addRandomNumbers(N);
 	
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << nl2;
+		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
+		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
 		std::pair<int, int> pmin = min_diff_pair(sp.getCore());
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
