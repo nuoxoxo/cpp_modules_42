@@ -6,7 +6,7 @@
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/02/01 13:19:05 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/02/01 13:34:51 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@
 # define called " called\n"
 # define inside "\ninside "
 # define notfound "element not found: "
+# define endpoint "iterator now points to _.end()"
 
 # define nl2reset " \n\n" RESET
 # define nl2 " \n\n"
