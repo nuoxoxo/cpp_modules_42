@@ -1,0 +1,105 @@
+```sc
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                             ~  ~  ~  ~  ~    ~                             */
+/*                              ~    _ ~ _   o>                               */
+/*                             ~  \ / \ / \ /  ~                              */
+/*                              ~  ~      ~    ~                              */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                 Containers                                 */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/*                                                                            */
+/* *********************  ʕ • ᴥ•ʔ  mode: todo  (⊙. ⊙ )  ********************* */
+```
+
+`/* **************************  [ --- ToDo--- ]  ************************** */`
+
+
+
+`/* **************************  [ --- ToDo--- ]  ************************** */`
+
+
+Develop a Span class that can store a maximum of N integers. 
+
+N is an unsigned int
+
+- member function called addNumber() 
+	
+	- add a single number to the Span
+	- It will be used in order to fill it
+	- to add a new element when there are already N elements 
+		- should throw an exception 
+
+- member functions:
+	
+	- shortestSpan()
+	- longestSpan()
+
+	- return shortest / longest span between all the numbers stored
+
+If there are no numbers stored,
+or only one, no span can be found. Thus, throw an exception.
+
+Test your Span at least with a minimum of 10_000 numbers. 
+More would be
+
+even better.
+
+int	main()
+{
+	Span sp = Span(5);
+	sp.addNumber(6);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	return 0;
+}
+
+$> ./ex01
+2
+14
+$>
+
+Last but not least, it would be wonderful to fill your Span using a range of iterators.
+Making thousands calls to addNumber() is so annoying. 
+
+Implement a member function
+to add many numbers to your Span in one call.
+
+If you don’t have a clue, study the Containers. 
+
+Some member
+functions take a range of iterators in order to add a sequence of
+elements to the container.
+
+`/* *************************  [ 0. easy find ]  ************************* */`
+
+- Write a function template easyfind 
+
+	- accepts a type T
+	- takes two parameters.
+
+		- param 1: type T
+		- param 2: an integer
+- what
+
+	- assume T is a container of integers
+	- the function has to find the 
+		1st occurrence of the 2nd parameter in the 1st parameter.
+
+	- If no occurrence is found
+		- either throw an exception or return an error value
+		of your choice. 
+
+- test
