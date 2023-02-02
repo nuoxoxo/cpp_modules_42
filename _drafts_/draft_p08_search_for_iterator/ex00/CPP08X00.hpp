@@ -22,7 +22,6 @@
 # define MAX 42
 # define SIZE 4
 
-
 //	colors
 
 # define ITAL	"\033[3m"
