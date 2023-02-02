@@ -77,7 +77,7 @@ void	Span::addRandomNumbers(unsigned int n)
 
 	while (n)
 	{
-		addNumber(std::rand() % RAND_MAX);
+		m_core.push_back(std::rand() % RAND_MAX);
 		n--;
 	}
 }
