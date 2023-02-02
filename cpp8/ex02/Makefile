@@ -16,6 +16,7 @@ $(name)	:	$(bud)
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@ echo "you can do [make f] "
+		@ echo "you can do [make r] "
 		@ echo "you can do [make run] "
 		@ echo ""
 

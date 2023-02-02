@@ -6,7 +6,7 @@
 /*   By: nxu <marvin@42.fr>                         ...  ...       :::        */
 /*                                                ...........   :::           */
 /*   Created: ____/__/__ __:__:__ by nxu               ...    :::             */
-/*   Updated: 2023/02/01 13:34:51 by nuxu             ###   ########.fr       */
+/*   Updated: 2023/02/02 10:01:48 by nuxu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # define LOWKEY "\033[0;2m"
 # define GREEN "\033[0;32m"
 # define RESET "\033[0;0m"
-# define MAX 10
+# define MAX 42
 # define SIZE 4
 
 //	colors
@@ -44,7 +44,7 @@
 # define called " called\n"
 # define inside "\ninside "
 # define notfound "element not found: "
-# define endpoint "iterator now points to _.end()"
+# define endpoint "iterator points to _.end()"
 
 # define nl2reset " \n\n" RESET
 # define nl2 " \n\n"

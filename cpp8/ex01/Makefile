@@ -1,8 +1,9 @@
 comp	:=	c++ -Wall -Werror -Wextra -std=c++98
-name	:=	out
+# name	:=	out
+name	:=	ex01
 rmv	:=	rm -rf
 
-src	:=	main.cpp
+src	:=	main.cpp Span.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
@@ -16,11 +17,12 @@ $(name)	:	$(bud)
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
 		@ echo "you can do [make f] "
+		@ echo "you can do [make r] "
 		@ echo "you can do [make run] "
 		@ echo ""
 
 run	:	re
-		@ ./$(name)
+		@ ./ex01
 		@ make clean
 
 r	:	run

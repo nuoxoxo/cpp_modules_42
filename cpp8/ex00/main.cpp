@@ -33,8 +33,6 @@ int	main(int c, char **v)
 	i = -1;
 	size = 1;
 	srand(time(0));
-	// if (!(size = c ^ 2 ? SIZE : std::stoi(v[1]) % (MAX + 1)))
-	// 	size = 1;
 	
 	if (c == 2)
 	{
@@ -42,6 +40,7 @@ int	main(int c, char **v)
 
 		std::stringstream(v[1]) >> n;
 		size = n % (MAX + 1);
+		std::cout << size << std::endl;
 	}
 
 	std::cout << GREEN nl "Test :: " << ++i << " :: find 42" nl2reset;
@@ -56,13 +55,7 @@ int	main(int c, char **v)
 		print_target(target);
 		print_vector(v);
 
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
-		/*if (it == v.end())
-			std::cout << LOWKEY "iterator now points to _.end()" << nl2 RESET;
-		else
-			std::cout << "it:\t" << *it << nl2;
-		*/
+		std::cout << "it:\t" << &it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: find randint " nl2reset;
 	{
@@ -81,8 +74,7 @@ int	main(int c, char **v)
 		
 		it = easyfind(v, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: string vector " nl2reset;
 	{
@@ -103,27 +95,19 @@ int	main(int c, char **v)
 		print_target(target);
 		it = easyfind(v, target);
 
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 
 		target = "vietnam!";
 		print_target(target);
 		it = easyfind(v, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 		
 		target = "vietnam";
 		print_target(target);
 		it = easyfind(v, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		// std::cout << "*it:\t" << *it << nl2; // segf fix
-
-		if (it != v.end())
-			std::cout << LOWKEY endpoint nl2 RESET;
-		else
-			std::cout << "it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: integer set " nl2reset;
 	{
@@ -137,13 +121,12 @@ int	main(int c, char **v)
 		while (++i < size)
 			s.insert((int) rand() % (MAX + MAX));
 
-		print_target(target);
 		print_set(s);
 
+		print_target(target);
 		it = easyfind(s, target);
 
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 
 	}
 	std::cout << GREEN "Test :: " << ++i << " :: string set " nl2reset;
@@ -165,32 +148,19 @@ int	main(int c, char **v)
 		print_target(target);
 		it = easyfind(s, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 		
 		target = "vietnam!";
 		print_target(target);
 		it = easyfind(s, target);
 		
-		std::cout << "it:\t" << &it << nl;
-		std::cout << "*it:\t" << *it << nl2;
+		std::cout << "it:\t" << &it << nl2;
 		
 		target = "vietnam";
 		print_target(target);
 		it = easyfind(s, target);
 		
 		std::cout << "it:\t" << &it << nl2;
-		// std::cout << "*it:\t" << *it << nl2; // segf fix
-
-		if (it != s.end())
-			std::cout << LOWKEY endpoint nl2 RESET;
-		else
-			std::cout << "it:\t" << *it << nl2;
-		/*{
-			try {std::cout << "it:\t" << *it << nl2;}
-			catch (const std::exception & e)
-			{std::cout << e.what() << nl2;}
-		}*/
 
 	}
 }

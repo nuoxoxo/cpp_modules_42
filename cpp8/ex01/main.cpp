@@ -54,7 +54,6 @@ int	main()
 				a = left_bound + ((int) rand() % bound);
 			}
 			while
-			// if _ in sp.getCore() for _ in [a - 1, a, a + 1]
 			(
 				(std::find(
 				sp.getCore().begin(), sp.getCore().end(), a)
