@@ -10,14 +10,18 @@ Notes         |                             |   |
 2             | Fixed                       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/26) • [_p5demo_](https://editor.p5js.org/nuoxoxo/sketches/WT-94Rgmm)
 1             | Garden Variety              | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/25) • [_sed tester_](https://github.com/nuoxoxo/sed_for_losers.git)
 0             | Accounts                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/56)
+&nbsp;        | &nbsp;                      |
+__Evals__     | &nbsp;                      |
+6.2           | _identity_                  | `seq n \| xargs -Ix ./a.out`
+6.0           | _reinterpret_cast_          | `grep _cast -R .`
+1.4           | _sed_for_loser_             | _see above_
+&nbsp;        | &nbsp;                      |
 __Utils__     | &nbsp;                      |
 &nbsp;        | Color                       | [colors](https://github.com/nuoxoxo/cpp_modules_42/issues/102)
 &nbsp;        | .ignore                     | [ignore](https://github.com/nuoxoxo/cpp_modules_42/issues/41)
 &nbsp;        | Makefile                    | [makefi](https://github.com/nuoxoxo/cpp_modules_42/issues/42)
 &nbsp;        | EVAL                        | [21checklists](https://github.com/mharriso/school21-checklists)
-__Evals__     | &nbsp;                      |
-6.2           | _identity_                  | `seq n \| xargs -Ix ./a.out`
-6.0           | _reinterpret_cast_          | `grep _cast -R .`
-1.4           | _sed_for_loser_             | _see above_
+
+
 
 ![](https://i.imgur.com/9sktWrS.png)
