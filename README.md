@@ -18,5 +18,6 @@ __Utils__     | &nbsp;                      |
 __Evals__     | &nbsp;                      |
 6.2           | _identity_                  | `seq n \| xargs -Ix ./a.out`
 6.0           | _reinterpret_cast_          | `grep _cast -R .`
+1.4           | _sed_for_loser_             | _see above_
 
 ![](https://i.imgur.com/9sktWrS.png)
