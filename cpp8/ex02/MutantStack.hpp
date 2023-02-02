@@ -12,14 +12,14 @@ template <typename T>
 class 	MutantStack : public std::stack<T>
 {
 public:
-	// --- Canon --- //
+	// ------ Canon ------ //
 
 	MutantStack();
 	MutantStack(const MutantStack &);
 	MutantStack & operator = (const MutantStack &);
 	~MutantStack();
 
-	// --- Methods --- //
+	// ------ Methods ------ //
 
 	// we inherited std::stack we don't need prototyping
 	/*
@@ -30,7 +30,7 @@ public:
 	const T &	top( void ) const;
 	*/
 
-	// --- Iterators --- //
+	// ------ Iterators ------ //
 
 	typename std::deque<T>::iterator		begin();
 	typename std::deque<T>::iterator		end();
