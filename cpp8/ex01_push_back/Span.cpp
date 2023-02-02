@@ -12,9 +12,11 @@
 
 // default
 Span::Span() : m_maxsize() {}
-Span::Span(unsigned int N) : m_maxsize(N) {}
+Span::Span(unsigned int N) : m_maxsize(N) { m_core.reserve(N); }
+// Span::Span(unsigned int N) : m_maxsize(N) {}
 Span::Span(const Span &cp) : m_core(cp.getCore()), m_maxsize(cp.getMaxsize()){}
-Span::~Span() {}
+Span::~Span() { m_core.clear(); }
+// Span::~Span() {}
 
 // getter
 const std::vector<int>	& Span::getCore() const { return m_core; }
@@ -67,20 +69,29 @@ void	Span::addNumber(int num)
 }
 
 // helper fn
-int	Generator(void)
+/*
+int	gen(void)
 {
-	return (0);
+	int n =  std::rand() % RAND_MAX;
+	// std::cout << n << "\n";
+	return (n);
 }
-
+*/
 void	Span::addRandomNumbers(unsigned int n)
 {
 	if (!m_maxsize || m_maxsize < n)
 	{
 		throw std::exception();
 	}
-	// srand(time(0));
-	std::generate_n(m_core.begin(), (int)n, Generator);
+	//std::fill(m_core.begin(), m_core.end(), 0);
+	//std::generate(m_core.begin(), m_core.end(), rand);
+
+	size_t i = -1;
+	while (++i < n)
+		m_core.push_back(rand() % RAND_MAX);
+
 }
+
 
 /*class	Span
 {

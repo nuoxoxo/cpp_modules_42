@@ -45,6 +45,7 @@ public:
 	int	longestSpan(void) const;
 	void	addNumber(int);
 
+	// int	gen(void) const;
 	void	addRandomNumbers(unsigned int);
 
 	// getter

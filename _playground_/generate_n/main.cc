@@ -7,7 +7,7 @@ int	Gen(void) { return (0); }
 
 int	main()
 {
-	unsigned int	len = 10;
+	unsigned int	len = 10000;
 	vector<int>	v(len);
 
 	generate_n(v.begin(), len, Gen);

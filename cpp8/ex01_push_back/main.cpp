@@ -25,11 +25,12 @@ int	main()
 	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: sanity check" nl2reset;
 	{
 		Span sp = Span(6);
-		sp.addNumber(0);
-		sp.addNumber(0);
-		sp.addNumber(0);
-		sp.addNumber(0);
-		sp.addNumber(0);
+		sp.addNumber(1);
+		sp.addNumber(1);
+		sp.addNumber(1);
+		sp.addNumber(1);
+		sp.addNumber(1);
+		sp.addNumber(1);
 		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
 		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 	}
@@ -127,8 +128,9 @@ int	main()
 		int		N = 10000;
 		Span		sp = Span(N);
 
+		srand(time(0));
 		sp.addRandomNumbers(N);
-	
+
 		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
 		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
@@ -136,14 +138,16 @@ int	main()
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
+
 	}
 	std::cout << LOWKEY "Test :::::: " << ++i << " :::::: 20000 numbers - addRandomNumbers" nl2reset;
 	{
 		int		N = 20000;
 		Span		sp = Span(N);
 
+		srand(time(0));
 		sp.addRandomNumbers(N);
-	
+
 		std::cout << sspan << GREEN << sp.shortestSpan() << nl RESET;
 		std::cout << lspan << GREEN << sp.longestSpan() << RESET nl2;
 
@@ -151,6 +155,6 @@ int	main()
 		std::pair<int, int> pmax = max_diff_pair(sp.getCore());
 		print_pair(pmin, "shortest span");
 		print_pair(pmax, "longest span");
-	}
 
+	}
 }
