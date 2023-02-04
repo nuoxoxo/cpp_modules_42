@@ -72,10 +72,12 @@ void	Span::addRandomNumbers(unsigned int n)
 	{
 		throw std::exception();
 	}
-	size_t i = -1;
-	while (++i < n)
-		m_core.push_back(rand() % RAND_MAX);
 
+	std::vector<int>	temp(n);
+
+	srand( unsigned (time(0)));
+	std::generate(temp.begin(), temp.end(), rand);
+	m_core = temp;
 }
 
 
