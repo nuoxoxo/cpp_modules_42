@@ -38,7 +38,7 @@ int	Span::longestSpan() const
 	std::vector<int>	v = m_core;
 
 	std::sort(v.begin(), v.end());
-	return (v[v.size() - 1] - v[0]); // TODO to checkk
+	return (v[v.size() - 1] - v[0]);
 }
 
 int	Span::shortestSpan() const
@@ -80,24 +80,3 @@ void	Span::addRandomNumbers(unsigned int n)
 	m_core = temp;
 }
 
-
-/*class	Span
-{
-private:
-	std::vector<int>	m_core;
-	int			m_maxsize;
-public:
-	// canon + param constr
-	Span();
-	Span(const Span &);
-	Span(unsigned int N);
-	Span & operator = (const Span & );
-	~Span();
-
-	int	shortestSpan(void) const;
-	int	longestSpan(void) const;
-	void	addNumber(int);
-
-	const unsigned int	getMaxsize() const;
-	const std::vector<int>	& getCore() const;
-};*/
