@@ -3,16 +3,16 @@ comp	:=	c++ -Wall -Werror -Wextra -std=c++98
 rmv	:=	rm -rf
 
 name	:=	btc
-src	:=	main.cpp
+src	:=	main.cpp BitcoinExchange.cpp
 
 bud	:=	$(src:%.cpp=%.o)
 
-%.o	:	%.cc
-		 echo "compiling [$^] "
+%.o	:	%.cpp
+		@ echo "compiling [$^] "
 		@ $(comp) -c $^ -o $@
 
 $(name)	:	$(bud)
-		 echo "compiling [$@] "
+		@ echo "compiling [$@] "
 		@ $(comp) $^ -o $@
 		@ printf "\n\t"
 		@ printf "\"are you using the right compiler? \"\n\n"
@@ -21,6 +21,13 @@ $(name)	:	$(bud)
 		@ echo ""
 
 run	:	re
+		@ echo ""
+		@ echo "::: EVAL input :::"
+		@ echo ""
+		@ ./$(name) input.csv
+		@ echo ""
+		@ echo "::: Subject input :::"
+		@ echo ""
 		@ ./$(name) input.txt
 		@ make clean
 
