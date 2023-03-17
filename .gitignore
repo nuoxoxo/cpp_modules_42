@@ -1,4 +1,13 @@
+*containers_test
+*mazoise
+*.csv
+*.d
+btc
+RPN
+PmergeMe
+
 .vscode
+*.gch
 
 .DS_Store
 Thumbs.db
@@ -69,7 +78,6 @@ reload/**/includes/
 reload/**/srcs/
 
 game*/*.md
-sandbox
 *venv*
 *trip*
 
