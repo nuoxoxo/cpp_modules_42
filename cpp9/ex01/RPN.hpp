@@ -2,6 +2,12 @@
 #ifndef __RPN_HPP__
 # define __RPN_HPP__
 
+# include "iostream"
+# include "sstream"
+# include "stack"
+# include "cassert"
+
+# define Error "Error"
 # define nl "\n"
 # define nl2 "\n\n"
 # define nlreset " \n" RESET
@@ -18,5 +24,21 @@
 # define TICK	GREEN " ✓" RESET
 # define CROSS	_RED_ " ✘" RESET
 
+// helpers
+
+void	calculator(std::string, std::string);
+void	calculator(std::string, int);
+void	calculator(std::string);
+void	debugger();
+
+std::string	RPN(std::string line);
+std::string	to_space_separated_string(std::string&);
+
+//to_string not include in c++98
+template<typename T>
+    std::string to_string(const T &);
+
+
 #endif
+
 

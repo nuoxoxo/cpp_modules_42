@@ -1,8 +1,5 @@
 #include "BitcoinExchange.hpp"
 
-
-//	helpers :: to be put in hpp
-
 template<typename T>
 std::string to_string(const T value) {
     std::ostringstream oss;
@@ -32,35 +29,32 @@ std::string	remove_whitesp(std::string & line)
 
 double to_double_floor_2(double f)
 {
-    double L = (int) (f * 100);
-    double R = (double) L / 100;
-    return (R);
+	double L = (int) (f * 100);
+	double R = (double) L / 100;
+
+	return (R);
 }
 
 
 double to_double_round_2(double f)
 {
-    double L = (int) (f * 100 + .5);
-    double R = (double) L / 100;
-    /*
-    std::cout << f << "\n" ;
-    std::cout << L << " - " << R << "\n" ;
-    */
-    return (R);
+	double L = (int) (f * 100 + .5);
+	double R = (double) L / 100;
+
+	return (R);
 }
 
 
 bool	number_check(std::string & s)
 {
 	std::string	number;
+	long long	i;
+	double		d;
 
 	if (!query_is_valid(s))
 		return (false);
-	number = s.substr(11, (int) s.length() - 11); // minur 2 sp
-	// number = s.substr(13, (int) s.length() - 13);
+	number = s.substr(11, (int) s.length() - 11);
 
-	double			d;
-	long long		i;
 	std::stringstream	ssd(number);
 	std::stringstream	ssi(number);
 
@@ -95,27 +89,11 @@ bool	query_is_valid(std::string & s)
 	if (s[10] != '|')
 		return (false);
 	date = s.substr(0, 10);
-	if ( ! date_is_valid(date))
+	if ( !date_is_valid(date))
 		return (false);
 
 	return (true);
 }
-
-
-bool	title_is_valid(std::string & s)
-{
-	std::string	title_input;
-
-	if ((int) s.length() > 12)
-	{
-		title_input = s.substr(0, 12);
-		if (title_input != "date | value")
-			return (false);
-	}
-
-	return (true);
-}
-
 
 bool	date_is_valid(std::string & s)
 {
@@ -162,7 +140,7 @@ bool	date_is_valid(std::string & s)
 	std::stringstream(s2) >> month;
 	if (!(year % 400) || (year % 100 && ! (year % 4)))
 		months[1] = 29;
-	if (day > months[month])
+	if (day > months[month - 1])
 		return (false);
 
 	return (true);
@@ -175,9 +153,9 @@ bool	isnumeric(std::string & s)
 	while (++i < s.length())
 	{
 		if (s[i] < '0' || s[i] > '9')
-			return false;
+			return (false);
 	}
-	return true;
+	return (true);
 }
 
 
@@ -186,12 +164,10 @@ bool	_check_params_(int c, char *v[])
 	std::string	filename;
 
 	if (c ^ 2)
-		return (printerr(), false);
-	filename = std::string(v[1]);
-	if (filename == "")
-		return (printerr(), false);
-
-	return true;
+		return (false);
+	if (std::string(v[1]) == "")
+		return (false);
+	return (true);
 }
 
 
