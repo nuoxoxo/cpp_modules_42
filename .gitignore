@@ -1,10 +1,10 @@
 *containers_test
 *mazoise
-*.csv
 *.d
-btc
-RPN
+
 PmergeMe
+RPN
+btc
 
 .vscode
 *.gch
@@ -16,7 +16,7 @@ Thumbs.db
 *.swo
 *.swn
 *.pdf
-*.txt
+
 *.a
 *.o
 *.sum

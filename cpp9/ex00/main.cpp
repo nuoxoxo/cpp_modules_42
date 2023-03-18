@@ -3,108 +3,116 @@
 
 int	main(int c, char **v)
 {
-	bool			title_checked = false;
+	std::map<std::string, double>::iterator	it;
+	std::map<std::string, double>		dict;
 	std::ifstream		ifs;
 	std::ofstream		ofs;
-	std::string		input, data;
-	std::string		s, res, line;
-	std::map<std::string, double>	dict;
-
-	// std::string	L, R;
+	std::string		input, data, line, s;
 
 	if (!_check_params_(c, v))
+	{
 		return (printerr("could not open file."), 1);
-		// return (printerr("could not open input."), 1);
+	}
 
+	// open data.csv //
 
-	// open data.csv
-	data = "data.csv";
+	data = "assets/data.csv"; // play
+	// data = "data.csv"; // eval
 	if (ifs.is_open())
 		ifs.close();
 	ifs.open(data.c_str());
 	if (ifs.fail())
-		return (printerr(), 1);
-
-	getline(ifs, line); // jettison the headline
-	while (!ifs.eof() && getline(ifs, line))
 	{
-		std::string	lhs = line.substr(0, line.find(","));
-		std::string	rhs = line.substr(line.find(",") + 1);
-
-		dict[ lhs ] = atof( rhs.c_str() );
+		return (printerr("could not open file."), 1);
 	}
 
+	// read data //
 
-	// open input.txt
+	if (!ifs.eof())
+		getline(ifs, line); // jettison the headline
+	while (!ifs.eof() && getline(ifs, line))
+	{
+		std::string	L, R;
+
+		L = line.substr(0, line.find(","));
+		R = line.substr(line.find(",") + 1);
+		dict[L] = atof(R.c_str());
+	}
+
+	// open input.txt //
+
 	input = std::string(v[1]);
 	if (ifs.is_open())
 		ifs.close();
 	ifs.open(input.c_str());
 	if (ifs.fail())
-		return (printerr(), 1);
-
+	{
+		return (printerr("could not open file."), 1);
+	}
 
 	// read input
+
+	if (!ifs.eof())
+		getline(ifs, line); // jettison the headline
 	while (!ifs.eof() && getline(ifs, line))
 	{
-		s = remove_whitesp(line);
-		if ( ! title_checked && title_is_valid(s))
-		{
-			title_checked = true;
-			continue ;
-		}
-		else if ( ! query_is_valid(s))
+		s = remove_whitesp(line); // s is a string out of spaces
+		if ( !query_is_valid(s))
 		{
 			printerr("bad input => " + line /* original line */);
+			continue ;
 		}
-		else if ( ! number_check(s))
+		if ( !number_check(s))
 		{
-			;;
+			continue ;
+		}
+		std::string	key = s.substr(0, s.find("|"));
+		std::string	valstr = s.substr(s.find("|") + 1);
+		double		val = atof(valstr.c_str());
+		if (dict.count(key))
+		{
+			val = to_double_round_2(dict[key] * val);
+			s = to_string(val);
+			if (s[s.length() - 1] == '0') // it end is 0, dont't show it
+			{
+				s = s.substr(0, s.length() - 1);
+			}
+			std::cout << key << " => " << valstr << " = " YELLOW;
+			if (s.find("+") == std::string::npos) // not found
+			{
+				std::cout << s << nlreset;
+				continue ;
+			}
+			std::cout
+			<< std::setprecision(PRECISION) << val
+			<< std::defaultfloat
+			<< nlreset;
 		}
 		else
 		{
-			std::string	key = s.substr(0, s.find("|"));
-			std::string	valstr = s.substr(s.find("|") + 1);
-			double		val = atof(valstr.c_str());
-
-			if (dict.count(key))
+			it = dict.upper_bound(key);
+			if (it == dict.begin())
 			{
-				res = to_string(to_double_round_2(dict[key] * val));
-				double R = to_double_round_2(dict[key] * val);
-				if (res[res.length() - 1] == '0')
-					res = res.substr(0, res.length() - 1);
-
-				std::cout << key << " => " << valstr << " = " YELLOW;
-				if (res.find("+") != std::string::npos)
-					std::cout << std::setprecision(PRECISION) << R << std::defaultfloat << nlreset;
-				else
-					std::cout << res << nlreset;
+				std::cout << key << " => " << valstr << " = 0" nl;
+				continue ;
 			}
-			else
+			it--;
+			val = to_double_round_2(it->second * val);
+			s = to_string(val);
+			if (s[s.length() - 1] == '0') // it end is 0, dont't show it
 			{
-				std::map<std::string, double>::iterator it = dict.upper_bound(key);
-
-				if (it == dict.begin())
-				{
-					std::cout << key << " => " << valstr << " = 0" nl;
-				}
-				else
-				{
-					it--;
-					double R = to_double_round_2(it->second * val);
-					res = to_string(to_double_round_2(it->second * val));
-					if (res[res.length() - 1] == '0')
-						res = res.substr(0, res.length() - 1);
-
-					std::cout << key << " => " << valstr << " = " YELLOW;
-					if (res.find("+") != std::string::npos)
-						std::cout << std::setprecision(PRECISION) << R << std::defaultfloat << nlreset;
-					else
-						std::cout << res << nlreset;
-
-				}
-
+				s = s.substr(0, s.length() - 1);
 			}
+			std::cout << key << " => " << valstr << " = " YELLOW;
+			if (s.find("+") == std::string::npos)
+			{
+				std::cout << s << nlreset;
+				continue ;
+			}
+			std::cout
+			<< std::setprecision(PRECISION) << val
+			<< std::defaultfloat
+			<< nlreset;
 		}
 	}
 
