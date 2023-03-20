@@ -1,7 +1,7 @@
 Notes         |                             |   |
 :------------ | :-------------------------- | - |
-9 &nbsp;:seedling: | STL &nbsp;:herb: | _Passed all __tests__ in sight_ &nbsp;:evergreen_tree:	
-8             | STL。                        | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/112)
+9 &nbsp;:seedling: | STL &nbsp;:herb:       | _Passed all __tests__ in sight_ &nbsp;:evergreen_tree:	
+8             | STL                         | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/112)
 7             | Template                    | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/103)
 6             | Casts                       | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/104)
 5             | Bureaucrat                  | [issue](https://github.com/nuoxoxo/cpp_modules_42/issues/69)
