@@ -14,9 +14,25 @@ std::string	RPN(std::string line)
 {
 	std::stack<std::string>	E;
 	std::string		token;
+	std::string		expr;
 	int			a, b;
 
-	std::string		expr = to_space_separated_string(line);
+
+	// ERROR MGMT
+
+	if (!check_expression(line))
+	{
+		return (Error);
+	}
+	expr = to_space_separated_string(line);
+	if (expr == Error)
+	{
+		return (expr);
+	}
+
+
+	// Get 'em one by one
+
 	std::stringstream	ss(expr);
 
 	while (!ss.eof() && ss >> token)
@@ -29,12 +45,11 @@ std::string	RPN(std::string line)
 
 		if (token != "+" && token != "-" && token != "*" && token != "/")
 		{
-			std::cout << token << std::endl;
 			continue ;
 		}
 		if (E.size() < 2)
 		{
-			return Error;
+			return (Error);
 		}
 		std::stringstream(E.top()) >> b;
 		E.pop();
@@ -78,28 +93,57 @@ void	calculator(std::string expr, std::string compare)
 
 	std::cout << "expression: " << YELLOW << expr << nlreset;
 	std::cout << "result: " << GREEN << res << nlreset;
+
 	if (compare == "")
 		return ;
+
 	assert(res == compare);
 }
 
 
 // util
 
-std::string	to_space_separated_string(std::string& token)
+std::string	to_space_separated_string(std::string token)
 {
-	std::string	b;
+	std::string	res;
 	int		i;
 
 	i = -1;
 	while (++i < (int) token.length())
 	{
-		if (token[i] == ' ')
+		if (token[i] == ' ' || (token[i] < 14 && token[i] > 8))
+		{
 			continue ;
-		b += token[i];
-		b += ' ';
+		}
+		res += token[i];
+		res += ' ';
 	}
-	return (b);
+	if (res == "" || res == " ")
+	{
+		return (Error);
+	}
+	return (res);
+}
+
+bool	check_expression(std::string & expr)
+{
+	int	i = -1;
+
+	while (++i < (int) expr.length())
+	{
+		if (expr[i] == ' '
+			|| (expr[i] < 14 && expr[i] > 8)
+			|| (expr[i] <= '9' && expr[i] >= '0')
+			|| expr[i] == '+' || expr[i] == '-'
+			|| expr[i] == '*' || expr[i] == '/'
+			|| expr[i] == '(' || expr[i] == ')'
+		)
+		{
+			continue ;
+		}
+		return (false);
+	}
+	return (true);
 }
 
 
@@ -136,6 +180,16 @@ void	debugger(void)
 
 	std::cout << CYAN "\n::: Eval :::" nl2reset;
 
+	calculator("", "Error");
+	calculator(" ", "Error");
+	calculator("  ", "Error");
+	calculator("", "Error");
+	calculator("\b", "Error");
+	calculator("\t", "Error");
+	calculator("\n", "Error");
+	calculator("\v", "Error");
+	calculator("\f", "Error");
+	calculator("\r", "Error");
 	calculator("8 9 * 9 - 9 - 9 - 4 - 1 +", "42");
 	calculator("9 8 * 4 * 4 / 2 + 9 - 8 - 8 - 1 - 6 -", "42");
 	calculator("1 2 * 2 / 2 + 5 * 6 - 1 3 * - 4 5 * * 8 /", "15");
