@@ -27,7 +27,14 @@ Brain::~Brain()
 
 Brain::Brain(const Brain & dummy)
 {
-	*this = dummy;
+	// *this = dummy;
+
+	int	i = -1;
+	
+	while (++i < B_SIZE)
+	{
+		m_idea[i] = dummy.m_idea[i];
+	}
 
 	print_canon(std::string(__FUNCTION__), "Copy constructor");
 

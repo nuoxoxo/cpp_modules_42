@@ -22,6 +22,13 @@ int	main()
 
 	print_ending();
 
+	{
+		Dog	basic;
+		Dog	tmp = basic;
+	}
+
+	print_ending();
+
 	// subject test (filling an array of Animal(s))
 	{
 		Animal	*gang[B_SIZE];
