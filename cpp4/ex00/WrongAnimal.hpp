@@ -40,8 +40,8 @@ public:
 	std::string	getType() const;
 
 	// method
-	virtual void	makeSound() const; // note the `virtual destructor`
-
+	// virtual void	makeSound() const; // note the `virtual destructor`
+	void	makeSound() const;
 };
 
 #endif

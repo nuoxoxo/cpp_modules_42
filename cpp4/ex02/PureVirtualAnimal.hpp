@@ -41,7 +41,7 @@ public:
 	// ::notes::
 	// 
 	// a Pure Virtual Function: of which declaration ends in `= 0`
-	// A P.V. function implicitly makes the class `abstract`
+	// a P.V. function implicitly makes the class `abstract`
 	// 
 	// Abstract classes cannot be `instantiated`
 	//

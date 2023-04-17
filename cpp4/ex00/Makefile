@@ -40,6 +40,7 @@ run	:	re
 		@ make clean
 
 r	:	run
+t	:	r
 
 clean	:
 		@ $(rmv) $(budfolder)
