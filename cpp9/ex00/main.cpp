@@ -17,8 +17,8 @@ int	main(int c, char **v)
 
 	// open data.csv //
 
+//	data = "assets/data.csv"; // PLAY
 	data = "data.csv"; // EVAL
-	data = "assets/data.csv"; // PLAY
 
 	if (ifs.is_open())
 		ifs.close();
@@ -78,7 +78,8 @@ int	main(int c, char **v)
 		{
 			val = to_double_round_2(dict[key] * val);
 			s = to_string(val);
-			if (s[s.length() - 1] == '0') // it end is 0, dont't show it
+			// std::cout << RED << " has key " << key << " : " << s << nlreset;
+			if (s.length() > 1 && s[s.length() - 1] == '0') // it end is 0, dont't show it
 			{
 				s = s.substr(0, s.length() - 1);
 			}
@@ -89,7 +90,8 @@ int	main(int c, char **v)
 				continue ;
 			}
 			std::cout
-			<< std::setprecision(PRECISION) << val
+			<< val
+			// << std::setprecision(PRECISION) << val
 			<< nlreset;
 		}
 		else
@@ -97,13 +99,16 @@ int	main(int c, char **v)
 			it = dict.upper_bound(key);
 			if (it == dict.begin())
 			{
-				std::cout << key << " => " << valstr << " = 0" nl;
+				std::cout
+				<< key << " => "
+				<< valstr << " = " YELLOW "0" nlreset;
 				continue ;
 			}
 			it--;
 			val = to_double_round_2(it->second * val);
 			s = to_string(val);
-			if (s[s.length() - 1] == '0') // dont't show the ending '0'
+			// std::cout << RED << " no key " << key << " : " << s << " : " << val << nlreset;
+			if (s.length() > 1 && s[s.length() - 1] == '0') // dont't show the ending '0'
 			{
 				s = s.substr(0, s.length() - 1);
 			}
@@ -114,7 +119,8 @@ int	main(int c, char **v)
 				continue ;
 			}
 			std::cout
-			<< std::setprecision(PRECISION) << val
+			<< val
+			// << std::setprecision(PRECISION) << val
 			<< nlreset;
 		}
 	}
