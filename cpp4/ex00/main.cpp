@@ -57,6 +57,7 @@ int	main()
 		// bye
 		delete	Jeffe;
 		delete	Cathy;
+		delete	Dylan2;
 		delete	Dylan;
 	}
 	
